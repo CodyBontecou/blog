@@ -1,0 +1,23 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "Cody Bontecou",
+    "email": "codybontecou@gmail.com"
+  },
+  "repository": "https://github.com/codybontecou/blog/blog",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {}
+}
