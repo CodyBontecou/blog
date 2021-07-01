@@ -4,7 +4,7 @@ module.exports = {
   title: 'Cody Bontecou',
   description: description,
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'theme-color', content: '#4979ff' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     [
       'meta',
