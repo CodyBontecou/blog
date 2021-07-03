@@ -34,10 +34,14 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              '/time-to-read-article-component',
+              'Building a time-to-read-article Component',
+            ],
+            ['/vuepress-styles', 'Overriding VuePress CSS Styles'],
+            [
               '/tailwindcss-with-vitepress',
               'Configuring TailwindCSS to work with Vitepress',
             ],
-            ['/vuepress-styles', 'Overriding VuePress CSS Styles'],
           ],
         },
         {
@@ -50,11 +54,14 @@ module.exports = {
             ],
           ],
         },
-        {
-          title: 'Thoughts',
-          collapsable: false,
-          children: [['/subtle-pollutants', 'Subtle Pollutants']],
-        },
+        // {
+        //   title: 'Thoughts',
+        //   collapsable: false,
+        //   children: [
+        //     ['/subtle-pollutants', 'Subtle Pollutants'],
+        //     ['/thoughts/why', 'Why?'],
+        //   ],
+        // },
       ],
       '/guide/': [
         {

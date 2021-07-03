@@ -1,19 +1,43 @@
 ---
 title: Overriding VuePress CSS Styles
+author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+description: This is the page description that will be used
+date: 2020-07-02
+
+# If using vuepress-plugin-blog, the category for the post
+category: tutorials
+
+# The list of tags for the post
+tags:
+  - VuePress
+  - JavaScript
+  - CSS
+  - stylus
+  - Vue
+
+# Absolute path to the main image preview for this page
+# Example location: ./vuepress/public/images/posts/page-image.jpg
+image: /images/path/page-image.jpg
+
+# Add canonical URL to the frontmatter of each page
+# Make sure this is the final, permanent URL of the page
+canonicalUrl: https://codybontecou.com/vuepress-styles.html
 ---
 
 <span class="text-4xl font-semibold">Overriding VuePress CSS Styles</span>
 
 > Every post I found about updating the default VuePress theme was outdated. Here's a quick post on how to do it.
 
-<h2 class="text-2xl font-semibold">Reoccurring Styles with Variables</h2>
+<HeaderMeta class="mt-8" :author=$frontmatter.author :date=$frontmatter.date />
+
+## Reoccurring Styles with Variables
 
 1. Create a `.vuepress/styles/palette.styl` file.
 1. Change a variable such as `$accentColor = #3eaf7c` to a color you prefer.
 
 [Here](https://vuepress.vuejs.org/config/#palette-styl) is a link to the latest VuePress documentation discussing this.
 
-## <h3 class="text-2xl font-semibold">Example</h3>
+### Example
 
 <p class="text-gray-500">I decided the default Vue green #3eaf7c is a bit too Vuey.</p>
 
@@ -29,14 +53,14 @@ $accentColor = #3eaf7c
 $accentColor = #4979ff
 ```
 
-<h2 class="text-2xl font-semibold">Individual CSS Elements</h2>
+## Individual CSS Elements
 
 1. Create a `.vuepress/styles/index.styl` file.
 1. Write CSS or [Stylus](https://stylus-lang.com/) to enhance your VuePress styles.
 
 [Here](https://vuepress.vuejs.org/config/#index-styl) is a link to the latest VuePress documentation discussing this.
 
-## <h3 class="text-2xl font-semibold">Example</h3>
+### Example
 
 <p class="text-gray-500">I find the default spacing that VuePress provides to be too close together.</p>
 

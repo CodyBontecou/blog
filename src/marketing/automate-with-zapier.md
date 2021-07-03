@@ -1,14 +1,27 @@
 ---
 title: Automate your social media posts with Zapier
+author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+date: 2020-06-28
+description: This is the page description that will be used
+category: tutorials
+tags:
+  - Automation
+  - Twitter
+  - Youtube
+  - Marketing
+  - Zapier
+canonicalUrl: https://codybontecou.com/automate-with-zapier.html
 ---
 
-# Automate Social Media Content With Zapier
+<h1 class="text-4xl font-semibold">Automate Social Media Content With Zapier</h1>
 
 <div class="mt-6 w-full flex items-center justify-center">
   <div class="flex items-center justify-center w-1/2 md:w-full">
     <ZapierLogo/>
   </div>
 </div>
+
+<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
 
 Of all of the no-code solutions I've tried <a class="text-black font-medium" href='https://zapier.com/'>Zapier</a> has been the most powerful, intuitive tools to work with.
 
