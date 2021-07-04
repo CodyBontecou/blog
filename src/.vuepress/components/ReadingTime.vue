@@ -1,19 +1,23 @@
 <template>
-  <span> {{ timeToRead }} minute read </span>
+  <span> <span id="time"></span> minute read </span>
 </template>
 
 <script>
-export default {
-  computed: {
-    timeToRead() {
-      const text = document.getElementsByClassName(
-        'theme-default-content content__default'
-      )[0].innerText
-      const words = text.trim().split(/\s+/).length
-      const wpm = 225
+function readingTime() {
+  const text = document.getElementsByClassName(
+    'theme-default-content content__default'
+  )[0].innerText
 
-      return Math.ceil(words / wpm)
-    },
+  const wpm = 225
+  const words = text.trim().split(/\s+/).length
+  const timeToRead = Math.ceil(words / wpm)
+
+  document.getElementById('time').innerText = timeToRead.toString()
+}
+
+export default {
+  mounted() {
+    readingTime()
   },
 }
 </script>
