@@ -1,5 +1,22 @@
 ---
-title: My Blog
+title: 'My blog'
+description: The estimated reading time has become prevalent in most major spaces that provides articles and reading materials. I decided to look into how to calculate it myself and found it's quite simple.
+tags:
+  - VuePress
+  - JavaScript
+  - CSS
+  - Refactor
+  - Vue
+  - Medium
+  - Personal Blog
+  - Software Tutorials
+meta:
+  - name: title
+    content: My blog
+  - name: og:image
+    content: https://codybontecou.com/assets/img/cody.64b57256.jpg
+
+canonicalUrl: https://codybontecou.com/
 ---
 
 <div class="mt-10 flex flex-col items-center sm:flex-row sm:items-start">
@@ -9,7 +26,7 @@ title: My Blog
       Cody Bontecou
     </h1>
     <p class="my-1 font-medium text-gray-500">
-      Fullstack software engineer
+      Software · Surf · Sleep
     </p>
     <div class="my-3 flex space-x-4">
       <a href="mailto:codybontecou@gmail.com" target="_blank" class="w-min">
