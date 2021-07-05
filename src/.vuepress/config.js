@@ -19,6 +19,20 @@ module.exports = {
     ['meta', { name: 'twitter:site', content: '@Codybontecou' }],
     ['meta', { name: 'twitter:creator', content: '@Codybontecou' }],
     ['meta', { property: 'og:site_name', content: 'codybontecou.com' }],
+    [
+      'script',
+      {
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-3NM0E524EK',
+      },
+    ],
+    [
+      'script',
+      {},
+      [
+        "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-3NM0E524EK');",
+      ],
+    ],
   ],
   themeConfig: {
     repo: '',
@@ -82,7 +96,16 @@ module.exports = {
     },
   },
 
-  plugins: ['@vuepress/plugin-back-to-top', '@vuepress/plugin-medium-zoom'],
+  plugins: [
+    '@vuepress/plugin-back-to-top',
+    '@vuepress/plugin-medium-zoom',
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: '', // UA-00000000-0
+      },
+    ],
+  ],
   postcss: {
     plugins: [
       require('tailwindcss')('./tailwind.config.js'),
