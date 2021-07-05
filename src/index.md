@@ -14,7 +14,7 @@ meta:
   - name: title
     content: My blog
   - name: og:image
-    content: https://codybontecou.com/cody-meta.png
+    content: https://codybontecou.com/images/cody-meta.png
 
 canonicalUrl: https://codybontecou.com/
 ---
