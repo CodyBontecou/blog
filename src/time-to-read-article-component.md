@@ -16,6 +16,12 @@ meta:
     content: https://codybontecou.com/assets/img/header-meta-component.305a770d.png
   - name: og:image:alt
     content: Code preview of the time to read article component.
+  - name: og:title
+    content: Building a VueJS component to estimate the expected reading time of an article.
+  - name: twitter:title
+    content: Building a VueJS component to estimate the expected reading time of an article.
+  - name: twitter:text:title
+    content: Building a VueJS component to estimate the expected reading time of an article.
 canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
 ---
 
