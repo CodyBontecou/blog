@@ -11,10 +11,16 @@ tags:
   - Personal Blog
   - Software Tutorials
 meta:
+  - name: og:title
+    content: My Blog | Cody Bontecou
   - name: og:image
     content: https://codybontecou.com/images/cody-meta.png
   - name: og:image:alt
     content: Cody Bontecou's blog
+  - name: twitter:title
+    content: My Blog | Cody Bontecou
+  - name: twitter:text:title
+    content: My Blog | Cody Bontecou
 
 canonicalUrl: https://codybontecou.com/
 ---
