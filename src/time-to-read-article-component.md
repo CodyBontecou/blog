@@ -2,7 +2,7 @@
 title: 'Building a VueJS component to render the expected reading time.'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-03
-description: This is the page description that will be used
+description: The estimated reading time has become prevalent in most major spaces that provides articles and reading materials. I decided to look into how to calculate it myself and found it's quite simple.
 category: tutorials
 tags:
   - VuePress
