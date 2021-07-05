@@ -13,7 +13,7 @@ tags:
   - Medium
 meta:
   - name: og:image
-    content: /assets/img/time-to-read-code.4ed964f0.png
+    content: /assets/img/time-to-read-code.png
 
 canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
 ---
