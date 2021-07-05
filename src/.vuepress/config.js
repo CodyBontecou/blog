@@ -1,7 +1,7 @@
 const { description } = require('../../package')
 
 module.exports = {
-  title: 'Cody Bontecou',
+  title: '',
   description: description,
   head: [
     ['meta', { name: 'theme-color', content: '#4979ff' }],
