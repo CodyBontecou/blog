@@ -26,7 +26,7 @@ canonicalUrl: https://codybontecou.com/
       Cody Bontecou
     </h1>
     <p class="my-1 font-medium text-gray-500">
-      Software · Surf · Sleep
+      Surf · Sleep · Software
     </p>
     <div class="my-3 flex space-x-4">
       <a href="mailto:codybontecou@gmail.com" target="_blank" class="w-min">
