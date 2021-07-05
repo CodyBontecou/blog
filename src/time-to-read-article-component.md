@@ -11,7 +11,9 @@ tags:
   - Refactor
   - Vue
   - Medium
-image: /assets/img/time-to-read-code.4ed964f0.png
+image: /assets/images/time-to-read-code.4ed964f0.png
+og:image: /assets/images/time-to-read-code.4ed964f0.png
+
 canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
 ---
 
