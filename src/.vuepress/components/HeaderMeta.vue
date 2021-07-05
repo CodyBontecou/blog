@@ -5,8 +5,8 @@
       alt="Portrait of Cody Bontecou"
       class="rounded-full w-6 mr-2"
     />
-    <span class="text-blue-ninja">{{ author.name }}&nbsp;</span>
-    {{ formattedDate }} &nbsp;·&nbsp; <ReadingTime :text="text" />
+    <span class="text-blue-ninja">{{ author.name }}</span>
+    &nbsp;·&nbsp;{{ formattedDate }}&nbsp;·&nbsp;<ReadingTime :text="text" />
   </div>
 </template>
 
