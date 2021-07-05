@@ -1,23 +1,28 @@
 <template>
-  <span> <span id="time"></span> minute read </span>
+  <span> {{ timeToRead }} minute read </span>
 </template>
 
 <script>
-function readingTime() {
-  const text = document.getElementsByClassName(
-    'theme-default-content content__default'
-  )[0].innerText
-
+function readingTime(text) {
   const wpm = 225
   const words = text.trim().split(/\s+/).length
-  const timeToRead = Math.ceil(words / wpm)
-
-  document.getElementById('time').innerText = timeToRead.toString()
+  return Math.ceil(words / wpm)
 }
 
 export default {
+  data() {
+    return {
+      timeToRead: undefined,
+    }
+  },
+  props: {
+    text: {
+      type: String,
+      required: true,
+    },
+  },
   mounted() {
-    readingTime()
+    this.timeToRead = readingTime(this.text)
   },
 }
 </script>

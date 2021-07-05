@@ -6,12 +6,17 @@
       class="rounded-full w-6 mr-2"
     />
     <span class="text-blue-ninja">{{ author.name }}&nbsp;</span>
-    {{ formattedDate }} &nbsp;·&nbsp; <ReadingTime />
+    {{ formattedDate }} &nbsp;·&nbsp; <ReadingTime :text="text" />
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      text: undefined,
+    }
+  },
   props: {
     author: {
       type: Object,
@@ -30,6 +35,11 @@ export default {
       const date = new Date(this.date).toDateString()
       return date.replace(/^\S+\s/, '')
     },
+  },
+  mounted() {
+    this.text = document.getElementsByClassName(
+      'theme-default-content content__default'
+    )[0].innerText
   },
 }
 </script>

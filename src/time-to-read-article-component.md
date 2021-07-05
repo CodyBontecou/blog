@@ -11,7 +11,7 @@ tags:
   - Refactor
   - Vue
   - Medium
-image: /assets/img/time-to-read component.ca659223.png
+image: /assets/img/time-to-read-code.4ed964f0.png
 canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
 ---
 
@@ -34,22 +34,30 @@ When placed into a VueJS component, it looks like this:
 
 ```vue
 <template>
-  <span> <span id="time"></span> minute read </span>
+  <span> {{ timeToRead }} minute read </span>
 </template>
 
 <script>
-function readingTime() {
-  const text = document.getElementById('container').innerText
-  const words = text.trim().split(/\s+/).length
+function readingTime(text) {
   const wpm = 225
-  const timeToRead = Math.ceil(words / wpm)
-
-  document.getElementById('time').innerText = timeToRead.toString()
+  const words = text.trim().split(/\s+/).length
+  return Math.ceil(words / wpm)
 }
 
 export default {
+  data() {
+    return {
+      timeToRead: undefined,
+    }
+  },
+  props: {
+    text: {
+      type: String,
+      required: true,
+    },
+  },
   mounted() {
-    readingTime()
+    this.timeToRead = readingTime(this.text)
   },
 }
 </script>
