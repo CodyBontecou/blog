@@ -21,7 +21,7 @@ canonicalUrl: https://codybontecou.com/
 
 <div class="mt-10 flex flex-col items-center sm:flex-row sm:items-start">
   <img src="./assets/images/cody.jpg" alt="Portrait of Cody Bontecou" class="rounded-full w-52" />
-  <div class="flex flex-col max-w-xs h-full sm:ml-8">
+  <div class="flex flex-col max-w-xs h-full sm:ml-12">
     <h1 class="mt-6 text-4xl font-semibold">
       Cody Bontecou
     </h1>
