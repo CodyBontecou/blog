@@ -14,7 +14,12 @@ tags:
 meta:
   - name: og:image
     content: https://codybontecou.com/images/time-to-read-code.png
-
+  - name: og:image:alt
+    content: Code preview of the time to read article component.
+  - name: twitter:card
+    content: summary_large_image
+  - name: twitter:site
+    content: @codybontecou
 canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
 ---
 
