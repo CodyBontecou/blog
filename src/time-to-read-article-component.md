@@ -13,7 +13,7 @@ tags:
   - Medium
 meta:
   - name: og:image
-    content: https://codybontecou.com/assets/img/header-meta-component.305a770d.png
+    content: https://codybontecou.com/images/header-meta-component.png
   - name: og:image:alt
     content: Code preview of the time to read article component.
   - name: og:title
@@ -25,7 +25,7 @@ meta:
 canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
 ---
 
-<img src="./assets/images/header-meta-component.png" alt="Preview of a HeaderMeta component wihh the time to read article component" class="rounded shadow-lg" />
+<img src="images/header-meta-component.png" alt="Preview of a HeaderMeta component wihh the time to read article component" class="rounded shadow-lg" />
 
 <h1 class="mt-24 text-4xl font-semibold">VueJS component to estimate the reading time of an article.</h1>
 
