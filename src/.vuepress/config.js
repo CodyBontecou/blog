@@ -14,7 +14,7 @@ module.exports = {
       'meta',
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
     ],
-
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:site', content: '@Codybontecou' }],
     ['meta', { name: 'twitter:creator', content: '@Codybontecou' }],
@@ -47,7 +47,7 @@ module.exports = {
       },
       {
         text: 'Contact',
-        link: '/contact/',
+        link: '/contact',
       },
     ],
     sidebar: {
@@ -56,6 +56,10 @@ module.exports = {
           title: 'Code Articles',
           collapsable: false,
           children: [
+            [
+              '/sharing-a-code-snippet-with-carbon',
+              'Sharing a Code Snippet with Carbon',
+            ],
             [
               '/time-to-read-article-component',
               'Building a time-to-read-article Component',
@@ -86,13 +90,6 @@ module.exports = {
         //   ],
         // },
       ],
-      '/guide/': [
-        {
-          title: 'Guide',
-          collapsable: true,
-          children: ['', 'using-vue'],
-        },
-      ],
     },
   },
 
@@ -105,6 +102,19 @@ module.exports = {
         ga: '', // UA-00000000-0
       },
     ],
+    // [
+    //   '@vuepress/blog',
+    //   {
+    //     comment: {
+    //       service: 'vssue',
+    //       owner: 'CodyBontecou',
+    //       repo: 'blog-vuepress',
+    //       // The clientId & clientSecret introduced in OAuth2 spec.
+    //       clientId: 'a635fc8a3303fb52b213',
+    //       clientSecret: '6c5d9878eab3a5ebfd8284fc1e851a0a4772dc53',
+    //     },
+    //   },
+    // ],
   ],
   postcss: {
     plugins: [
