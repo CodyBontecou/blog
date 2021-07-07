@@ -64,7 +64,7 @@ canonicalUrl: https://codybontecou.com/
   </div>
 </div>
 
-##
+<div class="mt-12 sm:mt-20 border-b w-full border-gray-300"></div>
 
 <div class="flex flex-col">
   <p class="mt-6 text-gray-500">
