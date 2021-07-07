@@ -24,5 +24,8 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "vuepress": "^1.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@vssue/api-github-v3": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8"
+  }
 }
