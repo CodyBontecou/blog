@@ -20,7 +20,7 @@ meta:
     content: Generating a Code Snippet with Carbon
   - name: twitter:text:title
     content: Generating a Code Snippet with Carbon
-canonicalUrl: https://codybontecou.com/sharing-code-snippet-with-carbon.html
+canonicalUrl: https://codybontecou.com/sharing-a-code-snippet-with-carbon.html
 ---
 
 <h1 class="mt-24 text-4xl font-semibold">Dev Blogging 101 - Generating a Code Snippet with Carbon</h1>
