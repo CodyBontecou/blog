@@ -57,8 +57,8 @@ module.exports = {
           collapsable: false,
           children: [
             [
-              '/sharing-a-code-snippet-with-carbon',
-              'Sharing a Code Snippet with Carbon',
+              '/generating-a-code-snippet-with-carbon',
+              'Generating a Code Snippet with Carbon',
             ],
             [
               '/time-to-read-article-component',
