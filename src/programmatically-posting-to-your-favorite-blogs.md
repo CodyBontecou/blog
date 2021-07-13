@@ -22,7 +22,7 @@ meta:
   - name: twitter:text:title
     content: Post to Dev, Hashnode, and Medium using their APIs
 
-canonicalUrl: https://codybontecou.com/posting-to-your-favorite-blogs-using-nodejs
+canonicalUrl: https://codybontecou.com/programmatically-posting-to-your-favorite-blogs
 ---
 
 ![Large hero image showing Dev, Hashnode, and Medium's logos](./assets/images/automate-blog-posts-hero.png)
