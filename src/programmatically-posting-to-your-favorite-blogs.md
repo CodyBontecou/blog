@@ -25,7 +25,7 @@ meta:
 canonicalUrl: https://codybontecou.com/programmatically-posting-to-your-favorite-blogs
 ---
 
-![Large hero image showing Dev, Hashnode, and Medium's logos](./assets/images/automate-blog-posts-hero.png)
+![Large hero image showing Dev, Hashnode, and Medium's logos](https://codybontecou.com/images/automate-blog-posts-hero.png)
 
 # Post to Dev, Hashnode, and Medium using their APIs
 
@@ -47,9 +47,9 @@ Writing a single markdown file for my personal blog and copy and pasting it into
 1. Navigate to Integration tokens
 1. Enter description for your token and click the get integration token button
 
-| ![Generate Integration Token](./assets/images/get-medium-integration-token.png) |
-| :-----------------------------------------------------------------------------: |
-|                       _Medium's integration token panel_                        |
+| ![Generate Integration Token](https://codybontecou.com/images/get-medium-integration-token.png) |
+| :---------------------------------------------------------------------------------------------: |
+|                               _Medium's integration token panel_                                |
 
 This will generate a token that will be included within requests to Medium's API.
 
@@ -180,21 +180,21 @@ They have a few blogposts within their [blog](https://engineering.hashnode.com/)
 
 You can create/revoke them from Hashnode settings. Login to your account, go to the developer settings, and generate a new token.
 
-| ![Generate Hashnode Auth Token](./assets/images/hashnode-auth-token.png) |
-| :----------------------------------------------------------------------: |
-|                      _Generate Hashnode Auth Token_                      |
+| ![Generate Hashnode Auth Token](https://codybontecou.com/images/hashnode-auth-token.png) |
+| :--------------------------------------------------------------------------------------: |
+|                              _Generate Hashnode Auth Token_                              |
 
 ### Documentation
 
 I've found the source of truth to be within their [GraphQL Playground](https://api.hashnode.com/). You'll need to click around their playground to see what endpoints are available as well as the expected inputs.
 
-| ![Hashnode API Playground](./assets/images/graphql-playground.png) |
-| :----------------------------------------------------------------: |
-|                _Hashnode's GraphQL Api Playground_                 |
+| ![Hashnode API Playground](https://codybontecou.com/images/graphql-playground.png) |
+| :--------------------------------------------------------------------------------: |
+|                        _Hashnode's GraphQL Api Playground_                         |
 
-| ![Hashnode Documentation Navigation](./assets/images/hashnode-doc-navigation.png) |
-| :-------------------------------------------------------------------------------: |
-|                        _Hashnode Documentation Navigation_                        |
+| ![Hashnode Documentation Navigation](https://codybontecou.com/images/hashnode-doc-navigation.png) |
+| :-----------------------------------------------------------------------------------------------: |
+|                                _Hashnode Documentation Navigation_                                |
 
 #### Example request using NodeJS:
 
