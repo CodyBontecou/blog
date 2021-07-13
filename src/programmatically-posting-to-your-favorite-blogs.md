@@ -14,7 +14,7 @@ meta:
   - name: og:title
     content: Post to Dev, Hashnode, and Medium using their APIs
   - name: og:image
-    content: https://codybontecou.com/images/programmatically-posting-to-your-favorite-blogs-meta.png
+    content: https://codybontecou.com/images/automate-blog-posts-meta.png
   - name: og:image:alt
     content: Large hero image showing Dev, Hashnode, and Medium's logos
   - name: twitter:title
