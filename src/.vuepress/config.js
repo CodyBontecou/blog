@@ -57,6 +57,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              '/programmatically-posting-to-your-favorite-blogs',
+              'Post to Dev, Hashnode, and Medium using their APIs',
+            ],
+            [
               '/generating-a-code-snippet-with-carbon',
               'Generating a Code Snippet with Carbon',
             ],
