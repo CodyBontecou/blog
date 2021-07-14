@@ -75,7 +75,7 @@ Within the data returned from this endpoint is an `id`. You will want to save th
 
 ### Programmatically creating a Medium article
 
-Now that we have the authentication token and ID, we can use the endpoint `POST https://api.medium.com/v1/users/{{authorId}}/posts`. The documentation posted above goes into detail on what parameters are required and/or available.
+Now that we have the authentication token and ID, we can use the endpoint `POST https://api.medium.com/v1/users/<authorId>/posts`. The documentation posted above goes into detail on what parameters are required and/or available.
 
 This endpoint accepts either markdown or HTML. You need to explicitly set the `contentFormat` field to either `markdown` or `html`.
 
@@ -113,19 +113,19 @@ Here's a list of the available endpoints:
 
 **Listing the user’s publications:**
 
-`GET https://api.medium.com/v1/users/{{userId}}/publications`
+`GET https://api.medium.com/v1/users/<userId>/publications`
 
 **Fetching contributors for a publication:**
 
-`GET https://api.medium.com/v1/publications/{{publicationId}}/contributors`
+`GET https://api.medium.com/v1/publications/<publicationId>/contributors`
 
 **Creating a post:**
 
-`POST https://api.medium.com/v1/users/{{authorId}}/posts`
+`POST https://api.medium.com/v1/users/<authorId>/posts`
 
 **Creating a post under a publication:**
 
-`POST https://api.medium.com/v1/publications/{{publicationId}}/posts`
+`POST https://api.medium.com/v1/publications/<publicationId>/posts`
 
 **Uploading an image:**
 
@@ -238,3 +238,5 @@ Keep an eye out. I plan on spending some time building out an interface for Dev 
 Good luck!
 
 Let me know what you think of this article through Twitter [@codybontecou](https://twitter.com/CodyBontecou)
+
+<Post />
