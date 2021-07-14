@@ -107,7 +107,7 @@ module.exports = {
         comment: {
           service: 'vssue',
           owner: 'CodyBontecou',
-          repo: 'blog-vuepress',
+          repo: 'blog',
           // The clientId & clientSecret introduced in OAuth2 spec.
           clientId: process.env.GITHUB_CLIENT_ID,
           clientSecret: process.env.GITHUB_CLIENT_SECRET,
