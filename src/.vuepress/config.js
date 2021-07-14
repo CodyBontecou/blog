@@ -1,4 +1,5 @@
 const { description } = require('../../package')
+require('dotenv').config()
 
 module.exports = {
   title: 'Cody Bontecou',
@@ -76,7 +77,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Marketing',
+          title: process.env.title,
           collapsable: false,
           children: [
             [
@@ -101,12 +102,6 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
     [
-      '@vuepress/google-analytics',
-      {
-        ga: '', // UA-00000000-0
-      },
-    ],
-    [
       '@vuepress/blog',
       {
         comment: {
@@ -114,8 +109,8 @@ module.exports = {
           owner: 'CodyBontecou',
           repo: 'blog-vuepress',
           // The clientId & clientSecret introduced in OAuth2 spec.
-          clientId: 'a635fc8a3303fb52b213',
-          clientSecret: '6c5d9878eab3a5ebfd8284fc1e851a0a4772dc53',
+          clientId: process.env.GITHUB_CLIENT_ID,
+          clientSecret: process.env.GITHUB_CLIENT_SECRET,
         },
       },
     ],
