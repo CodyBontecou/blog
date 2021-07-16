@@ -5,6 +5,15 @@ module.exports = {
   title: 'Cody Bontecou',
   description: description,
   head: [
+    [
+      'link',
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/images/logo.png',
+      },
+    ],
     ['meta', { name: 'theme-color', content: '#4979ff' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     [
@@ -38,7 +47,9 @@ module.exports = {
   themeConfig: {
     repo: '',
     editLinks: false,
+    smoothScrolling: true,
     docsDir: '',
+    logo: '/images/navLogo.png',
     editLinkText: '',
     lastUpdated: 'Last Updated',
     nav: [
