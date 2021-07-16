@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              '/dopamine-fasting-with-100-days-of-code',
+              'Dopamine Fasting with #100DaysOfCode',
+            ],
+            [
               '/programmatically-posting-to-your-favorite-blogs',
               'Post to Dev, Hashnode, and Medium using their APIs',
             ],

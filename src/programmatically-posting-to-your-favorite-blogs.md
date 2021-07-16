@@ -1,5 +1,7 @@
 ---
 title: 'Post to Dev, Hashnode, and Medium using their APIs'
+author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+date: 2020-07-13
 description: Generate posts on Dev, Hashnode, and Medium using the same markdown source file to simultaneously post on all three platforms using their REST and Graphql APIs.
 tags:
   - VuePress
@@ -30,6 +32,8 @@ canonicalUrl: https://codybontecou.com/programmatically-posting-to-your-favorite
 # Post to Dev, Hashnode, and Medium using their APIs
 
 > The goal of this article is to help you connect to each of these site's APIs in order to programmatically post, update, and enjoy with these services.
+
+<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
 
 Writing a single markdown file for my personal blog and copy and pasting it into these other blogging platforms isn't too challenging... until I need to edit something. A simple type change requires me to load four different sites, navigating through their wildly different UI, in order to make simple changes.
 
