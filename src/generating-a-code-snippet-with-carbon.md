@@ -55,4 +55,5 @@ It gives you a surprising amount of control over the look and feel of your code 
 
 Hope this helps you along your Developer Blogging journey. I've found it to be a very fun tool and I plan on using it for all of my code snippets.
 
+<SimpleNewsletter />
 <Post />

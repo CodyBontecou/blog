@@ -95,3 +95,6 @@ ul {
   line-height: 1.7;
 }
 ```
+
+<SimpleNewsletter />
+<Post />

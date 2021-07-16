@@ -239,4 +239,5 @@ Good luck!
 
 Let me know what you think of this article through Twitter [@codybontecou](https://twitter.com/CodyBontecou)
 
+<SimpleNewsletter />
 <Post />

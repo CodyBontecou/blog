@@ -112,6 +112,16 @@ module.exports = {
           clientId: process.env.GITHUB_CLIENT_ID,
           clientSecret: process.env.GITHUB_CLIENT_SECRET,
         },
+        sitemap: {
+          hostname: 'https://codybontecou.com',
+        },
+        feed: {
+          canonical_base: 'https://codybontecou.com',
+        },
+        newsletter: {
+          endpoint:
+            'https://codybontecou.us6.list-manage.com/subscribe/post?u=859d7d456e33a2afd508093ec&amp;id=70832a6daf',
+        },
       },
     ],
   ],

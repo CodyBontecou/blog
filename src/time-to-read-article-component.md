@@ -76,3 +76,6 @@ export default {
 }
 </script>
 ```
+
+<SimpleNewsletter />
+<Post />

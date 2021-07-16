@@ -132,3 +132,6 @@ According to the responses within the issue, there are two ways of bringing in T
 
 **1. Import TailwindCSS through their CDN:**
 ```
+
+<SimpleNewsletter />
+<Post />
