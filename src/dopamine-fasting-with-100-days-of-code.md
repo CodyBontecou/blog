@@ -15,7 +15,7 @@ meta:
   - name: twitter:text:title
     content: Dopamine Fasting with 100DaysOfCode
 
-canonicalUrl: https://codybontecou.com/programmatically-posting-to-your-favorite-blogs
+canonicalUrl: https://codybontecou.com/dopamine-fasting-with-100-days-of-code
 ---
 
 # Dopamine Fasting with #100DaysOfCode
@@ -90,7 +90,7 @@ The [#100DaysOfCode](https://twitter.com/search?q=%23100DaysOfCode) is there to 
 
   - Alongside Cypress, I want to be building web components that are interactive, scalable, and flexible.
 
-<img src="images/luggage.png" alt="Illustrated luggage bag with soon on it" width="300" height="300">
+<img src="https://codybontecou.com/images/luggage.png" alt="Illustrated luggage bag with soon on it" width="300" height="300">
 
 ## Why?
 
