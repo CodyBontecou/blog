@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              'programmatically-tweeting-with-nodejs',
+              'Programmatically Tweeting with NodeJS',
+            ],
+            [
               '/dopamine-fasting-with-100-days-of-code',
               'Dopamine Fasting with #100DaysOfCode',
             ],
