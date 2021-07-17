@@ -39,27 +39,18 @@ The [#100DaysOfCode](https://twitter.com/search?q=%23100DaysOfCode) is there to 
 - No video games
 - No watching live streams
 - No movies or shows
-  - Occasional movie nights with my wife are allowed.
+  - Occasional movie nights with my wife are allowed
   - I just want to avoid consistently watching movies and shows
 - No music - Occasional podcasts are allowed
   - I'm thinking a 1-2 hour per day limit
     - Occasional music is allowed - I'm thinking a 1-2 hour per day limit
     - I just want to avoid consistently listening to music
-- No endlessly scrolling apps
-  - Reddit
-  - Instagram
-  - Facebook
-  - Twitter
-  - Hackernews
-  - Hashnode
-  - Medium
-  - Youtube
-- I only can interact with the above apps using their APIs
+- I only can interact with endlessly scrolling apps using their APIs
   - No feed queries - Only post update, and reply
   - This is subject to change depending on the endpoints available. The key is to avoid endlessly scrolling so I will build out my interaction apps with that in mind.
   - Tutorials are allowed
 
-![Dopamine addict deciding its time to take a break.](https://codybontecou.com/images/forest-2.png)
+![Illustrated forest](https://codybontecou.com/images/forest-2.png)
 
 ## Goals
 
