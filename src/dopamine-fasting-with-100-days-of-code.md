@@ -1,19 +1,19 @@
 ---
-title: 'Dopamine Fasting with #100DaysOfCode'
+title: 'Dopamine Fasting with 100DaysOfCode'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-16
 description: I'm going to spend the next 100 days taking a dopamine fast while spending the saved time writing code and sharing it with the community.
 meta:
   - name: og:title
-    content: Dopamine Fasting with #100DaysOfCode
+    content: Dopamine Fasting with 100DaysOfCode
   - name: og:image
     content: https://codybontecou.com/images/dopamine-fasting-meta.png
   - name: og:image:alt
     content: Man sitting at computer overloaded by media. 100 Days of Code While Dopamine Fasting.
   - name: twitter:title
-    content: Dopamine Fasting with #100DaysOfCode
+    content: Dopamine Fasting with 100DaysOfCode
   - name: twitter:text:title
-    content: Dopamine Fasting with #100DaysOfCode
+    content: Dopamine Fasting with 100DaysOfCode
 
 canonicalUrl: https://codybontecou.com/programmatically-posting-to-your-favorite-blogs
 ---
