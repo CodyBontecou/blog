@@ -36,14 +36,18 @@ The [#100DaysOfCode](https://twitter.com/search?q=%23100DaysOfCode) is there to 
 
 ## Rules
 
+- Code minimum an hour every day for the next 100 days.
+- Tweet your progress every day with the #100DaysOfCode hashtag.
 - No video games
 - No watching live streams
 - No movies or shows
   - Occasional movie nights with my wife are allowed
   - I just want to avoid consistently watching movies and shows
-- No music - Occasional podcasts are allowed
-  - I'm thinking a 1-2 hour per day limit
-    - Occasional music is allowed - I'm thinking a 1-2 hour per day limit
+- No music
+  - Occasional podcasts are allowed
+    - I'm thinking a 1-2 hour per day limit
+  - Occasional music is allowed
+    - I'm thinking a 1-2 hour per day limit
     - I just want to avoid consistently listening to music
 - I only can interact with endlessly scrolling apps using their APIs
   - No feed queries - Only post update, and reply
