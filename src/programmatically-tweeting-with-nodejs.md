@@ -18,7 +18,7 @@ meta:
 canonicalUrl: https://codybontecou.com/programmatically-tweeting-with-nodejs
 ---
 
-![Illustration of a woman sitting at her computer while writing](https://codybontecou/images/programmatic-tweeting.png)
+![Illustration of a woman sitting at her computer while writing](https://codybontecou.com/images/programmatic-tweeting.png)
 
 # Creating a Tweet With NodeJS
 
@@ -34,7 +34,7 @@ You'll need to follow the instructions of the link above to create a develop acc
 
 You'll eventually find yourself within the Twitter Developer Dashboard where you can generate authentication tokens that will be essential to making requests.
 
-![Screenshot of the Twitter Developer Dashboard](https://codybontecou/images/twitter-dev-dashboard.png)
+![Screenshot of the Twitter Developer Dashboard](https://codybontecou.com/images/twitter-dev-dashboard.png)
 
 ## Laying the Foundations of Your App
 
