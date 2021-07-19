@@ -17,7 +17,7 @@ meta:
   - name: twitter:text:title
     content: Post to Reddit using its API
 
-canonicalUrl: https://codybontecou.com/programmatically-tweeting-with-nodejs
+canonicalUrl: https://codybontecou.com/post-to-reddit-with-nodejs-and-typescript
 ---
 
 ![Illustration of a man with a baret waving his hands with Reddit and Typescript logos above him](https://codybontecou.com/images/typescript-with-reddit-meta.png)
