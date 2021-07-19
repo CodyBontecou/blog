@@ -32,7 +32,7 @@ canonicalUrl: https://codybontecou.com/programmatically-tweeting-with-nodejs
 
 Getting an authentication token for Reddit is complicated.
 
-If you have a **business** and plan on this token generating income, follow [this for](https://docs.google.com/forms/d/e/1FAIpQLSezNdDNK1-P8mspSbmtC2r86Ee9ZRbC66u929cG2GX0T9UMyw/viewform).
+If you have a **business** and plan on this token generating income, follow [this form](https://docs.google.com/forms/d/e/1FAIpQLSezNdDNK1-P8mspSbmtC2r86Ee9ZRbC66u929cG2GX0T9UMyw/viewform).
 
 For **personal** use, navigate to your Reddit [apps](https://www.reddit.com/prefs/apps) and scroll to the bottom of the page. You should see a grey button that says "create another app...". Click the button and fill out the form. Successfully submitting this form should generate
 
