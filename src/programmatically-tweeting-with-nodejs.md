@@ -38,6 +38,8 @@ You'll eventually find yourself within the Twitter Developer Dashboard where you
 
 ## Laying the Foundations of Your App
 
+[Github Repo](https://github.com/CodyBontecou/day-1-tweet-with-nodejs) to follow along
+
 _Make sure you have [NodeJS](https://nodejs.org/en/) installed_
 
 _I prefer [yarn](https://yarnpkg.com/), but you can use npm instead if you prefer_
