@@ -1,19 +1,19 @@
 ---
-title: 'Post to Reddit with NodeJS and Typescript'
+title: 'Post to Reddit using its API'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-16
 description: Interacting with Reddit through their API. In this post I discuss how to use snoowrap to post to Reddit and specific subreddits.
 meta:
   - name: og:title
-    content: Post to Reddit with NodeJS and Typescript
+    content: Post to Reddit using its API
   - name: og:image
     content: https://codybontecou.com/images/typescript-with-reddit-meta.png
   - name: og:image:alt
     content: Illustration of a man with a baret waving his hands with Reddit and Typescript logos above him
   - name: twitter:title
-    content: Post to Reddit with NodeJS and Typescript
+    content: Post to Reddit using its API
   - name: twitter:text:title
-    content: Post to Reddit with NodeJS and Typescript
+    content: Post to Reddit using its API
 
 canonicalUrl: https://codybontecou.com/programmatically-tweeting-with-nodejs
 ---
