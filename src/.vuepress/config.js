@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              'post-to-reddit-with-nodejs-and-typescript',
+              'Post to Reddit with NodeJS and Typescript',
+            ],
+            [
               'programmatically-tweeting-with-nodejs',
               'Programmatically Tweeting with NodeJS',
             ],
