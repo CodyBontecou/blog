@@ -1,4 +1,5 @@
 ---
+type: 'post'
 title: 'Dopamine Fasting with 100DaysOfCode'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-16

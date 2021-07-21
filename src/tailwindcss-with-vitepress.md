@@ -1,4 +1,5 @@
 ---
+type: 'post'
 title: Configuring TailwindCSS to work with Vitepress
 ---
 

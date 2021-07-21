@@ -1,4 +1,5 @@
 ---
+type: 'post'
 title: Overriding VuePress CSS Styles
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 description: This is the page description that will be used

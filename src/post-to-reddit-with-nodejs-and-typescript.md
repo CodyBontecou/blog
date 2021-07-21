@@ -16,7 +16,7 @@ meta:
     content: Post to Reddit using its API
   - name: twitter:text:title
     content: Post to Reddit using its API
-
+type: 'post'
 canonicalUrl: https://codybontecou.com/post-to-reddit-with-nodejs-and-typescript
 ---
 
@@ -173,6 +173,19 @@ postLink(
 with the parameters you want to use at the bottom of `index.ts`.
 
 Once you are ready, type `yarn dev` into your projects terminal. If all is good, you should be able to see your post is now on Reddit!
+
+## Bonus
+
+Make this more dynamic by iterating over multiple subreddits within an array:
+
+```js
+const url =
+  'https://codybontecou.com/post-to-reddit-with-nodejs-and-typescript.html'
+const title = 'Post to Reddit using its API'
+const subreddits = ['webdev', 'learnjavascript', 'typescript', 'programming']
+
+subreddits.forEach(subreddit => postLink(title, url, subreddit))
+```
 
 ---
 

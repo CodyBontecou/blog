@@ -1,4 +1,5 @@
 ---
+type: 'post'
 title: 'Building a VueJS component to estimate the expected reading time of an article.'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-05

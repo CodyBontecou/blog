@@ -1,4 +1,5 @@
 ---
+type: 'post'
 title: 'Generating a Code Snippet with Carbon'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-06

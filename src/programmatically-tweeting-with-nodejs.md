@@ -1,4 +1,5 @@
 ---
+type: 'post'
 title: 'Programmatically Tweeting with NodeJS'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-16
