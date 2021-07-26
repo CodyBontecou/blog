@@ -130,9 +130,13 @@ module.exports = {
 
 ### setupTests file
 
-If setting your application up **without** Create React App, you'll need to set up your jest tests to listen, reset, and close the MSW server.
+You'll need to set up your jest tests to listen, reset, and close the MSW server.
 
-This will look like:
+If you use Create React App, you may already have a file named `src/setupTests.js`.
+
+Otherwise, you'll need to create a setup file yourself.
+
+Then, add in the following code:
 
 ```ts
 // src/setupTests.js
@@ -148,6 +152,8 @@ afterEach(() => server.resetHandlers())
 // Clean up after the tests are finished.
 afterAll(() => server.close())
 ```
+
+This sets your Jest testing environment up to start the MSW server, reset it, and close it after different stages of the Jest lifecycle.
 
 You'll then want to add a line to your `jest.config.ts` file:
 
