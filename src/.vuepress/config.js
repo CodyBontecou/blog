@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              'mocking-api-with-msw-and-typescript',
+              'Mocking an API request with MSW and Typescript',
+            ],
+            [
               'post-to-reddit-with-nodejs-and-typescript',
               'Post to Reddit with NodeJS and Typescript',
             ],
