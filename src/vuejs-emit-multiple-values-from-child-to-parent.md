@@ -13,7 +13,7 @@ tags:
   - Code
 meta:
   - name: og:title
-    content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
+    content: VueJS Custom Event - Emit Multiple Values
   - name: og:description
     content: Use a VueJS's custom event to emit multiple parameters between components.
   - name: og:image
