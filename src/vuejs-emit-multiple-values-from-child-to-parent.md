@@ -3,7 +3,7 @@ type: 'post'
 title: 'Emit Multiple Values from Child to Parent in a VueJS Custom Event'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-08-07
-description: Emit Multiple Values from Child to Parent in a VueJS Custom Event
+description: Use a VueJS's custom event to emit multiple parameters between components.
 category: tutorials
 tags:
   - Vuejs
@@ -12,6 +12,10 @@ tags:
   - Nuxt
   - Code
 meta:
+  - name: og:title
+    content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
+  - name: og:description
+    content: Use a VueJS's custom event to emit multiple parameters between components.
   - name: og:image
     content: https://codybontecou.com/images/vuejs-emit-multiple-params-meta.png
   - name: og:image:alt
