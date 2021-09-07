@@ -13,7 +13,7 @@ tags:
   - Code
 meta:
   - name: og:image
-    content: https://codybontecou.com/vuejs-emit-multiple-params-meta.png
+    content: https://codybontecou.com/images/vuejs-emit-multiple-params-meta.png
   - name: og:image:alt
     content: Emit Multiple Values from Child to Parent in a VueJS Custom Event with code snippet showcasing example provided in blog post.
   - name: og:title
