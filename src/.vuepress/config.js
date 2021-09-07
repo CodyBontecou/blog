@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              '/vuejs-emit-multiple-values-from-child-to-parent',
+              'Vuejs Emit Multiple Values from Child to Parent',
+            ],
+            [
               'mocking-api-with-msw-and-typescript',
               'Mocking an API request with MSW and Typescript',
             ],
