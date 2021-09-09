@@ -21,11 +21,11 @@ meta:
   - name: og:image:alt
     content: Meta image stating Convert a Component Built in ReactJS to VueJS alongside Timeline component
   - name: og:title
-    content: Convert a React Component to Vue
+    content: Convert a React Component to VueJS
   - name: twitter:title
-    content: Convert a React Component to Vue
+    content: Convert a React Component to VueJS
   - name: twitter:text:title
-    content: Convert a React Component to Vue
+    content: Convert a React Component to VueJS
 canonicalUrl: https://codybontecou.com/convert-reactjs-component-to-vuejs.html
 ---
 
