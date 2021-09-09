@@ -84,7 +84,7 @@ const App = () => (
 )
 ```
 
-The key difference here is the [template tag](https://vuejs.org/v2/guide/syntax.html), which is a key part of VueJS syntax.
+The key difference here is the [template tag](https://vuejs.org/v2/guide/syntax.html), an essential part of VueJS syntax.
 
 ### Lets now dig into the Timeline component - `Timeline.vue`
 
@@ -92,7 +92,11 @@ The Timeline component is where the data gathering and container occur.
 
 In this example, we are gathering the data from our local `data.json` file. It shouldn't require too much additional work to get this component to work with live data using a package such as [axios](https://axios-http.com/).
 
-While the ReactJS version takes up less vertical space, the VueJS version is much easier to read in my opinion. Rather than applying an inline map function, we use a `v-for` to apply the same functionality.
+While the ReactJS version takes up less vertical space, the VueJS version is much easier to read. Rather than applying an inline map function, we use a `v-for` to apply the same functionality.
+
+VueJS attaches dynamic data a property called [v-bind](https://vuejs.org/v2/api/#v-bind). The shorthand for v-bind is `:`. As you can see `:data=data` is the VueJS equivalent to `data={data}`.
+
+Also note, VueJS doesn't use `className` to apply its CSS. Instead, you can use the classic `class` keyword.
 
 ```js
 // React Version
@@ -111,7 +115,7 @@ const Timeline = () =>
 
 <template>
   <div class="timeline-container">
-    <TimelineItem v-for="(item, i) in timelineData" :data="item" :key="i" />
+    <TimelineItem v-for="(data, idx) in timelineData" :data="data" :key="idx" />
   </div>
 </template>
 
@@ -155,6 +159,12 @@ Here's an example of what the data looks like:
 The TimelineItem Component is where the majority of the UI logic is taking place. We are now playing with the data we gathered within the Timeline component.
 
 There isn't much happening outside of destructing the data object and styling as needed.
+
+We destructure data in VueJS differently than in ReactJS.
+
+- When using the data between two HTML elements, you must destructure it using two curly brackets `{{}}`
+- When accessing the data within a `v-bind:`, you destructure it using single curly brackets `{data}`
+- When accessing the data within a directive such as `v-if`, you type in the data `v-if="data"`
 
 ```js
 const TimelineItem = ({ data }) => (
@@ -215,7 +225,7 @@ export default {
 
 ### Additional VueJS config
 
-In order to get the CSS provided below to style our component, we need to expose the CSS. For this example, I placed an import statement within my `main.js` file.
+To get the CSS provided below to style our component, we need to expose the CSS to work within our VueJS application. For this example, I placed an import statement within my `main.js` file.
 
 ```js
 import { createApp } from 'vue'
@@ -228,7 +238,7 @@ createApp(App).mount('#app')
 
 ### Styling the component using CSS
 
-For this component, I am using a `main.css` file placed within the `assets` directory. Here is the css used within this component:
+For this component, I am using the `main.css` file placed within our `assets` directory. Here is the css used within this component:
 
 ```css
 /* assets/main.css */
