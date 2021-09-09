@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              '/convert-reactjs-component-to-vuejs',
+              'Convert ReactJS Component to VueJS',
+            ],
+            [
               '/vuejs-emit-multiple-values-from-child-to-parent',
               'Vuejs Emit Multiple Values from Child to Parent',
             ],
