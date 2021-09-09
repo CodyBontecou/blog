@@ -29,7 +29,7 @@ Now, the fun stuff. Let's work on converting the ReactJS code.
 
 ### `App.vue` looks very similar to the ReactJS version:
 
-```js
+```html
 // App.vue
 <script setup>
 import Timeline from './components/Timeline.vue'
