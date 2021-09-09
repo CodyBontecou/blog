@@ -76,7 +76,7 @@ const Timeline = () =>
   )
 ```
 
-```vue
+```html
 // components/Timeline.vue
 
 <template>
@@ -152,7 +152,7 @@ const TimelineItem = ({ data }) => (
 )
 ```
 
-```vue
+```html
 // components/TimelineItem.vue
 <template>
   <div class="timeline-item">
