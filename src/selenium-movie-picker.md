@@ -22,7 +22,7 @@ meta:
   - name: twitter:title
     content: Building a Random Movie Picker Using Python and Selenium
   - name: twitter:text:title
-    content: Scraping a list of directors using Selenium with Python to query IMDb's database and randomly select a movie.
+    content: Building a Random Movie Picker Using Python and Selenium
 canonicalUrl: https://codybontecou.com/selenium-movie-picker.html
 ---
 
