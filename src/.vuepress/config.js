@@ -68,6 +68,7 @@ module.exports = {
           title: 'Code Articles',
           collapsable: false,
           children: [
+            ['/selenium-movie-picker', 'Selenium Movie Picker'],
             [
               '/convert-reactjs-component-to-vuejs',
               'Convert ReactJS Component to VueJS',
