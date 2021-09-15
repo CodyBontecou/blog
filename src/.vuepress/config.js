@@ -68,6 +68,10 @@ module.exports = {
           title: 'Code Articles',
           collapsable: false,
           children: [
+            [
+              '/generate-twitter-lists-with-python',
+              'Generate Twitter Lists with Python',
+            ],
             ['/selenium-movie-picker', 'Selenium Movie Picker'],
             [
               '/convert-reactjs-component-to-vuejs',
