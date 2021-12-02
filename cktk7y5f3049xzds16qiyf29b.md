@@ -1,0 +1,45 @@
+## VueJS Custom Event - Emit Multiple Values
+
+
+# Emit Multiple Values from Child to Parent in a VueJS Custom Event
+
+> VueJS custom events are a great way to communicate between child and parent components.
+
+I was recently was in need of a way to pass more than one value from child to parent within a single custom event. The [VueJS Docs](https://vuejs.org/v2/guide/components-custom-events.html) do not provide any example showcasing this and instead I needed to refer to some comments within a Stack Overflow thread.
+
+Here is what I found.
+
+## To emit more than one parameter, it's best to pass the data as an object:
+
+```js
+this.$emit('success', {
+  username: 'CodyBontecou',
+  error: false,
+})
+```
+
+VueJS's custom events only accepts two parameters:
+
+1. The name of the event. In this case, the event name is `success`.
+2. Data you want to pass. This can be a string, object, number, boolean, or function.
+
+## Access the parameters from the parent component using an event listener:
+
+We emitted the `success` event from the child component. This event can be captured within the parent component where the child is rendered using the `@` sign, in this case, `@success`.
+
+1. @success calls the onSuccess method when success is emitted from the child component.
+2. The username and message params are destructured from the object passed into the success emit and are now usable within the onSuccuss function to do as you please.
+
+```js
+<LoginForm @success="onSuccess" />
+
+methods: {
+  onSuccess({ username, error }) {
+    ...
+  },
+}
+```
+
+It took me a little while to find the solution to this problem, so I figured it was best to document it within a blog post for others to benefit from.
+
+I hope it helped!
