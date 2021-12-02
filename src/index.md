@@ -75,7 +75,7 @@ canonicalUrl: https://codybontecou.com/
   </p>
 </div>
 
-<!-- ### Current Interests
+### Current Interests
 
 Below are tools I'm most interested in learning and writing about.
 
@@ -119,4 +119,4 @@ Below are tools I'm most interested in learning and writing about.
     <span class="mt-1 text-gray-500">Strapi</span>
   </a>
 
-</div> -->
+</div>
