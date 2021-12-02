@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              '/electron-app-with-vuejs-and-vite',
+              'Building an Electron App with VueJS and Vite',
+            ],
+            [
               '/generate-twitter-lists-with-python',
               'Generate Twitter Lists with Python',
             ],
