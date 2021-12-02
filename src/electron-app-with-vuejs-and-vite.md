@@ -37,6 +37,10 @@ canonicalUrl: https://codybontecou.com/electron-app-with-vuejs-and-vite.html
 
 <HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
 
+## TL: DR
+
+Clone [this](https://github.com/Deluze/electron-vue-template) repo and use it as a starter template.
+
 ## [electron-vue](https://github.com/SimulatedGREG/electron-vue) is dead, long live [electron-vue-template](https://github.com/Deluze/electron-vue-template)
 
 It appears [electron-vue](https://github.com/SimulatedGREG/electron-vue), the leading Github repository that combines VueJS and Electron hasn't had a commit since April 21, 2021. Prior to the April 21st commits, it hasn't had serious contribution activity since December 3rd, 2019 and before that October 23, 2018.
@@ -73,10 +77,6 @@ Of the three packages mentioned, [electron-vue-template](https://github.com/Delu
 I've been using Electron these past few weeks on a personal app that I plan to reveal soon. It's gotten to a stage where the backend logic is hammered down and is in need of a UI boost as well as a state-management system like Vuex.
 
 I'll be integrating a state-management system soon - either [Vuex](https://vuex.vuejs.org/) or [Pinia](https://github.com/posva/pinia). I'm curious to see what this process looks like within an Electron app utilizing Vue, but I'll try my best to write up a blog post as I go through the process.
-
-## TL: DR
-
-Clone [this](https://github.com/Deluze/electron-vue-template) repo and use it as a starter template.
 
 <SimpleNewsletter />
 <Post />
