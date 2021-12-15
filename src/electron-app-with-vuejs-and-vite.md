@@ -2,7 +2,7 @@
 type: 'post'
 title: 'Building an Electron App with VueJS and Vite'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2020-11-30
+date: 2021-11-30
 description: Combining the power of Electron with the Progressive Javascript frameworks VueJS and Vite
 category: tutorials
 tags:
