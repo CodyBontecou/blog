@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              '/global-state-management-in-an-electron-app',
+              'Global State Management in an Electron App',
+            ],
+            [
               '/electron-app-with-vuejs-and-vite',
               'Building an Electron App with VueJS and Vite',
             ],
