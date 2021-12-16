@@ -14,18 +14,20 @@ Vue Devtools provides a non-browser specific version of their devtools that they
 You can install the package globally:
 
 ```bash
-npm install -g @vue/devtools
+npm install -g @vue/devtools@beta
 # Or with yarn
-yarn global add @vue/devtools
+yarn global add @vue/devtools@beta
 ```
 
 Or within your project as a dependency:
 
 ```bash
-npm install --save-dev @vue/devtools
+npm install --save-dev @vue/devtools@beta
 # Or with yarn
-yarn add -D @vue/devtools
+yarn add -D @vue/devtools@beta
 ```
+
+_Because our application is using Vue 3, we must us version 6 beta of the devtools according to [this](https://github.com/vuejs/devtools/issues/1199) issue_
 
 ## Using the VueJS devtools globally
 
