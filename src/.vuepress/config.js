@@ -69,6 +69,10 @@ module.exports = {
           collapsable: false,
           children: [
             [
+              'electron-app-with-vue-devtools',
+              'Electron App with Vue Devtools',
+            ],
+            [
               '/global-state-management-in-an-electron-app',
               'Global State Management in an Electron App',
             ],
