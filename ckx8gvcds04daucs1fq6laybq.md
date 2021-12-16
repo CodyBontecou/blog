@@ -33,7 +33,7 @@ Once installed globally, you can now run the command `vue-devtools` on your comm
 
 This will spawn an instance of the devtools within its own window.
 
-![Standalone vue-devtools that spawns when vue-devtools command is run.](http://localhost:8080//images/vue-devtools-waiting-for-connection.png)
+![Standalone vue-devtools that spawns when vue-devtools command is ran.](https://codybontecou.com/images/vue-devtools-waiting-for-connection.png)
 
 Now, add the following to the `<head>` section of your applications HTML file:
 
