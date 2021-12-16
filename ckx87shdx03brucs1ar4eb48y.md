@@ -3,8 +3,6 @@
 
 ![Showcase of Electron rendering VueJS code](https://codybontecou.com/images/electron-app-with-vuejs-and-vite-meta.png)
 
-# Building an Electron App with VueJS and Vite
-
 > Let's combine the power of Electron with VueJS and Vite to create incredible desktop applications using nothing but Javascript. \
 > This article was originally posted on my [site](https://codybontecou.com/electron-app-with-vuejs-and-vite.html).
 
