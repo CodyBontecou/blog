@@ -1,9 +1,6 @@
-const { description } = require('../../package')
-require('dotenv').config()
-
 module.exports = {
   title: 'Cody Bontecou',
-  description: description,
+  description: '',
   head: [
     [
       'link',
@@ -129,7 +126,7 @@ module.exports = {
           ],
         },
         {
-          title: process.env.title,
+          title: 'Marking Articles',
           collapsable: false,
           children: [
             [
@@ -138,14 +135,6 @@ module.exports = {
             ],
           ],
         },
-        // {
-        //   title: 'Thoughts',
-        //   collapsable: false,
-        //   children: [
-        //     ['/subtle-pollutants', 'Subtle Pollutants'],
-        //     ['/thoughts/why', 'Why?'],
-        //   ],
-        // },
       ],
     },
   },
@@ -161,8 +150,8 @@ module.exports = {
           owner: 'CodyBontecou',
           repo: 'blog',
           // The clientId & clientSecret introduced in OAuth2 spec.
-          clientId: process.env.GITHUB_CLIENT_ID,
-          clientSecret: process.env.GITHUB_CLIENT_SECRET,
+          clientId: '',
+          clientSecret: '',
         },
         sitemap: {
           hostname: 'https://codybontecou.com',
@@ -178,9 +167,6 @@ module.exports = {
     ],
   ],
   postcss: {
-    plugins: [
-      require('tailwindcss')('./tailwind.config.js'),
-      require('autoprefixer'),
-    ],
+    plugins: [],
   },
 }
