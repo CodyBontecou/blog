@@ -126,26 +126,12 @@ module.exports = {
               '/tailwindcss-with-vitepress',
               'Configuring TailwindCSS to work with Vitepress',
             ],
-          ],
-        },
-        {
-          title: process.env.title,
-          collapsable: false,
-          children: [
             [
               '/marketing/automate-with-zapier',
               'Automate Twitter Tweets with Zapier',
             ],
           ],
         },
-        // {
-        //   title: 'Thoughts',
-        //   collapsable: false,
-        //   children: [
-        //     ['/subtle-pollutants', 'Subtle Pollutants'],
-        //     ['/thoughts/why', 'Why?'],
-        //   ],
-        // },
       ],
     },
   },
