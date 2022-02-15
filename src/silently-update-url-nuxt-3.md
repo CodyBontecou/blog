@@ -60,17 +60,16 @@ For this tutorial, I'll be using a simple `<input>` field with `v-model` to gath
 </script>
 ```
 
-## Nuxt 3's useRoute() and useRouter()
+## Nuxt 3's useRouter()
 
 > I'm not sure what differences there are between Nuxt 2 and Nuxt 3, but so far there haven't been any.
 
-Within `setup()`, call the auto-imported functions `useRoute()` and `useRouter()` to gain access to the `route` and `router` objects.
+Within `setup()`, call the auto-imported functions `useRouter()` to gain access to the `router` object.
 
 ```js
 // pages/example.vue
 <script>
   setup() {
-    const route = useRoute()
     const router = useRouter()
     const twitchStreamer = ref('')
 
@@ -85,7 +84,6 @@ Now, set up a watcher to watch our `twitchStreamer` v-model value so that every 
 ```js
 <script>
   setup() {
-    const route = useRoute()
     const router = useRouter()
     const twitchStreamer = ref('')
 
