@@ -68,6 +68,7 @@ module.exports = {
           title: 'Code Articles',
           collapsable: false,
           children: [
+            ['silently-update-url-nuxt-3', 'Silently Update URL in Nuxt 3'],
             [
               'electron-app-with-vue-devtools',
               'Electron App with Vue Devtools',
