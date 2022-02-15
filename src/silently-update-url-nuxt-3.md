@@ -29,11 +29,11 @@ meta:
 canonicalUrl: https://codybontecou.com/silently-update-url-nuxt-3.html
 ---
 
-![Silently Update URL in Nuxt 3](https://codybontecou.com/images/update-url.gif)
-
 # Silently Update URL in Nuxt 3
 
 > We often need to update a query parameter like `?search=hello` within our URL without refreshing the page. I'll quickly show you how to do that using Nuxt 3.
+
+![Silently Update URL in Nuxt 3](https://codybontecou.com/images/update-url.gif)
 
 <HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
 
@@ -105,8 +105,6 @@ Every time the twitchStreamer value is changed, we push to our URL using [vue-ro
 The query parameter of `.push` takes in a key and value. The key in this example is `streamer`.
 
 Because of this, the url that is updated will look like `/test?streamer=` with the `twitchStreamer` value beind after the = sign.
-
-![Silently Update URL in Nuxt 3](https://codybontecou.com/images/update-url.gif)
 
 <SimpleNewsletter />
 <Post />
