@@ -82,6 +82,7 @@ Within `setup()`, call the auto-imported functions `useRouter()` to gain access 
 Now, set up a watcher to watch our `twitchStreamer` v-model value so that every time it's value is updated, a bit of code is ran.
 
 ```js
+// pages/example.vue
 <script>
   setup() {
     const router = useRouter()
@@ -103,6 +104,30 @@ Every time the twitchStreamer value is changed, we push to our URL using [vue-ro
 The query parameter of `.push` takes in a key and value. The key in this example is `streamer`.
 
 Because of this, the url that is updated will look like `/test?streamer=` with the `twitchStreamer` value beind after the = sign.
+
+## Final code snippet
+
+```html
+<!-- pages/example.vue -->
+<template>
+  <input v-model="twitchStreamer" />
+</template>
+
+<script>
+  setup() {
+    const router = useRouter()
+    const twitchStreamer = ref('')
+
+    watch(twitchStreamer, (twitchStreamer, previous) => {
+      router.push({
+        path: '/test',
+        query: { streamer: twitchStreamer },
+      })
+    })
+
+    return { twitchStreamer }
+</script>
+```
 
 <SimpleNewsletter />
 <Post />
