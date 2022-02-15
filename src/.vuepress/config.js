@@ -68,6 +68,10 @@ module.exports = {
           title: 'Code Articles',
           collapsable: false,
           children: [
+            [
+              'using-url-query-params-in-nuxt-3',
+              'Using URL Query Params in Nuxt 3',
+            ],
             ['silently-update-url-nuxt-3', 'Silently Update URL in Nuxt 3'],
             [
               'electron-app-with-vue-devtools',

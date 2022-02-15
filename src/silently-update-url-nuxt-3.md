@@ -105,6 +105,10 @@ The query parameter of `.push` takes in a key and value. The key in this example
 
 Because of this, the url that is updated will look like `/test?streamer=` with the `twitchStreamer` value beind after the = sign.
 
+## What about when you refresh or navigate?
+
+There's a bit more to this topic but I decided to write a separate article [here](https://codybontecou.com/using-url-query-params-in-nuxt-3.html). Be sure to check if out if you are interested in how to deal with the query param on page refresh or direct navigation.
+
 ## Final code snippet
 
 ```html
