@@ -39,9 +39,9 @@ canonicalUrl: https://codybontecou.com/using-url-query-params-in-nuxt-3.html
 
 ## The problem we're solving
 
-We left off with our URL looking like `localhost:3000/test?streamer=faker`. This is nice, but contained a few cases that are less than idea.
+We left off with our URL looking like `localhost:3000/test?streamer=faker`. This is nice but contained a few cases that are less than ideal.
 
-Because the URl parameter is being updated using our input's v-model, if the page is refreshed, we lose that local state and the value stored in `twitchStreamer`.
+Because the URL parameter is being updated using our input's v-model, if the page is refreshed, we lose that local state and the value stored in `twitchStreamer`.
 
 ## Using useRoute in Nuxt
 
