@@ -68,6 +68,7 @@ module.exports = {
           title: 'Code Articles',
           collapsable: false,
           children: [
+            ['nuxt3-and-pinia', 'Nuxt 3 and Pinia'],
             [
               'using-url-query-params-in-nuxt-3',
               'Using URL Query Params in Nuxt 3',
