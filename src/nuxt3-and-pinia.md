@@ -29,7 +29,7 @@ meta:
 canonicalUrl: https://codybontecou.com/nuxt3-and-pinia.html
 ---
 
-![Integrate Pinia as your state management library for your Nuxt 3 application.](https://codybontecou.com/images/nuxt-3-and-pinia-meta.png)
+![Integrate Pinia as your state management library for your Nuxt 3 application.](https://codybontecou.com/images/nuxt3-and-pinia-meta.png)
 
 # Nuxt 3 and Pinia
 
