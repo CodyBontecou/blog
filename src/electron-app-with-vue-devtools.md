@@ -29,8 +29,6 @@ meta:
 canonicalUrl: https://codybontecou.com/electron-app-with-vue-devtools.html
 ---
 
-![Using Vue Devtools to debug Electron application running VueJS on the frontend.](https://codybontecou.com/images/electron-app-with-vue-devtools-meta.png)
-
 # Integrating Vue Devtools into an Electron Application
 
 > Bringing the VueJS devtools into our Electron application to help debug. This post assumes you have followed along with my previous [post](https://codybontecou.com/global-state-management-in-an-electron-app.html).

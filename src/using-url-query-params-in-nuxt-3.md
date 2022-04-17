@@ -29,8 +29,6 @@ meta:
 canonicalUrl: https://codybontecou.com/using-url-query-params-in-nuxt-3.html
 ---
 
-![Use Nuxt3's useRoute function to use URL parameters to determine state.](https://codybontecou.com/images/using-url-query-params-in-nuxt-3-meta.png)
-
 # Using URL Query Params in Nuxt 3
 
 > This is a continuation of my previous [post](https://codybontecou.com/silently-update-url-nuxt-3.html) on how to set query parameters in Nuxt 3. We'll be continuing with the code written there so make sure you check it out.

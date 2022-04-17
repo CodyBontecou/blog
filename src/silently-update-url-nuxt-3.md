@@ -29,8 +29,6 @@ meta:
 canonicalUrl: https://codybontecou.com/silently-update-url-nuxt-3.html
 ---
 
-![Update your URL using vue-router so that your page does not refresh.](https://codybontecou.com/images/dynamic-search-queries-meta.png)
-
 # Silently Update URL in Nuxt 3
 
 > We often need to update a query parameter like `?search=hello` within our URL without refreshing the page. I'll quickly show you how to do that using Nuxt 3.

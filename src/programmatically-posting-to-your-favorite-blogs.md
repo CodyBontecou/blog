@@ -28,8 +28,6 @@ meta:
 canonicalUrl: https://codybontecou.com/programmatically-posting-to-your-favorite-blogs
 ---
 
-![Large hero image showing Dev, Hashnode, and Medium's logos](https://codybontecou.com/images/automate-blog-posts-hero.png)
-
 # Post to Dev, Hashnode, and Medium using their APIs
 
 > The goal of this article is to help you connect to each of these site's APIs in order to programmatically post, update, and enjoy with these services.

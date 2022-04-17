@@ -21,8 +21,6 @@ canonicalUrl: https://codybontecou.com/dopamine-fasting-with-100-days-of-code
 
 # Dopamine Fasting with #100DaysOfCode
 
-![Dopamine addict deciding its time to take a break.](https://codybontecou.com/images/dopamine-addict.png)
-
 > I'm stuck in a loop of consuming different means of entertainment and I want to alter this behavior, spending this time pursuing fulfilling goals.
 
 <HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />

@@ -19,8 +19,6 @@ meta:
 canonicalUrl: https://codybontecou.com/programmatically-tweeting-with-nodejs
 ---
 
-![Illustration of a woman sitting at her computer while writing](https://codybontecou.com/images/programmatic-tweeting.png)
-
 # Creating a Tweet With NodeJS
 
 > This post is for **day 1** of my [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode?src=hashtag_click). In this post I'll be discussing how to programmatically tweet to Twitter using NodeJS.

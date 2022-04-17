@@ -27,8 +27,6 @@ meta:
 canonicalUrl: https://codybontecou.com/global-state-management-in-an-electron-app.html
 ---
 
-![State Management in an Electron Application](https://codybontecou.com/images/global-state-management-in-an-electron-app-meta.png)
-
 # Global State Management in an Electron Application using Pinia and VueJS
 
 > Bringing the VueJS tool [Pinia](https://pinia.esm.dev/) into our Electron application to manage its internal state. This post assumes you have followed along with my previous [post](https://codybontecou.com/electron-app-with-vuejs-and-vite.html).
@@ -63,9 +61,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { createPinia } from 'pinia'
 
-createApp(App)
-  .use(createPinia())
-  .mount('#app')
+createApp(App).use(createPinia()).mount('#app')
 ```
 
 Pinia is now available throughout your Electron application where Vue is available.

@@ -26,8 +26,6 @@ meta:
 canonicalUrl: https://codybontecou.com/generate-twitter-lists-with-python.html
 ---
 
-![Generate Twitter Lists with Python](https://codybontecou.com/images/generate-twitter-lists-with-python-meta.png)
-
 # Generating Twitter Lists with Python and Tweepy
 
 <HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />

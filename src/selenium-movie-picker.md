@@ -26,8 +26,6 @@ meta:
 canonicalUrl: https://codybontecou.com/selenium-movie-picker.html
 ---
 
-![Building a Random Movie Picker Using Python and Selenium](https://codybontecou.com/images/selenium-movie-picker-meta.png)
-
 # Building a Random Movie Picker Using Python and Selenium
 
 <HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />

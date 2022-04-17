@@ -20,8 +20,6 @@ type: 'post'
 canonicalUrl: https://codybontecou.com/post-to-reddit-with-nodejs-and-typescript
 ---
 
-![Illustration of a man with a baret waving his hands with Reddit and Typescript logos above him](https://codybontecou.com/images/typescript-with-reddit-meta.png)
-
 # Create Reddit Posts with NodeJS and Typescript
 
 > This post is for **day 2** of my [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode?src=hashtag_click). In this post I'll be discussing how to programmatically post to Reddit using NodeJS and Typescript.

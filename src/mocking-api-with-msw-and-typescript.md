@@ -27,8 +27,6 @@ meta:
 canonicalUrl: https://codybontecou.com/mocking-api-with-msw-and-typescript.html
 ---
 
-![Card Image with black background and Mock Service Worker Logo with bold white text that says "Mock Service Worker Mocking Post Requests"](https://codybontecou.com/images/MSW-Meta.png)
-
 # Mocking an API request with Mock Service Worker and Typescript
 
 > Testing software is essential to the development cycle of building applications. A strong test suite gives the developer(s) a sense of freedom to organize and refactor the codebase as needed without fear of unknowingly breaking something.
