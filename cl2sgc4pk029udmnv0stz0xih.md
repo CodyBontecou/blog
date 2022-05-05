@@ -1,0 +1,89 @@
+## How to use Vuetify with Nuxt 3
+
+# How to use Vuetify with Nuxt 3
+
+> Utilize the latest versions of Vuetify and Nuxt together.
+
+
+## Installation
+
+Start by creating a Nuxt 3 project if you do not have one already.
+
+```bash
+npx nuxi init nuxt-app
+```
+
+Then run `cd nuxt-app` and run `yarn` to make sure your dependencies are installed.
+
+Now that our Nuxt 3 project is setup, we are ready to integrate Vuetify. While you are in the nuxt application's root directory, run the following command to install Vuetify 3 and it's dependency, sass.
+
+```bash
+yarn add vuetify@next sass
+```
+
+Your `package.json` should now look similar to the following:
+
+```json
+// package.json
+"devDependencies": {
+  "nuxt": "3.0.0-rc.1"
+},
+"dependencies": {
+  "sass": "^1.51.0",
+  "vuetify": "^3.0.0-beta.1"
+}
+```
+
+## Creating our Vuetify plugin
+
+We have Vuetify installed, now we need it to talk to Nuxt. We will do this by using Nuxt's [plugin](https://v3.nuxtjs.org/guide/directory-structure/plugins/) feature.
+
+Create a `plugins` folder then create a file named `vuetify.js` and put it in the newly created plugins folder.
+
+Then, within the `vuetify.js` file, paste the following code into it:
+
+```js
+// plugins/vuetify.js
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+export default defineNuxtPlugin(nuxtApp => {
+  const vuetify = createVuetify({
+    components,
+    directives,
+  })
+
+  nuxtApp.vueApp.use(vuetify)
+})
+```
+
+This is mostly documented [here](https://next.vuetifyjs.com/en/getting-started/installation/#usage) within Vuetify's explanation. The key difference is we use `nuxtApp.vueApp.use(vuetify)` rather than `app.use(vuetify)`.
+
+## Configure Nuxt 3 to use our new plugin
+
+Our last bit of configuration occurs in our `nuxt.config.ts` file. This is where we tell Nuxt how to properly find and build Vuetify's sass.
+
+```js
+// nuxt.config.ts
+import { defineNuxtConfig } from 'nuxt'
+
+// https://v3.nuxtjs.org/api/configuration/nuxt.config
+export default defineNuxtConfig({
+  css: ['vuetify/lib/styles/main.sass'],
+  build: {
+    transpile: ['vuetify'],
+  },
+  vite: {
+    define: {
+      'process.env.DEBUG': false,
+    },
+  },
+})
+```
+
+## Enjoy Vuetify alongside Nuxt 3
+
+Everything should now be working as expected and you should now be able to utilize the wide array Vuetify components within your Nuxt pages!
+
+Enjoy!
