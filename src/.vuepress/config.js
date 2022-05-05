@@ -68,6 +68,10 @@ module.exports = {
           title: 'Code Articles',
           collapsable: false,
           children: [
+            [
+              'how-to-use-vuetify-with-nuxt-3',
+              'How to use Vuetify with Nuxt 3',
+            ],
             ['nuxt3-and-pinia', 'Nuxt 3 and Pinia'],
             [
               'using-url-query-params-in-nuxt-3',
