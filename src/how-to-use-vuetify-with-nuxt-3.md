@@ -112,6 +112,46 @@ export default defineNuxtConfig({
 })
 ```
 
+## Integrate Vuetify's mdi icons
+
+It seems using `v-icon` requires additional configuration. Thank you @cbrhex for figuring this out [here](https://github.com/nuxt/framework/discussions/1183#discussioncomment-2682117).
+
+1. Install mdi using `yarn add mdi`
+2. Add the css to your `nuxt.config.ts` file.
+
+```js
+// nuxt.config.ts
+import {defineNuxtConfig} from 'nuxt'
+
+export default defineNuxtConfig({
+    css: [
+        ....
+        'mdi/css/materialdesignicons.min.css',
+        ...
+    ],
+})
+```
+
+If you've followed along this far, your `nuxt.config.ts` file should look like:
+
+```js
+// nuxt.config.ts
+import { defineNuxtConfig } from 'nuxt'
+
+// https://v3.nuxtjs.org/api/configuration/nuxt.config
+export default defineNuxtConfig({
+  css: ['vuetify/lib/styles/main.sass', 'mdi/css/materialdesignicons.min.css'],
+  build: {
+    transpile: ['vuetify'],
+  },
+  vite: {
+    define: {
+      'process.env.DEBUG': false,
+    },
+  },
+})
+```
+
 ## Enjoy Vuetify alongside Nuxt 3
 
 Everything should now be working as expected and you should now be able to utilize the wide array Vuetify components within your Nuxt pages!
