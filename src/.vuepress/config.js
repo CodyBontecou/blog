@@ -63,8 +63,8 @@ module.exports = {
     sidebar: {
       '/': [
         {
-          title: 'Code Articles',
-          collapsable: false,
+          title: 'NuxtJS',
+          collapsable: true,
           children: [
             [
               'how-to-use-vuetify-with-nuxt-3',
@@ -76,6 +76,20 @@ module.exports = {
               'Using URL Query Params in Nuxt 3',
             ],
             ['silently-update-url-nuxt-3', 'Silently Update URL in Nuxt 3'],
+          ],
+        },
+        {
+          title: 'VueJS',
+          collapsable: true,
+          children: [
+            [
+              '/convert-reactjs-component-to-vuejs',
+              'Convert ReactJS Component to VueJS',
+            ],
+            [
+              '/vuejs-emit-multiple-values-from-child-to-parent',
+              'Vuejs Emit Multiple Values from Child to Parent',
+            ],
             [
               'electron-app-with-vue-devtools',
               'Electron App with Vue Devtools',
@@ -89,18 +103,38 @@ module.exports = {
               'Building an Electron App with VueJS and Vite',
             ],
             [
-              '/generate-twitter-lists-with-python',
-              'Generate Twitter Lists with Python',
+              '/time-to-read-article-component',
+              'Building a time-to-read-article Component',
             ],
-            ['/selenium-movie-picker', 'Selenium Movie Picker'],
+            ['/vuepress-styles', 'Overriding VuePress CSS Styles'],
             [
-              '/convert-reactjs-component-to-vuejs',
-              'Convert ReactJS Component to VueJS',
+              '/tailwindcss-with-vitepress',
+              'Configuring TailwindCSS to work with Vitepress',
+            ],
+          ],
+        },
+        {
+          title: 'Electron',
+          collapsable: true,
+          children: [
+            [
+              'electron-app-with-vue-devtools',
+              'Electron App with Vue Devtools',
             ],
             [
-              '/vuejs-emit-multiple-values-from-child-to-parent',
-              'Vuejs Emit Multiple Values from Child to Parent',
+              '/global-state-management-in-an-electron-app',
+              'Global State Management in an Electron App',
             ],
+            [
+              '/electron-app-with-vuejs-and-vite',
+              'Building an Electron App with VueJS and Vite',
+            ],
+          ],
+        },
+        {
+          title: 'NodeJS',
+          collapsable: true,
+          children: [
             [
               'mocking-api-with-msw-and-typescript',
               'Mocking an API request with MSW and Typescript',
@@ -114,25 +148,34 @@ module.exports = {
               'Programmatically Tweeting with NodeJS',
             ],
             [
-              '/dopamine-fasting-with-100-days-of-code',
-              'Dopamine Fasting with #100DaysOfCode',
-            ],
-            [
               '/programmatically-posting-to-your-favorite-blogs',
               'Post to Dev, Hashnode, and Medium using their APIs',
             ],
+          ],
+        },
+        {
+          title: 'Python',
+          collapsable: true,
+          children: [
+            [
+              '/generate-twitter-lists-with-python',
+              'Generate Twitter Lists with Python',
+            ],
+            ['/selenium-movie-picker', 'Selenium Movie Picker'],
+          ],
+        },
+        {
+          title: 'Misc',
+          collapsable: true,
+          children: [
+            [
+              '/dopamine-fasting-with-100-days-of-code',
+              'Dopamine Fasting with #100DaysOfCode',
+            ],
+
             [
               '/generating-a-code-snippet-with-carbon',
               'Generating a Code Snippet with Carbon',
-            ],
-            [
-              '/time-to-read-article-component',
-              'Building a time-to-read-article Component',
-            ],
-            ['/vuepress-styles', 'Overriding VuePress CSS Styles'],
-            [
-              '/tailwindcss-with-vitepress',
-              'Configuring TailwindCSS to work with Vitepress',
             ],
             [
               '/marketing/automate-with-zapier',
