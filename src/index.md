@@ -51,7 +51,7 @@ canonicalUrl: https://codybontecou.com/
         </svg>
       </a>
       <a href="https://github.com/codybontecou" target="_blank" class="h-6 w-6">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png" alt="Github's Octicon logo" class="h-6 w-6">
+        <img src="https://codybontecou.com/images/github_logo.png" alt="Github's Octicon logo" class="h-6 w-6">
       </a>
       <a href="https://www.youtube.com/channel/UCaynjLdmzjkwcsmPN-68iHA" target="_blank" class="h-6 w-6">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" class="h-6 w-6"><path d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 169.663l-126.06 60.123c-3.359 1.602-7.239-.847-7.239-4.568V168.607c0-3.774 3.982-6.22 7.348-4.514l126.06 63.881c3.748 1.899 3.683 7.274-.109 9.082z" fill="#f61c0d"/></svg>

@@ -1,9 +1,7 @@
-const { description } = require('../../package')
 require('dotenv').config()
 
 module.exports = {
   title: 'Cody Bontecou',
-  description: description,
   head: [
     [
       'link',
