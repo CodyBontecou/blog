@@ -56,11 +56,19 @@ module.exports = {
         link: '/',
       },
       {
+        text: 'Projects',
+        link: '/projects/',
+      },
+      {
         text: 'Contact',
         link: '/contact',
       },
     ],
     sidebar: {
+      '/projects/': [
+        ['', 'Projects'],
+        ['e-sports-ai-app', 'E-Sports AI App'],
+      ],
       '/': [
         {
           title: 'NuxtJS',
