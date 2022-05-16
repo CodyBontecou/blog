@@ -20,8 +20,6 @@ I'm hoping to have the following features prior to launching:
 
 > Sound is played at a set interval to remind you to look at a certain area on the screen.
 
-<Sound></Sound>
-
 While browsing the depths of Reddit, I came upon [this](https://www.youtube.com/watch?v=lYmgW4UkyZU) video. It's simply a black screen that plays a sound at a certain interval. The idea is that every time the sound is played, the user does something.
 
 In League of Legends there is a minimap at the bottom edge of your screen. It provides such valuable information, professional players train to look at it every few seconds.
