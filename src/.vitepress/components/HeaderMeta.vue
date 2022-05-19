@@ -37,9 +37,7 @@ export default {
     },
   },
   mounted() {
-    this.text = document.getElementsByClassName(
-      'theme-default-content content__default'
-    )[0].innerText
+    this.text = document.getElementsByClassName('content')[0].innerText // Gets all of the text in the content div
   },
 }
 </script>

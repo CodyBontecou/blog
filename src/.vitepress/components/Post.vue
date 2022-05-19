@@ -1,39 +1,27 @@
 <template>
-  <Vssue title="title" />
+  <!-- <Vssue title="title" :options="options"></Vssue> -->
+  <h1>{{ id }}</h1>
 </template>
 
 <script>
-export default {
-  props: {
-    title: {
-      type: [String, Function],
-      required: false,
-    },
-    issueId: {
-      type: [String, Number],
-      required: false,
-    },
-    options: {
-      type: Object,
-      required: false,
-    },
-  },
+import { VssueComponent } from 'vssue'
+import GithubV3 from '@vssue/api-github-v3'
 
-  computed: {
-    // vssueProps() {
-    //   return Object.assign({
-    //     title: this.$page.title,
-    //     options: {
-    //       // set the platform api
-    //       api: GithubV3,
-    //       // here set the default options for your OAuth App
-    //       owner: 'CodyBontecou',
-    //       repo: 'blog',
-    //       clientId: process.env.GITHUB_CLIENT_ID,
-    //       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    //     },
-    //   })
-    // },
+export default {
+  data() {
+    return {
+      title: 'Vssue Demo',
+      options: {
+        api: GithubV3,
+        owner: 'CodyBontecou',
+        repo: 'blog',
+        clientId: process.env.GITHUB_CLIENT_ID,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      },
+    }
+  },
+  components: {
+    Vssue: VssueComponent,
   },
 }
 </script>
