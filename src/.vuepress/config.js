@@ -56,16 +56,28 @@ module.exports = {
         link: '/',
       },
       {
+        text: 'Projects',
+        link: '/projects/',
+      },
+      {
         text: 'Contact',
         link: '/contact',
       },
     ],
     sidebar: {
+      '/projects/': [
+        ['', 'Projects'],
+        ['e-sports-ai-app', 'E-Sports AI App'],
+      ],
       '/': [
         {
           title: 'NuxtJS',
           collapsable: true,
           children: [
+            [
+              'integrating-nuxt-bridge-with-nuxt2',
+              'Integrating Nuxt-Bridge into a Nuxt 2 Project',
+            ],
             [
               'how-to-use-vuetify-with-nuxt-3',
               'How to use Vuetify with Nuxt 3',
