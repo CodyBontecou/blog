@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/electron-app-with-vuejs-and-vite.html
 
 > Let's combine the power of Electron with VueJS and Vite to create incredible desktop applications using nothing but Javascript.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## TL: DR
 
 Clone [this](https://github.com/Deluze/electron-vue-template) repo and use it as a starter template.

@@ -27,8 +27,6 @@ canonicalUrl: https://codybontecou.com/dopamine-fasting-with-100-days-of-code
 
 > I'm stuck in a loop of consuming different means of entertainment and I want to alter this behavior, spending this time pursuing fulfilling goals.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 The dopamine fast is there to place strict rules on certain **activities I believe are not making my life better**. As I consume less artificial stimulation, I believe I will get bored and find other, healthier activities to spend my time on.
 
 Rather than video games and movies every day, I will be coding, spending time with loved ones, and going on adventures.

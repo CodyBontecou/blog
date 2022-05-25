@@ -24,8 +24,6 @@ canonicalUrl: https://codybontecou.com/post-to-reddit-with-nodejs-and-typescript
 
 > This post is for **day 2** of my [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode?src=hashtag_click). In this post I'll be discussing how to programmatically post to Reddit using NodeJS and Typescript.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Getting Authenticated
 
 Getting an authentication token for Reddit is complicated.

@@ -31,8 +31,6 @@ canonicalUrl: https://codybontecou.com/integrating-nuxt-bridge-with-nuxt2.html
 
 # Integrating Nuxt Bridge into a Nuxt 2 Project
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Motivation
 
 Nuxt-Bridge brings (bridges) a lot of the features Nuxt 3 has to offer to Nuxt 2 projects.

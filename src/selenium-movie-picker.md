@@ -28,8 +28,6 @@ canonicalUrl: https://codybontecou.com/selenium-movie-picker.html
 
 # Building a Random Movie Picker Using Python and Selenium
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 My wife (Dany) has been reviewing movies every week and posting them on her [Youtube Channel](https://www.youtube.com/channel/UCcLR5qe7dzXR-5UB_nyK_2w). She recently asked me if it was possible to scrape [this list of directors](https://www.elacervo.com/directores)and return a random movie they directed in order to help her decide on which movie to review next.
 
 Sounds like a job for some _good-ol-web-[selenium](https://selenium-python.readthedocs.io/)_.

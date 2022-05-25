@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/convert-reactjs-component-to-vuejs.html
 
 > In this tutorial, we're going to rewrite a Timeline component built in ReactJS by [Florin Pop](https://www.youtube.com/watch?v=tcUVUBlyXX8) to VueJS. You can see the component in action [here](https://www.florin-pop.com/timeline/).
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Scaffold your VueJS app using [Vite](https://vitejs.dev/)
 
 I try to use Vite whenever given the opportunity.

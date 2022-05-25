@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/how-to-use-vuetify-with-nuxt-3.html
 
 > Utilize the latest versions of Vuetify and Nuxt together.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Installation
 
 Start by creating a Nuxt 3 project if you do not have one already.
