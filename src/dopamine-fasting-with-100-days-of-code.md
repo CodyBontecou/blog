@@ -1,7 +1,11 @@
 ---
 type: 'post'
 title: 'Dopamine Fasting with 100DaysOfCode'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author:
+  {
+    'name': 'Cody Bontecou',
+    'image': 'https://codybontecou.com/assets/img/cody.64b57256.jpg',
+  }
 date: 2020-07-16
 description: I'm going to spend the next 100 days taking a dopamine fast while spending the saved time writing code and sharing it with the community.
 meta:
