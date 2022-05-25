@@ -23,8 +23,6 @@ canonicalUrl: https://codybontecou.com/programmatically-tweeting-with-nodejs
 
 > This post is for **day 1** of my [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode?src=hashtag_click). In this post I'll be discussing how to programmatically tweet to Twitter using NodeJS.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Getting Authenticated
 
 [Get a Twitter Developer Account](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api)

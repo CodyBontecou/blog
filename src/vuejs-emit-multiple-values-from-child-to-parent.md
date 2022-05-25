@@ -31,8 +31,6 @@ canonicalUrl: https://codybontecou.com/vuejs-emit-multiple-values-from-child-to-
 
 # Emit Multiple Values from Child to Parent in a VueJS Custom Event
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 > VueJS custom events are a great way to communicate between child and parent components.
 
 I was recently was in need of a way to pass more than one value from child to parent within a single custom event. The [VueJS Docs](https://vuejs.org/v2/guide/components-custom-events.html) do not provide any example showcasing this and instead I needed to refer to some comments within a Stack Overflow thread.

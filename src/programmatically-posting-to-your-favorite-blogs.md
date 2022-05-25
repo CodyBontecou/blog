@@ -32,8 +32,6 @@ canonicalUrl: https://codybontecou.com/programmatically-posting-to-your-favorite
 
 > The goal of this article is to help you connect to each of these site's APIs in order to programmatically post, update, and enjoy with these services.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 Writing a single markdown file for my personal blog and copy and pasting it into these other blogging platforms isn't too challenging... until I need to edit something. A simple type change requires me to load four different sites, navigating through their wildly different UI, in order to make simple changes.
 
 > This gets old fast.

@@ -31,8 +31,6 @@ canonicalUrl: https://codybontecou.com/mocking-api-with-msw-and-typescript.html
 
 > Testing software is essential to the development cycle of building applications. A strong test suite gives the developer(s) a sense of freedom to organize and refactor the codebase as needed without fear of unknowingly breaking something.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 I'm using [Blogflow.io](https://github.com/CodyBontecou/blogflow.io/) as a means to learn Typescript while simultaneously building a tool to help automate distributing blog posts throughout the web.
 
 A large portion of this application requires integrating 3rd party APIs to communicate with services such as Medium, Hashnode, Reddit, etc.
