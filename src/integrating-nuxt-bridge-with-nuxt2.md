@@ -95,7 +95,7 @@ The migration documentation goes deeper into special cases. If what I mentioned 
 
 ## Conclusion
 
-I have to admit that the modules made the migration painful and make me question using them in the future. This experience has taught me to be more mindful of what dependencies I use, and how these dependencies are brought in.
+I have to admit that the modules made the migration painful and make me question using them in the future. This experience has taught me to be more mindful of what dependencies I use, and how these dependencies are implemented.
 
 While integrating already made Nuxt modules is easy, it reduces flexibility and forces reliance.
 
