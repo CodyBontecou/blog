@@ -55,10 +55,10 @@ module.exports = {
         text: 'Home',
         link: '/',
       },
-      {
-        text: 'Projects',
-        link: '/projects/',
-      },
+      // {
+      //   text: 'Projects',
+      //   link: '/projects/',
+      // },
       {
         text: 'Contact',
         link: '/contact',
