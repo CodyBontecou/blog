@@ -13,7 +13,7 @@ const sidebarGroupTitles = files
     const f = file.substring(4) // Deletes src/ from the beginning of file paths
     const paths = f.split('/')
 
-    if (paths.length > 1) {
+    if (paths.length > 1 && paths[0] !== 'projects') {
       return { title: capitalizeFirstLetter(paths[0]), filePath: f }
     }
   })
@@ -22,23 +22,6 @@ const sidebarGroupTitles = files
       return file
     }
   })
-
-// const generatedSidebar = [
-//   {
-//     text: 'Daily Development',
-//     collapsible: true,
-//     items: files
-//       .map(file => {
-//         const { data } = matter.read(file)
-
-//         if (file.includes('index')) {
-//           return {}
-//         }
-//         return { text: data.title, link: `/${data.slug}` }
-//       })
-//       .reverse(),
-//   },
-// ]
 
 const generatedSidebar = sidebarGroupTitles.reduce(
   (acc, { title, filePath }) => {
@@ -55,8 +38,6 @@ const generatedSidebar = sidebarGroupTitles.reduce(
   },
   []
 )
-
-console.log(generatedSidebar)
 
 module.exports = {
   title: 'Cody Bontecou',
@@ -125,7 +106,7 @@ module.exports = {
         link: '/contact',
       },
     ],
-    sidebar: generatedSidebar,
+    sidebar: generatedSidebar.reverse(),
   },
 
   // plugins: [
