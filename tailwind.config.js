@@ -1,11 +1,8 @@
 module.exports = {
-  purge: [
-    './src/**/*.html',
-    './src/**/*.vue',
-    './src/**/*.jsx',
-    './src/**/*.md',
-  ],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/.vitepress/**/*.{js,ts,vue}', './src/**/*.md'],
+  options: {
+    safelist: ['html', 'body'],
+  },
   theme: {
     extend: {
       colors: {
