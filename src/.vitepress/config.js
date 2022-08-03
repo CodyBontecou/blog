@@ -1,5 +1,63 @@
 require('dotenv').config()
 
+import fg from 'fast-glob'
+import matter from 'gray-matter'
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+const files = fg.sync(['**/*.md', '!**/node_modules', '!README.md'])
+const sidebarGroupTitles = files
+  .map(file => {
+    const f = file.substring(4) // Deletes src/ from the beginning of file paths
+    const paths = f.split('/')
+
+    if (paths.length > 1) {
+      return { title: capitalizeFirstLetter(paths[0]), filePath: f }
+    }
+  })
+  .filter(file => {
+    if (file !== undefined) {
+      return file
+    }
+  })
+
+// const generatedSidebar = [
+//   {
+//     text: 'Daily Development',
+//     collapsible: true,
+//     items: files
+//       .map(file => {
+//         const { data } = matter.read(file)
+
+//         if (file.includes('index')) {
+//           return {}
+//         }
+//         return { text: data.title, link: `/${data.slug}` }
+//       })
+//       .reverse(),
+//   },
+// ]
+
+const generatedSidebar = sidebarGroupTitles.reduce(
+  (acc, { title, filePath }) => {
+    const getItem = () => {
+      const { data } = matter.read('src/' + filePath)
+      return { text: data.title, link: filePath }
+    }
+    if (!acc.some(el => el.text === title)) {
+      acc.push({ text: title, collapsible: true, items: [getItem()] })
+    } else {
+      acc[acc.indexOf(acc.find(el => el.text === title))].items.push(getItem())
+    }
+    return acc
+  },
+  []
+)
+
+console.log(generatedSidebar)
+
 module.exports = {
   title: 'Cody Bontecou',
   head: [
@@ -48,8 +106,11 @@ module.exports = {
     smoothScrolling: true,
     docsDir: '',
     logo: '/images/navLogo.png',
-    editLinkText: '',
     lastUpdated: 'Last Updated',
+    editLink: {
+      pattern: 'https://github.com/codybontecou/blog/edit/main/src/:path',
+      text: 'Edit this page on GitHub',
+    },
     nav: [
       {
         text: 'Home',
@@ -64,137 +125,7 @@ module.exports = {
         link: '/contact',
       },
     ],
-    sidebar: {
-      '/projects': [
-        { link: '/projects', text: 'Projects' },
-        { link: '/projects/e-sports-ai-app', text: 'E-Sports AI App' },
-      ],
-      '/': [
-        {
-          text: 'NuxtJS',
-          collapsable: true,
-          children: [
-            {
-              link: 'how-to-use-vuetify-with-nuxt-3',
-              text: 'How to use Vuetify with Nuxt 3',
-            },
-            { link: 'nuxt3-and-pinia', text: 'Nuxt 3 and Pinia' },
-            {
-              link: 'using-url-query-params-in-nuxt-3',
-              text: 'Using URL Query Params in Nuxt 3',
-            },
-            {
-              link: 'silently-update-url-nuxt-3',
-              text: 'Silently Update URL in Nuxt 3',
-            },
-          ],
-        },
-        {
-          text: 'VueJS',
-          collapsable: true,
-          children: [
-            {
-              link: 'convert-reactjs-component-to-vuejs',
-              text: 'Convert ReactJS Component to VueJS',
-            },
-            {
-              link: 'vuejs-emit-multiple-values-from-child-to-parent',
-              text: 'Vuejs Emit Multiple Values from Child to Parent',
-            },
-            {
-              link: 'electron-app-with-vue-devtools',
-              text: 'Electron App with Vue Devtools',
-            },
-            {
-              link: 'global-state-management-in-an-electron-app',
-              text: 'Global State Management in an Electron App',
-            },
-            {
-              link: 'electron-app-with-vuejs-and-vite',
-              text: 'Building an Electron App with VueJS and Vite',
-            },
-            {
-              link: '/time-to-read-article-component',
-              text: 'Building a time-to-read-article Component',
-            },
-            { link: 'vuepress-styles', text: 'Overriding VuePress CSS Styles' },
-            {
-              link: 'tailwindcss-with-vitepress',
-              text: 'Configuring TailwindCSS to work with Vitepress',
-            },
-          ],
-        },
-        {
-          text: 'Electron',
-          collapsable: true,
-          children: [
-            {
-              link: 'electron-app-with-vue-devtools',
-              text: 'Electron App with Vue Devtools',
-            },
-            {
-              link: 'global-state-management-in-an-electron-app',
-              text: 'Global State Management in an Electron App',
-            },
-            {
-              link: 'electron-app-with-vuejs-and-vite',
-              text: 'Building an Electron App with VueJS and Vite',
-            },
-          ],
-        },
-        {
-          text: 'NodeJS',
-          collapsable: true,
-          children: [
-            {
-              link: 'mocking-api-with-msw-and-typescript',
-              text: 'Mocking an API request with MSW and Typescript',
-            },
-            {
-              link: 'post-to-reddit-with-nodejs-and-typescript',
-              text: 'Post to Reddit with NodeJS and Typescript',
-            },
-            {
-              link: 'programmatically-tweeting-with-nodejs',
-              text: 'Programmatically Tweeting with NodeJS',
-            },
-            {
-              link: 'programmatically-posting-to-your-favorite-blogs',
-              text: 'Post to Dev, Hashnode, and Medium using their APIs',
-            },
-          ],
-        },
-        {
-          text: 'Python',
-          collapsable: true,
-          children: [
-            {
-              link: 'generate-twitter-lists-with-python',
-              text: 'Generate Twitter Lists with Python',
-            },
-            { link: 'selenium-movie-picker', text: 'Selenium Movie Picker' },
-          ],
-        },
-        {
-          text: 'Misc',
-          collapsable: true,
-          children: [
-            {
-              link: 'dopamine-fasting-with-100-days-of-code',
-              text: 'Dopamine Fasting with #100DaysOfCode',
-            },
-            {
-              link: 'generating-a-code-snippet-with-carbon',
-              text: 'Generating a Code Snippet with Carbon',
-            },
-            {
-              link: 'marketing/automate-with-zapier',
-              text: 'Automate Twitter Tweets with Zapier',
-            },
-          ],
-        },
-      ],
-    },
+    sidebar: generatedSidebar,
   },
 
   // plugins: [
