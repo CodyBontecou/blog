@@ -53,7 +53,7 @@ npm init vite@latest
 
 ### This will generate a project that has the following directory structure:
 
-<img src="./assets/images/timeline-directory-structure.png" alt="ViteJS generated directory structure" class="mt-6 rounded shadow-lg w-1/2" />
+<img src="../assets/images/timeline-directory-structure.png" alt="ViteJS generated directory structure" class="mt-6 rounded shadow-lg w-1/2" />
 
 ## Building the VueJS Component
 
