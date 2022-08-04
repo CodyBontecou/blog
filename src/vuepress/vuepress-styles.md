@@ -29,8 +29,6 @@ canonicalUrl: https://codybontecou.com/vuepress-styles.html
 
 > Every post I found about updating the default VuePress theme was outdated. Here's a quick post on how to do it.
 
-<HeaderMeta class="mt-8" :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Reoccurring Styles with Variables
 
 1. Create a `.vuepress/styles/palette.styl` file.
@@ -98,4 +96,4 @@ ul {
 ```
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

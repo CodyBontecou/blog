@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/nuxt3-and-pinia.html
 
 > Integrate Pinia as your state management library for your Nuxt 3 application.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Vuex -> Pinia
 
 Evan You, the creator of Vue himself, has stated "Pinia is de facto Vuex 5! At this point it’s really a naming/branding issue."
@@ -120,4 +118,4 @@ export default defineComponent({
 ```
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

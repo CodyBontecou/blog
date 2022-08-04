@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/electron-app-with-vue-devtools.html
 
 > Bringing the VueJS devtools into our Electron application to help debug. This post assumes you have followed along with my previous [post](https://codybontecou.com/global-state-management-in-an-electron-app.html).
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Installation
 
 Vue Devtools provides a non-browser specific version of their devtools that they call [standalone](https://devtools.vuejs.org/guide/installation.html#standalone).
@@ -118,4 +116,4 @@ You should be all setup now. If you need additional help, check out their [docum
 Hope you enjoyed!
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

@@ -135,4 +135,4 @@ According to the responses within the issue, there are two ways of bringing in T
 ```
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

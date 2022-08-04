@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/using-url-query-params-in-nuxt-3.html
 
 > This is a continuation of my previous [post](https://codybontecou.com/silently-update-url-nuxt-3.html) on how to set query parameters in Nuxt 3. We'll be continuing with the code written there so make sure you check it out.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## The problem we're solving
 
 We left off with our URL looking like `localhost:3000/test?streamer=faker`. This is nice but contained a few cases that are less than ideal.
@@ -99,4 +97,4 @@ If it does, our `twitchStreamer` will contain the parameter's value. Otherwise, 
 ```
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

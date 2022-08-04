@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import VueUtterances from 'vue-utterances'
 import SimpleNewsletter from '../components/SimpleNewsletter.vue'
+import ZapierLogo from '../components/ZapierLogo.vue'
 import Popup from '../components/Popup.vue'
 import { createPinia } from 'pinia'
 import { useNewsletterStore } from './store/NewsletterStore'
@@ -15,6 +16,7 @@ export default {
     app.component('Post', VueUtterances)
     app.component('SimpleNewsletter', SimpleNewsletter)
     app.component('Popup', Popup)
+    app.component('ZapierLogo', ZapierLogo)
 
     const store = useNewsletterStore()
   },

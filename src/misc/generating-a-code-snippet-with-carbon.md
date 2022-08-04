@@ -28,8 +28,6 @@ canonicalUrl: https://codybontecou.com/generating-a-code-snippet-with-carbon.htm
 
 > One of the first steps to reaching a wider audience as a developer blog is providing interesting, visual content. [Carbon.now.sh](https://carbon.now.sh) does a great job at it.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 Carbon is a simple, single-page application built to provide you with an online IDE with the sole purpose of generating code snippets.
 
 <figure>
@@ -57,4 +55,4 @@ It gives you a surprising amount of control over the look and feel of your code 
 Hope this helps you along your Developer Blogging journey. I've found it to be a very fun tool and I plan on using it for all of my code snippets.
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

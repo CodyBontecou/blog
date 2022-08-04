@@ -31,8 +31,6 @@ canonicalUrl: https://codybontecou.com/global-state-management-in-an-electron-ap
 
 > Bringing the VueJS tool [Pinia](https://pinia.esm.dev/) into our Electron application to manage its internal state. This post assumes you have followed along with my previous [post](https://codybontecou.com/electron-app-with-vuejs-and-vite.html).
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## What is a Store?
 
 A Store is an entity that manages the global state of your application. It allows you to read and write to, regardless of the component you are working within.
@@ -175,4 +173,4 @@ Passing `acceptHMRUpdate` your store (`useMainStore` in my case), it gives us HM
 Hope you enjoyed!
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->
