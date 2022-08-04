@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/electron-app-with-vuejs-and-vite.html
 
 > Let's combine the power of Electron with VueJS and Vite to create incredible desktop applications using nothing but Javascript.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## TL: DR
 
 Clone [this](https://github.com/Deluze/electron-vue-template) repo and use it as a starter template.
@@ -77,4 +75,4 @@ I've been using Electron these past few weeks on a personal app that I plan to r
 I'll be integrating a state-management system soon - either [Vuex](https://vuex.vuejs.org/) or [Pinia](https://github.com/posva/pinia). I'm curious to see what this process looks like within an Electron app utilizing Vue, but I'll try my best to write up a blog post as I go through the process.
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

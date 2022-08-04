@@ -34,8 +34,6 @@ canonicalUrl: https://codybontecou.com/how-to-use-vuetify-with-nuxt-3.html
 
 > Utilize the latest versions of Vuetify and Nuxt together.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Installation
 
 Start by creating a Nuxt 3 project if you do not have one already.
@@ -161,5 +159,6 @@ Enjoy!
 
 Here's the [repo](https://github.com/CodyBontecou/nuxt3-and-vuetify) if you'd like to see a working project.
 
+<Popup />
 <SimpleNewsletter />
-<Post repo="codybontecou/blog" issue-term="https://github.com/CodyBontecou/blog/issues/24" theme="github-dark" />
+<!-- <Post repo="CodyBontecou/blog" issue-term="https://github.com/CodyBontecou/blog/issues/24" theme="github-dark" /> -->

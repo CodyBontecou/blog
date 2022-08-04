@@ -3,6 +3,8 @@ require('dotenv').config()
 import fg from 'fast-glob'
 import matter from 'gray-matter'
 
+const ignoreList = ['projects', 'store']
+
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
@@ -13,7 +15,7 @@ const sidebarGroupTitles = files
     const f = file.substring(4) // Deletes src/ from the beginning of file paths
     const paths = f.split('/')
 
-    if (paths.length > 1 && paths[0] !== 'projects') {
+    if (paths.length > 1 && !ignoreList.includes(paths[0])) {
       return { title: capitalizeFirstLetter(paths[0]), filePath: f }
     }
   })
@@ -76,9 +78,7 @@ module.exports = {
     [
       'script',
       {},
-      [
-        "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-3NM0E524EK');",
-      ],
+      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-3NM0E524EK');",
     ],
   ],
   themeConfig: {
@@ -108,38 +108,4 @@ module.exports = {
     ],
     sidebar: generatedSidebar.reverse(),
   },
-
-  // plugins: [
-  //   '@vuepress/plugin-back-to-top',
-  //   '@vuepress/plugin-medium-zoom',
-  //   [
-  //     '@vuepress/blog',
-  //     {
-  //       comment: {
-  //         service: 'vssue',
-  //         owner: 'CodyBontecou',
-  //         repo: 'blog',
-  //         // The clientId & clientSecret introduced in OAuth2 spec.
-  //         clientId: process.env.GITHUB_CLIENT_ID,
-  //         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  //       },
-  //       sitemap: {
-  //         hostname: 'https://codybontecou.com',
-  //       },
-  //       feed: {
-  //         canonical_base: 'https://codybontecou.com',
-  //       },
-  //       newsletter: {
-  //         endpoint:
-  //           'https://codybontecou.us6.list-manage.com/subscribe/post?u=859d7d456e33a2afd508093ec&amp;id=70832a6daf',
-  //       },
-  //     },
-  //   ],
-  // ],
-  // postcss: {
-  //   plugins: [
-  //     require('tailwindcss')('./tailwind.config.js'),
-  //     require('autoprefixer'),
-  //   ],
-  // },
 }

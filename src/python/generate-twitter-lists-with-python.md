@@ -28,8 +28,6 @@ canonicalUrl: https://codybontecou.com/generate-twitter-lists-with-python.html
 
 # Generating Twitter Lists with Python and Tweepy
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 > The finished project can be seen [here](https://github.com/CodyBontecou/Generating-Twitter-Lists-with-Python/blob/main/tweepy_lists/app.py)
 
 [Paul Graham](https://twitter.com/paulg) is an influential man in the tech and startup space.
@@ -153,4 +151,4 @@ Twitter rate limits just about all of their endpoints. [Here](https://developer.
 Thank you for reading! I hope you enjoyed it.
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

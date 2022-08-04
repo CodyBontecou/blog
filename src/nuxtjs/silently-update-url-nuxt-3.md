@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/silently-update-url-nuxt-3.html
 
 > We often need to update a query parameter like `?search=hello` within our URL without refreshing the page. I'll quickly show you how to do that using Nuxt 3.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Collecting User Input
 
 For this tutorial, I'll be using a simple `<input>` field with `v-model` to gather the query parameter.
@@ -134,4 +132,4 @@ There's a bit more to this topic but I decided to write a separate article [here
 ![Silently Update URL in Nuxt 3](https://codybontecou.com/images/update-url.gif)
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

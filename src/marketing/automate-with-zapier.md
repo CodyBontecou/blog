@@ -21,8 +21,6 @@ canonicalUrl: https://codybontecou.com/automate-with-zapier.html
   </div>
 </div>
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 Of all of the no-code solutions I've tried <a class="text-black font-medium" href='https://zapier.com/'>Zapier</a> has been the most powerful, intuitive tools to work with.
 
 This article will show you how within a few clicks, you can create a "zap" or system of events that will automatically generate data-enriched messages that will be posted on Twitter whenever you upload a Youtube video.

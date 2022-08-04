@@ -23,8 +23,6 @@ canonicalUrl: https://codybontecou.com/programmatically-tweeting-with-nodejs
 
 > This post is for **day 1** of my [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode?src=hashtag_click). In this post I'll be discussing how to programmatically tweet to Twitter using NodeJS.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Getting Authenticated
 
 [Get a Twitter Developer Account](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api)
@@ -115,4 +113,4 @@ Now type `node index.js` into your terminal and press enter. This will generate 
 I hope this article was helpful, let me know if you have any questions, comments, or suggestions on Twitter [@codybontecou](https://twitter.com/CodyBontecou)
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

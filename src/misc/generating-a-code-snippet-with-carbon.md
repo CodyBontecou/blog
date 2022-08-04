@@ -28,8 +28,6 @@ canonicalUrl: https://codybontecou.com/generating-a-code-snippet-with-carbon.htm
 
 > One of the first steps to reaching a wider audience as a developer blog is providing interesting, visual content. [Carbon.now.sh](https://carbon.now.sh) does a great job at it.
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 Carbon is a simple, single-page application built to provide you with an online IDE with the sole purpose of generating code snippets.
 
 <figure>
@@ -50,11 +48,11 @@ It gives you a surprising amount of control over the look and feel of your code 
 1. The line number and hidden character control
 
 <figure class="flex items-center">
-  <img src="images/carbon-features.png" alt="Screenshot of the controls Carbon offers to adjust IDE window settings" class="w-1/2 rounded shadow-lg" />
+  <img src="https://codybontecou.com/images/carbon-features.png" alt="Screenshot of the controls Carbon offers to adjust IDE window settings" class="w-1/2 rounded shadow-lg" />
   <figcaption class="mt-2 text-center text-gray-400">Screenshot of the controls Carbon offers to adjust IDE window settings</figcaption>
 </figure>
 
 Hope this helps you along your Developer Blogging journey. I've found it to be a very fun tool and I plan on using it for all of my code snippets.
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->

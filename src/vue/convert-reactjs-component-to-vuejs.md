@@ -33,8 +33,6 @@ canonicalUrl: https://codybontecou.com/convert-reactjs-component-to-vuejs.html
 
 > In this tutorial, we're going to rewrite a Timeline component built in ReactJS by [Florin Pop](https://www.youtube.com/watch?v=tcUVUBlyXX8) to VueJS. You can see the component in action [here](https://www.florin-pop.com/timeline/).
 
-<HeaderMeta :author=$frontmatter.author :date=$frontmatter.date />
-
 ## Scaffold your VueJS app using [Vite](https://vitejs.dev/)
 
 I try to use Vite whenever given the opportunity.
@@ -53,7 +51,7 @@ npm init vite@latest
 
 ### This will generate a project that has the following directory structure:
 
-<img src="./assets/images/timeline-directory-structure.png" alt="ViteJS generated directory structure" class="mt-6 rounded shadow-lg w-1/2" />
+<img src="../assets/images/timeline-directory-structure.png" alt="ViteJS generated directory structure" class="mt-6 rounded shadow-lg w-1/2" />
 
 ## Building the VueJS Component
 
@@ -461,4 +459,4 @@ footer a {
 - [ReactJS Codepen](https://codepen.io/FlorinPop17/pen/GLEPZy)
 
 <SimpleNewsletter />
-<Post />
+<!-- <Post /> -->
