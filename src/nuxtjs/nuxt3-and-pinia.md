@@ -118,4 +118,4 @@ export default defineComponent({
 ```
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" issue-term="[Vssue]Nuxt 3 and Pinia" theme="github-dark" />

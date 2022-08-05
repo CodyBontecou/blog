@@ -1,4 +1,5 @@
 <template>
+  <Popup />
   <form class="newsletter" @submit.prevent="onSubmit">
     <slot :slotProps="slotProps">
       <div class="newsletter__wrap">
