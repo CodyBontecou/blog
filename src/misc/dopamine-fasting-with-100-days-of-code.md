@@ -108,4 +108,4 @@ Join me in this journey,
 **Cody Bontecou**
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" issue-term="[Vssue]Dopamine Fasting with 100DaysOfCode" theme="github-dark" />

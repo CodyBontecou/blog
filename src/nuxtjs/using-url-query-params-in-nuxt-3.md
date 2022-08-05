@@ -97,4 +97,4 @@ If it does, our `twitchStreamer` will contain the parameter's value. Otherwise, 
 ```
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />

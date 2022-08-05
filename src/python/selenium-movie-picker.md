@@ -198,4 +198,4 @@ print(random.choice(data))
 I hope this article was helpful!
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />

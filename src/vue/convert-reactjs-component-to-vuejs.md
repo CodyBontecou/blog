@@ -459,4 +459,4 @@ footer a {
 - [ReactJS Codepen](https://codepen.io/FlorinPop17/pen/GLEPZy)
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />

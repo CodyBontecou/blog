@@ -173,4 +173,4 @@ Passing `acceptHMRUpdate` your store (`useMainStore` in my case), it gives us HM
 Hope you enjoyed!
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />

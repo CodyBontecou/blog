@@ -132,4 +132,4 @@ There's a bit more to this topic but I decided to write a separate article [here
 ![Silently Update URL in Nuxt 3](https://codybontecou.com/images/update-url.gif)
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" issue-term="[Vssue]Silently Update URL in Nuxt 3" theme="github-dark" />
