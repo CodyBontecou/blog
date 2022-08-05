@@ -75,9 +75,6 @@ canonicalUrl: https://codybontecou.com/
 </div>
 
 <style>
-.aside {
-  display: none !important;
-}
 
 #github-icon {
   filter: invert(0%) !important;

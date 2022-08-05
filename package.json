@@ -10,7 +10,8 @@
   "repository": "https://github.com/codybontecou/blog/blog",
   "scripts": {
     "dev": "vitepress dev src",
-    "build": "vitepress build src"
+    "build": "vitepress build src",
+    "serve": "vitepress serve src --port 8080"
   },
   "license": "MIT",
   "devDependencies": {
