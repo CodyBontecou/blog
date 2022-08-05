@@ -159,6 +159,5 @@ Enjoy!
 
 Here's the [repo](https://github.com/CodyBontecou/nuxt3-and-vuetify) if you'd like to see a working project.
 
-<Popup />
 <SimpleNewsletter />
 <Post repo="CodyBontecou/blog" issue-term="[Vssue]How to use Vuetify with Nuxt 3" theme="github-dark" />
