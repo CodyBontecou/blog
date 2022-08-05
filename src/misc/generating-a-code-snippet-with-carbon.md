@@ -24,7 +24,7 @@ meta:
 canonicalUrl: https://codybontecou.com/generating-a-code-snippet-with-carbon.html
 ---
 
-<h1 class="mt-24 text-4xl font-semibold">Dev Blogging 101 - Generating a Code Snippet with Carbon</h1>
+<h1 class="text-4xl font-semibold">Dev Blogging 101 - Generating a Code Snippet with Carbon</h1>
 
 > One of the first steps to reaching a wider audience as a developer blog is providing interesting, visual content. [Carbon.now.sh](https://carbon.now.sh) does a great job at it.
 
