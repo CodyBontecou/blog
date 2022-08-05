@@ -241,4 +241,4 @@ Good luck!
 Let me know what you think of this article through Twitter [@codybontecou](https://twitter.com/CodyBontecou)
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" issue-term="[Vssue]Post to Dev, Hashnode, and Medium using their APIs" theme="github-dark" />

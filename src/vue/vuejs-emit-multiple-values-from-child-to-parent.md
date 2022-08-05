@@ -73,4 +73,4 @@ It took me a little while to find the solution to this problem, so I figured it 
 I hope it helped!
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" issue-term="[Vssue]VueJS Custom Event - Emit Multiple Values" theme="github-dark" />

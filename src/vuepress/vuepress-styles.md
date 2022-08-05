@@ -96,4 +96,4 @@ ul {
 ```
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />

@@ -116,4 +116,4 @@ You should be all setup now. If you need additional help, check out their [docum
 Hope you enjoyed!
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />

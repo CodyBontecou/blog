@@ -188,4 +188,4 @@ subreddits.forEach(subreddit => postLink(title, url, subreddit))
 I hope this article was helpful, let me know if you have any questions, comments, or suggestions on Twitter [@codybontecou](https://twitter.com/CodyBontecou)
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />

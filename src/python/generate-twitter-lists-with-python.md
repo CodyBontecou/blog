@@ -151,4 +151,4 @@ Twitter rate limits just about all of their endpoints. [Here](https://developer.
 Thank you for reading! I hope you enjoyed it.
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />

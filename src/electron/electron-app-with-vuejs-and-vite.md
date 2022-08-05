@@ -75,4 +75,4 @@ I've been using Electron these past few weeks on a personal app that I plan to r
 I'll be integrating a state-management system soon - either [Vuex](https://vuex.vuejs.org/) or [Pinia](https://github.com/posva/pinia). I'm curious to see what this process looks like within an Electron app utilizing Vue, but I'll try my best to write up a blog post as I go through the process.
 
 <SimpleNewsletter />
-<!-- <Post /> -->
+<Post repo="CodyBontecou/blog" theme="github-dark" />
