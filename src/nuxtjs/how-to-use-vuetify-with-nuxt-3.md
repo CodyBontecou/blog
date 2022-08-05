@@ -161,4 +161,4 @@ Here's the [repo](https://github.com/CodyBontecou/nuxt3-and-vuetify) if you'd li
 
 <Popup />
 <SimpleNewsletter />
-<Post repo="CodyBontecou/blog" issue-term="https://github.com/CodyBontecou/blog/issues/24" theme="github-dark" />
+<Post repo="CodyBontecou/blog" issue-term="[Vssue]How to use Vuetify with Nuxt 3" theme="github-dark" />
