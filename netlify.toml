@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/vuepress/vuepress-styles.html"
-  to = "/vuepress-styles.html"
+  to = "/"
   status = 301
   force = false
