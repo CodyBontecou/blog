@@ -4,6 +4,7 @@ title: 'Post to Dev, Hashnode, and Medium using their APIs'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-13
 description: Generate posts on Dev, Hashnode, and Medium using the same markdown source file to simultaneously post on all three platforms using their REST and Graphql APIs.
+dropdown: 'NodeJS'
 tags:
   - VuePress
   - JavaScript
@@ -239,6 +240,3 @@ Keep an eye out. I plan on spending some time building out an interface for Dev 
 Good luck!
 
 Let me know what you think of this article through Twitter [@codybontecou](https://twitter.com/CodyBontecou)
-
-<SimpleNewsletter />
-<Post repo="CodyBontecou/blog" issue-term="[Vssue]Post to Dev, Hashnode, and Medium using their APIs" theme="github-dark" />
