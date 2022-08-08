@@ -95,3 +95,9 @@ ul {
   line-height: 1.7;
 }
 ```
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

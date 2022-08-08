@@ -159,3 +159,9 @@ Everything should now be working as expected and you should now be able to utili
 Enjoy!
 
 Here's the [repo](https://github.com/CodyBontecou/nuxt3-and-vuetify) if you'd like to see a working project.
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

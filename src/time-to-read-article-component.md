@@ -74,3 +74,9 @@ export default {
 }
 </script>
 ```
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

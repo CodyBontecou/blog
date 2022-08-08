@@ -172,3 +172,9 @@ if (import.meta.hot) {
 Passing `acceptHMRUpdate` your store (`useMainStore` in my case), it gives us HMR!
 
 Hope you enjoyed!
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

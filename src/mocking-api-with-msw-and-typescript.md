@@ -186,3 +186,9 @@ One immediate case is mocking response's that are loaded into components. It's t
 ---
 
 I hope this article was helpful. Let me know if you have any questions, comments, or suggestions on Twitter [@codybontecou](https://twitter.com/CodyBontecou)
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

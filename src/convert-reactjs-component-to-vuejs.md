@@ -458,3 +458,9 @@ footer a {
 - Github Repository with source code - [https://github.com/CodyBontecou/timeline-component-vuejs](https://github.com/CodyBontecou/timeline-component-vuejs)
 - Florin Pop made a [Youtube video](https://www.youtube.com/watch?v=tcUVUBlyXX8) walking through building this component using ReactJS.
 - [ReactJS Codepen](https://codepen.io/FlorinPop17/pen/GLEPZy)
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

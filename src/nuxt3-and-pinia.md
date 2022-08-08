@@ -117,3 +117,9 @@ export default defineComponent({
 })
 </script>
 ```
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

@@ -74,3 +74,9 @@ Of the three packages mentioned, [electron-vue-template](https://github.com/Delu
 I've been using Electron these past few weeks on a personal app that I plan to reveal soon. It's gotten to a stage where the backend logic is hammered down and is in need of a UI boost as well as a state-management system like Vuex.
 
 I'll be integrating a state-management system soon - either [Vuex](https://vuex.vuejs.org/) or [Pinia](https://github.com/posva/pinia). I'm curious to see what this process looks like within an Electron app utilizing Vue, but I'll try my best to write up a blog post as I go through the process.
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

@@ -116,3 +116,9 @@ Remove this code snippet if you added it earlier:
 You should be all setup now. If you need additional help, check out their [documentation](https://devtools.vuejs.org/) or their github repo [documentation](https://github.com/vuejs/devtools/tree/legacy/packages/shell-electron#vue-remote-devtools).
 
 Hope you enjoyed!
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

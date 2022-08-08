@@ -131,3 +131,9 @@ There's a bit more to this topic but I decided to write a separate article [here
 ```
 
 ![Silently Update URL in Nuxt 3](https://codybontecou.com/images/update-url.gif)
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

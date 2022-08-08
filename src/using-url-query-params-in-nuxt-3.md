@@ -96,3 +96,9 @@ If it does, our `twitchStreamer` will contain the parameter's value. Otherwise, 
     return { twitchStreamer }
 </script>
 ```
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

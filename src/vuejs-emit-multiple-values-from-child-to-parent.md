@@ -72,3 +72,9 @@ methods: {
 It took me a little while to find the solution to this problem, so I figured it was best to document it within a blog post for others to benefit from.
 
 I hope it helped!
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

@@ -152,3 +152,9 @@ In our case, we are getting an undefined because the video we uploaded to test t
 # Success!
 
 If all went well, you should now be able to automate Twitter tweets alongside your Youtube video uploads. I hope this article was helpful. Best of luck with your automation journey!
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

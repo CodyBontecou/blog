@@ -107,3 +107,9 @@ I think cutting the time-consuming, unfulfilling behaviors out of my life will o
 Join me in this journey,
 
 **Cody Bontecou**
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>

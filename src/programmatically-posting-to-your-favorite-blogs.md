@@ -240,3 +240,9 @@ Keep an eye out. I plan on spending some time building out an interface for Dev 
 Good luck!
 
 Let me know what you think of this article through Twitter [@codybontecou](https://twitter.com/CodyBontecou)
+
+<SimpleNewsletter />
+<Post
+  repo="CodyBontecou/blog"
+  theme="github-dark"
+/>
