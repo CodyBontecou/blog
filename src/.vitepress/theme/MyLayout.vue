@@ -1,17 +1,14 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import { useRoute } from 'vitepress'
-import { ref, watch, getCurrentInstance } from 'vue'
+import { ref, watch } from 'vue'
 
 const { Layout } = DefaultTheme
 const route = useRoute()
 const currentRoute = ref(route)
-const instance = getCurrentInstance()
 
 watch(route, (newRoute, oldRoute) => {
   currentRoute.value = newRoute.path
-  console.log(currentRoute.value)
-  instance?.proxy?.$forceUpdate()
 })
 </script>
 
