@@ -5,6 +5,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-05
 description: The estimated reading time has become prevalent in most major spaces that provides articles and reading materials. Build this functionality into your site using a VueJS component.
 category: tutorials
+dropdown: 'VueJS'
 tags:
   - VuePress
   - JavaScript
@@ -73,6 +74,3 @@ export default {
 }
 </script>
 ```
-
-<SimpleNewsletter />
-<Post repo="CodyBontecou/blog" theme="github-dark" />
