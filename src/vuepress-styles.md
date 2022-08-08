@@ -7,6 +7,7 @@ date: 2020-07-02
 
 # If using vuepress-plugin-blog, the category for the post
 category: tutorials
+dropdown: 'VueJS'
 
 # The list of tags for the post
 tags:
@@ -94,6 +95,3 @@ ul {
   line-height: 1.7;
 }
 ```
-
-<SimpleNewsletter />
-<Post repo="CodyBontecou/blog" theme="github-dark" />

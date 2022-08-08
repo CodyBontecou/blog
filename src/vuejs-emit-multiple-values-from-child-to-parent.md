@@ -5,6 +5,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-09-07
 description: Use a VueJS's custom event to emit multiple parameters between components.
 category: tutorials
+dropdown: 'VueJS'
 tags:
   - Vuejs
   - Vue
@@ -71,6 +72,3 @@ methods: {
 It took me a little while to find the solution to this problem, so I figured it was best to document it within a blog post for others to benefit from.
 
 I hope it helped!
-
-<SimpleNewsletter />
-<Post repo="CodyBontecou/blog" issue-term="[Vssue]VueJS Custom Event - Emit Multiple Values" theme="github-dark" />
