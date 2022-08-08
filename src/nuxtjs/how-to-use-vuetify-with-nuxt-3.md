@@ -6,7 +6,6 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2022-5-04
 description: Get Vuetify to work with Nuxt 3 with this quick tutorial.
 category: tutorials
-dropdown: 'NuxtJS'
 tags:
   - Vuejs
   - Vue
@@ -159,3 +158,6 @@ Everything should now be working as expected and you should now be able to utili
 Enjoy!
 
 Here's the [repo](https://github.com/CodyBontecou/nuxt3-and-vuetify) if you'd like to see a working project.
+
+<SimpleNewsletter />
+<Post repo="CodyBontecou/blog" issue-term="[Vssue]How to use Vuetify with Nuxt 3" theme="github-dark" />

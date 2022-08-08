@@ -5,7 +5,6 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-06
 description: Check out Carbon, a site to easily create and share beautiful images of your source code.
 category: tutorials
-dropdown: 'Misc'
 tags:
   - Carbon
   - Code
@@ -54,3 +53,6 @@ It gives you a surprising amount of control over the look and feel of your code 
 </figure>
 
 Hope this helps you along your Developer Blogging journey. I've found it to be a very fun tool and I plan on using it for all of my code snippets.
+
+<SimpleNewsletter />
+<Post repo="CodyBontecou/blog" issue-term="[Vssue]Generating a Code Snippet with Carbon" theme="github-dark" />

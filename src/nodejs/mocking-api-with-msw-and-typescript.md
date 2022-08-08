@@ -5,7 +5,6 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-25
 description: Use mswjs - Mock Service Worker - to mock an API request to Medium's API within a Typescript project.
 category: tutorials
-dropdown: 'NodeJS'
 tags:
   - mswjs
   - Code
@@ -186,3 +185,6 @@ One immediate case is mocking response's that are loaded into components. It's t
 ---
 
 I hope this article was helpful. Let me know if you have any questions, comments, or suggestions on Twitter [@codybontecou](https://twitter.com/CodyBontecou)
+
+<SimpleNewsletter />
+<Post repo="CodyBontecou/blog" theme="github-dark" />

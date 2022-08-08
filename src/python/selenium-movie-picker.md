@@ -5,7 +5,6 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-09-07
 description:
 category: tutorials
-dropdown: 'Python'
 tags:
   - Python
   - Selenium
@@ -197,3 +196,6 @@ print(random.choice(data))
 **Seriously** give it a shot. At the very least, randomly select a movie and watch its trailer. Many of these movies I had never heard of but they are fascinating, creative and artistic.
 
 I hope this article was helpful!
+
+<SimpleNewsletter />
+<Post repo="CodyBontecou/blog" theme="github-dark" />

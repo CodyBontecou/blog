@@ -1,13 +1,12 @@
 ---
 type: 'post'
 title: Configuring TailwindCSS to work with Vitepress
-dropdown: 'VueJS'
 ---
 
 <div class="text-4xl font-semibold">Configuring TailwindCSS to work with Vitepress</div>
 
 <div class="flex flex-col sm:flex-row items-center mt-10">
-  <img src="./assets/images/vite-logo.svg" alt="Vite package logo" width="200" height="200" style="float: left; margin-right: 12px;" />
+  <img src="../assets/images/vite-logo.svg" alt="Vite package logo" width="200" height="200" style="float: left; margin-right: 12px;" />
   <p class="italic text-gray-500">
     I've found myself feeling limited by the styles provided by the framework so I looked into what it takes to use a stylesheet.
   </p>
@@ -134,3 +133,6 @@ According to the responses within the issue, there are two ways of bringing in T
 
 **1. Import TailwindCSS through their CDN:**
 ```
+
+<SimpleNewsletter />
+<Post repo="CodyBontecou/blog" theme="github-dark" />

@@ -3,7 +3,6 @@ title: 'Post to Reddit using its API'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-18
 description: Interacting with Reddit through their API. In this post I discuss how to use snoowrap to post to Reddit and specific subreddits.
-dropdown: 'NodeJS'
 meta:
   - name: og:title
     content: Post to Reddit using its API
@@ -187,3 +186,6 @@ subreddits.forEach(subreddit => postLink(title, url, subreddit))
 ---
 
 I hope this article was helpful, let me know if you have any questions, comments, or suggestions on Twitter [@codybontecou](https://twitter.com/CodyBontecou)
+
+<SimpleNewsletter />
+<Post repo="CodyBontecou/blog" theme="github-dark" />
