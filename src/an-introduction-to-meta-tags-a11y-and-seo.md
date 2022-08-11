@@ -11,7 +11,7 @@ meta:
   - name: og:description
     content: A quick and digestable introduction to meta tags, a11y, and SEO for a better, quick, and accesible web.
   - name: og:image
-    content: https://codybontecou.com/an-introduction-to-meta-tags-seo-and-a11y-meta.png
+    content: https://codybontecou.com/images/an-introduction-to-meta-tags-seo-and-a11y-meta.png
   - name: og:image:alt
     content: An Introduction to Meta Tags, A11y, and SEO
   - name: twitter:title
