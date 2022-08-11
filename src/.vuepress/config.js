@@ -181,10 +181,13 @@ module.exports = {
           collapsable: true,
           children: [
             [
+              '/an-introduction-to-meta-tags-a11y-and-seo',
+              'An Introduction to Meta Tags, A11y, and SEO',
+            ],
+            [
               '/dopamine-fasting-with-100-days-of-code',
               'Dopamine Fasting with #100DaysOfCode',
             ],
-
             [
               '/generating-a-code-snippet-with-carbon',
               'Generating a Code Snippet with Carbon',
