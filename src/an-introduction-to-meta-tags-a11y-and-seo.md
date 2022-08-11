@@ -83,3 +83,6 @@ You might be thinking: How do I measure SEO?
 **Google Lighthouse** is a tool to measure and help you improve the quality and performance of web pages by creating reports showing how well a specific page did and how to improve your site.
 
 Each of these things we learned today is an important piece when developing a project; if you use them correctly, you can even reach the moon.
+
+<SimpleNewsletter />
+<Post />
