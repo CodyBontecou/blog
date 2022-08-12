@@ -16,7 +16,7 @@ watch(route, (newRoute, oldRoute) => {
   <Layout>
     <template #doc-after>
       <SimpleNewsletter />
-      <Post
+      <Comments
         repo="CodyBontecou/blog"
         theme="github-dark"
         :issue-term="currentRoute.value"
