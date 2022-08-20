@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <section class="mb-40" ref="comments"></section>
-  </div>
+  <section ref="comments"></section>
 </template>
 
 <script setup>
@@ -11,17 +9,15 @@ import { useRoute } from 'vitepress'
 const comments = ref('')
 const route = useRoute()
 
-watch(route, (newRoute, oldRoute) => {
-  comments.value.innerHTML = ''
-
-  createUtteranceScriptElement(comments.value, newRoute.path)
+watch(route, (newRoute, _) => {
+  createUtteranceScriptElement(newRoute.path)
 })
 
 onMounted(() => {
-  createUtteranceScriptElement(comments.value, route.path)
+  createUtteranceScriptElement(route.path)
 })
 
-function createUtteranceScriptElement(refValue, path) {
+function createUtteranceScriptElement(path) {
   const script = document.createElement('script')
 
   script.setAttribute('src', 'https://utteranc.es/client.js')
@@ -32,6 +28,7 @@ function createUtteranceScriptElement(refValue, path) {
   script.setAttribute('crossorigin', 'anonymous')
   script.setAttribute('async', true)
 
-  refValue.appendChild(script)
+  comments.value.innerHTML = ''
+  comments.value.appendChild(script)
 }
 </script>
