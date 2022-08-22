@@ -16,6 +16,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "^3.2.1",
     "fast-glob": "^3.2.11",
     "gray-matter": "^4.0.3",
     "postcss": "^8.4.13",
