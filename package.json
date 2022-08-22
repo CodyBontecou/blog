@@ -26,6 +26,7 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.6.4",
     "autoprefixer": "^10.4.7",
     "dotenv": "^10.0.0",
     "jsonp": "^0.2.1",
