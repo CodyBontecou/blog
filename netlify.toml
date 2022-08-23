@@ -1,16 +1,18 @@
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
 
-  [plugins.inputs.thresholds]
-    performance = 0.9
-    accessibility = 0.9
-    best-practices = 0.9
-    seo = 0.9
+[plugins.inputs.thresholds]
+  performance = 0.9
+  accessibility = 0.9
+  best-practices = 0.9
+  seo = 0.9
 
-  [[plugins.inputs.audits]]
-    path = "/"
-    output_path = "reports/lighthouse.html"
+[[plugins.inputs.audits]]
+  output_path = "reports/lighthouse.html"
   
-  [[plugins.inputs.audits]]
-    path = "/how-to-use-vuetify-with-nuxt-3"
-    output_path = "/reports/how-to-use-vuetify-with-nuxt-3.html"
+[[plugins.inputs.audits]]
+  output_path = "reports/how-to-use-vuetify-with-nuxt-3-report.html"
+  path = "how-to-use-vuetify-with-nuxt-3"
+
+[[plugins.inputs.audits]]
+  path = ""
