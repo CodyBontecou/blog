@@ -13,4 +13,4 @@
   
   [[plugins.inputs.audits]]
     path = "/how-to-use-vuetify-with-nuxt-3.html"
-    output_path = "/how-to-use-vuetify-with-nuxt-3/reports/lighthouse.html"
+    output_path = "/reports/how-to-use-vuetify-with-nuxt-3.html"
