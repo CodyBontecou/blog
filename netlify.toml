@@ -12,5 +12,5 @@
     output_path = "reports/lighthouse.html"
   
   [[plugins.inputs.audits]]
-    url = "https://staging--cody-bontecou.netlify.app/how-to-use-vuetify-with-nuxt-3.html"
+    path = "/how-to-use-vuetify-with-nuxt-3"
     output_path = "/reports/how-to-use-vuetify-with-nuxt-3.html"
