@@ -23,7 +23,8 @@
         "link-text": "off",
         "max-potential-fid": "off",
         "uses-responsive-images": "off",
-        "modern-image-formats": "off"
+        "modern-image-formats": "off",
+        "efficient-animated-content": "off"
       }
     }
   }
