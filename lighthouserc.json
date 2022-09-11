@@ -18,7 +18,12 @@
         "uses-rel-preload": "off",
         "aria-hidden-focus": "off",
         "heading-order": "off",
-        "uses-long-cache-ttl": "off"
+        "uses-long-cache-ttl": "off",
+        "button-name": "off",
+        "link-text": "off",
+        "max-potential-fid": "off",
+        "uses-responsive-images": "off",
+        "modern-image-formats": "off"
       }
     }
   }
