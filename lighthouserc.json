@@ -6,7 +6,19 @@
         "dom-size": ["error", {"maxNumericValue": 3000}],
         "offscreen-images": "off",
         "color-contrast": "off",
-        "tap-targets": "off"
+        "tap-targets": "off",
+        "csp-xss": "off",
+        "errors-in-console": "off",
+        "image-alt": "off",
+        "image-size-responsive": "off",
+        "unsized-images": "off",
+        "unused-css-rules": "off",
+        "unused-javascript": "off",
+        "render-blocking-resources": "off",
+        "uses-rel-preload": "off",
+        "aria-hidden-focus": "off",
+        "heading-order": "off",
+        "uses-long-cache-ttl": "off"
       }
     }
   }
