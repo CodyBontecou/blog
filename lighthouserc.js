@@ -67,6 +67,7 @@ module.exports = {
         'third-party-facades': 'off',
         'non-composited-animations': 'off',
         'font-display': 'off',
+        'total-byte-weight': 'off',
       },
     },
   },
