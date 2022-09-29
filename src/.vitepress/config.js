@@ -119,7 +119,7 @@ module.exports = {
     editLinks: false,
     smoothScrolling: true,
     docsDir: '',
-    logo: '/images/navLogo.png',
+    logo: { src: '/images/navLogo.png', alt: "Cody Bontecou's Logo" },
     lastUpdated: 'Last Updated',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/codybontecou' },

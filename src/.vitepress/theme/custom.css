@@ -3,59 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --vp-c-brand: #4979ff;
+  --vp-c-brand: #527ef7;
   --vp-c-brand-light: #7095fd;
   --vp-c-brand-lighter: #7095fd;
   --vp-c-brand-dark: #4979ff;
   --vp-c-brand-darker: #7095fd;
-  /* $accentColor = #4979ff
-$textColor = #2c3e50
-$borderColor = #eaecef
-$codeBgColor = #282c34 */
 }
-
-.container {
-  /* margin-top: 1.5rem !important; */
-  /* margin-bottom: 1rem !important; */
-}
-
-/* blockquote,
-ol,
-p,
-ul {
-  line-height: 1.7;
-}
-
-blockquote,
-p {
-  margin: 1rem 0;
-}
-
-ol,
-ul {
-  list-style: auto;
-  padding: 0rem 0rem 1rem 1rem;
-}
-
-ul {
-  list-style-type: disc;
-} */
 
 a {
   color: var(--vp-c-brand);
 }
-
-/* h1 {
-  @apply text-4xl font-semibold;
-}
-
-h2 {
-  @apply text-2xl font-semibold;
-}
-
-h3 {
-  @apply text-xl font-semibold;
-} */
 
 svg.vssue-icon {
   display: inline-block;

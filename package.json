@@ -16,13 +16,12 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@netlify/plugin-lighthouse": "^3.2.1",
     "fast-glob": "^3.2.11",
     "gray-matter": "^4.0.3",
     "postcss": "^8.4.13",
     "sitemap": "^7.1.1",
     "tailwindcss": "^3.0.24",
-    "vitepress": "^1.0.0-alpha.4",
+    "vitepress": "^1.0.0-alpha.17",
     "vue": "^3.2.37"
   },
   "dependencies": {
