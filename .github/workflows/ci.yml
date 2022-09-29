@@ -11,3 +11,5 @@ jobs:
       - run: npm install && npm install -g @lhci/cli@0.8.x
       - run: npm run build
       - run: lhci autorun --collect.staticDistDir="src/.vitepress/dist"
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
