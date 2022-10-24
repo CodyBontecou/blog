@@ -21,10 +21,12 @@ meta:
     content: My Blog | Cody Bontecou
   - name: twitter:text:title
     content: My Blog | Cody Bontecou
-
+aside: false
 canonicalUrl: https://codybontecou.com/
 ---
 
+<div class="w-full flex items-center justify-center">
+<div class="w-2/3">
 <div class="flex flex-col items-center sm:flex-row sm:items-start">
   <img src="./assets/images/cody-abstract.jpeg" alt="Portrait of Cody Bontecou" class="rounded-full w-52" width="100%" height="100%" />
   <div class="flex flex-col max-w-xs h-full sm:ml-12">
@@ -38,7 +40,7 @@ canonicalUrl: https://codybontecou.com/
       <a href="mailto:codybontecou@gmail.com" target="_blank" class="w-min" aria-label="Contact me by email">
         <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-500 hover:text-blue-400 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-        </svg>    
+        </svg>
       </a>
       <a href="https://www.facebook.com/cody.bontecou" target="_blank" class="w-min" aria-label="Contact me on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-500 h-6 w-6" viewBox="0 0 14222 14222">
@@ -78,14 +80,5 @@ canonicalUrl: https://codybontecou.com/
   </p>
 </div>
 
-<style>
-
-#github-icon {
-  filter: invert(0%) !important;
-}
-
-:root.dark #github-icon {
-  filter: invert(100%) !important;
-}
-
-</style>
+</div>
+</div>
