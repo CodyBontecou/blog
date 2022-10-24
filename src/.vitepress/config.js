@@ -72,6 +72,7 @@ const sortedSidebar = generatedSidebar
   .sort((a, b) => sortMap.get(a.text) - sortMap.get(b.text))
 
 module.exports = {
+  appearance: 'dark',
   title: 'Cody Bontecou',
   head: [
     [
