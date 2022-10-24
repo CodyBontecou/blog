@@ -14,48 +14,17 @@ $borderColor = #eaecef
 $codeBgColor = #282c34 */
 }
 
-.container {
-  /* margin-top: 1.5rem !important; */
-  /* margin-bottom: 1rem !important; */
+#github-icon {
+  filter: invert(0%) !important;
 }
 
-/* blockquote,
-ol,
-p,
-ul {
-  line-height: 1.7;
+:root.dark #github-icon {
+  filter: invert(100%) !important;
 }
-
-blockquote,
-p {
-  margin: 1rem 0;
-}
-
-ol,
-ul {
-  list-style: auto;
-  padding: 0rem 0rem 1rem 1rem;
-}
-
-ul {
-  list-style-type: disc;
-} */
 
 a {
   color: var(--vp-c-brand);
 }
-
-/* h1 {
-  @apply text-4xl font-semibold;
-}
-
-h2 {
-  @apply text-2xl font-semibold;
-}
-
-h3 {
-  @apply text-xl font-semibold;
-} */
 
 svg.vssue-icon {
   display: inline-block;
