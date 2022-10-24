@@ -2,17 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* $accentColor = #4979ff
-$textColor = #2c3e50
-$borderColor = #eaecef
-$codeBgColor = #282c34 */
-
 :root {
   --vp-c-brand: #4979ff;
   --vp-c-brand-light: #7095fd;
   --vp-c-brand-lighter: #7095fd;
   --vp-c-brand-dark: #4979ff;
   --vp-c-brand-darker: #7095fd;
+  /* $accentColor = #4979ff
+$textColor = #2c3e50
+$borderColor = #eaecef
+$codeBgColor = #282c34 */
 }
 
 .container {
