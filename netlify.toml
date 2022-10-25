@@ -38,7 +38,7 @@
      path = "/how-to-use-vuetify-with-nuxt-3.html"
      
      [[plugins.inputs.audits]]
-     path = "/index.html"
+     path = "/"
      
      [[plugins.inputs.audits]]
      path = "/mocking-api-with-msw-and-typescript.html"
@@ -82,5 +82,3 @@
      [[plugins.inputs.audits]]
      path = "/projects/e-sports-ai-app.html"
      
-     [[plugins.inputs.audits]]
-     path = "/projects/index.html"
