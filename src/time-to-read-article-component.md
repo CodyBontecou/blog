@@ -5,6 +5,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-05
 description: The estimated reading time has become prevalent in most major spaces that provides articles and reading materials. Build this functionality into your site using a VueJS component.
 category: tutorials
+dropdown: 'VueJS'
 tags:
   - VuePress
   - JavaScript
@@ -26,7 +27,7 @@ meta:
 canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
 ---
 
-<h1 class="mt-24 text-4xl font-semibold">VueJS component to estimate the reading time of an article.</h1>
+<h1 class="text-4xl font-semibold">VueJS component to estimate the reading time of an article.</h1>
 
 > The estimated reading time has become prevalent in most major spaces that provides articles and reading materials. I decided to look into how to calculate it myself and found it's quite simple.
 
@@ -73,6 +74,3 @@ export default {
 }
 </script>
 ```
-
-<SimpleNewsletter />
-<Post />

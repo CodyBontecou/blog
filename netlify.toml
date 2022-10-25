@@ -1,0 +1,84 @@
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs.thresholds]
+  performance = 0.9
+  accessibility = 0.9
+  best-practices = 0.9
+  seo = 0.9
+  
+     [[plugins.inputs.audits]]
+     path = "/automate-with-zapier.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/contact.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/convert-reactjs-component-to-vuejs.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/dopamine-fasting-with-100-days-of-code.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/electron-app-with-vue-devtools.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/electron-app-with-vuejs-and-vite.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/generate-twitter-lists-with-python.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/generating-a-code-snippet-with-carbon.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/global-state-management-in-an-electron-app.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/how-to-use-vuetify-with-nuxt-3.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/"
+     
+     [[plugins.inputs.audits]]
+     path = "/mocking-api-with-msw-and-typescript.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/nuxt3-and-pinia.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/post-to-reddit-with-nodejs-and-typescript.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/programmatically-posting-to-your-favorite-blogs.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/programmatically-tweeting-with-nodejs.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/projects.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/selenium-movie-picker.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/silently-update-url-nuxt-3.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/tailwindcss-with-vitepress.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/time-to-read-article-component.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/using-url-query-params-in-nuxt-3.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/vuejs-emit-multiple-values-from-child-to-parent.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/vuepress-styles.html"
+     
+     [[plugins.inputs.audits]]
+     path = "/projects/e-sports-ai-app.html"
+     

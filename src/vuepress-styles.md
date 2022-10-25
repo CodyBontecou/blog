@@ -7,6 +7,7 @@ date: 2020-07-02
 
 # If using vuepress-plugin-blog, the category for the post
 category: tutorials
+dropdown: 'VueJS'
 
 # The list of tags for the post
 tags:
@@ -28,8 +29,6 @@ canonicalUrl: https://codybontecou.com/vuepress-styles.html
 <span class="text-4xl font-semibold">Overriding VuePress CSS Styles</span>
 
 > Every post I found about updating the default VuePress theme was outdated. Here's a quick post on how to do it.
-
-<HeaderMeta class="mt-8" :author=$frontmatter.author :date=$frontmatter.date />
 
 ## Reoccurring Styles with Variables
 
@@ -96,6 +95,3 @@ ul {
   line-height: 1.7;
 }
 ```
-
-<SimpleNewsletter />
-<Post />

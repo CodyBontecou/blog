@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --vp-c-brand: #4979ff;
+  --vp-c-brand-light: #7095fd;
+  --vp-c-brand-lighter: #7095fd;
+  --vp-c-brand-dark: #4979ff;
+  --vp-c-brand-darker: #7095fd;
+  /* $accentColor = #4979ff
+$textColor = #2c3e50
+$borderColor = #eaecef
+$codeBgColor = #282c34 */
+}
+
+#github-icon {
+  filter: invert(0%) !important;
+}
+
+:root.dark #github-icon {
+  filter: invert(100%) !important;
+}
+
+a {
+  color: var(--vp-c-brand);
+}
+
+svg.vssue-icon {
+  display: inline-block;
+}
+
+.newsletter__wrap {
+  margin: 3rem auto 4rem auto !important;
+  border-radius: 10px !important;
+  box-shadow: rgba(73, 121, 255, 40%) 5px 5px, rgba(73, 121, 255, 30%) 10px 10px,
+    rgba(73, 121, 255, 20%) 15px 15px, rgba(73, 121, 255, 10%) 20px 20px,
+    rgba(73, 121, 255, 5%) 25px 25px;
+}
+
+.token.attr-value,
+.token.char,
+.token.regex,
+.token.string,
+.token.variable {
+  color: var(--vp-c-brand);
+}
+
+.token.boolean,
+.token.function,
+.token.number {
+  color: #f049cb;
+}

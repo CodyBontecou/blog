@@ -5,6 +5,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2022-2-15
 description: Use Nuxt3's useRoute function to use URL parameters to determine state.
 category: tutorials
+dropdown: 'NuxtJS'
 tags:
   - Vuejs
   - Vue
@@ -95,6 +96,3 @@ If it does, our `twitchStreamer` will contain the parameter's value. Otherwise, 
     return { twitchStreamer }
 </script>
 ```
-
-<SimpleNewsletter />
-<Post />

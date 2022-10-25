@@ -8,6 +8,7 @@ author:
   }
 date: 2020-07-16
 description: I'm going to spend the next 100 days taking a dopamine fast while spending the saved time writing code and sharing it with the community.
+dropdown: 'Misc'
 meta:
   - name: og:title
     content: Dopamine Fasting with 100DaysOfCode
@@ -110,6 +111,3 @@ I think cutting the time-consuming, unfulfilling behaviors out of my life will o
 Join me in this journey,
 
 **Cody Bontecou**
-
-<SimpleNewsletter />
-<Post />

@@ -4,6 +4,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-06-28
 description: This is the page description that will be used
 category: tutorials
+dropdown: 'Marketing'
 tags:
   - Automation
   - Twitter

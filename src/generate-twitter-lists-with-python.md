@@ -5,6 +5,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-09-15
 description:
 category: tutorials
+dropdown: 'Python'
 tags:
   - Python
   - Tweepy
@@ -149,6 +150,3 @@ for i in range(0, len(followers.data), 100):
 Twitter rate limits just about all of their endpoints. [Here](https://developer.twitter.com/en/docs/twitter-api/v1/rate-limits) is Twitter's documentation on what the rate limits are. Keep this is mind when developing Twitter-based applications because you may find yourself with an odd error.
 
 Thank you for reading! I hope you enjoyed it.
-
-<SimpleNewsletter />
-<Post />

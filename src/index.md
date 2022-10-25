@@ -21,12 +21,14 @@ meta:
     content: My Blog | Cody Bontecou
   - name: twitter:text:title
     content: My Blog | Cody Bontecou
-
+aside: false
 canonicalUrl: https://codybontecou.com/
 ---
 
-<div class="mt-10 flex flex-col items-center sm:flex-row sm:items-start">
-  <img src="./assets/images/cody.jpg" alt="Portrait of Cody Bontecou" class="rounded-full w-52" />
+<div class="w-full flex items-center justify-center">
+<div class="w-2/3">
+<div class="flex flex-col items-center sm:flex-row sm:items-start">
+  <img src="./assets/images/cody-abstract.jpeg" alt="Portrait of Cody Bontecou" class="rounded-full w-52" width="100%" height="100%" />
   <div class="flex flex-col max-w-xs h-full sm:ml-12">
     <h1 class="mt-6 text-4xl font-semibold">
       Cody Bontecou
@@ -35,31 +37,34 @@ canonicalUrl: https://codybontecou.com/
       is enjoying life as a digital nomad, building web apps one line at a time.
     </p>
     <div class="my-3 flex space-x-4">
-      <a href="mailto:codybontecou@gmail.com" target="_blank" class="w-min">
+      <a href="mailto:codybontecou@gmail.com" target="_blank" class="w-min" aria-label="Contact me by email">
         <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-500 hover:text-blue-400 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-        </svg>    
+        </svg>
       </a>
-      <a href="https://www.facebook.com/cody.bontecou" target="_blank" class="w-min">
+      <a href="https://www.facebook.com/cody.bontecou" target="_blank" class="w-min" aria-label="Contact me on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-500 h-6 w-6" viewBox="0 0 14222 14222">
           <circle cx="7111" cy="7112" r="7111" fill="#1977f3"/>zzzz<path d="M9879 9168l315-2056H8222V5778c0-562 275-1111 1159-1111h897V2917s-814-139-1592-139c-1624 0-2686 984-2686 2767v1567H4194v2056h1806v4969c362 57 733 86 1111 86s749-30 1111-86V9168z" fill="#fff"/>
         </svg>
       </a>
-      <a href="https://twitter.com/CodyBontecou" target="_blank" class="w-min">
+      <a href="https://twitter.com/CodyBontecou" target="_blank" class="w-min" aria-label="Contact me on Twitter">
         <svg viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg" class="text-gray-500 h-6 w-6">
           <path d="M630 425a195 195 0 01-299 175 142 142 0 0097-30 70 70 0 01-58-47 70 70 0 0031-2 70 70 0 01-57-66 70 70 0 0028 5 70 70 0 01-18-90 195 195 0 00141 72 67 67 0 01116-62 117 117 0 0043-17 65 65 0 01-31 38 117 117 0 0039-11 65 65 0 01-32 35z" fill="#3ba9ee"/>
         </svg>
       </a>
-      <a href="https://github.com/codybontecou" target="_blank" class="h-6 w-6">
-        <img src="https://codybontecou.com/images/github_logo.png" alt="Github's Octicon logo" class="h-6 w-6">
+      <a href="https://github.com/codybontecou" target="_blank" class="h-6 w-6" aria-label="Find me on Github">
+        <img src="https://codybontecou.com/images/github_logo.png" alt="Github's Octicon logo" class="h-6 w-6" id="github-icon">
       </a>
-      <a href="https://www.youtube.com/channel/UCaynjLdmzjkwcsmPN-68iHA" target="_blank" class="h-6 w-6">
+      <a href="https://www.youtube.com/channel/UCaynjLdmzjkwcsmPN-68iHA" target="_blank" class="h-6 w-6" aria-label="My Youtube Channel">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" class="h-6 w-6"><path d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 169.663l-126.06 60.123c-3.359 1.602-7.239-.847-7.239-4.568V168.607c0-3.774 3.982-6.22 7.348-4.514l126.06 63.881c3.748 1.899 3.683 7.274-.109 9.082z" fill="#f61c0d"/></svg>
       </a>
-      <!-- Discord Link -->
-      <!-- <a href="https://discord.com/users/835349653599551499" target="_blank" class="h-6 w-6">
-        <img src="https://cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/discord-512.png" alt="Round Discord icon" />
-      </a> -->
+      <a href="https://discord.com/users/835349653599551499" target="_blank" class="h-6 w-6" aria-label="Join my Discord community">
+        <svg class="h-6 w-6" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g>
+          <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="#5865F2"/>
+          </g>
+        </svg>
+      </a>
     </div>
   </div>
 </div>
@@ -75,55 +80,5 @@ canonicalUrl: https://codybontecou.com/
   </p>
 </div>
 
-### Current Interests
-
-Below are tools I'm most interested in learning and writing about.
-
-<div class="mt-8 flex h-20">
-  <a href="https://www.vuejs.org/" target="_blank" class="flex flex-col items-center h-20 w-20">
-    <svg viewBox="0 0 261.76 226.69" xmlns="http://www.w3.org/2000/svg" class="h-20 w-20"><path d="M161.096.001l-30.224 52.35L100.647.002H-.005L130.872 226.69 261.749 0z" fill="#41b883"/><path d="M161.096.001l-30.224 52.35L100.647.002H52.346l78.526 136.01L209.398.001z" fill="#34495e"/></svg>
-    <span class="mt-1 text-gray-500">VueJS</span>
-  </a>
-
-  <a href="https://www.nuxtjs.org/" target="_blank" class="flex flex-col items-center h-20 w-20">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 298" class="h-20 w-20"><g fill="none"><path fill="#00C58E" d="M227.921 82.074l-13.689 23.704-46.815-81.087-143.713 248.89h97.303c0 13.09 10.613 23.703 23.704 23.703H23.704A23.704 23.704 0 013.18 261.728L146.893 12.84a23.704 23.704 0 0141.057 0l39.97 69.234z"/><path fill="#2F495E" d="M331.664 261.728l-90.054-155.95-13.689-23.704-13.689 23.704-90.044 155.95a23.704 23.704 0 0020.523 35.556h166.4a23.704 23.704 0 0020.533-35.556h.02zM144.711 273.58l83.21-144.099 83.19 144.1h-166.4z"/><path fill="#108775" d="M396.05 285.432a23.7 23.7 0 01-20.524 11.852H311.11c13.091 0 23.704-10.613 23.704-23.704h40.662L260.099 73.748l-18.49 32.03-13.688-23.704 11.654-20.178a23.704 23.704 0 0141.057 0L396.05 261.728a23.704 23.704 0 010 23.704z"/></g></svg>
-    <span class="mt-1 text-gray-500">NuxtJS</span>
-  </a>
-
-  <a href="https://www.cypress.io/" target="_blank" class="flex flex-col items-center h-20 w-20">
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 72 72" xml:space="preserve">
-      <path d="M35.5 9C50.7 9 63 21.3 63 36.5S50.7 64 35.5 64 8 51.7 8 36.5 20.3 9 35.5 9h0z" fill-rule="evenodd" clip-rule="evenodd" fill="#4a4a4d" stroke="#fff" stroke-miterlimit="10"/>
-      <path d="M50.1 48.6c-1 3.1-2.5 5.4-4.6 7.1-2.1 1.7-4.9 2.6-8.4 2.9l-.7-4.6c2.3-.3 4-.8 5.1-1.6.4-.3 1.2-1.2 1.2-1.2l-8.3-26.6h6.9l4.8 19.9 5.1-19.9h6.7l-7.8 24zM26 23.7c1.6 0 3.1.2 4.3.7 1.3.5 2.5 1.2 3.7 2.2l-2.8 3.8c-.8-.6-1.6-1-2.3-1.3-.7-.3-1.6-.4-2.4-.4-3.4 0-5.1 2.6-5.1 7.9 0 2.7.4 4.6 1.3 5.7.9 1.2 2.1 1.7 3.8 1.7.8 0 1.6-.1 2.3-.4.7-.3 1.5-.7 2.5-1.3l2.8 4c-2.3 1.9-4.9 2.8-7.9 2.8-2.4 0-4.4-.5-6.2-1.5-1.7-1-3.1-2.5-4-4.4-.9-1.9-1.4-4.1-1.4-6.7 0-2.5.5-4.8 1.4-6.7.9-2 2.3-3.5 4-4.6 1.7-.9 3.7-1.5 6-1.5z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"/>
-    </svg>
-    <span class="mt-1 text-gray-500">Cypress</span>
-  </a>
-
-  <a href="https://www.figma.com/" target="_blank" class="flex flex-col items-center h-20 w-20">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" class="h-20 w-20">
-      <path d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z" fill="#0acf83"/>
-      <path d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z" fill="#a259ff"/>
-      <path d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z" fill="#f24e1e"/>
-      <path d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z" fill="#ff7262"/>
-      <path d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z" fill="#1abcfe"/>
-    </svg>
-    <span class="mt-1 text-gray-500">Figma</span>
-  </a>
-
-  <a href="https://storybook.js.org" target="_blank" class="flex flex-col items-center h-20 w-20">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="h-20 w-20" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg)" viewBox="0 0 256 319" transform="rotate(360)"><defs><path d="M9.872 293.324L.012 30.574C-.315 21.895 6.338 14.54 15.005 14L238.494.032c8.822-.552 16.42 6.153 16.972 14.975.02.332.031.665.031.998v286.314c0 8.839-7.165 16.004-16.004 16.004-.24 0-.48-.005-.718-.016l-213.627-9.595c-8.32-.373-14.963-7.065-15.276-15.388z" id="a"/></defs><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><use fill="#FF4785" xlink:href="#a"/><path d="M188.665 39.127l1.527-36.716L220.884 0l1.322 37.863a2.387 2.387 0 01-3.864 1.96l-11.835-9.325-14.013 10.63a2.387 2.387 0 01-3.829-2.001zm-39.251 80.853c0 6.227 41.942 3.243 47.572-1.131 0-42.402-22.752-64.684-64.415-64.684-41.662 0-65.005 22.628-65.005 56.57 0 59.117 79.78 60.249 79.78 92.494 0 9.052-4.433 14.426-14.184 14.426-12.705 0-17.729-6.49-17.138-28.552 0-4.786-48.458-6.278-49.936 0-3.762 53.466 29.548 68.887 67.665 68.887 36.935 0 65.892-19.687 65.892-55.326 0-63.36-80.961-61.663-80.961-93.06 0-12.728 9.455-14.425 15.07-14.425 5.909 0 16.546 1.042 15.66 24.801z" fill="#FFF" mask="url(#b)"/></svg>
-    <span class="mt-1 text-gray-500">Storybook</span>
-  </a>
-
-  <!-- <a href="https://www.electronjs.org/" target="_blank" class="flex flex-col items-center h-20 w-20">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20">
-      <g fill="none" fill-rule="evenodd"><circle fill="#2B2E3A" cx="128" cy="128" r="128"/><g fill="#9FEAF9" fill-rule="nonzero"><path d="M100.502 71.69c-26.005-4.736-46.567.221-54.762 14.415-6.115 10.592-4.367 24.635 4.24 39.646a2.667 2.667 0 1 0 4.626-2.653c-7.752-13.522-9.261-25.641-4.247-34.326 6.808-11.791 25.148-16.213 49.187-11.835a2.667 2.667 0 0 0 .956-5.247zm-36.999 72.307c10.515 11.555 24.176 22.394 39.756 31.388 37.723 21.78 77.883 27.601 97.675 14.106a2.667 2.667 0 1 0-3.005-4.406c-17.714 12.078-55.862 6.548-92.003-14.318-15.114-8.726-28.343-19.222-38.478-30.36a2.667 2.667 0 1 0-3.945 3.59z"/><path d="M194.62 140.753c17.028-20.116 22.973-40.348 14.795-54.512-6.017-10.423-18.738-15.926-35.645-16.146a2.667 2.667 0 0 0-.069 5.333c15.205.198 26.165 4.939 31.096 13.48 6.792 11.765 1.49 29.807-14.248 48.399a2.667 2.667 0 1 0 4.071 3.446zm-43.761-68.175c-15.396 3.299-31.784 9.749-47.522 18.835-38.942 22.483-64.345 55.636-60.817 79.675a2.667 2.667 0 1 0 5.277-.775c-3.133-21.344 20.947-52.769 58.207-74.281 15.267-8.815 31.135-15.06 45.972-18.239a2.667 2.667 0 1 0-1.117-5.215z"/><path d="M87.77 187.753c8.904 24.86 23.469 40.167 39.847 40.167 11.945 0 22.996-8.143 31.614-22.478a2.667 2.667 0 1 0-4.571-2.748c-7.745 12.883-17.258 19.892-27.043 19.892-13.605 0-26.596-13.652-34.825-36.63a2.667 2.667 0 1 0-5.021 1.797zm81.322-4.863c4.61-14.728 7.085-31.718 7.085-49.423 0-44.179-15.463-82.263-37.487-92.042a2.667 2.667 0 0 0-2.164 4.874c19.643 8.723 34.317 44.866 34.317 87.168 0 17.177-2.397 33.63-6.84 47.83a2.667 2.667 0 1 0 5.09 1.593zm50.224-2.612c0-7.049-5.714-12.763-12.763-12.763-7.049 0-12.763 5.714-12.763 12.763 0 7.049 5.714 12.763 12.763 12.763 7.049 0 12.763-5.714 12.763-12.763zm-5.333 0a7.43 7.43 0 1 1-14.86 0 7.43 7.43 0 0 1 14.86 0zM48.497 193.041c7.05 0 12.764-5.714 12.764-12.763 0-7.049-5.715-12.763-12.764-12.763-7.048 0-12.763 5.714-12.763 12.763 0 7.049 5.715 12.763 12.763 12.763zm0-5.333a7.43 7.43 0 1 1 0-14.86 7.43 7.43 0 0 1 0 14.86z"/><path d="M127.617 54.444c7.049 0 12.763-5.714 12.763-12.763 0-7.049-5.714-12.763-12.763-12.763-7.049 0-12.763 5.714-12.763 12.763 0 7.049 5.714 12.763 12.763 12.763zm0-5.333a7.43 7.43 0 1 1 0-14.86 7.43 7.43 0 0 1 0 14.86zm1.949 93.382c-4.985 1.077-9.896-2.091-10.975-7.076a9.236 9.236 0 0 1 7.076-10.976c4.985-1.077 9.896 2.091 10.976 7.076 1.077 4.985-2.091 9.897-7.077 10.976z"/></g></g>
-    </svg>
-    <span class="mt-1 text-gray-500">Electron</span>
-  </a> -->
-
-  <a href="https://strapi.io" target="_blank" class="flex flex-col items-center h-20 w-20">
-    <svg height="2500" viewBox="0.243 0.265 243.323 243.581" width="2500" xmlns="http://www.w3.org/2000/svg" class="h-20 w-20"><g fill="#8e75ff" fill-rule="evenodd"><path d="M161.893 165.833v-78.73a5.077 5.077 0 00-5.077-5.076H78.178V.76h159.815a5.077 5.077 0 015.078 5.077v159.996z"/><path d="M78.178.76v81.267H3.124a2.539 2.539 0 01-1.796-4.333zm83.715 240.206v-75.133h81.178l-76.844 76.927a2.539 2.539 0 01-4.334-1.794zM78.178 82.027h81.176a2.539 2.539 0 012.539 2.538v81.268H83.255a5.077 5.077 0 01-5.077-5.077z" opacity=".405"/></g></svg>
-    <span class="mt-1 text-gray-500">Strapi</span>
-  </a>
-
+</div>
 </div>

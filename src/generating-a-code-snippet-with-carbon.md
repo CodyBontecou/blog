@@ -5,6 +5,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-06
 description: Check out Carbon, a site to easily create and share beautiful images of your source code.
 category: tutorials
+dropdown: 'Misc'
 tags:
   - Carbon
   - Code
@@ -24,16 +25,13 @@ meta:
 canonicalUrl: https://codybontecou.com/generating-a-code-snippet-with-carbon.html
 ---
 
-<h1 class="mt-24 text-4xl font-semibold">Dev Blogging 101 - Generating a Code Snippet with Carbon</h1>
+<h1 class="text-4xl font-semibold">Dev Blogging 101 - Generating a Code Snippet with Carbon</h1>
 
 > One of the first steps to reaching a wider audience as a developer blog is providing interesting, visual content. [Carbon.now.sh](https://carbon.now.sh) does a great job at it.
 
 Carbon is a simple, single-page application built to provide you with an online IDE with the sole purpose of generating code snippets.
 
-<figure>
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/Vw3NKsfWMDo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <figcaption class="mt-2 text-center text-gray-400">Video walk-through of Carbon.now.sh</figcaption>
-</figure>
+<a class="mt-2 text-center text-gray-400" href="https://www.youtube.com/watch?v=Vw3NKsfWMDo" target="_blank">Video walk-through of Carbon.now.sh</a>
 
 ## Controls
 
@@ -48,11 +46,8 @@ It gives you a surprising amount of control over the look and feel of your code 
 1. The line number and hidden character control
 
 <figure class="flex items-center">
-  <img src="images/carbon-features.png" alt="Screenshot of the controls Carbon offers to adjust IDE window settings" class="w-1/2 rounded shadow-lg" />
+  <img src="https://codybontecou.com/images/carbon-features.png" alt="Screenshot of the controls Carbon offers to adjust IDE window settings" class="w-1/2 rounded shadow-lg" />
   <figcaption class="mt-2 text-center text-gray-400">Screenshot of the controls Carbon offers to adjust IDE window settings</figcaption>
 </figure>
 
 Hope this helps you along your Developer Blogging journey. I've found it to be a very fun tool and I plan on using it for all of my code snippets.
-
-<SimpleNewsletter />
-<Post />

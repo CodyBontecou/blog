@@ -4,6 +4,7 @@ title: 'Programmatically Tweeting with NodeJS'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-07-16
 description: Interacting with Twitter through their API. In this post I discuss how to use twitter-lite to create and post a tweet.
+dropdown: 'NodeJS'
 meta:
   - name: og:title
     content: Programmatically Tweeting with NodeJS
@@ -111,6 +112,3 @@ Now type `node index.js` into your terminal and press enter. This will generate 
 ---
 
 I hope this article was helpful, let me know if you have any questions, comments, or suggestions on Twitter [@codybontecou](https://twitter.com/CodyBontecou)
-
-<SimpleNewsletter />
-<Post />

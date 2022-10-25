@@ -1,6 +1,7 @@
 ---
 type: 'post'
 title: Configuring TailwindCSS to work with Vitepress
+dropdown: 'VueJS'
 ---
 
 <div class="text-4xl font-semibold">Configuring TailwindCSS to work with Vitepress</div>
@@ -133,6 +134,3 @@ According to the responses within the issue, there are two ways of bringing in T
 
 **1. Import TailwindCSS through their CDN:**
 ```
-
-<SimpleNewsletter />
-<Post />

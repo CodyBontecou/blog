@@ -5,6 +5,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2021-11-30
 description: Learn to utilize Pinia alongside VueJS within an Electron app to easily manage UI state.
 category: tutorials
+dropdown: 'Electron'
 tags:
   - Vuejs
   - Vue
@@ -173,6 +174,3 @@ if (import.meta.hot) {
 Passing `acceptHMRUpdate` your store (`useMainStore` in my case), it gives us HMR!
 
 Hope you enjoyed!
-
-<SimpleNewsletter />
-<Post />
