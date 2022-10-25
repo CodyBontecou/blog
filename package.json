@@ -12,7 +12,8 @@
     "dev": "vitepress dev src",
     "build": "vitepress build src",
     "serve": "vitepress serve src --port 8080",
-    "generate": "node ./util/generateSitemap"
+    "generate:sitemap": "node ./util/generateSitemap",
+    "generate:netlify": "node ./util/generateNetlifyToml"
   },
   "license": "MIT",
   "devDependencies": {
