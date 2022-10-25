@@ -31,7 +31,7 @@ canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
 
 > The estimated reading time has become prevalent in most major spaces that provides articles and reading materials. I decided to look into how to calculate it myself and found it's quite simple.
 
-<p class="mt-8 font-semibold">A big thank you to Michal Burrows' <a href="https://dev.to/michaelburrows/calculate-the-estimated-reading-time-of-an-article-using-javascript-2k9l" target="_blank">post</a> for providing me with the baseline of this source code.</p>
+<p class="mt-8 font-semibold text-gray-800">A big thank you to Michal Burrows' <a href="https://dev.to/michaelburrows/calculate-the-estimated-reading-time-of-an-article-using-javascript-2k9l" target="_blank">post</a> for providing me with the baseline of this source code.</p>
 
 ## Steps to estimate the reading time
 

@@ -7,8 +7,6 @@ console.log('Start building netlify.toml...')
 const files = fg.sync(['**/*.md', '!**/node_modules', '!README.md'])
 const filePathsWithoutSrc = files.map(file => file.replace('src/', ''))
 
-console.log(filePathsWithoutSrc)
-
 fs.writeFile(
   path.resolve(__dirname, '../_netlify.toml'),
   `[[plugins]]
