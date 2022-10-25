@@ -5,6 +5,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2022-5-04
 description:
 category: tutorials
+dropdown: 'NuxtJS'
 tags:
   - Vuejs
   - Vue
