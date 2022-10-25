@@ -31,11 +31,6 @@ canonicalUrl: https://codybontecou.com/generating-a-code-snippet-with-carbon.htm
 
 Carbon is a simple, single-page application built to provide you with an online IDE with the sole purpose of generating code snippets.
 
-<figure>
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/Vw3NKsfWMDo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <figcaption class="mt-2 text-center text-gray-400">Video walk-through of Carbon.now.sh</figcaption>
-</figure>
-
 ## Controls
 
 It gives you a surprising amount of control over the look and feel of your code snippet, providing the following features:
