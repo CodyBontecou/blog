@@ -26,14 +26,14 @@ canonicalUrl: https://codybontecou.com/
 ---
 
 <div class="w-full flex items-center justify-center">
-<div class="w-2/3">
+<div class="w-full md:w-2/3">
 <div class="flex flex-col items-center sm:flex-row sm:items-start">
   <img src="./assets/images/cody-abstract.jpeg" alt="Portrait of Cody Bontecou" class="rounded-full w-52" width="100%" height="100%" />
-  <div class="flex flex-col max-w-xs h-full sm:ml-12">
+  <div class="flex flex-col h-full sm:ml-12">
     <h1 class="mt-6 text-4xl font-semibold">
       Cody Bontecou
     </h1>
-    <p class="my-1 font-medium text-gray-500">
+    <p class="my-1 font-medium max-w-xs text-gray-500">
       is enjoying life as a digital nomad, building web apps one line at a time.
     </p>
     <div class="my-3 flex space-x-4">

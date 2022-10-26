@@ -51,3 +51,11 @@ svg.vssue-icon {
 .token.number {
   color: #f049cb;
 }
+
+.cookie__floating__buttons__button--decline {
+  @apply text-gray-900 hover:bg-gray-900 hover:text-white;
+}
+
+.cookie__floating__buttons__button--accept {
+  @apply text-blue-ninja hover:bg-blue-ninja hover:text-white;
+}

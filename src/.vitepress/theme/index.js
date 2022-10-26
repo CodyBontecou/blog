@@ -5,6 +5,9 @@ import SimpleNewsletter from '../components/SimpleNewsletter.vue'
 import ZapierLogo from '../components/ZapierLogo.vue'
 import Popup from '../components/Popup.vue'
 
+import VueCookieAcceptDecline from 'vue-cookie-accept-decline'
+import 'vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css'
+
 import { useNewsletterStore } from './store/NewsletterStore'
 
 import MyLayout from './MyLayout.vue'
@@ -20,6 +23,7 @@ export default {
   enhanceApp({ app }) {
     app.use(pinia)
 
+    app.component('VueCookieAcceptDecline', VueCookieAcceptDecline)
     app.component('Comments', Comments)
     app.component('SimpleNewsletter', SimpleNewsletter)
     app.component('Popup', Popup)
