@@ -116,7 +116,7 @@ export default defineNuxtConfig({
 
 It seems using `v-icon` requires additional configuration. Thank you @cbrhex for figuring this out [here](https://github.com/nuxt/framework/discussions/1183#discussioncomment-2682117).
 
-1. Install mdi using `yarn add mdi`
+1. Install mdi using `yarn add @mdi/font`
 2. Add the css to your `nuxt.config.ts` file.
 
 ```js
@@ -126,7 +126,7 @@ import {defineNuxtConfig} from 'nuxt'
 export default defineNuxtConfig({
     css: [
         ....
-        'mdi/css/materialdesignicons.min.css',
+        '@mdi/font/css/materialdesignicons.min.css',
         ...
     ],
 })
