@@ -1,0 +1,3 @@
+[submodule "obsidian-sync"]
+	path = obsidian-sync
+	url = https://github.com/CodyBontecou/obsidian-sync
