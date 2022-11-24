@@ -1,4 +1,4 @@
 [submodule "obsidian-sync"]
-	path = obsidian-sync
+	path = src/obsidian-sync
 	url = https://github.com/CodyBontecou/obsidian-sync
 	branch = main
