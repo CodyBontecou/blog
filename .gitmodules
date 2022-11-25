@@ -2,3 +2,4 @@
 	branch = main
 	url = https://github.com/CodyBontecou/obsidian-sync
 	path = src/obsidian-sync
+  recurse = true
