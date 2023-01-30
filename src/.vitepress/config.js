@@ -144,6 +144,10 @@ module.exports = {
         link: 'projects',
       },
       {
+        text: 'Conferences',
+        link: '/conferences',
+      },
+      {
         text: 'Contact',
         link: '/contact',
       },
