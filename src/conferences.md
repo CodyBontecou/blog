@@ -3,30 +3,30 @@ type: 'post'
 title: 'My Conference Presentations'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2020-09-07
-description: In this tutorial, we're going to convert a Timeline component built in ReactJS to VueJS.
-category: tutorials
+description: In this conference I will be explaining what is tRPC.
+category: conferences
 dropdown: 'Misc'
 tags:
   - Vuejs
   - Vue
-  - ReactJS
-  - Javascript
-  - Component
+  - tRPC
+  - Typescript
+  - Nuxt
 meta:
   - name: og:title
-    content: Convert a ReactJS Component to VueJS
+    content: End-to-end typesafe using tRPC and Nuxt.
   - name: og:description
-    content: In this tutorial, we're going to convert a Timeline component built in ReactJS to VueJS.
+    content: In this conference I will be explaining what is tRPC.
   - name: og:image
-    content: https://codybontecou.com/images/convert-reactjs-component-to-vuejs-meta.png
+    content: https://codybontecou.com/images/nuxt2022.jpg
   - name: og:image:alt
-    content: Meta image stating Convert a Component Built in ReactJS to VueJS alongside Timeline component
+    content: Meta image stating End-to-end typesafe using tRPC and Nuxt.
   - name: og:title
-    content: Convert a React Component to VueJS
+    content: End-to-end typesafe using tRPC and Nuxt.
   - name: twitter:title
-    content: Convert a React Component to VueJS
+    content: End-to-end typesafe using tRPC and Nuxt.
   - name: twitter:text:title
-    content: Convert a React Component to VueJS
+    content: End-to-end typesafe using tRPC and Nuxt.
 canonicalUrl: https://codybontecou.com/conferences.html
 ---
 
