@@ -102,16 +102,13 @@ module.exports = {
     [
       'script',
       {
-        type: 'text/partytown',
         async: true,
         src: 'https://www.googletagmanager.com/gtag/js?id=G-3NM0E524EK',
       },
     ],
     [
       'script',
-      {
-        type: 'text/partytown',
-      },
+      {},
       "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-3NM0E524EK');",
     ],
   ],
