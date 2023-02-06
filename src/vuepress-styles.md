@@ -7,7 +7,7 @@ date: 2020-07-02
 
 # If using vuepress-plugin-blog, the category for the post
 category: tutorials
-dropdown: 'VueJS'
+dropdown: 'Vuepress'
 
 # The list of tags for the post
 tags:

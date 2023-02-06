@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: Configuring TailwindCSS to work with Vitepress
-dropdown: 'VueJS'
+dropdown: 'Vitepress'
 ---
 
 <div class="text-4xl font-semibold">Configuring TailwindCSS to work with Vitepress</div>
