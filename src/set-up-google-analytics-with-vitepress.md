@@ -4,7 +4,7 @@ author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
 date: 2023-02-05 12:34
 last_modified_date: 2023-02-05 12:38
 title: &title 'Set up Google Analytics with Vitepress'
-description: &description "If you're coming from Vuepress, you may be used to the plugin system that provides features such as Google Analytics. Vitepress is (arguably) simpler in this regard. Just add the script provided by Google to your HTML head, and it should work."
+description: &description 'If you're coming from Vuepress, you may be used to the plugin system that provides features such as Google Analytics. Vitepress is (arguably) simpler in this regard. Just add the script provided by Google to your HTML head, and it should work.'
 slug: 'set-up-google-analytics-with-vitepress'
 dropdown: 'Vitepress'
 tags:
