@@ -10,9 +10,9 @@
   "repository": "https://github.com/codybontecou/blog/blog",
   "scripts": {
     "dev": "vitepress dev src",
-    "build": "vitepress build src",
+    "build": "vitepress build src yarn generate",
     "serve": "vitepress serve src --port 8080",
-    "generate:sitemap": "node ./util/generateSitemap",
+    "generate": "node ./util/generateSitemap && node ./util/generateNetlifyToml",
     "generate:netlify": "node ./util/generateNetlifyToml"
   },
   "license": "MIT",
