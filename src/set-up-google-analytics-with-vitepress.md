@@ -32,7 +32,7 @@ canonicalUrl: https://codybontecou.com/set-up-google-analytics-with-vitepress.ht
 
 ## Code Snippet
 
-Change all `G-`XXXXXXXXXX with the Tracking ID provided by [Google Analytics (GA4)](https://support.google.com/analytics/answer/9539598?hl=en).
+Change all `G-XXXXXXXXXX` with the Tracking ID provided by [Google Analytics (GA4)](https://support.google.com/analytics/answer/9539598?hl=en).
 
 ```ts
 // src/.vitepress
