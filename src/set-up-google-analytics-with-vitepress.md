@@ -8,10 +8,10 @@ description: &description "If you're coming from Vuepress, you may be used to th
 slug: 'set-up-google-analytics-with-vitepress'
 dropdown: 'Vitepress'
 tags:
-  -  #blog
-  -  #Vite
-  -  #vuejs
-  -  #blogging
+  - blog
+  - Vite
+  - vuejs
+  - blogging
 meta:
   - name: og:description
     content: *description
