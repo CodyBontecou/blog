@@ -56,11 +56,11 @@ Your `package.json` should now look similar to the following:
 ```json
 // package.json
 "devDependencies": {
-  "nuxt": "3.0.0-rc.1"
+  "nuxt": "3.0.0"
 },
 "dependencies": {
   "sass": "^1.51.0",
-  "vuetify": "^3.0.0-beta.1"
+  "vuetify": "^3.0.1"
 }
 ```
 
@@ -132,15 +132,69 @@ export default defineNuxtConfig({
 })
 ```
 
+## Customize Sass Variables
+
+You're able to extend and modify the sass variables powering Vuetify. This requires installing `vite-plugin-vuetify`:
+
+```bash
+yarn add vite-plugin-vuetify
+```
+
+and adding the following code to your nuxt config:
+
+```ts
+// nuxt.config.ts
+  ...
+  modules: [
+    async (options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', config =>
+        config.plugins.push(
+          vuetify({
+            styles: { configFile: 'settings.scss' },
+          })
+        )
+      )
+    },
+  ],
+  ...
+```
+
+This points Vuetify to a `settings.scss` file in the same directory as the `nuxt.config.ts` file. In your `.scss` file, you can provide global variable changes with the following syntax:
+
+```scss
+// settings.scss
+@forward 'vuetify/settings' with (
+  $button-color: green,
+  $button-font-weight: 700
+);
+```
+
+And in the component you want to apply these changes:
+
+```vue
+// app.vue
+<template>
+  <v-btn>Hello Sass Changes</v-btn>
+</template>
+
+<style lang="scss">
+@use './settings';
+</style>
+```
+
+Check out the [example repo](https://github.com/CodyBontecou/nuxt3-and-vuetify) if you want to see a working example.
+
 If you've followed along this far, your `nuxt.config.ts` file should look like:
 
 ```js
 // nuxt.config.ts
-import { defineNuxtConfig } from 'nuxt'
+import vuetify from 'vite-plugin-vuetify'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  css: ['vuetify/lib/styles/main.sass', '@mdi/css/materialdesignicons.min.css'],
+  css: [
+    'vuetify/lib/styles/main.sass',
+    '@mdi/font/css/materialdesignicons.min.css',
+  ],
   build: {
     transpile: ['vuetify'],
   },
@@ -149,6 +203,17 @@ export default defineNuxtConfig({
       'process.env.DEBUG': false,
     },
   },
+  modules: [
+    async (options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', config =>
+        config.plugins.push(
+          vuetify({
+            styles: { configFile: 'settings.scss' },
+          })
+        )
+      )
+    },
+  ],
 })
 ```
 
@@ -159,3 +224,8 @@ Everything should now be working as expected and you should now be able to utili
 Enjoy!
 
 Here's the [repo](https://github.com/CodyBontecou/nuxt3-and-vuetify) if you'd like to see a working project.
+
+## Resources
+
+- [Component Specific Variables](https://next.vuetifyjs.com/en/features/sass-variables/#component-specific-variables)
+- [vite:extendedConfig Syntax Docs](https://next.vuetifyjs.com/en/features/treeshaking/)

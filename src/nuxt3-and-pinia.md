@@ -55,14 +55,12 @@ yarn add @pinia/nuxt
 
 ## Add Pinia to your nuxt.config file
 
-You'll need to add `'@pinia/nuxt'` to your buildModules array.
+You'll need to add `'@pinia/nuxt'` to your modules array.
 
-```js
-// nuxt.config.js
-import { defineNuxtConfig } from 'nuxt3'
-
+```ts
+// nuxt.config.ts
 export default defineNuxtConfig({
-  buildModules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt'],
 })
 ```
 
@@ -70,8 +68,8 @@ export default defineNuxtConfig({
 
 Now build a named store. For my use-case, I needed to manage state regarding filters, so the skeleton of my store looks like:
 
-```js
-// store/filters.js
+```ts
+// store/filters.ts
 import { defineStore } from 'pinia'
 
 export const useFiltersStore = defineStore({
@@ -81,7 +79,11 @@ export const useFiltersStore = defineStore({
       filtersList: ['youtube', 'twitch'],
     }
   },
-  actions: {},
+  actions: {
+    addValueToFilterList(value: string) {
+      this.filtersList.push(value)
+    },
+  },
   getters: {
     filtersList: state => state.filtersList,
   },
@@ -92,28 +94,56 @@ This is just showing the general structure of your store. The key is to `defineS
 
 Read over Pinia's [Docs](https://pinia.vuejs.org/core-concepts/) to get a better grasp of how to use Pinia properly.
 
+## Alternative Pinia Store Syntax
+
+The above example is a valid Pinia store using a pattern similar to Vue's Options API. You can also define your store using a syntax similar to the Composition API.
+
+Here's how you can build the above example in a composable way:
+
+```js
+// store/filters.ts
+import { defineStore } from 'pinia'
+
+export const useFiltersStore = defineStore('filterStore', () => {
+  const filtersList = ref(['youtube', 'twitch'])
+
+  function addValueToFilterList(value: string) {
+    filtersList.value.push(value)
+  }
+  return { addValueToFilterList, filtersList }
+})
+```
+
+We just reduced the amount of code significantly. Pretty cool, right? I personally prefer the composition.
+
+Instead of relying on the `state`, `action`, and `getter` boilerplate, we use Vue's `ref`, `computed`, and traditional Javascript functions to manage our state.
+
 ## Bring Pinia in Vue Component
 
 With our store in place, simply import it into the component you want to use it in and have fun!
 
-```js
+```vue
+// components/FilterMenu.vue
+<script setup>
+import { useFiltersStore } from '~/store/filters'
+import { storeToRefs } from 'pinia'
+
+const inputVal = ref('')
+
+const filtersStore = useFiltersStore()
+const { addValueToFilterList } = filtersStore
+const { filtersList } = storeToRefs(filtersStore)
+</script>
+
 <template>
   <div>
     {{ filtersList }}
+    <input v-model="inputVal" />
+    <button @click="addValueToFilterList(inputVal)">+</button>
   </div>
 </template>
-
-// components/FilterMenu.vue
-<script>
-import { useFiltersStore } from '~/store/filters'
-
-export default defineComponent({
-  setup() {
-    const filtersStore = useFiltersStore()
-    const filtersList = filtersStore.filtersList
-
-    return { filtersList }
-  },
-})
-</script>
 ```
+
+The line `import { storeToRefs } from 'pinia'` allows us to maintain a reactive getter. In this case, we are destructuring the `filterList` getter from our `filtersStore`.
+
+Here's the [repo](https://github.com/CodyBontecou/nuxt3-and-pinia) if you'd like to see a working project.
