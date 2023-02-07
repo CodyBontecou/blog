@@ -80,6 +80,7 @@ import * as directives from 'vuetify/directives'
 
 export default defineNuxtPlugin(nuxtApp => {
   const vuetify = createVuetify({
+    ssr: true,
     components,
     directives,
   })
@@ -134,7 +135,7 @@ export default defineNuxtConfig({
 
 ## Customize Sass Variables
 
-You're able to extend and modify the sass variables powering Vuetify. This requires installing `vite-plugin-vuetify`:
+You're able to extend and modify the sass variables powering Vuetify. This requires installing `vite-plugin-vuetify` and importing a few Nuxt-specific modules:
 
 ```bash
 yarn add vite-plugin-vuetify
@@ -144,18 +145,18 @@ and adding the following code to your nuxt config:
 
 ```ts
 // nuxt.config.ts
+import { createResolver } from '@nuxt/kit'
+
+const { resolve } = createResolver(import.meta.url)
   ...
-  modules: [
-    async (options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', config =>
-        config.plugins.push(
-          vuetify({
-            styles: { configFile: 'settings.scss' },
-          })
-        )
+  hooks: {
+    'vite:extendConfig': (config) => {
+      config.plugins.push(
+        vuetify({
+          styles: { configFile: resolve('./settings.scss') },
+        })
       )
-    },
-  ],
+    }
   ...
 ```
 
@@ -189,6 +190,9 @@ If you've followed along this far, your `nuxt.config.ts` file should look like:
 ```js
 // nuxt.config.ts
 import vuetify from 'vite-plugin-vuetify'
+import { createResolver } from '@nuxt/kit'
+
+const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
   css: [
@@ -198,22 +202,15 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
-  vite: {
-    define: {
-      'process.env.DEBUG': false,
-    },
-  },
-  modules: [
-    async (options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', config =>
-        config.plugins.push(
-          vuetify({
-            styles: { configFile: 'settings.scss' },
-          })
-        )
+  hooks: {
+    'vite:extendConfig': config => {
+      config.plugins.push(
+        vuetify({
+          styles: { configFile: resolve('./settings.scss') },
+        })
       )
     },
-  ],
+  },
 })
 ```
 
