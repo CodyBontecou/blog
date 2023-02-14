@@ -13,7 +13,8 @@
     "build": "vitepress build src yarn generate",
     "serve": "vitepress serve src --port 8080",
     "generate": "node ./util/generateSitemap && node ./util/generateNetlifyToml",
-    "generate:netlify": "node ./util/generateNetlifyToml"
+    "generate:netlify": "node ./util/generateNetlifyToml",
+    "generate:meta": "node ./util/generateMeta"
   },
   "license": "MIT",
   "devDependencies": {
@@ -22,7 +23,7 @@
     "postcss": "^8.4.13",
     "sitemap": "^7.1.1",
     "tailwindcss": "^3.0.24",
-    "vitepress": "^1.0.0-alpha.22",
+    "vitepress": "^1.0.0-alpha.44",
     "vue": "^3.2.37"
   },
   "dependencies": {

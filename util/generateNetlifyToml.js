@@ -5,6 +5,7 @@ const fg = require('fast-glob')
 console.log('Start building netlify.toml...')
 
 const files = fg.sync(['**/*.md', '!**/node_modules', '!README.md'])
+// TODO: Share this in util file
 const filePathsWithoutSrc = files.map(file => file.replace('src/', ''))
 
 fs.writeFile(
