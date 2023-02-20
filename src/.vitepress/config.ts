@@ -80,15 +80,19 @@ export default defineConfig({
       },
     ],
     sidebar: sortedSidebar,
-    locales: {
-      root: {
-        label: 'English',
-        lang: 'en',
-      },
-      es: {
-        label: 'Español',
-        lang: 'es',
-      },
+    carbonAds: {
+      code: 'CWYDCK7J',
+      placement: 'codybontecoucom',
     },
+    // locales: {
+    //   root: {
+    //     label: 'English',
+    //     lang: 'en',
+    //   },
+    //   es: {
+    //     label: 'Español',
+    //     lang: 'es',
+    //   },
+    // },
   },
 })
