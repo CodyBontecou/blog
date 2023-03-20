@@ -1,6 +1,9 @@
 const fg = require('fast-glob')
 const fs = require('fs')
 const path = require('path')
+const prependFile = require('prepend-file')
+const axios = require('axios').default
+const matter = require('gray-matter')
 
 const files = fg.sync(['**/*.md', '!**/node_modules', '!README.md'])
 
@@ -10,11 +13,34 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-function generateMetaData(file) {
+async function getArticleCategory(title) {
+  const { data } = await axios.post(
+    'https://api.openai.com/v1/completions',
+    {
+      prompt: `Which category does the title: "${title}" fall into? NuxtJS, Vuejs, Electron, NodeJS, Python, Marketing, Misc, Cypress, Youtube, Vitepress, Yaml, or Vuepress?`,
+      model: 'text-davinci-003',
+      temperature: 0.8,
+      max_tokens: 200,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer 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',
+      },
+    }
+  )
+  return data
+}
+
+async function generateMetaData(file) {
   const fileName = file.split('.')[0].replace('src/', '')
   const title = fileName.replaceAll('-', ' ')
   const capitalizedTitle = capitalizeFirstLetter(title)
-  const description = "Use a VueJS's custom event to emit multiple parameters between components."
+  const articleCategory = await getArticleCategory(capitalizedTitle).then(res =>
+    res.choices[0].text.replaceAll('\n', '')
+  )
+  const description = ''
 
   return {
     file,
@@ -22,17 +48,10 @@ function generateMetaData(file) {
       text: `---
   type: 'post'
   title: '${capitalizedTitle}'
-  author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
   date: 2020-09-07
   description: ${description}
   category: tutorials
-  dropdown: 'VueJS'
-  tags:
-    - Vuejs
-    - Vue
-    - Nuxtjs
-    - Nuxt
-    - Code
+  dropdown: '${articleCategory}'
   meta:
     - name: og:title
       content: ${capitalizedTitle}
@@ -50,16 +69,22 @@ function generateMetaData(file) {
       content: ${capitalizedTitle}
   canonicalUrl: https://codybontecou.com/${fileName}.html
 ---
-      `
-    }
+      `,
+    },
   }
 }
 
-const metaStrings = files.map(file => generateMetaData(file))
+files.forEach(async file => {
+  const { data } = matter.read(file)
 
-metaStrings.forEach(element => {
-  // TODO: This needs to update the file, not write over what's already there.
-  fs.writeFileSync(path.resolve(__dirname, `../${element.file}`), element.body.text, err => {
-    if (err) throw err
-  })
-});
+  if (Object.keys(data).length !== 0 && data.constructor === Object) {
+    return
+  } else {
+    console.log('here: ', file)
+    const element = await generateMetaData(file)
+    await prependFile(
+      path.resolve(__dirname, `../${element.file}`),
+      element.body.text
+    )
+  }
+})

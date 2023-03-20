@@ -1,4 +1,28 @@
-# E-Sports AI app
+---
+  type: 'post'
+  title: 'Projects/e sports ai app'
+  date: 2020-09-07
+  description: 
+  category: tutorials
+  dropdown: 'Misc'
+  meta:
+    - name: og:title
+      content: Projects/e sports ai app
+    - name: og:description
+      content: 
+    - name: og:image
+      content: https://codybontecou.com/images/projects/e-sports-ai-app.png
+    - name: og:image:alt
+      content: Projects/e sports ai app
+    - name: og:title
+      content: Projects/e sports ai app
+    - name: twitter:title
+      content: Projects/e sports ai app
+    - name: twitter:text:title
+      content: Projects/e sports ai app
+  canonicalUrl: https://codybontecou.com/projects/e-sports-ai-app.html
+---
+      # E-Sports AI app
 
 > This is a living document used to document my thought process and progress while I build this application.
 
