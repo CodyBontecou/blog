@@ -1,8 +1,8 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2023-01-29 20:01
-last_modified_date: 2023-01-29 20:01
+date: 2023-01-29
+last_modified_date: 2023-01-29
 title: &title 'Reusable YAML Variables'
 description: &description 'Reusing YAML variables within grey matter to conveniently generate meta tags.'
 slug: 'reusable-yaml-variables'

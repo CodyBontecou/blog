@@ -1,8 +1,8 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2023-02-02 12:04
-last_modified_date: 2023-02-02 12:04
+date: 2023-02-02
+last_modified_date: 2023-02-02
 title: &title 'Lets setup Nuxt 3 with Cypress'
 description: &description "Cypress is an excellent E2E testing tool. Let's set it up in a fresh Nuxt 3 project to connect two modern web tools."
 slug: 'lets-setup-nuxt-3-with-cypress'

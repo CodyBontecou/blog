@@ -1,6 +1,11 @@
-import { defineConfig } from 'vitepress'
+import path from 'path'
+import { writeFileSync } from 'fs'
+import { Feed } from 'feed'
+import { defineConfig, createContentLoader, type SiteConfig } from 'vitepress'
 require('dotenv').config()
 import { sortedSidebar } from '../../util/generateSidebar'
+
+const hostname: string = 'https://codybontecou.com'
 
 export default defineConfig({
   appearance: 'dark',
@@ -68,7 +73,7 @@ export default defineConfig({
       },
       {
         text: 'Projects',
-        link: 'projects',
+        link: '/projects/',
       },
       {
         text: 'Conferences',
@@ -79,7 +84,10 @@ export default defineConfig({
         link: '/contact',
       },
     ],
-    sidebar: sortedSidebar,
+    sidebar: {
+      '/': sortedSidebar,
+      '/projects/': [{ text: 'Hotspringers', link: '/projects/hotspringers' }],
+    },
     carbonAds: {
       code: 'CWYDCK7J',
       placement: 'codybontecoucom',
@@ -94,5 +102,56 @@ export default defineConfig({
     //     lang: 'es',
     //   },
     // },
+  },
+  buildEnd: async (config: SiteConfig) => {
+    const feed = new Feed({
+      title: 'Cody Bontecou',
+      description: 'My personal blog',
+      id: hostname,
+      link: hostname,
+      language: 'en',
+      image: 'https://codybontecou.com/assets/cody-abstract.30516429.jpeg',
+      favicon: `${hostname}/favicon.ico`,
+      copyright: 'Copyright (c) 2023-present, Cody Bontecou',
+    })
+
+    // You might need to adjust this if your Markdown files
+    // are located in a subfolder
+    const posts = await createContentLoader('*.md', {
+      excerpt: true,
+      render: true,
+    }).load()
+
+    posts
+      .filter(post => post.frontmatter.title && post.frontmatter.date)
+      .sort((a, b) => {
+        console.log('******************************************')
+        console.log(a.frontmatter.title, '  ', a.frontmatter.date)
+        console.log(b.frontmatter.title, ' ', b.frontmatter.date)
+        return (
+          +new Date(b.frontmatter.date as string) -
+          +new Date(a.frontmatter.date as string)
+        )
+      })
+
+    for (const { url, excerpt, frontmatter, html } of posts) {
+      feed.addItem({
+        title: frontmatter.title,
+        id: `${hostname}${url}`,
+        link: `${hostname}${url}`,
+        description: excerpt,
+        content: html,
+        author: [
+          {
+            name: 'Cody Bontecou',
+            email: 'codybontecou@gmail.com',
+            link: 'https://codybontecou.com',
+          },
+        ],
+        date: frontmatter.date,
+      })
+    }
+
+    writeFileSync(path.join(config.outDir, 'feed.rss'), feed.rss2())
   },
 })

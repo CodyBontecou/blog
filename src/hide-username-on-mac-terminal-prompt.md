@@ -1,8 +1,8 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2023-08-06 19:03
-last_modified_date: 2023-08-06 19:03
+date: 2023-08-06
+last_modified_date: 2023-08-06
 title: &title 'Hide username on Mac terminal prompt'
 description: &description "Describing the steps needed to show or hide your username on your Mac's terminal."
 slug: 'hide-username-on-mac-terminal-prompt'

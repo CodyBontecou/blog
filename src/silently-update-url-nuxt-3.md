@@ -2,7 +2,7 @@
 type: 'post'
 title: 'Silently Update URL in Nuxt 3'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2022-2-14
+date: 2022-02-14
 description: Update your URL using vue-router within Nuxt 3 so that your page does not refresh on variable change.
 category: tutorials
 dropdown: 'NuxtJS'

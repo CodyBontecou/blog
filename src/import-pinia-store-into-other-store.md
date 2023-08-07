@@ -1,8 +1,8 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2022-09-28 20:16
-last_modified_date: 2022-09-28 20:16
+date: 2022-09-28
+last_modified_date: 2022-09-28
 title: &title 'Import Pinia Store Into Other Store'
 description: &description 'Learn how to access other stores within a store using Pinia.'
 slug: 'import-pinia-store-into-other-store'

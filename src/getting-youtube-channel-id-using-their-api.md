@@ -1,7 +1,7 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2023-01-29 19:14
+date: 2023-01-29
 last_modified_date: 2023-01-29 19:14
 title: &title 'Getting Youtube Channel ID Using Their API'
 description: &description "Getting a youtube channel's Channel Id using the Youtube v3 API."

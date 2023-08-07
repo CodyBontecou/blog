@@ -1,8 +1,8 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2023-02-04 00:26
-last_modified_date: 2023-02-04 18:14
+date: 2023-02-04
+last_modified_date: 2023-02-04
 title: &title 'Disable Video Recording on Cypress Run'
 description: &description "This is a configuration I tend to forget and have to rely on tracking down the answer. I'm not the biggest fan of the Cypress docs, so I decided to write this up for personal reference and figured some of you might find it helpful too."
 slug: 'disable-video-recording-on-cypress-run'

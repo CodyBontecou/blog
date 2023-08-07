@@ -3,7 +3,7 @@ type: 'post'
 title: 'How to use Vuetify with Nuxt 3'
 slug: 'vue/nuxtjs/how-to-use-vuetify-with-nuxt-3'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2022-5-04
+date: 2022-05-04
 description: Get Vuetify to work with Nuxt 3 with this quick tutorial.
 category: tutorials
 dropdown: 'NuxtJS'

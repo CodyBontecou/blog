@@ -1,8 +1,8 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2023-03-20 11:01
-last_modified_date: 2023-03-20 11:01
+date: 2023-03-20
+last_modified_date: 2023-03-20
 title: &title 'Cypress Component Testing with Nuxt 3'
 description: &description 'Showing the setup needed to get Cypress Component Testing working alongside Nuxt 3'
 slug: 'cypress-component-testing-with-nuxt-3'

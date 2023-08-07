@@ -1,8 +1,8 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2023-03-22 17:54
-last_modified_date: 2023-03-22 17:54
+date: 2023-03-22
+last_modified_date: 2023-03-22
 title: &title 'Continuous learning by continuous confusion in tech'
 description: &description 'A key to becoming a good developer is continuously learning.'
 slug: 'continuous-learning-by-continuous-confusion-in-tech'
