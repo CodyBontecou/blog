@@ -115,8 +115,6 @@ export default defineConfig({
       copyright: 'Copyright (c) 2023-present, Cody Bontecou',
     })
 
-    // You might need to adjust this if your Markdown files
-    // are located in a subfolder
     const posts = await createContentLoader('*.md', {
       excerpt: true,
       render: true,
@@ -125,9 +123,6 @@ export default defineConfig({
     posts
       .filter(post => post.frontmatter.title && post.frontmatter.date)
       .sort((a, b) => {
-        console.log('******************************************')
-        console.log(a.frontmatter.title, '  ', a.frontmatter.date)
-        console.log(b.frontmatter.title, ' ', b.frontmatter.date)
         return (
           +new Date(b.frontmatter.date as string) -
           +new Date(a.frontmatter.date as string)
@@ -135,12 +130,16 @@ export default defineConfig({
       })
 
     for (const { url, excerpt, frontmatter, html } of posts) {
+      const postRenderedHtml = html?.includes('{{ $frontmatter.title }}')
+        ? html?.replaceAll('{{ $frontmatter.title }}', frontmatter.title)
+        : html
+
       feed.addItem({
         title: frontmatter.title,
         id: `${hostname}${url}`,
         link: `${hostname}${url}`,
         description: excerpt,
-        content: html,
+        content: postRenderedHtml,
         author: [
           {
             name: 'Cody Bontecou',
