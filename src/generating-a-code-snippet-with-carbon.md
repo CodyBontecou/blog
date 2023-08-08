@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: 'Generating a Code Snippet with Carbon'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2020-07-06
 description: Check out Carbon, a site to easily create and share beautiful images of your source code.
 category: tutorials

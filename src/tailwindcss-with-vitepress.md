@@ -8,7 +8,7 @@ date: 2021-06-30
 <div class="text-4xl font-semibold">Configuring TailwindCSS to work with Vitepress</div>
 
 <div class="flex flex-col items-center mt-10 sm:flex-row">
-  <img src="./assets/images/vite-logo.svg" alt="Vite package logo" width="200" height="200" style="float: left; margin-right: 12px;" />
+  <img src="https://codybontecou.com/images/vite-logo.svg" alt="Vite package logo" width="200" height="200" style="float: left; margin-right: 12px;" />
   <p class="italic text-gray-500">
     I've found myself feeling limited by the styles provided by the framework so I looked into what it takes to use a stylesheet.
   </p>

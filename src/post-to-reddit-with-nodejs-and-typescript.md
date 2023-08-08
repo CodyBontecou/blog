@@ -1,6 +1,6 @@
 ---
 title: 'Post to Reddit using its API'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2020-07-18
 description: Interacting with Reddit through their API. In this post I discuss how to use snoowrap to post to Reddit and specific subreddits.
 dropdown: 'NodeJS'

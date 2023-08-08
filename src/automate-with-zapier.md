@@ -1,6 +1,6 @@
 ---
 title: Automate your social media posts with Zapier
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2020-06-28
 description: This is the page description that will be used
 category: tutorials

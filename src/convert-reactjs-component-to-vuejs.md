@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: 'Convert a ReactJS Component to VueJS'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2020-09-07
 description: In this tutorial, we're going to convert a Timeline component built in ReactJS to VueJS.
 category: tutorials
@@ -52,7 +52,7 @@ npm init vite@latest
 
 ### This will generate a project that has the following directory structure:
 
-<img src="./assets/images/timeline-directory-structure.png" alt="ViteJS generated directory structure" class="mt-6 rounded shadow-lg w-1/2" />
+<img src="https://codybontecou.com/images/timeline-directory-structure.png" alt="ViteJS generated directory structure" class="mt-6 w-1/2 rounded shadow-lg" />
 
 ## Building the VueJS Component
 

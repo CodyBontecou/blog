@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: 'An Introduction to Meta Tags, A11y, and SEO'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2022-08-11
 description: A quick and digestable introduction to meta tags, a11y, and SEO for a better, quick, and accesible web.
 category: tutorials

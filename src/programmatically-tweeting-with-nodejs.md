@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: 'Programmatically Tweeting with NodeJS'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2020-07-16
 description: Interacting with Twitter through their API. In this post I discuss how to use twitter-lite to create and post a tweet.
 dropdown: 'NodeJS'

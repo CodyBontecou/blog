@@ -1,6 +1,6 @@
 ---
 type: 'post'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2023-02-04
 last_modified_date: 2023-02-04
 title: &title 'Disable Video Recording on Cypress Run'

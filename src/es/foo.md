@@ -1,7 +1,7 @@
 ---
   type: 'post'
   title: 'Es/foo'
-  author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+  author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
   date: 2020-09-07
   description: Use a VueJS's custom event to emit multiple parameters between components.
   category: tutorials

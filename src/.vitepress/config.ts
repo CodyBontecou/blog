@@ -110,7 +110,7 @@ export default defineConfig({
       id: hostname,
       link: hostname,
       language: 'en',
-      image: 'https://codybontecou.com/assets/cody-abstract.30516429.jpeg',
+      image: 'https://codybontecou.com/images/cody-abstract.jpeg',
       favicon: `${hostname}/favicon.ico`,
       copyright: 'Copyright (c) 2023-present, Cody Bontecou',
     })

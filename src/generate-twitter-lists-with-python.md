@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: 'Generating Twitter Lists with Python'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2020-09-15
 description:
 category: tutorials

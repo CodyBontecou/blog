@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: 'Nuxt 3 and Pinia'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2022-02-15
 description: Integrate Pinia as your state management library for your Nuxt 3 application.
 category: tutorials

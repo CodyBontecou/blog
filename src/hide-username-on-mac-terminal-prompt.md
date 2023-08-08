@@ -1,6 +1,6 @@
 ---
 type: 'post'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2023-08-06
 last_modified_date: 2023-08-06
 title: &title 'Hide username on Mac terminal prompt'
@@ -78,5 +78,5 @@ I personally use `PS1=''` within my `.zshrc` file. This provides a blank prompt 
 
 And cmon, this looks great!
 
-<img src="./assets/images/clean-terminal.png" alt="Screenshot of my terminal" class="mt-6 rounded-lg shadow-lg" />
+<img src="https://codybontecou.com/images/clean-terminal.png" alt="Screenshot of my terminal" class="mt-6 rounded-lg shadow-lg" />
 

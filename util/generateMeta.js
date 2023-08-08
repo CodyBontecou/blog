@@ -14,7 +14,8 @@ function generateMetaData(file) {
   const fileName = file.split('.')[0].replace('src/', '')
   const title = fileName.replaceAll('-', ' ')
   const capitalizedTitle = capitalizeFirstLetter(title)
-  const description = "Use a VueJS's custom event to emit multiple parameters between components."
+  const description =
+    "Use a VueJS's custom event to emit multiple parameters between components."
 
   return {
     file,
@@ -22,7 +23,7 @@ function generateMetaData(file) {
       text: `---
   type: 'post'
   title: '${capitalizedTitle}'
-  author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+  author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
   date: 2020-09-07
   description: ${description}
   category: tutorials
@@ -50,8 +51,8 @@ function generateMetaData(file) {
       content: ${capitalizedTitle}
   canonicalUrl: https://codybontecou.com/${fileName}.html
 ---
-      `
-    }
+      `,
+    },
   }
 }
 
@@ -59,7 +60,11 @@ const metaStrings = files.map(file => generateMetaData(file))
 
 metaStrings.forEach(element => {
   // TODO: This needs to update the file, not write over what's already there.
-  fs.writeFileSync(path.resolve(__dirname, `../${element.file}`), element.body.text, err => {
-    if (err) throw err
-  })
-});
+  fs.writeFileSync(
+    path.resolve(__dirname, `../${element.file}`),
+    element.body.text,
+    err => {
+      if (err) throw err
+    }
+  )
+})

@@ -2,7 +2,7 @@
 type: 'post'
 title: 'Integrating Vue Devtools into an Electron Application'
 sidebarTitle: 'Adding Vue Devtools'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2021-12-15
 description: Vue Devtools for an Electron application running VueJS on the frontend.
 category: tutorials

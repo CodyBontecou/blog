@@ -1,6 +1,6 @@
 ---
 type: 'post'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2023-02-02
 last_modified_date: 2023-02-02
 title: &title 'Lets setup Nuxt 3 with Cypress'

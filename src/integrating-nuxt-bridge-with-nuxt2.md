@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: 'Integrating Nuxt Bridge into a Nuxt 2 Project'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2022-05-04
 description:
 category: tutorials

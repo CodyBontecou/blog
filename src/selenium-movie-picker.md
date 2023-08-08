@@ -1,7 +1,7 @@
 ---
 type: 'post'
 title: 'Building a Random Movie Picker Using Python and Selenium'
-author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
+author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2020-09-07
 description:
 category: tutorials
