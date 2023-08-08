@@ -130,6 +130,10 @@ export default defineConfig({
       })
 
     for (const { url, excerpt, frontmatter, html } of posts) {
+      if (frontmatter.hideRss) {
+        continue
+      }
+
       const postRenderedHtml = html?.includes('{{ $frontmatter.title }}')
         ? html?.replaceAll('{{ $frontmatter.title }}', frontmatter.title)
         : html

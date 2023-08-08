@@ -23,6 +23,7 @@ meta:
     content: My Blog | Cody Bontecou
 aside: false
 canonicalUrl: https://codybontecou.com/
+hideRss: true
 ---
 
 <div class="flex justify-center items-center w-full">
