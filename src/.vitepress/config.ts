@@ -151,6 +151,9 @@ export default defineConfig({
       })
     }
 
-    writeFileSync(path.join(config.outDir, 'feed.rss'), feed.rss2())
+    writeFileSync(
+      path.join(config.outDir, 'feed.rss'),
+      feed.rss2().replaceAll('&ZeroWidthSpace;', '')
+    )
   },
 })

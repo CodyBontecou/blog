@@ -99,6 +99,3 @@ I have to admit that the modules made the migration painful and make me question
 While integrating already made Nuxt modules is easy, it reduces flexibility and forces reliance.
 
 Outside of module complexity, the migration went quick and smoothly. I look forward to having the benefits of Nuxt Bridge within my Nuxt 2 apps.
-
-<SimpleNewsletter />
-<Post />
