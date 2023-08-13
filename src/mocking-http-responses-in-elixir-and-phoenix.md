@@ -1,8 +1,8 @@
 ---
 type: 'post'
 author: { 'name': 'Cody Bontecou', 'image': '/assets/img/cody.64b57256.jpg' }
-date: 2023-08-13 09:35
-last_modified_date: 2023-08-13 09:35
+date: 2023-08-13
+last_modified_date: 2023-08-13
 title: &title 'Mocking HTTP Responses in Elixir and Phoenix'
 description: &description "A quick walkthrough of the configuration needed to support mocks and modules only used within your Elixir tests"
 slug: 'mocking-http-responses-in-elixir-and-phoenix'
