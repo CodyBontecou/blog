@@ -25,7 +25,7 @@ Edit your config file at `.vitepress/config.js` and add the following.
 ```js
 module.exports = {
     head: [
-        ['link', { rel: 'stylesheet', href='https://unpkg.com/tailwindcss@2.0.4/dist/tailwind.min.css' }]
+        ['link', { rel: 'stylesheet', href: 'https://unpkg.com/tailwindcss@2.0.4/dist/tailwind.min.css' }]
     ]
 };
 ```
