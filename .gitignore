@@ -13,3 +13,5 @@ config.local.js
 basement_dist
 .lighthouseci
 src/.vitepress/cache/**
+
+.obsidian
