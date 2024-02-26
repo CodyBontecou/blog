@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: touch .env
-      - run: echo API_KEY=${{ secrets.RESEND_API_KEY }} >> .env
+      - run: echo RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} >> .env
       - uses: actions/setup-node@v4
         with:
           node-version: 'latest'
