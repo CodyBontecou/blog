@@ -1,0 +1,37 @@
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+# May want to go on a cron schedule rather than every update
+# on:
+#   schedule:
+#     # * is a special character in YAML so you have to quote this string
+#     - cron:  '0 0 1 1 *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: touch .env
+      - run: echo RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} >> .env
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+      - run: npm install
+      - run: npm run newsletter
+      - name: Generate newsletter swap commit
+        run: |
+          git --version
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git add .
+          git commit -m "Updated newsletter boolean"
+          git remote set-url origin https://codybontecou:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git push origin cb/newsletter-automation

@@ -14,7 +14,8 @@
     "serve": "vitepress serve src --port 8080",
     "generate": "node ./util/generateSitemap && node ./util/generateNetlifyToml",
     "generate:netlify": "node ./util/generateNetlifyToml",
-    "generate:meta": "node ./util/generateMeta"
+    "generate:meta": "node ./util/generateMeta",
+    "newsletter": "npx tsx ./util/newsletter"
   },
   "license": "MIT",
   "devDependencies": {
@@ -32,9 +33,13 @@
   "dependencies": {
     "@builder.io/partytown": "^0.6.4",
     "autoprefixer": "^10.4.7",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.4.5",
+    "highlight.js": "^11.9.0",
     "jsonp": "^0.2.1",
+    "marked": "^12.0.0",
+    "marked-highlight": "^2.1.1",
     "pinia": "^2.0.17",
+    "resend": "^3.2.0",
     "vue-cookie-accept-decline": "^6.1.0",
     "vue-utterances": "^0.3.4"
   },
