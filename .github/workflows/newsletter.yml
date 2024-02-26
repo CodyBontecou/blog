@@ -34,4 +34,4 @@ jobs:
           git add .
           git commit -m "Updated newsletter boolean"
           git remote set-url origin https://codybontecou:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git push origin main
+          git push origin cb/newsletter-automation
