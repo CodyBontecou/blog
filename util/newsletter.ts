@@ -23,7 +23,7 @@ const marked = new Marked(
 async function sendEmail(content: string, title: string) {
   await resend.emails.send({
     from: 'Costream <test@costream.app>',
-    to: ['codybontecou@gmail.com'],
+    to: ['bontecouc@gmail.com'],
     subject: title,
     html: content,
   })
