@@ -27,7 +27,7 @@ meta:
   - name: twitter:text:title
     content: Generating a Twitter List with Python
 canonicalUrl: https://codybontecou.com/generate-twitter-lists-with-python.html
-newsletter: true
+newsletter: false
 ---
 # Generating Twitter Lists with Python and Tweepy
 
