@@ -27,7 +27,6 @@ jobs:
       - run: cat .env >> $GITHUB_ENV
       - uses: actions/setup-node@v4
         with:
-          cache: 'npm'
           node-version: 'latest'
       - run: npm install
       - run: npm run newsletter
