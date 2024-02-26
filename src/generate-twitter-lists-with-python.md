@@ -1,11 +1,13 @@
 ---
-type: 'post'
-title: 'Generating Twitter Lists with Python'
-author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
+type: post
+title: Generating Twitter Lists with Python
+author:
+  name: Cody Bontecou
+  image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-09-15
-description:
+description: 
 category: tutorials
-dropdown: 'Python'
+dropdown: Python
 tags:
   - Python
   - Tweepy
@@ -25,8 +27,8 @@ meta:
   - name: twitter:text:title
     content: Generating a Twitter List with Python
 canonicalUrl: https://codybontecou.com/generate-twitter-lists-with-python.html
+newsletter: true
 ---
-
 # Generating Twitter Lists with Python and Tweepy
 
 > The finished project can be seen [here](https://github.com/CodyBontecou/Generating-Twitter-Lists-with-Python/blob/main/tweepy_lists/app.py)
