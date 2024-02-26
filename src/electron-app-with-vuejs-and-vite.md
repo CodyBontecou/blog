@@ -30,7 +30,7 @@ meta:
   - name: twitter:text:title
     content: Building an Electron App with VueJS and Vite
 canonicalUrl: https://codybontecou.com/electron-app-with-vuejs-and-vite.html
-newsletter: true
+newsletter: false
 ---
 
 # Building an Electron App with VueJS and Vite
