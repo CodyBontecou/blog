@@ -23,9 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          touch .env |
-          cat .env >> $GITHUB_ENV
+      - run: touch .env
+      - run: cat .env >> $GITHUB_ENV
       - uses: actions/setup-node@v4
         with:
           node-version: 'latest'
