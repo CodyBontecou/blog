@@ -28,7 +28,7 @@ meta:
   - name: twitter:text:title
     content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
 canonicalUrl: https://codybontecou.com/vuejs-emit-multiple-values-from-child-to-parent.html
-newsletter: true
+newsletter: false
 ---
 
 # Emit Multiple Values from Child to Parent in a VueJS Custom Event
