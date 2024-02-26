@@ -2,7 +2,7 @@ import path from 'path'
 import { writeFileSync } from 'fs'
 import { Feed } from 'feed'
 import { defineConfig, createContentLoader, type SiteConfig } from 'vitepress'
-require('dotenv').config()
+import 'dotenv'
 import { sortedSidebar } from '../../util/generateSidebar'
 
 const hostname: string = 'https://codybontecou.com'

@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "authors": {
     "name": "Cody Bontecou",
     "email": "codybontecou@gmail.com"
@@ -10,7 +11,7 @@
   "repository": "https://github.com/codybontecou/blog/blog",
   "scripts": {
     "dev": "vitepress dev src",
-    "build": "vitepress build src yarn generate",
+    "build": "vitepress build src npm run generate",
     "serve": "vitepress serve src --port 8080",
     "generate": "node ./util/generateSitemap && node ./util/generateNetlifyToml",
     "generate:netlify": "node ./util/generateNetlifyToml",
