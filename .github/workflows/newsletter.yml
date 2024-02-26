@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        cache: 'npm'
       - run: touch .env
       - run: cat .env >> $GITHUB_ENV
       - uses: actions/setup-node@v4
@@ -30,3 +31,5 @@ jobs:
           node-version: 'latest'
       - run: npm install
       - run: npm run newsletter
+        with:
+          RESEND_API_KEY: '${{ secrets.RESEND_API_KEY }}'

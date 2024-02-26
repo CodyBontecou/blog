@@ -5,8 +5,7 @@ import matter from 'gray-matter'
 import { Marked } from 'marked'
 import { markedHighlight } from 'marked-highlight'
 import hljs from 'highlight.js'
-
-require('dotenv').config()
+import 'dotenv/config'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
