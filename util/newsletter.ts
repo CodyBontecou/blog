@@ -32,7 +32,7 @@ const css = fs.readFileSync('util/styles.css', 'utf-8').toString()
 
 function switchToFalse(filename: string): void {
   const data = fs.readFileSync(filename).toString()
-  let newData = data.replace(/newsletter: true/g, 'newsletter: false')
+  const newData = data.replace(/newsletter: true/g, 'newsletter: false')
   fs.writeFileSync(filename, newData)
 }
 
