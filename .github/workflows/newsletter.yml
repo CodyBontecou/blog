@@ -30,5 +30,3 @@ jobs:
           node-version: 'latest'
       - run: npm install
       - run: npm run newsletter
-        with:
-          RESEND_API_KEY: '${{ secrets.RESEND_API_KEY }}'
