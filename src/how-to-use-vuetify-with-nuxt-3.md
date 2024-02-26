@@ -29,7 +29,7 @@ meta:
   - name: twitter:text:title
     content: How to use Vuetify with Nuxt 3
 canonicalUrl: https://codybontecou.com/how-to-use-vuetify-with-nuxt-3.html
-newsletter: true
+newsletter: false
 ---
 
 # How to use Vuetify with Nuxt 3
