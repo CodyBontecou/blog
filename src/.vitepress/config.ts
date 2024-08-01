@@ -71,10 +71,10 @@ export default defineConfig({
         text: 'Home',
         link: '/',
       },
-      // {
-      //   text: 'Projects',
-      //   link: '/projects/',
-      // },
+      {
+        text: 'Projects',
+        link: '/projects/',
+      },
       {
         text: 'Conferences',
         link: '/conferences',
@@ -86,12 +86,12 @@ export default defineConfig({
     ],
     sidebar: {
       '/': sortedSidebar,
-      // '/projects/': [{ text: 'Hotspringers', link: '/projects/hotspringers' }],
+      '/projects/': [{ text: 'Hotspringers', link: '/projects/hotspringers' }],
     },
-    carbonAds: {
-      code: 'CWYDCK7J',
-      placement: 'codybontecoucom',
-    },
+    // carbonAds: {
+    //   code: 'CWYDCK7J',
+    //   placement: 'codybontecoucom',
+    // },
     // locales: {
     //   root: {
     //     label: 'English',
