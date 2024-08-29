@@ -76,8 +76,8 @@ export default defineConfig({
         link: '/projects/',
       },
       {
-        text: 'Conferences',
-        link: '/conferences',
+        text: 'Talks',
+        link: '/talks',
       },
       {
         text: 'Contact',
