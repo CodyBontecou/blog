@@ -13,9 +13,9 @@
     "dev": "vitepress dev src",
     "build": "vitepress build src npm run generate",
     "serve": "vitepress serve src --port 8080",
-    "generate": "node ./util/generateSitemap && node ./util/generateNetlifyToml",
+    "generate": "npx tsx ./util/generateSitemap",
     "generate:netlify": "node ./util/generateNetlifyToml",
-    "generate:meta": "node ./util/generateMeta",
+    "generate:meta": "npx tsx ./util/generateMeta",
     "newsletter": "npx tsx ./util/newsletter"
   },
   "license": "MIT",
