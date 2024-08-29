@@ -5,7 +5,7 @@ import { defineConfig, createContentLoader, type SiteConfig } from 'vitepress'
 import 'dotenv'
 import { sortedSidebar } from '../../util/generateSidebar'
 
-const hostname: string = 'https://codybontecou.com'
+const hostname = 'https://codybontecou.com'
 
 export default defineConfig({
   appearance: 'dark',
