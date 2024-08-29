@@ -1,9 +1,9 @@
 ---
 type: 'post'
-title: 'My Conference Presentations'
+title: 'Conferences I have spoken at'
 author: { 'name': 'Cody Bontecou', 'image': 'https://codybontecou.com/images/cody-abstract.jpeg' }
 date: 2020-09-07
-description: In this conference I will be explaining what is tRPC.
+description: A list of conferences Cody Bontecou has spoken at.
 category: conferences
 dropdown: 'Misc'
 tags:
@@ -14,20 +14,20 @@ tags:
   - Nuxt
 meta:
   - name: og:title
-    content: End-to-end typesafe using tRPC and Nuxt.
+    content: Conferences I have spoken at
   - name: og:description
-    content: In this conference I will be explaining what is tRPC.
+    content: A list of conferences Cody Bontecou has spoken at.
   - name: og:image
     content: https://codybontecou.com/images/nuxt2022.jpg
   - name: og:image:alt
     content: Meta image stating End-to-end typesafe using tRPC and Nuxt.
   - name: og:title
-    content: End-to-end typesafe using tRPC and Nuxt.
+    content: Conferences I have spoken at
   - name: twitter:title
-    content: End-to-end typesafe using tRPC and Nuxt.
+    content: Conferences I have spoken at
   - name: twitter:text:title
-    content: End-to-end typesafe using tRPC and Nuxt.
-canonicalUrl: https://codybontecou.com/conferences.html
+    content: Conferences I have spoken at
+canonicalUrl: https://codybontecou.com/talks.html
 ---
 
 # Talks
