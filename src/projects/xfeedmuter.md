@@ -1,9 +1,13 @@
 # X Feed Muter
 
+> Quickly mute users, keywords and phrases from your X feed.
+
+![x feed muter](https://lh3.googleusercontent.com/_eIuuI0H1YJ97IbyzeSvZFRHiwtxJrVldTaQYa8wn1-_2oSA4zajBAr3fpVuvcmYPr1gweA8ARnT_GzMBRNEQOkAXQ=s1280-w1280-h800)
+
 ## Project Overview
 - **Type:** Chrome Extension
 - **Duration:** June 25, 2024 - June 28, 2024
-- **Brief Description:** Quickly mute users, keywords and phrases from your X feed.
+- **Brief Description:** This powerful and user-friendly Chrome extension allows you to quickly mute users, keywords, and phrases from your X feed, giving you full control over your social media experience.
 
 ## Inspiration
 _What motivated you to start this project?_
@@ -49,3 +53,8 @@ _Any specific problem you were trying to solve?_:
 - [https://xfeedmuter.com](https://www.xfeedmuter.com)
 - [Inline phrase muting](https://x.com/CodyBontecou/status/1806320715010019332)
 - [Mute settings in extension](https://x.com/CodyBontecou/status/1806644727502270539)
+
+![screenshot1](https://lh3.googleusercontent.com/dySdPsdEEcnRmV9PiXKk5Q2dBifvDr8jZt1xa2P-_M-ojAJGoNOgSzY70WCOGNxMhlJkznQgnBx9v81zDBbzdiS1QPo=s1280-w1280-h800)
+![screenshot2](https://lh3.googleusercontent.com/cjFi5KXWmBJwgeG8zyUMIdIACvf4Yf3_2dEuqRRmYvq3Tk2q56Tlqa11l05lOB8FDvHbmYLCMnAhDYUaya1RduNx=s1280-w1280-h800)
+![screenshot3](https://lh3.googleusercontent.com/_eIuuI0H1YJ97IbyzeSvZFRHiwtxJrVldTaQYa8wn1-_2oSA4zajBAr3fpVuvcmYPr1gweA8ARnT_GzMBRNEQOkAXQ=s1280-w1280-h800)
+![screenshot4](https://lh3.googleusercontent.com/vt-XOSaQ15QQjE46wr41FnO3bvf7fe5nJRzDL7e03_yQ47cMrS9DhYsLaPNi3ZXsvCidP_mbC3NzsJzSR9Zdr2ggZLM=s1280-w1280-h800)
