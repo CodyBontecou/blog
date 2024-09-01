@@ -11,7 +11,7 @@
   "repository": "https://github.com/codybontecou/blog/blog",
   "scripts": {
     "dev": "vitepress dev src",
-    "build": "vitepress build src npm run generate",
+    "build": "vitepress build src && npm run generate",
     "serve": "vitepress serve src --port 8080",
     "generate": "npx tsx ./util/generateSitemap",
     "generate:netlify": "node ./util/generateNetlifyToml",
