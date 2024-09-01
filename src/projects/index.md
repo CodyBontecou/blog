@@ -81,7 +81,7 @@ This site serves as a digital showcase for Daniela Bontecou's expertise in creat
 
 It's a small but effective solution to improve the layout and usability of the YouTube Studio interface.
 
-[Explore further](/projects/HideYTCDColumn) | [Github Repo](https://github.com/CodyBontecou/HideYTCDColumn/)
+[Explore further](/projects/hideYTCDColumn) | [Github Repo](https://github.com/CodyBontecou/HideYTCDColumn/)
 
 ## Screen Casting Automation
 
