@@ -91,15 +91,15 @@ export default defineConfig({
             '/': sortedSidebar,
             '/projects/': [
                 { text: 'X Feed Muter', link: '/projects/xfeedmuter' },
-                { text: 'i18n Locale', link: '/projects/i18nlocale' },
-                { text: 'Costream', link: '/projects/costream' },
-                { text: 'Daniela Bontecou', link: '/projects/danielabontecou' },
-                { text: 'HideYTCDColumn', link: '/projects/hideYTCDColumn' },
-                {
-                    text: 'Screencast Automation',
-                    link: '/projects/screencastautomation',
-                },
-                { text: 'Hotspringers', link: '/projects/hotspringers' }
+                // { text: 'i18n Locale', link: '/projects/i18nlocale' },
+                // { text: 'Costream', link: '/projects/costream' },
+                // { text: 'Daniela Bontecou', link: '/projects/danielabontecou' },
+                // { text: 'HideYTCDColumn', link: '/projects/hideYTCDColumn' },
+                // {
+                //     text: 'Screencast Automation',
+                //     link: '/projects/screencastautomation',
+                // },
+                // { text: 'Hotspringers', link: '/projects/hotspringers' }
             ],
         },
     },
