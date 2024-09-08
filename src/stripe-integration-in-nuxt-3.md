@@ -1506,9 +1506,11 @@ Now, when you click the `Manage Billing` button within your `AuthMenu` dropdown,
 
 Here you can update or cancel your plan!
 
+## 09 - Composable Refactor
+
 ### isSubscribed Check
 
-Let's go one step further in this section. I want to check against the `isSubscribed` value we have attached to our user's Account to dynamically render content based on this value.
+I want to check against the `isSubscribed` value we have attached to our user's Account to dynamically render content based on this value.
 
 To do this, we're going to tap into Authjs' [session callback](https://next-auth.js.org/configuration/callbacks#session-callback). The session callback is ran whenever a session is checked.
 
@@ -1664,7 +1666,7 @@ declare module 'next-auth' {
 
 This overrides the `Session` interface defined by next-auth and extends it with the `user.isSubscribed` field.
 
-## 09 - Multiple Plans
+## 10 - Multiple Plans
 
 Awhile back I mentioned we would get rid of the hard coded `PRICE_LOOKUP_KEY`. The reason we don't like it is because it's limiting our checkout to a single subscription plan. Our goal is to support multiple prices and plans, so let's make the necessary adjustments.
 
@@ -1939,7 +1941,7 @@ declare module 'next-auth' {
 }
 ```
 
-## 10 - Yearly Plans
+## 11 - Yearly Plans
 
 > "Buy 10 months, get two free!"
 
@@ -2288,7 +2290,7 @@ const tiers = [
 
 With these changes in place, you should now see the `plan` value reflected in your database.
 
-## 11 - Permissions
+## 12 - Permissions
 
 I want to show you how we can easily adjust permissions on our site with our `plan` value.
 
@@ -2383,7 +2385,7 @@ defineProps<Props>()
 
 This is a very simple example, but it showcases how easy it is to now dynamically show content based on the user's subscription tier.
 
-## 12 - Deploy
+## 13 - Deploy
 
 > Coming soon...
 
