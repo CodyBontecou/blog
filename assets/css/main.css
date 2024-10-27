@@ -10,3 +10,7 @@ img {
 a:hover {
     color: #4e369b;
 }
+
+::selection {
+    background: rgb(78, 54, 155, 0.2);
+}
