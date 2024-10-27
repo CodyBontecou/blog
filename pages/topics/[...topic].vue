@@ -5,6 +5,7 @@ const topic = route.params.topic[0]
 const { data: articles } = await useAsyncData(`post-${route.path}`, () =>
     queryContent()
         .where({ topics: { $contains: topic } })
+        .sort({ date: -1 })
         .find()
 )
 
