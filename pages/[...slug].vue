@@ -29,18 +29,15 @@ const { data: post } = await useAsyncData(`post-${path}`, () =>
 // Extract topics and create an array of queries
 const postTopics = post.value.topics
 
-// Build a dynamic query using OR logic for each topic
-const topicQueries = postTopics.map(topic => {
-    return { topics: topic } // Assuming `topics` is the field in your content
-})
-
 const { data: allArticles } = await useAsyncData('allArticles', () =>
     queryContent().find()
 )
 
 const similarArticles = computed(() => {
-    return allArticles.value.filter(article =>
-        article.topics.some(topic => postTopics.includes(topic))
+    return allArticles.value.filter(
+        article =>
+            article.title !== post.value.title &&
+            article.topics.some(topic => postTopics.includes(topic))
     )
 })
 </script>
