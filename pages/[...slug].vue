@@ -27,7 +27,7 @@ const { data: post } = await useAsyncData(`post-${path}`, () =>
 )
 
 // Extract topics and create an array of queries
-const postTopics = post.value.topics
+const postTopics: string[] = post.value.topics
 
 const { data: allArticles } = await useAsyncData('allArticles', () =>
     queryContent().find()
@@ -38,7 +38,9 @@ const similarArticles = computed(() => {
         .filter(
             article =>
                 article.title !== post.value.title &&
-                article.topics.some(topic => postTopics.includes(topic))
+                article.topics.some((topic: string) =>
+                    postTopics.includes(topic)
+                )
         )
         .slice(0, 5)
 })

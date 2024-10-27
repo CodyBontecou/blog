@@ -11,10 +11,14 @@
             "id": "7139b418784888b9",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Random.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Random"
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Random.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Random"
             }
           },
           {
@@ -107,11 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Random.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Random"
             }
           },
           {
@@ -132,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "Random.md"
+              },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Random"
             }
           }
         ]
@@ -156,14 +164,16 @@
   },
   "active": "7139b418784888b9",
   "lastOpenFiles": [
-    "random.md",
-    "copy copy.md",
-    "copy.md",
-    "1977-toyota-rv-new-garage copy.md",
     "1977-toyota-rv-new-garage.md",
+    "Random.md",
+    "copy copy.md",
     "ai.md",
+    "copy.md",
     "tracking-created-and-updated-times-obsidian-notes.md",
     "other-article.md",
+    "random.md",
+    "Test.md",
+    "1977-toyota-rv-new-garage copy.md",
     "articles/other-article.md",
     "articles/tracking-created-and-updated-times-obsidian-notes.md",
     "articles"

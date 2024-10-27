@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { ParsedContent } from '@nuxt/content'
+
 interface Props {
-    articles: Article[]
+    articles: ParsedContent[] | ComputedRef<ParsedContent[]>
 }
 
 interface Article {}

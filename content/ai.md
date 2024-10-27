@@ -1,8 +1,7 @@
 ---
 title: AI Article
-date: 2024-10-26
-description: AI, newer article
-topics: [ai, python]
+date: 2024-10-24
+topics: [ai]
 readingTime: 1
 draft: false
 ---
