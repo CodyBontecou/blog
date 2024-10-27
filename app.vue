@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Separator } from '@/components/ui/separator'
 const route = useRoute()
 </script>
 
@@ -21,5 +22,9 @@ const route = useRoute()
         </header>
 
         <NuxtPage />
+
+        <Separator class="my-20" />
+
+        
     </div>
 </template>
