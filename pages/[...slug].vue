@@ -3,7 +3,7 @@
     <!-- Article -->
     <article class="prose prose-slate max-w-none">
         <h1 class="text-4xl font-normal mb-4">{{ post.title }}</h1>
-        <div class="text-gray-600 text-lg mb-16">
+        <div class="text-gray-600 text-lg mb-10">
             {{ formatDate(post.date) }} · {{ post.readingTime }} minute read
         </div>
         <ContentRenderer :value="post" />
@@ -18,15 +18,6 @@ const { path } = useRoute()
 const { data: post } = await useAsyncData(`post-${path}`, () =>
     queryContent(path).findOne()
 )
-
-// Format the date (August 7, 2023)
-const formatDate = date => {
-    return new Date(date).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-    })
-}
 </script>
 
 <style>
