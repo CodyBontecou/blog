@@ -22,9 +22,5 @@ const route = useRoute()
         </header>
 
         <NuxtPage />
-
-        <Separator class="my-20" />
-
-        
     </div>
 </template>

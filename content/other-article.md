@@ -2,7 +2,7 @@
 title: Other Article
 date: 2024-10-27
 description: Other, newer article
-topics: [obsidian]
+topics: [ai, obsidian]
 readingTime: 1
 draft: false
 ---
