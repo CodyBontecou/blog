@@ -18,21 +18,6 @@ const topics = computed(() => {
     return [...new Set(allTopics)].sort()
 })
 
-// Format the full date for the latest post
-const formatDate = date => {
-    return new Date(date).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-    })
-}
-
-// Format the date for the posts list (YYYY · MM)
-const formatPostDate = date => {
-    const d = new Date(date)
-    return `${d.getFullYear()} · ${String(d.getMonth() + 1).padStart(2, '0')}`
-}
-
 // Get the first paragraph text and truncate it
 const getFirstParagraphText = body => {
     if (!body?.children) return ''

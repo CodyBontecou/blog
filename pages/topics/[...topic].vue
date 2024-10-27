@@ -19,31 +19,27 @@ const articleCount = articles.value ? articles.value.length : 0
                 <span>{{ capitalizeFirstLetter(topic) }}</span>
             </h1>
 
-            <p class="text-gray-600 text-xl">
+            <p class="text-gray-600 text-lg">
                 {{ articleCount }} entries about this topic
             </p>
         </div>
 
-        <div class="space-y-4">
-            <article
+        <ul class="">
+            <li
                 v-for="article in articles"
-                :key="article._id"
-                class="flex items-baseline gap-8"
+                :key="article._path"
+                class="flex items-center"
             >
-                <!-- Date -->
-                <div class="w-24 text-gray-500 font-normal">
-                    {{ new Date(article.date).getFullYear() }} ·
-                    {{
-                        new Date(article.date).getMonth() +
-                        (1).toString().padStart(2, '0')
-                    }}
+                <div class="flex-shrink-0 text-gray-600 text-md pr-6">
+                    {{ formatPostDate(article.date) }}
                 </div>
-
-                <!-- Title -->
-                <NuxtLink :to="article._path" class="text-xl hover:underline">
+                <NuxtLink
+                    :to="article._path"
+                    class="hover:opacity-75 underline text-lg"
+                >
                     {{ article.title }}
                 </NuxtLink>
-            </article>
-        </div>
+            </li>
+        </ul>
     </main>
 </template>
