@@ -15,10 +15,8 @@ const route = useRoute()
                 </NuxtLink>
             </h1>
             <nav class="flex gap-6 text-gray-600">
-                <NuxtLink to="/about" class="hover:text-gray-900">
-                    About
-                </NuxtLink>
-                <NuxtLink to="/now" class="hover:text-gray-900"> Now </NuxtLink>
+                <NuxtLink to="/about"> About </NuxtLink>
+                <NuxtLink to="/now"> Now </NuxtLink>
             </nav>
         </header>
 

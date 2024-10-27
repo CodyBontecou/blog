@@ -6,3 +6,7 @@ img {
     height: 500px;
     width: auto;
 }
+
+a:hover {
+    color: #4e369b;
+}
