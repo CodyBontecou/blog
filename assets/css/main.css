@@ -14,3 +14,7 @@ a:hover {
 ::selection {
     background: rgb(78, 54, 155, 0.2);
 }
+
+img {
+    border-radius: 10px;
+}
