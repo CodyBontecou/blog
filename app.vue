@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Separator } from '@/components/ui/separator'
-const route = useRoute()
+const { routeIsSlug } = useRouteIsSlug()
 </script>
 
 <template>
@@ -10,7 +9,7 @@ const route = useRoute()
             <h1 class="">
                 <NuxtLink to="/" class="hover:opacity-75">
                     Cody Bontecou
-                    <span v-if="route.name === 'slug'" class="text-gray-600">
+                    <span v-if="routeIsSlug" class="text-gray-600">
                         / Writing
                     </span>
                 </NuxtLink>
