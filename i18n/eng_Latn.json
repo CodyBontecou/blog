@@ -15,5 +15,14 @@
 
   "writing": {
     "writing": "Writing"
+  },
+
+  "landing": {
+    "whatsNew": "What's new",
+    "justShipped": "Just shipped",
+    "hero": "Cody Bontecou",
+    "description": "is enjoying life.",
+    "cta": "Articles",
+    "learnMore": "Learn more"
   }
 }

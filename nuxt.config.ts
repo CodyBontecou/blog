@@ -6,6 +6,7 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         'shadcn-nuxt',
         '@nuxtjs/i18n',
+        '@nuxt/icon',
     ],
 
     routeRules: {
@@ -31,6 +32,9 @@ export default defineNuxtConfig({
         defaultLocale: 'eng_Latn',
         locales: [{ code: 'eng_Latn', title: 'English' }],
         vueI18n: './i18n.config.ts',
+    },
+    nitro: {
+        plugins: ['plugins/beforeParse.ts'],
     },
     shadcn: {
         /**

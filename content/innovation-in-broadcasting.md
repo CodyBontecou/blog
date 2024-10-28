@@ -17,7 +17,7 @@ I'm curious to watch as cultures begin to merge further and faster with one anot
 
 We've had large companies provide applications like Google Translate for years now. It has probably lead to the creation and destruction of cultures such as the digital nomad-ing.
 
-Modern AI technologies has made translation cost much closer to $0 for the individual developer. 
+Modern AI technologies has made translation cost much closer to $0 for the individual developer.
 
 Developers now have the tools to create apps that enable their users to decide what to translate. We can translate a book, website, or video in a relatively short amount of time.
 
