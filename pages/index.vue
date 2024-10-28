@@ -1,62 +1,51 @@
 <script setup lang="ts">
-// Fetch all posts sorted by date
+import { formatPostDate } from '@/lib/utils/formatPostDate'
+import { formatDateWithMonth } from '@/lib/utils/formatDateWithMonth'
+import { getFirstParagraphText } from '@/lib/utils/getFirstParagraphText'
+import { getLatestPost } from '@/lib/utils/getLatestPost'
+
+const { t } = useI18n()
+
+// Fetch all posts sorted by date and ignoring where draft is true
 const { data: posts } = await useAsyncData('articles', () =>
     queryContent('/')
         .sort({ date: -1 })
         .where({ draft: { $ne: true } })
         .find()
 )
-
-// Get the latest post
-const latestPost = computed(() => posts.value?.[0])
+const latestPost = getLatestPost(posts.value)
 
 // Extract unique topics from all posts
-const topics = computed(() => {
-    const allTopics = posts.value
-        ?.flatMap(post => post.topics || [])
-        .filter(Boolean)
-    return [...new Set(allTopics)].sort()
-})
+const topics = getTopics(posts.value)
 
-// Get the first paragraph text and truncate it
-const getFirstParagraphText = body => {
-    if (!body?.children) return ''
+console.log(toRaw(latestPost))
 
-    // Find the first paragraph element
-    const firstParagraph = body.children.find(
-        child => child.tag === 'p' && child.children?.[0]?.value
-    )
-
-    if (!firstParagraph) return ''
-
-    const text = firstParagraph.children[0].value
-    if (text.length <= 120) return text
-    return text.slice(0, 120).trim() + '...'
-}
+const formattedDateWithMonth = formatDateWithMonth(
+    latestPost.date,
+    latestPost.readingTime,
+    t
+)
 </script>
 
 <!-- pages/index.vue -->
 <template>
     <!-- Latest Post -->
     <section v-if="latestPost" class="mb-16">
-        <h2 class="text-gray-600 mb-6">Latest</h2>
+        <h2 class="text-gray-600 mb-6">{{ $t('latest.latest') }}</h2>
         <article>
             <h3 class="text-xl font-medium mb-2">
                 <NuxtLink :to="latestPost._path" class="hover:opacity-75">
                     {{ latestPost.title }}
                 </NuxtLink>
             </h3>
-            <div class="text-gray-600 mb-4">
-                {{ formatDate(latestPost.date) }} ·
-                {{ latestPost.readingTime }} minute read
-            </div>
+            <div class="text-gray-600 mb-4">{{ formattedDateWithMonth }}</div>
             <p class="text-gray-600">
                 {{ getFirstParagraphText(latestPost.body) }}
                 <NuxtLink
                     :to="latestPost._path"
                     class="text-gray-900 hover:opacity-75"
                 >
-                    Keep reading →
+                    {{ $t('latest.keepReading') }}
                 </NuxtLink>
             </p>
         </article>
@@ -64,7 +53,7 @@ const getFirstParagraphText = body => {
 
     <!-- Topics -->
     <section v-if="topics.length" class="mb-16 text-lg">
-        <h2 class="text-gray-600 mb-6">Topics</h2>
+        <h2 class="text-gray-600 mb-6">{{ $t('topics.topics') }}</h2>
         <div class="flex flex-wrap gap-2">
             <NuxtLink
                 v-for="topic in topics"
@@ -79,7 +68,7 @@ const getFirstParagraphText = body => {
 
     <!-- Writing -->
     <section v-if="posts.length">
-        <h2 class="text-gray-600 mb-6">Writing</h2>
+        <h2 class="text-gray-600 mb-6">{{ $t('writing.writing') }}</h2>
         <ul class="">
             <li
                 v-for="post in posts"

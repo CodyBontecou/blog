@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
-    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'shadcn-nuxt'],
+    modules: [
+        '@nuxt/content',
+        '@nuxtjs/tailwindcss',
+        'shadcn-nuxt',
+        '@nuxtjs/i18n',
+    ],
 
     routeRules: {
         '/': { prerender: true },
@@ -16,6 +21,16 @@ export default defineNuxtConfig({
         highlight: {
             theme: 'github-light',
         },
+    },
+    i18n: {
+        strategy: 'no_prefix',
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: 'nuxt_i18n',
+        },
+        defaultLocale: 'eng_Latn',
+        locales: [{ code: 'eng_Latn', title: 'English' }],
+        vueI18n: './i18n.config.ts',
     },
     shadcn: {
         /**

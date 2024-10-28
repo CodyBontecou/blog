@@ -18,6 +18,9 @@
 </template>
 
 <script setup lang="ts">
+import { formatDate } from '@/lib/utils/formatDate'
+import { shuffleArray } from '@/lib/utils/shuffleArray'
+
 // Get the current route params
 const { path } = useRoute()
 
@@ -67,7 +70,11 @@ const suggestedArticles = computed(() => {
             !similarArticles.value.map(a => a.title).includes(article.title)
     )
 
-    // Shuffling filteredArticles array to ensure added articles are random
+    /*
+    Shuffling filteredArticles array to ensure added articles are random
+    getting the remainder of the suggested article length
+    then sorting the array to
+    */
     const shuffledArray = shuffleArray(filteredArticles)
         .slice(0, remainder)
         .sort((a, b) => {

@@ -1,0 +1,19 @@
+{
+  "constants": {
+    "author": "Cody Bontecou"
+  },
+
+  "latest": {
+    "latest": "Latest",
+    "minuteRead": "minute read",
+    "keepReading": "Keep reading →"
+  },
+
+  "topics": {
+    "topics": "Topics"
+  },
+
+  "writing": {
+    "writing": "Writing"
+  }
+}
