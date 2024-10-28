@@ -1,22 +1,3 @@
-<!-- pages/posts/[...slug].vue -->
-<template>
-    <!-- Article -->
-    <article class="max-w-none">
-        <h1 class="text-4xl font-normal mb-4">{{ post.title }}</h1>
-        <div class="text-gray-600 text-lg mb-10">
-            {{ formatDate(post.date) }} · {{ post.readingTime }} minute read
-        </div>
-        <ContentRenderer :value="post" />
-    </article>
-
-    <Separator class="my-20" />
-
-    <div>
-        <h2>You might also enjoy</h2>
-        <ArticleList :articles="suggestedArticles" />
-    </div>
-</template>
-
 <script setup lang="ts">
 import { formatDate } from '@/lib/utils/formatDate'
 import { shuffleArray } from '@/lib/utils/shuffleArray'
@@ -85,3 +66,22 @@ const suggestedArticles = computed(() => {
     return similarArticles.value.concat(shuffledArray)
 })
 </script>
+
+<!-- pages/posts/[...slug].vue -->
+<template>
+    <!-- Article -->
+    <article class="max-w-none">
+        <h1 class="text-4xl font-normal mb-4">{{ post.title }}</h1>
+        <div class="text-gray-600 text-lg mb-10">
+            {{ formatDate(post.date) }} · {{ post.readingTime }} minute read
+        </div>
+        <ContentRenderer :value="post" />
+    </article>
+
+    <Separator class="my-20" />
+
+    <div>
+        <h2>You might also enjoy</h2>
+        <ArticleList :articles="suggestedArticles" />
+    </div>
+</template>
