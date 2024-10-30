@@ -16,18 +16,7 @@ const articleCount = articles.value ? articles.value.length : 0
 
 <template>
     <div class="max-w-3xl mx-auto py-8 px-4">
-        <!-- Header -->
-        <header class="flex justify-between items-center mb-16">
-            <h1 class="">
-                <NuxtLink to="/" class="hover:opacity-75">
-                    Cody Bontecou
-                </NuxtLink>
-            </h1>
-            <nav class="flex gap-6 text-gray-600">
-                <NuxtLink to="/about"> Articles </NuxtLink>
-                <NuxtLink to="/now"> Learn more </NuxtLink>
-            </nav>
-        </header>
+        <TopNav />
 
         <main>
             <div class="mb-12">

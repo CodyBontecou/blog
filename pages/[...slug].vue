@@ -69,19 +69,26 @@ const suggestedArticles = computed(() => {
 
 <!-- pages/posts/[...slug].vue -->
 <template>
-    <!-- Article -->
-    <article class="max-w-none">
-        <h1 class="text-4xl font-normal mb-4">{{ post.title }}</h1>
-        <div class="text-gray-600 text-lg mb-10">
-            {{ formatDate(post.date) }} · {{ post.readingTime }} minute read
-        </div>
-        <ContentRenderer :value="post" />
-    </article>
+    <div class="max-w-3xl mx-auto py-8 px-4">
+        <TopNav />
 
-    <Separator class="my-20" />
+        <main>
+            <!-- Article -->
+            <article class="">
+                <h1 class="text-4xl font-normal mb-4">{{ post.title }}</h1>
+                <div class="text-gray-600 text-lg mb-10">
+                    {{ formatDate(post.date) }} · {{ post.readingTime }} minute
+                    read
+                </div>
+                <ContentRenderer :value="post" />
+            </article>
 
-    <div>
-        <h2>You might also enjoy</h2>
-        <ArticleList :articles="suggestedArticles" />
+            <Separator class="my-20" />
+
+            <div>
+                <h2>You might also enjoy</h2>
+                <ArticleList :articles="suggestedArticles" />
+            </div>
+        </main>
     </div>
 </template>
