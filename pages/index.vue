@@ -45,7 +45,7 @@ const topics = getTopics(posts.value)
 
                         <!-- CTA, learn more -->
                         <div class="mt-8 flex items-center gap-x-2.5">
-                            <NuxtLink to="get-started">
+                            <NuxtLink to="">
                                 <Button>
                                     {{ $t('landing.cta') }}
                                 </Button>
