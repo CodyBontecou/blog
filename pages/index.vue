@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import eng_Latn from '../i18n/eng_Latn.json'
-import { JsonViewer } from '@/components/ui/jsonViewer'
+import { formatPostDate } from '@/lib/utils/formatPostDate'
+import { formatDateWithMonth } from '@/lib/utils/formatDateWithMonth'
+import { getFirstParagraphText } from '@/lib/utils/getFirstParagraphText'
+import { getLatestPost } from '@/lib/utils/getLatestPost'
+
 const { t } = useI18n()
+
 // Fetch all posts sorted by date and ignoring where draft is true
 const { data: articles } = await useAsyncData('articles', () =>
     queryContent('/')
@@ -11,6 +15,13 @@ const { data: articles } = await useAsyncData('articles', () =>
 )
 // Extract unique topics from all posts
 const topics = getTopics(articles.value)
+
+const latestArticle = getLatestPost(articles.value)
+const formattedDateWithMonth = formatDateWithMonth(
+    latestArticle.date,
+    latestArticle.readingTime,
+    t
+)
 </script>
 
 <template>
@@ -48,6 +59,35 @@ const topics = getTopics(articles.value)
                             </Button>
                         </a>
                     </div>
+
+                    <!-- Latest -->
+                    <section v-if="latestArticle" class="mt-16">
+                        <h2 class="text-gray-600 mb-6">
+                            {{ $t('latest.latest') }}
+                        </h2>
+                        <article>
+                            <h3 class="text-xl font-medium mb-2">
+                                <NuxtLink
+                                    :to="latestArticle._path"
+                                    class="hover:opacity-75"
+                                >
+                                    {{ latestArticle.title }}
+                                </NuxtLink>
+                            </h3>
+                            <div class="text-gray-600 mb-4">
+                                {{ formattedDateWithMonth }}
+                            </div>
+                            <p class="text-gray-600">
+                                {{ getFirstParagraphText(latestArticle.body) }}
+                                <NuxtLink
+                                    :to="latestArticle._path"
+                                    class="text-gray-900 hover:opacity-75"
+                                >
+                                    {{ $t('latest.keepReading') }}
+                                </NuxtLink>
+                            </p>
+                        </article>
+                    </section>
 
                     <!-- Topics -->
                     <section v-if="topics.length" class="mt-16">
