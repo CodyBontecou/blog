@@ -23,7 +23,7 @@ defineProps<Props>()
             </div>
             <NuxtLink
                 :to="article._path"
-                class="hover:opacity-75 underline text-lg"
+                class="opacity-90 hover:opacity-50 underline text-lg"
             >
                 {{ article.title }}
             </NuxtLink>
