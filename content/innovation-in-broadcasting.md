@@ -1,15 +1,17 @@
 ---
 title: Innovation in broadcasting
-date: 2024-10-27
-topics: [writing, communication]
+date: 2024-10-27T00:00:00.000Z
+topics:
+  - writing
+  - communication
 readingTime: 1
 draft: false
-backgroundColor: #1E1E1E
+backgroundColor: null
 ---
 
-Those with the greatest ability to communicate their intentions tend to get the greatest number of followers.
+**Those with the greatest ability to communicate their intentions tend to get the greatest number of followers.**
 
-Part of communication is broadcasting. The further your message goes, the more likely you are to find a potential follower.
+# Part of communication is broadcasting. The further your message goes, the more likely you are to find a potential follower.
 
 The ability to communicate to people of other languages in other countries is an interesting area.
 

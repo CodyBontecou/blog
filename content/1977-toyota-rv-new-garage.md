@@ -1,7 +1,11 @@
 ---
 title: 1977 Toyota RV's New Garage
-date: 2024-10-24
-topics: [rv, vanlife, construction, organization]
+date: 2024-10-24T00:00:00.000Z
+topics:
+  - rv
+  - vanlife
+  - construction
+  - organization
 readingTime: 1
 draft: false
 ---
@@ -16,8 +20,7 @@ This toolbox helps tremendously with storage, but it’s still not enough. I was
 
 My dad gave me the large drawers on the bottom. I used condensed air to clean out any leftover goo and dirt.
 
-![new garage setup 1](https://i.imgur.com/D6T9ZU4.jpeg)
-![garage setup with putter](https://i.imgur.com/MF6Cflu.jpeg)
+![new garage setup 1](https://i.imgur.com/D6T9ZU4.jpeg)![garage setup with putter](https://i.imgur.com/MF6Cflu.jpeg)
 
 It’s much more spacious and useable. I have tons of space and am able to organize, find, and use my tools a lot quicker.
 
@@ -31,6 +34,4 @@ So we ordered four wheels off Amazon for $8 and they should be here in two days.
 
 While the toolbox is empty, I figured it’s a good time to clean it further because it’ll be awhile before it’s ever empty again. So I took each drawer out and am using some grease on where the drawers are connecting to the box cause it’s pretty dirty under there.
 
-![](https://i.imgur.com/S5HQRFg.jpeg)
-
-![](https://i.imgur.com/jeQoA2U.jpeg)
+![](https://i.imgur.com/S5HQRFg.jpeg)![](https://i.imgur.com/jeQoA2U.jpeg)
