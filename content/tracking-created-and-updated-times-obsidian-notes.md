@@ -1,5 +1,5 @@
 ---
-title: Your Post Title
+title: Tracking created and updated times in Obsidian notes
 date: 2024-06-28
 description: A brief excerpt of your post...
 topics:
@@ -11,7 +11,7 @@ draft: false
 ---
 
 
-![obsidian note property data](https://cln.sh/pr21SYgj+)
+![obsidian note property data](https://cln.sh/ydGhMLgb+)
 
 The community plugin [update-time-on-edit](https://github.com/beaussan/update-time-on-edit-obsidian) auto-generates the `created_at` and `last_modified` properties (front-matter) in my notes.
 
