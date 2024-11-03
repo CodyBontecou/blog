@@ -24,5 +24,9 @@
     "description": "is enjoying life 💭",
     "cta": "Writing",
     "learnMore": "Learn more"
+  },
+
+  "slug": {
+    "alsoEnjoy": "You might also enjoy"
   }
 }
