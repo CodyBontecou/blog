@@ -1,3 +1,13 @@
+---
+date: 2024-11-01
+topics:
+  - Content documentation
+  - Setup
+  - Development server
+  - Production
+  - Deployment documentation
+---
+
 # Content v2 Minimal Starter
 
 Look at the [Content documentation](https://content.nuxt.com/) to learn more.

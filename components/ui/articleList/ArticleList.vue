@@ -6,8 +6,6 @@ interface Props {
     articles: ParsedContent[] | ComputedRef<ParsedContent[]>
 }
 
-interface Article {}
-
 defineProps<Props>()
 </script>
 
@@ -15,17 +13,17 @@ defineProps<Props>()
     <ul>
         <li
             v-for="article in articles"
-            :key="article._path"
-            class="flex items-center"
+            :key="article?._path"
+            class="flex items-baseline leading-tight mb-1"
         >
-            <div class="flex-shrink-0 text-gray-600 text-md pr-6">
-                {{ formatPostDate(article.date) }}
+            <div class="flex-shrink-0 text-gray-600 text-md pr-6 font-mono">
+                {{ formatPostDate(article?.date) }}
             </div>
             <NuxtLink
-                :to="article._path"
-                class="opacity-90 hover:opacity-50 underline text-lg"
+                :to="article?._path"
+                class="opacity-90 hover:opacity-50 hover:underline text-lg truncate"
             >
-                {{ article.title }}
+                {{ article?.title ?? 'title' }}
             </NuxtLink>
         </li>
     </ul>

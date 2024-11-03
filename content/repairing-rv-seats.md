@@ -1,7 +1,10 @@
 ---
 title: Repairing rv seats
 date: 2024-10-27
-topics: [rv, repair]
+topics:
+  - repair
+  - DIY
+  - vanlife
 readingTime: 1
 draft: false
 ---

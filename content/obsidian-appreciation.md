@@ -1,7 +1,9 @@
 ---
 title: Obsidian Appreciation
 date: 2024-10-27
-topics: [obsidian, appreciation]
+topics:
+  - obsidian
+  - ui
 readingTime: 0
 draft: false
 backgroundColor: #1E1E1E

@@ -2,7 +2,6 @@
 title: 1977 Toyota RV's New Garage
 date: 2024-10-24T00:00:00.000Z
 topics:
-  - rv
   - vanlife
   - construction
   - organization

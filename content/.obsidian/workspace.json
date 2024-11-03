@@ -48,9 +48,23 @@
               "icon": "lucide-file",
               "title": "innovation-in-broadcasting"
             }
+          },
+          {
+            "id": "efd7f8b379adf304",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "garage-squad.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "garage-squad"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -123,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "innovation-in-broadcasting.md",
+                "file": "garage-squad.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +147,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for innovation-in-broadcasting"
+              "title": "Backlinks for garage-squad"
             }
           },
           {
@@ -142,12 +156,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "innovation-in-broadcasting.md",
+                "file": "garage-squad.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from innovation-in-broadcasting"
+              "title": "Outgoing links from garage-squad"
             }
           },
           {
@@ -169,10 +183,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "innovation-in-broadcasting.md"
+                "file": "garage-squad.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of innovation-in-broadcasting"
+              "title": "Outline of garage-squad"
             }
           }
         ]
@@ -192,23 +206,35 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6253180969d67d4e",
+  "active": "efd7f8b379adf304",
   "lastOpenFiles": [
-    "obsidian-appreciation.md",
     "innovation-in-broadcasting.md",
-    "repairing-rv-seats.md",
-    "tracking-created-and-updated-times-obsidian-notes.md",
-    "Random.md",
-    "1977-toyota-rv-new-garage.md",
-    "copy copy.md",
-    "ai.md",
-    "copy.md",
-    "other-article.md",
-    "random.md",
-    "Test.md",
-    "1977-toyota-rv-new-garage copy.md",
-    "articles/other-article.md",
-    "articles/tracking-created-and-updated-times-obsidian-notes.md",
+    "garage-squad.md",
+    "markdown-frontmatter-updater.ts",
+    "vuepress-styles.md",
+    "vuejs-emit-multiple-values-from-child-to-parent.md",
+    "using-url-query-params-in-nuxt-3.md",
+    "time-to-read-article-component.md",
+    "talks.md",
+    "tailwindcss-with-vitepress.md",
+    "stripe-integration-in-nuxt-3.md",
+    "silently-update-url-nuxt-3.md",
+    "selenium-movie-picker.md",
+    "reusable-yaml-variables.md",
+    "programmatically-tweeting-with-nodejs.md",
+    "programmatically-posting-to-your-favorite-blogs.md",
+    "post-to-reddit-with-nodejs-and-typescript.md",
+    "nuxt3-and-pinia.md",
+    "mocking-http-responses-in-elixir-and-phoenix.md",
+    "mocking-api-with-msw-and-typescript.md",
+    "lets-setup-nuxt-3-with-cypress.md",
+    "integrating-nuxt-bridge-with-nuxt2.md",
+    "index.md",
+    "import-pinia-store-into-other-store.md",
+    "how-to-use-vuetify-with-nuxt-3.md",
+    "hide-username-on-mac-terminal-prompt.md",
+    "google-analytics-with-vitepress.md",
+    "global-state-management-in-an-electron-app.md",
     "articles"
   ]
 }

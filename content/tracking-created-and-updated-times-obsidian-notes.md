@@ -2,7 +2,10 @@
 title: Your Post Title
 date: 2024-06-28
 description: A brief excerpt of your post...
-topics: [obsidian]
+topics:
+  - Obsidian
+  - plugins
+  - frontmatter
 readingTime: 1
 draft: false
 ---
