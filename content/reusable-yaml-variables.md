@@ -31,7 +31,6 @@ canonicalUrl: https://codybontecou.com/reusable-yaml-variables.html
 topics:
   - yaml
   - frontmatter
-  - grey matter
 ---
 
 # {{ $frontmatter.title }}
