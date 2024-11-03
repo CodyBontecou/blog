@@ -45,7 +45,7 @@ It increases development speed by an incredibly amount due to features such as I
 
 1. Let's init our project:
 
-```bash
+```shell
 npm init vite@latest
 ```
 

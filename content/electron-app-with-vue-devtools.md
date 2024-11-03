@@ -44,7 +44,7 @@ Vue Devtools provides a non-browser specific version of their devtools that they
 
 You can install the package globally:
 
-```bash
+```shell
 npm install -g @vue/devtools@beta
 # Or with yarn
 yarn global add @vue/devtools@beta
@@ -52,7 +52,7 @@ yarn global add @vue/devtools@beta
 
 Or within your project as a dependency:
 
-```bash
+```shell
 npm install --save-dev @vue/devtools@beta
 # Or with yarn
 yarn add -D @vue/devtools@beta
@@ -90,7 +90,7 @@ Once your application has the appropriate script tag within its HTML, run it _wi
 
 In our case,
 
-```bash
+```shell
 npm run dev
 ```
 
@@ -98,7 +98,7 @@ npm run dev
 
 Within your project directory, run the following command should spawn the devtools:
 
-```bash
+```shell
 ./node_modules/.bin/vue-devtools
 ```
 

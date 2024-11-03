@@ -374,7 +374,7 @@ This schema creates the tables used for the authentication flow. But, we need to
 
 Your prisma directory should now look like:
 
-```bash
+```shell
 prisma
 - migrations
 -- migrationName directory
@@ -777,7 +777,7 @@ We're going to begin by creating a [Stripe Customer](https://docs.stripe.com/api
 Like with most 3rd-party API's we integrate with, we will need to add a few API keys. We'll place these values into our `.env` file.
 The last time we worked with our `.env` file, it looked like this:
 
-```bash
+```shell
 // .env
 GITHUB_CLIENT_ID=<YOUR_VALUE>
 GITHUB_CLIENT_SECRET=<YOUR_VALUE>
@@ -786,7 +786,7 @@ AUTH_SECRET=<YOUR_VALUE>
 
 Let's add a few variables to this file:
 
-```bash
+```shell
 # .env
 
 # OAUTH
@@ -1194,7 +1194,7 @@ My go-to for rapidly exposing my endpoints to the web is [ngrok](https://ngrok.c
 
 You should be able to run the following command in your terminal:
 
-```bash
+```shell
 ngrok http 3000
 ```
 
@@ -1854,7 +1854,7 @@ The reason I keep `is_subscribed` as well as `plan` as two separate database col
 
 With this updated schema, run our Prisma commands again:
 
-```bash
+```shell
 npx prisma generate
 npx prisma migrate dev
 ```

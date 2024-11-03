@@ -42,7 +42,7 @@ newsletter: false
 
 Start by creating a Nuxt 3 project if you do not have one already.
 
-```bash
+```shell
 npx nuxi init nuxt-app
 ```
 
@@ -50,7 +50,7 @@ Then run `cd nuxt-app` and run `yarn` to make sure your dependencies are install
 
 Now that our Nuxt 3 project is setup, we are ready to integrate Vuetify. While you are in the nuxt application's root directory, run the following command to install Vuetify 3 and it's dependency, sass.
 
-```bash
+```shell
 yarn add vuetify@next sass
 ```
 
@@ -140,7 +140,7 @@ export default defineNuxtConfig({
 
 You're able to extend and modify the sass variables powering Vuetify. This requires installing `vite-plugin-vuetify` and importing a few Nuxt-specific modules:
 
-```bash
+```shell
 yarn add vite-plugin-vuetify
 ```
 

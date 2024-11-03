@@ -86,9 +86,9 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
     <Suspense>
         <!-- Main content -->
         <template #default>
-            <main>
+            <main class="flex flex-col justify-center">
                 <!-- Article -->
-                <article class="">
+                <article class="prose">
                     <h1 class="text-4xl font-normal mb-4">{{ post.title }}</h1>
                     <div class="text-gray-600 text-lg mb-10">
                         {{ formatDate(post.date) }} · {{ post.readingTime }}

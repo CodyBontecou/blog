@@ -16,7 +16,7 @@ Look at the [Content documentation](https://content.nuxt.com/) to learn more.
 
 Make sure to install the dependencies:
 
-```bash
+```shell
 # yarn
 yarn install
 
@@ -31,7 +31,7 @@ pnpm install
 
 Start the development server on http://localhost:3000
 
-```bash
+```shell
 npm run dev
 ```
 
@@ -39,13 +39,13 @@ npm run dev
 
 Build the application for production:
 
-```bash
+```shell
 npm run build
 ```
 
 Locally preview production build:
 
-```bash
+```shell
 npm run preview
 ```
 

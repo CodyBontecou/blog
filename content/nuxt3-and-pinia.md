@@ -56,7 +56,7 @@ I recommend reading VueJS's official [post](https://vuejs.org/guide/scaling-up/s
 
 Pinia nearly comes with first-class support for Nuxt 3. You'll need to install two packages:
 
-```bash
+```shell
 yarn add pinia
 yarn add @pinia/nuxt
 ```

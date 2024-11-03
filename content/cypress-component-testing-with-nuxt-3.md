@@ -38,7 +38,7 @@ topics:
 
 ## Initialize Nuxt project
 
-```bash
+```shell
 npx nuxi init nuxt-project
 cd nuxt-project
 npm install
@@ -46,7 +46,7 @@ npm install
 
 ## Install + initialize Cypress
 
-```bash
+```shell
 npm install cypress typescript --save-dev
 npx cypress open
 ```

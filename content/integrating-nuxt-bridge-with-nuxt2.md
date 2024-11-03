@@ -56,7 +56,7 @@ Here's the gist of the migration process:
 
 - Replace nuxt with nuxt-edge
 
-```bash
+```shell
 yarn remove nuxt
 yarn add nuxt-edge@latest
 yarn add --dev @nuxt/bridge@npm:@nuxt/bridge-edge

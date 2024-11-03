@@ -50,7 +50,7 @@ You may have heard of other packages that help manage a store, Vuex is the stand
 
 Because we are hooking this up to an Electron application, which is just Javascript with extra steps, we can utilize our favorite package manager such as `npm` or `yarn` to install Pinia.
 
-```bash
+```shell
 yarn add pinia
 # or with npm
 npm install pinia

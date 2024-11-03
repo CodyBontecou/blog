@@ -46,7 +46,7 @@ Be sure you:
 
 ## Example cURL Request
 
-```bash
+```shell
 curl --location --request GET 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&q={CHANNEL_NAME}&type=channel&key={YOUTUBE_API_KEY}' \
 
 --header 'Accept: application/json'

@@ -36,7 +36,7 @@ topics:
 
 Minimal setups are great when trying to focus. The standard terminal window can get cluttered. In this tutorial, I will show you how to configure your terminal window to go from this:
 
-```bash
+```shell
 Cody-MacBook-Pro:~ codybontecou$
 ```
 
@@ -48,14 +48,14 @@ to this:
 
 ## Edit your terminal config file
 
-I'm using `zsh` as my default shell, but this should be the same if you bash.
+I'm using `zsh` as my default shell, but this should be the same if you shell.
 
 1. Edit your `.zshrc` file
 2. Add and/or edit the value `PS1`.
 
 Here is a cheatsheet to explain the accepted values for the `PS1` key/value provided by [user3439894 of stackexchange](https://apple.stackexchange.com/questions/224149/show-username-on-mac-terminal-prompt).
 
-```bash
+```shell
 PS1='\h:\W \u\$ '
 
 PS1 The value of this parameter is expanded (see PROMPTING below) and used as the primary prompt string.

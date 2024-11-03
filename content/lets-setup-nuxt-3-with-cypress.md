@@ -43,7 +43,7 @@ I found the setup straightforward and decided to share how to do it.
 
 ## Initialize Nuxt project
 
-```bash
+```shell
 npx nuxi init nuxt-project
 cd nuxt-project
 npm install
@@ -51,7 +51,7 @@ npm install
 
 ## Install + initialize Cypress
 
-```bash
+```shell
 npm install cypress --save-dev
 npx cypress open
 ```
