@@ -25,9 +25,16 @@ export default defineNuxtConfig({
         markdown: {
             anchorLinks: true,
         },
-        highlight: {
-            theme: 'github-light',
-        },
+        // highlight: {
+        //     theme: {
+        //         // Default theme (same as single string)
+        //         default: 'github-light',
+        //         // Theme used if `html.dark`
+        //         dark: 'github-dark',
+        //         // Theme used if `html.sepia`
+        //         sepia: 'monokai',
+        //     },
+        // },
     },
     i18n: {
         strategy: 'no_prefix',
