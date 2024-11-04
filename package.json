@@ -14,7 +14,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "class-variance-authority": "^0.7.0",
     "lucide-vue-next": "^0.453.0",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.10.3",
     "shadcn-nuxt": "^0.10.4"
   },
   "devDependencies": {
