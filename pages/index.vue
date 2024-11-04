@@ -26,7 +26,7 @@ const formattedDateWithMonth = formatDateWithMonth(
 
 <template>
     <div
-        class="h-full mx-auto max-w-7xl flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8"
+        class="h-full mx-auto max-w-7xl flex items-center md:justify-center pt-16 px-4 sm:px-6 lg:px-8"
     >
         <div class="lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-12">
             <!-- Left Column -->
