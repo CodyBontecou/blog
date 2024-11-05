@@ -1,20 +1,6 @@
-/* body {
-    background: rgb(121, 248, 252, 0.15);
+code {
+    white-space: pre-wrap; /* Allows wrapping */
+    word-wrap: break-word; /* Breaks long words if needed */
+    overflow-wrap: break-word; /* Modern version of word-wrap */
+    max-width: 100%; /* Ensures code stays within container */
 }
-
-img {
-    height: 500px;
-    width: auto;
-}
-
-a:hover {
-    color: #4e369b;
-}
-
-::selection {
-    background: rgb(78, 54, 155, 0.2);
-}
-
-img {
-    border-radius: 10px;
-} */
