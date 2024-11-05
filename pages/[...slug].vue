@@ -3,7 +3,7 @@ import { BlogPost } from '@/components/ui/blogPost'
 </script>
 
 <template>
-    <div class="max-w-3xl mx-auto py-8 px-4">
+    <div class="max-w-3xl mx-0 md:mx-auto py-8 px-4">
         <TopNav />
 
         <Suspense>
