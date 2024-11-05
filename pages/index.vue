@@ -25,16 +25,14 @@ const formattedDateWithMonth = formatDateWithMonth(
 </script>
 
 <template>
-    <div
-        class="h-full mx-auto max-w-7xl flex items-center md:justify-center pt-16 px-4 sm:px-6 lg:px-8"
-    >
+    <div class="h-full mx-auto max-w-7xl pt-16 px-4 sm:px-6 lg:px-8">
         <div class="lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-12">
             <!-- Left Column -->
             <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0">
                 <!-- Hero, description -->
                 <div class="mb-4">
                     <h1
-                        class="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                        class="mb-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
                     >
                         {{ $t('landing.hero') }}
                     </h1>
@@ -44,7 +42,7 @@ const formattedDateWithMonth = formatDateWithMonth(
                 </div>
 
                 <!-- CTA, learn more -->
-                <div class="mb-8 flex items-center gap-x-2.5">
+                <div class="mb-8 flex items-center gap-x-2.5 w-full">
                     <NuxtLink to="/">
                         <Button>
                             {{ $t('landing.cta') }}
@@ -58,7 +56,7 @@ const formattedDateWithMonth = formatDateWithMonth(
                 </div>
 
                 <!-- Latest -->
-                <section v-if="latestArticle" class="mb-16">
+                <section v-if="latestArticle" class="mb-16 w-full">
                     <h2 class="text-gray-600 mb-6">
                         {{ $t('latest.latest') }}
                     </h2>
@@ -87,7 +85,7 @@ const formattedDateWithMonth = formatDateWithMonth(
                 </section>
 
                 <!-- Topics -->
-                <section v-if="topics.length" class="mb-16">
+                <section v-if="topics.length" class="mb-16 w-full">
                     <h2 class="text-lg text-gray-600">
                         {{ $t('topics.topics') }}
                     </h2>
@@ -96,7 +94,7 @@ const formattedDateWithMonth = formatDateWithMonth(
                             v-for="topic in topics"
                             :key="topic"
                             :to="`/topics/${topic}`"
-                            class="underline hover:opacity-75"
+                            class="underline hover:opacity-75 break-keep whitespace-nowrap"
                         >
                             {{ topic }}
                         </NuxtLink>
