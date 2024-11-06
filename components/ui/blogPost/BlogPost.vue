@@ -97,6 +97,8 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
                     <ContentRenderer :value="post" />
                 </article>
 
+                <Comments class="mt-10" />
+
                 <Separator class="my-20" />
 
                 <div>

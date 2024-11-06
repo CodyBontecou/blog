@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { BlogPost } from '@/components/ui/blogPost'
+import { Comments } from '@/components/ui/comments'
 </script>
 
 <template>
