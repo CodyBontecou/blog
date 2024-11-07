@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const comments = ref('')
+const comments = ref()
 const route = useRoute()
 
 watch(route, (newRoute, _) => {
