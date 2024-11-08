@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatPostDate } from '@/lib/utils/formatPostDate'
+import { formatPostDate } from '~/lib/utils/formatPostDate'
 import type { ParsedContent } from '@nuxt/content'
 
 interface Props {

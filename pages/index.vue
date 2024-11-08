@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { formatDateWithMonth } from '@/lib/utils/formatDateWithMonth'
-import { getFirstParagraphText } from '@/lib/utils/getFirstParagraphText'
-import { getLatestPost } from '@/lib/utils/getLatestPost'
+import { formatDateWithMonth } from '~/lib/utils/formatDateWithMonth'
+import { getFirstParagraphText } from '~/lib/utils/getFirstParagraphText'
+import { getLatestPost } from '~/lib/utils/getLatestPost'
 import { getTopics } from '~/lib/utils/getTopics'
 
 const { t } = useI18n()

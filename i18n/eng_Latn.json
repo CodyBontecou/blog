@@ -28,5 +28,10 @@
 
   "slug": {
     "alsoEnjoy": "You might also enjoy"
+  },
+
+  "newsletter": {
+    "successTitle": "Success",
+    "successDescription": "Thanks for signup up! I promise to only send interesting content."
   }
 }

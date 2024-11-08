@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
     devtools: {
         enabled: true,
-
         timeline: {
             enabled: true,
         },
@@ -13,28 +12,17 @@ export default defineNuxtConfig({
         'shadcn-nuxt',
         '@nuxtjs/i18n',
         '@nuxt/icon',
+        '@nuxtjs/color-mode',
     ],
-
     routeRules: {
         '/': { prerender: true },
     },
-
     compatibilityDate: '2024-10-24',
     css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
     content: {
         markdown: {
             anchorLinks: true,
         },
-        // highlight: {
-        //     theme: {
-        //         // Default theme (same as single string)
-        //         default: 'github-light',
-        //         // Theme used if `html.dark`
-        //         dark: 'github-dark',
-        //         // Theme used if `html.sepia`
-        //         sepia: 'monokai',
-        //     },
-        // },
     },
     i18n: {
         strategy: 'no_prefix',
@@ -46,9 +34,6 @@ export default defineNuxtConfig({
         locales: [{ code: 'eng_Latn', title: 'English' }],
         vueI18n: './i18n.config.ts',
     },
-    nitro: {
-        plugins: [],
-    },
     shadcn: {
         /**
          * Prefix for all the imported component
@@ -59,5 +44,10 @@ export default defineNuxtConfig({
          * @default "./components/ui"
          */
         componentDir: './components/ui',
+    },
+    runtimeConfig: {
+        CONVERTKIT_PUBLIC_KEY: process.env.CONVERTKIT_PUBLIC_KEY,
+        CONVERTKIT_SECRET_KEY: process.env.CONVERTKIT_SECRET_KEY,
+        CONVERTKIT_FORM_ID: process.env.CONVERTKIT_FORM_ID,
     },
 })

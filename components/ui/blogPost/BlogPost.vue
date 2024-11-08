@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { formatDate } from '@/lib/utils/formatDate'
-import { shuffleArray } from '@/lib/utils/shuffleArray'
+import { formatDate } from '~/lib/utils/formatDate'
+import { shuffleArray } from '~/lib/utils/shuffleArray'
 import type { ParsedContent } from '@nuxt/content'
 
 // Get the current route params
@@ -97,6 +97,7 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
                     <ContentRenderer :value="post" />
                 </article>
 
+                <Newsletter class="mt-10" />
                 <Comments class="mt-10" />
 
                 <Separator class="my-20" />
