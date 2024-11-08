@@ -4,95 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "9d9f6df9e9767ef5",
+        "id": "14217c2b8eb82e99",
         "type": "tabs",
         "children": [
           {
-            "id": "9c41a112f510aa5e",
+            "id": "692a3cfc827274a8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "repairing-rv-seats.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "repairing-rv-seats"
-            }
-          },
-          {
-            "id": "e546e53ffd3fbdb8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "obsidian-appreciation.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "obsidian-appreciation"
-            }
-          },
-          {
-            "id": "6253180969d67d4e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "innovation-in-broadcasting.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "innovation-in-broadcasting"
-            }
-          },
-          {
-            "id": "efd7f8b379adf304",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "garage-squad.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "garage-squad"
-            }
-          },
-          {
-            "id": "9f5c8484fc38a069",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "putter-to-dos.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "putter-to-dos"
-            }
-          },
-          {
-            "id": "a89f2f7f81228d86",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "website-todos.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "website-todos"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -231,14 +156,19 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a89f2f7f81228d86",
+  "active": "692a3cfc827274a8",
   "lastOpenFiles": [
-    "components.json",
-    "putter-to-dos.md",
+    "1977-toyota-rv-new-garage.md",
+    "templates/article-template.md",
+    "templates",
     "website-todos.md",
+    "putter-to-dos.md",
+    "components.json",
     "garage-squad.md",
     "innovation-in-broadcasting.md",
     "markdown-frontmatter-updater.ts",
@@ -261,8 +191,6 @@
     "lets-setup-nuxt-3-with-cypress.md",
     "integrating-nuxt-bridge-with-nuxt2.md",
     "index.md",
-    "import-pinia-store-into-other-store.md",
-    "how-to-use-vuetify-with-nuxt-3.md",
     "articles"
   ]
 }
