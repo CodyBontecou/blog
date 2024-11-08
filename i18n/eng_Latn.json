@@ -31,6 +31,10 @@
   },
 
   "newsletter": {
+    "cardtitle": "Newsletter",
+    "cardDescription": "Subscribe to get my latest content. No spam.",
+    "email": "Email",
+    "submit": "Submit",
     "successTitle": "Success",
     "successDescription": "Thanks for signup up! I promise to only send interesting content."
   }

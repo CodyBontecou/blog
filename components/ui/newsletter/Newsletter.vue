@@ -21,16 +21,18 @@ const handleSubmit = async () => {
 <template>
     <Card>
         <CardHeader>
-            <CardTitle>Newsletter</CardTitle>
+            <CardTitle>{{ $t('newsletter.cardTitle') }}</CardTitle>
             <CardDescription>
-                Subscribe to get my latest content. No spam.
+                {{ $t('newsletter.cardDescription') }}
             </CardDescription>
         </CardHeader>
         <CardContent>
             <form @submit.prevent="handleSubmit">
                 <div class="flex flex-col gap-2">
                     <div class="flex flex-col space-y-1.5">
-                        <Label for="emailInput">Email</Label>
+                        <Label for="emailInput">
+                            {{ $t('newsletter.email') }}
+                        </Label>
                         <Input
                             name="emailInput"
                             v-model="emailInput"
@@ -38,10 +40,11 @@ const handleSubmit = async () => {
                             placeholder="Your email"
                         />
                     </div>
-                    <Button class="self-end" type="submit">Submit</Button>
+                    <Button class="self-end" type="submit">
+                        {{ $t('newsletter.submit') }}
+                    </Button>
                 </div>
             </form>
         </CardContent>
-        <CardFooter class="flex justify-end px-6 pb-6"> </CardFooter>
     </Card>
 </template>
