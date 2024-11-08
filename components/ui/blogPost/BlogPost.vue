@@ -14,7 +14,7 @@ const { data: post } = await useAsyncData(`post-${path}`, () =>
 )
 
 // Extract topics and create an array of queries
-const postTopics: string[] = post.value.topics
+const postTopics: string[] = post.value?.topics
 
 const { data: allArticles } = await useAsyncData('allArticles', () =>
     queryContent('/')
@@ -83,7 +83,7 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
     return similarArticles.value.concat(shuffledArray)
 })
 
-const postBody = computed(() => getPostBody(post.value.body))
+const postBody = computed(() => getPostBody(post.value?.body))
 </script>
 
 <template>
@@ -92,13 +92,19 @@ const postBody = computed(() => getPostBody(post.value.body))
         <template #default>
             <main class="flex flex-col justify-center">
                 <ContentDoc v-slot="{ doc }">
+                    <ul>
+                        <li v-for="link of doc.body?.toc?.links" :key="link.id">
+                            <a :href="`#${link.id}`">{{ link.text }}</a>
+                        </li>
+                    </ul>
+
                     <!-- Article -->
                     <article class="prose">
                         <h1 class="text-4xl font-normal mb-4">
-                            {{ post.title }}
+                            {{ post?.title }}
                         </h1>
                         <div class="text-gray-600 text-lg mb-10">
-                            {{ formatDate(post.date) }} ·
+                            {{ formatDate(post?.date) }} ·
                             {{ calculateReadingTime(postBody) }}
                             {{ $t('latest.minuteRead') }}
                         </div>
