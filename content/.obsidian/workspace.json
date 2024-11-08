@@ -1,20 +1,22 @@
 {
   "main": {
-    "id": "4c720394f7cb27cc",
+    "id": "c53299b3c34289ab",
     "type": "split",
     "children": [
       {
-        "id": "14217c2b8eb82e99",
+        "id": "5a53befcf30fe257",
         "type": "tabs",
         "children": [
           {
-            "id": "692a3cfc827274a8",
+            "id": "94a2b4926ee854af",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.5"
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Release Notes 1.7.5"
             }
           }
         ]
@@ -23,27 +25,27 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "a52c2b571ef7a896",
+    "id": "b6b59b873c9c1fcb",
     "type": "split",
     "children": [
       {
-        "id": "6e28a71b6fdc9a36",
+        "id": "f03066e567607d74",
         "type": "tabs",
         "children": [
           {
-            "id": "971b50dc9a3c6241",
+            "id": "2f6ec9ca8238a992",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byCreatedTime"
+                "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
           },
           {
-            "id": "d5f6244d67e653b0",
+            "id": "50fdbf40c9b556fb",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -60,7 +62,7 @@
             }
           },
           {
-            "id": "68f872810aee5903",
+            "id": "2b9baaf227ba4317",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -73,23 +75,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 382.5
+    "width": 300
   },
   "right": {
-    "id": "f0fde904073890b4",
+    "id": "fa59dbe2731df4a9",
     "type": "split",
     "children": [
       {
-        "id": "7fea5c4c65a83d86",
+        "id": "e9daa7811d8c1b43",
         "type": "tabs",
         "children": [
           {
-            "id": "69195d84c76021d8",
+            "id": "84559adcb96487e7",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "garage-squad.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,25 +100,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for garage-squad"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "e75fbcc62410b937",
+            "id": "84057fa40227e395",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "garage-squad.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from garage-squad"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "8dd8ffca78d318fd",
+            "id": "3384629db1bf05ac",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -130,15 +130,13 @@
             }
           },
           {
-            "id": "ef0fb69d17aa630f",
+            "id": "8838c64577334415",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "garage-squad.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "Outline of garage-squad"
+              "title": "Outline"
             }
           }
         ]
@@ -155,41 +153,9 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-git:Open Git source control": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "692a3cfc827274a8",
-  "lastOpenFiles": [
-    "1977-toyota-rv-new-garage.md",
-    "templates/article-template.md",
-    "templates",
-    "website-todos.md",
-    "putter-to-dos.md",
-    "components.json",
-    "garage-squad.md",
-    "innovation-in-broadcasting.md",
-    "markdown-frontmatter-updater.ts",
-    "vuepress-styles.md",
-    "vuejs-emit-multiple-values-from-child-to-parent.md",
-    "using-url-query-params-in-nuxt-3.md",
-    "time-to-read-article-component.md",
-    "talks.md",
-    "tailwindcss-with-vitepress.md",
-    "stripe-integration-in-nuxt-3.md",
-    "silently-update-url-nuxt-3.md",
-    "selenium-movie-picker.md",
-    "reusable-yaml-variables.md",
-    "programmatically-tweeting-with-nodejs.md",
-    "programmatically-posting-to-your-favorite-blogs.md",
-    "post-to-reddit-with-nodejs-and-typescript.md",
-    "nuxt3-and-pinia.md",
-    "mocking-http-responses-in-elixir-and-phoenix.md",
-    "mocking-api-with-msw-and-typescript.md",
-    "lets-setup-nuxt-3-with-cypress.md",
-    "integrating-nuxt-bridge-with-nuxt2.md",
-    "index.md",
-    "articles"
-  ]
+  "active": "94a2b4926ee854af",
+  "lastOpenFiles": []
 }
