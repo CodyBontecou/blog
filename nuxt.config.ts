@@ -45,9 +45,4 @@ export default defineNuxtConfig({
          */
         componentDir: './components/ui',
     },
-    runtimeConfig: {
-        CONVERTKIT_PUBLIC_KEY: process.env.CONVERTKIT_PUBLIC_KEY,
-        CONVERTKIT_SECRET_KEY: process.env.CONVERTKIT_SECRET_KEY,
-        CONVERTKIT_FORM_ID: process.env.CONVERTKIT_FORM_ID,
-    },
 })
