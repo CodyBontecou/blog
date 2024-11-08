@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { formatDate } from '~/lib/utils/formatDate'
 import { shuffleArray } from '~/lib/utils/shuffleArray'
+import { calculateReadingTime } from '~/lib/utils/calculateReadingTime'
+import { getPostBody } from '~/lib/utils/getPostBody'
 import type { ParsedContent } from '@nuxt/content'
 
 // Get the current route params
@@ -80,6 +82,8 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
     // Concatting to ensure related articles are first in suggestion
     return similarArticles.value.concat(shuffledArray)
 })
+
+const postBody = computed(() => getPostBody(post.value.body))
 </script>
 
 <template>
@@ -87,15 +91,20 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
         <!-- Main content -->
         <template #default>
             <main class="flex flex-col justify-center">
-                <!-- Article -->
-                <article class="prose">
-                    <h1 class="text-4xl font-normal mb-4">{{ post.title }}</h1>
-                    <div class="text-gray-600 text-lg mb-10">
-                        {{ formatDate(post.date) }} · {{ post.readingTime }}
-                        {{ $t('latest.minuteRead') }}
-                    </div>
-                    <ContentRenderer :value="post" />
-                </article>
+                <ContentDoc v-slot="{ doc }">
+                    <!-- Article -->
+                    <article class="prose">
+                        <h1 class="text-4xl font-normal mb-4">
+                            {{ post.title }}
+                        </h1>
+                        <div class="text-gray-600 text-lg mb-10">
+                            {{ formatDate(post.date) }} ·
+                            {{ calculateReadingTime(postBody) }}
+                            {{ $t('latest.minuteRead') }}
+                        </div>
+                        <ContentRenderer :value="post" />
+                    </article>
+                </ContentDoc>
 
                 <Newsletter class="mt-10" />
                 <Comments class="mt-10" />

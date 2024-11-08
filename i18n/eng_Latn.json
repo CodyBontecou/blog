@@ -31,7 +31,7 @@
   },
 
   "newsletter": {
-    "cardtitle": "Newsletter",
+    "cardTitle": "Newsletter",
     "cardDescription": "Subscribe to get my latest content. No spam.",
     "email": "Email",
     "submit": "Submit",
