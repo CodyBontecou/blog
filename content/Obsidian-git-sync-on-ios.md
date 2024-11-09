@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:53
+last_modified: 2024-11-09T11:57
 ---
 
 ## Stack
@@ -34,15 +34,17 @@ last_modified: 2024-11-09T11:53
 ![Browse repo in Working Copy](https://i.imgur.com/2SCcfvZ.gif)
 
 
-Note: I  ran into issues when I included the `.obsidian` directory in my git repo. There are plugins that work on desktop that are not supported on mobile, resulting in bugs. I recommend removing this directory from source when using this method to sync vaults between devices. 
+Note: I  ran into issues when including the `.obsidian` directory in my git repo. There are plugins that work on desktop that are not supported on mobile, resulting in mobile-specific bugs. Sometimes crashing the application and making the vault unusable. 
 
-Instead, maintain two .obsidians, one for your mobile environment and one for your desktop environment.
+I recommend removing this directory from source when using this method to sync vaults between devices. 
+
+Instead, maintain two `.obsidian` directories, one for your mobile environment and one for your desktop environment.
 
 ## Importing the repo into Obsidian
 
 > I tried many of the options listed online, but after hours of work, only the steps I'm sharing worked for me.
 
-1. Install & open Obsidian
+1. Install & open Obsidian on your mobile device.
 2. Create new vault. **DO NOT toggle store in iCloud.**
 
 ![Create new vault](https://i.imgur.com/1eNKTPC.png)
@@ -74,11 +76,6 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 ![New authentication/commit settings](https://i.imgur.com/Hg59OPM.png)
 
 6. You should now be able to run git commands from your iOS device.
-## Resources
-
-- [Reddit thread](https://www.reddit.com/r/ObsidianMD/comments/wtgi57/opening_an_existing_vault_on_ios/)
-- [The Easiest Way to Connect Your Obsidian Vault with Github](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github)
-- [The Easiest Way to Setup Obsidian Git (4 Minutes) Video](https://www.youtube.com/watch?v=5YZz38U20ws)
 
 ## Inspiration
 
@@ -86,4 +83,14 @@ I run my blog through Obsidian. Obsidian-git allows for automatic commit-and-syn
 
 It's a nice and fluid system that works well for me.
 
-Extending this to work with Obsidian on my phone is a blessing. Now I can write my thoughts
+Extending this to work with Obsidian on my phone is a blessing. Now I can write my thoughts on the go, which is ideal. 
+
+The easier I can document my thoughts, the better.
+
+## Resources
+
+ > Credit to these resources that helped me along the way.
+
+- [Opening an existing vault on IOS](https://www.reddit.com/r/ObsidianMD/comments/wtgi57/opening_an_existing_vault_on_ios/)
+- [The Easiest Way to Connect Your Obsidian Vault with Github](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github)
+- [The Easiest Way to Setup Obsidian Git (4 Minutes) Video](https://www.youtube.com/watch?v=5YZz38U20ws)
