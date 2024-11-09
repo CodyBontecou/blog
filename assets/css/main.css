@@ -6,6 +6,7 @@ p:has(img) {
 
 img {
     max-height: 400px;
+    border-radius: 20px;
 }
 
 code {

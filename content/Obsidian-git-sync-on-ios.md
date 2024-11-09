@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:12
+last_modified: 2024-11-09T11:18
 ---
 
 ## Stack
@@ -43,10 +43,16 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 > I tried many of the options listed online, but after hours of work, only the steps I'm sharing worked for me.
 
 1. Install & open Obsidian
-2. Create new vault 
-3. Go to Files -> On my iPhone -> Obsidian 
-4. Copy your existing vault to the Obsidian folder
-5. Delete the new vault you created
+2. Create new vault. **DO NOT toggle store in iCloud.**
+
+![Create new vault](https://i.imgur.com/1eNKTPC.png)
+
+3. Copy your repository downloaded by Working Copy and paste it into your newly created vault. 
+*You may need to enable the Working Copy location to see it's files.*
+
+![](https://i.imgur.com/10q37FN.gif)
+
+1. Delete the new vault you created
 
 ## Resources
 
