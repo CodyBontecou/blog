@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:18
+last_modified: 2024-11-09T11:21
 ---
 
 ## Stack
@@ -48,11 +48,18 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 ![Create new vault](https://i.imgur.com/1eNKTPC.png)
 
 3. Copy your repository downloaded by Working Copy and paste it into your newly created vault. 
-*You may need to enable the Working Copy location to see it's files.*
+
+*You may need to enable the Working Copy location to see it's files. This is shown in the gif.*
 
 ![](https://i.imgur.com/10q37FN.gif)
 
-1. Delete the new vault you created
+5. With this pasted over, you should now be able to see your repository in Obsidian.
+
+![New files are in our vault](https://i.imgur.com/Rfs7qq3.png)
+
+## Enabling Obsidian Git plugin
+
+
 
 ## Resources
 
