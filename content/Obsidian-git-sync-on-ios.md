@@ -1,5 +1,5 @@
 ---
-title: Obsidian Git sync on IOS
+title: Obsidian Git sync on iOS
 date: 2024-11-08T00:00:00.000Z
 topics:
   - mobile
@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T10:53
+last_modified: 2024-11-09T11:03
 ---
 
 ## Stack
