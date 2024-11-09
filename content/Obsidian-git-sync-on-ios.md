@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:21
+last_modified: 2024-11-09T11:33
 ---
 
 ## Stack
@@ -64,6 +64,7 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 ## Resources
 
 - [Reddit thread](https://www.reddit.com/r/ObsidianMD/comments/wtgi57/opening_an_existing_vault_on_ios/)
+- [The Easiest Way to Connect Your Obsidian Vault with Github
 
 ## Inspiration
 
