@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:03
+last_modified: 2024-11-09T11:12
 ---
 
 ## Stack
@@ -29,10 +29,9 @@ last_modified: 2024-11-09T11:03
 ![Clone repository in Working Copy](https://i.imgur.com/LWqHzTp.gif)
 
 
-You should now be able to view your repository within the Working Copy interface.
+3. You should now be able to view your repository within the Working Copy interface.
 
 ![Browse repo in Working Copy](https://i.imgur.com/2SCcfvZ.gif)
-
 
 
 Note: I  ran into issues when I included the `.obsidian` directory in my git repo. There are plugins that work on desktop that are not supported on mobile, resulting in bugs. I recommend removing this directory from source when using this method to sync vaults between devices. 
@@ -44,7 +43,7 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 > I tried many of the options listed online, but after hours of work, only the steps I'm sharing worked for me.
 
 1. Install & open Obsidian
-2. Create new vault (a random name should do, we'll delete this later)
+2. Create new vault 
 3. Go to Files -> On my iPhone -> Obsidian 
 4. Copy your existing vault to the Obsidian folder
 5. Delete the new vault you created
