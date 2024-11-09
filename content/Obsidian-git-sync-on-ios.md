@@ -9,9 +9,8 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:57
+last_modified: 2024-11-09T12:23
 ---
-
 ## Stack
 
 > This solution probably works with your device, I'm just sharing the explicit details of what I have.
@@ -34,7 +33,7 @@ last_modified: 2024-11-09T11:57
 ![Browse repo in Working Copy](https://i.imgur.com/2SCcfvZ.gif)
 
 
-Note: I  ran into issues when including the `.obsidian` directory in my git repo. There are plugins that work on desktop that are not supported on mobile, resulting in mobile-specific bugs. Sometimes crashing the application and making the vault unusable. 
+**Note**: I  ran into issues when including the `.obsidian` directory in my git repo. There are plugins that work on desktop that are not supported on mobile, resulting in mobile-specific bugs. Sometimes crashing the application and making the vault unusable. 
 
 I recommend removing this directory from source when using this method to sync vaults between devices. 
 
