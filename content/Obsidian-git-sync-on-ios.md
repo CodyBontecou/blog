@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:33
+last_modified: 2024-11-09T11:37
 ---
 
 ## Stack
@@ -59,12 +59,19 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 
 ## Enabling Obsidian Git plugin
 
+1. Create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic) from Github
+2. Install and enable the [Obsidian Git](https://github.com/denolehov/obsidian-git/wiki/Installation) community plugin
+3. Input your Github username and personal access token
+
+![Obsidian git settings menu](https://i.imgur.com/JaZXVQh.png)
+
 
 
 ## Resources
 
 - [Reddit thread](https://www.reddit.com/r/ObsidianMD/comments/wtgi57/opening_an_existing_vault_on_ios/)
-- [The Easiest Way to Connect Your Obsidian Vault with Github
+- [The Easiest Way to Connect Your Obsidian Vault with Github](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github)
+- [The Easiest Way to Setup Obsidian Git (4 Minutes) Video](https://www.youtube.com/watch?v=5YZz38U20ws)
 
 ## Inspiration
 
