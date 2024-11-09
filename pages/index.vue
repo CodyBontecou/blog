@@ -29,13 +29,11 @@ const formattedDateWithMonth = formatDateWithMonth(
 </script>
 
 <template>
-    <div class="h-screen overflow-hidden">
-        <div class="h-full mx-auto max-w-7xl pt-16 px-4 sm:px-6 lg:px-8">
-            <div class="lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-12">
-                <!-- Left Column -->
-                <div
-                    class="sticky top-0 h-screen overflow-y-auto max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0"
-                >
+    <div class="h-full mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
+        <div class="lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-12">
+            <!-- Left Column -->
+            <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0">
+                <div class="lg:fixed lg:max-w-lg">
                     <!-- Hero, description -->
                     <div class="mb-4">
                         <h1
@@ -108,15 +106,15 @@ const formattedDateWithMonth = formatDateWithMonth(
                         </div>
                     </section>
                 </div>
+            </div>
 
-                <!-- Right Column -->
-                <div class="h-screen overflow-y-auto max-w-lg mx-auto lg:mt-0">
-                    <h2 class="mb-6 text-lg text-gray-600">
-                        {{ $t('writing.writing') }}
-                    </h2>
-                    <ArticleList :articles="articles" />
-                    <!-- <BlurredScroller :items="articles" /> -->
-                </div>
+            <!-- Right Column -->
+            <div class="max-w-lg mx-auto lg:mt-0">
+                <h2 class="mb-6 text-lg text-gray-600">
+                    {{ $t('writing.writing') }}
+                </h2>
+                <ArticleList :articles="articles" />
+                <!-- <BlurredScroller :items="articles" /> -->
             </div>
         </div>
     </div>
