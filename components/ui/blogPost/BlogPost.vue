@@ -112,7 +112,7 @@ const postBody = computed(() => getPostBody(post.value?.body))
                     </article>
                 </ContentDoc>
 
-                <Newsletter class="mt-10" />
+                <Newsletter class="mt-10 w-2/3" />
                 <Comments class="mt-10" />
 
                 <Separator class="my-20" />
