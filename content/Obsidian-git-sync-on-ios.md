@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T10:35
+last_modified: 2024-11-09T10:41
 ---
 
 ## Stack
@@ -21,11 +21,14 @@ last_modified: 2024-11-09T10:35
 - Obsidian v1.7.5.
 - Working Copy v6.1.8
 
-
 ## Cloning the git repo to iPhone
 
 1. Install Working Copy
-2. 
+2. Clone your repository to your iPhone
+
+Note: I  ran into issues when I included the `.obsidian` directory in my git repo. There are plugins that work on desktop that are not supported on mobile, resulting in bugs. I recommend removing this directory from source when using this method to sync vaults between devices. 
+
+Instead, maintain two .obsidians, one for your mobile environment and one for your desktop environment.
 
 ## Importing the repo into Obsidian
 
