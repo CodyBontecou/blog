@@ -11,10 +11,14 @@
             "id": "692a3cfc827274a8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "content/1977-toyota-rv-new-garage.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "1977-toyota-rv-new-garage"
             }
           }
         ]
@@ -160,7 +164,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "971b50dc9a3c6241",
+  "active": "692a3cfc827274a8",
   "lastOpenFiles": [
     "node_modules/radix-vue/node_modules/@vueuse/core/node_modules/vue-demi/lib/v3/index.mjs",
     "node_modules/radix-vue/node_modules/@vueuse/core/node_modules/vue-demi/lib/v3/index.d.ts",
