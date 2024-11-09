@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { calculateReadingTime } from '~/lib/utils/calculateReadingTime'
 import { formatDateWithMonth } from '~/lib/utils/formatDateWithMonth'
 import { getFirstParagraphText } from '~/lib/utils/getFirstParagraphText'
 import { getLatestPost } from '~/lib/utils/getLatestPost'
+import { getPostBody } from '~/lib/utils/getPostBody'
 import { getTopics } from '~/lib/utils/getTopics'
 
 const { t } = useI18n()
@@ -17,9 +19,11 @@ const { data: articles } = await useAsyncData('articles', () =>
 const topics = getTopics(articles.value)
 
 const latestArticle = getLatestPost(articles.value)
+const postBody = computed(() => getPostBody(latestArticle?.body))
+
 const formattedDateWithMonth = formatDateWithMonth(
     latestArticle.date,
-    latestArticle.readingTime,
+    calculateReadingTime(postBody.value),
     t
 )
 </script>
