@@ -1,3 +1,7 @@
+img {
+    max-height: 400px;
+}
+
 code {
     white-space: pre-wrap; /* Allows wrapping */
     word-wrap: break-word; /* Breaks long words if needed */
