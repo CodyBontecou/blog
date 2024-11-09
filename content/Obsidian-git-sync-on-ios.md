@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:46
+last_modified: 2024-11-09T11:53
 ---
 
 ## Stack
@@ -65,11 +65,11 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 
 ![Obsidian git settings menu](https://i.imgur.com/JaZXVQh.png)
 
-4. Adjust the case path to represent our directory structure. In my case, `blog-nuxt-content` is the base directory of the git repo.
+4. Adjust the base path to represent our directory structure. In this case, `blog-nuxt-content` is the base directory of the git repo.
 
 ![](https://i.imgur.com/y5UmLfO.png)
 
-5. With a successful Github connection, you should now see a few new Authentication/commit author settings. Input your desired commit author name and email address
+5. With a successful Github connection, you should now see a few new `Authentication/commit author` settings. Input your desired commit author name and email address
 
 ![New authentication/commit settings](https://i.imgur.com/Hg59OPM.png)
 
@@ -82,3 +82,8 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 
 ## Inspiration
 
+I run my blog through Obsidian. Obsidian-git allows for automatic commit-and-sync functionality that keeps my writing backed up in Github on a regular interval. I combine this with Github Actions to continuously deploy my writing to my blog.
+
+It's a nice and fluid system that works well for me.
+
+Extending this to work with Obsidian on my phone is a blessing. Now I can write my thoughts
