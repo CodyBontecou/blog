@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T10:26
+last_modified: 2024-11-09T10:35
 ---
 
 ## Stack
@@ -19,11 +19,17 @@ last_modified: 2024-11-09T10:26
 - iPhone 13 Pro Max
 - iOS v18.1
 - Obsidian v1.7.5.
+- Working Copy v6.1.8
 
 
-## Step-by-step
+## Cloning the git repo to iPhone
 
-> I tried many of the options listed online, but after hours of work, only the steps I'm sharing ended up working.
+1. Install Working Copy
+2. 
+
+## Importing the repo into Obsidian
+
+> I tried many of the options listed online, but after hours of work, only the steps I'm sharing worked for me.
 
 1. Install & open Obsidian
 2. Create new vault (a random name should do, we'll delete this later)
