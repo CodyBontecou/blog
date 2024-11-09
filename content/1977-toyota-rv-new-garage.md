@@ -5,8 +5,9 @@ topics:
   - vanlife
   - construction
   - organization
-readingTime: 1
 draft: false
+created_at: 2024-11-02T14:23
+last_modified: 2024-11-08T21:14
 ---
 
 I have many projects I want to work on, but knowing how difficult it will be to find the tools needed to do it almost always keeps me from actually doing the project.
