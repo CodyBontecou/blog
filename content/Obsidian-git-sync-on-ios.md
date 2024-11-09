@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:43
+last_modified: 2024-11-09T11:46
 ---
 
 ## Stack
@@ -69,8 +69,11 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 
 ![](https://i.imgur.com/y5UmLfO.png)
 
-5. With a successful Github connection, you should now see a few more commi
+5. With a successful Github connection, you should now see a few new Authentication/commit author settings. Input your desired commit author name and email address
 
+![New authentication/commit settings](https://i.imgur.com/Hg59OPM.png)
+
+6. You should now be able to run git commands from your iOS device.
 ## Resources
 
 - [Reddit thread](https://www.reddit.com/r/ObsidianMD/comments/wtgi57/opening_an_existing_vault_on_ios/)
