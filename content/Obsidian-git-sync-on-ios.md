@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T11:37
+last_modified: 2024-11-09T11:43
 ---
 
 ## Stack
@@ -65,7 +65,11 @@ Instead, maintain two .obsidians, one for your mobile environment and one for yo
 
 ![Obsidian git settings menu](https://i.imgur.com/JaZXVQh.png)
 
+4. Adjust the case path to represent our directory structure. In my case, `blog-nuxt-content` is the base directory of the git repo.
 
+![](https://i.imgur.com/y5UmLfO.png)
+
+5. With a successful Github connection, you should now see a few more commi
 
 ## Resources
 
