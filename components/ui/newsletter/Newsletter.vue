@@ -7,13 +7,20 @@ const { t } = useI18n()
 const emailInput = ref('')
 
 const handleSubmit = async () => {
-    await addToMailchimp(emailInput.value)
-
     emailInput.value = ''
+
+
 
     toast({
         title: t('newsletter.successTitle'),
         description: t('newsletter.successDescription'),
+    })
+}
+
+const subscribeUserToNewsletter = async (email: string) => {
+    const { data, error } = await useFetch('/api/subscribe', {
+        method: 'POST',
+        body: { email },
     })
 }
 </script>
