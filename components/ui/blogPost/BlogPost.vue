@@ -201,7 +201,7 @@ watch(isMobileMenuOpen, newValue => {
             <Icon
                 name="material-symbols-light:menu-book-outline"
                 class="w-6 h-6"
-            ></Icon>
+            />
         </button>
 
         <!-- Mobile TOC Overlay -->
@@ -244,7 +244,7 @@ watch(isMobileMenuOpen, newValue => {
                         class="p-1 hover:bg-gray-100 rounded-lg transition-colors duration-200"
                         aria-label="Close table of contents"
                     >
-                        <X class="w-6 h-6" />
+                        <Icon name="material-symbols:close" class="w-6 h-6" />
                     </button>
                 </div>
 
