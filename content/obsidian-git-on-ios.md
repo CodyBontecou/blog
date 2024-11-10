@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T22:20
+last_modified: 2024-11-09T23:03
 ---
 
 A step-by-step guide on how to connect your obsidian vault that is stored on Github to your iOS device. 
@@ -42,7 +42,7 @@ Instead, maintain two `.obsidian` directories, one for your mobile environment a
 1. Install & open Obsidian on your mobile device.
 2. Create new vault. **DO NOT toggle store in iCloud.**
 
-![Create new vault](https://i.imgur.com/1eNKTPC.png)
+![Create new vault](https://i.imgur.com/quMRWRu.png)
 
 3. Copy your repository downloaded by Working Copy and paste it into your newly created vault. 
 
