@@ -140,6 +140,7 @@ const scrollToSection = (id: string) => {
     <div class="relative">
         <!-- Table of Contents -->
         <aside
+            v-if="headings.length"
             class="hidden lg:block fixed right-8 top-32 w-64 max-h-[calc(100vh-200px)] overflow-y-auto"
         >
             <Suspense>
