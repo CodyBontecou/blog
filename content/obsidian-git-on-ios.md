@@ -9,8 +9,15 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T12:26
+last_modified: 2024-11-09T20:44
 ---
+
+A step-by-step guide on how to connect your obsidian vault that is stored on Github to your iOS device. 
+
+The [obsidian-git](https://github.com/Vinzent03/obsidian-git) plugin works for iOS and Android, but it claims it is unreliable and in some cases, simply does not work. 
+
+I tried many of the options and guides discussed online, but after hours of work, only the steps I'm sharing worked for me.
+
 ## Stack
 
 > This solution probably works with your device, I'm just sharing the explicit details of what I have.
@@ -40,8 +47,6 @@ I recommend removing this directory from source when using this method to sync v
 Instead, maintain two `.obsidian` directories, one for your mobile environment and one for your desktop environment.
 
 ## Importing the repo into Obsidian
-
-> I tried many of the options listed online, but after hours of work, only the steps I'm sharing worked for me.
 
 1. Install & open Obsidian on your mobile device.
 2. Create new vault. **DO NOT toggle store in iCloud.**
