@@ -198,10 +198,7 @@ watch(isMobileMenuOpen, newValue => {
             class="lg:hidden flex items-center justify-center fixed right-4 bottom-4 z-20 rounded-full p-3 bg-white shadow transition-colors duration-200"
             aria-label="Open table of contents"
         >
-            <Icon
-                name="material-symbols-light:menu-book-outline"
-                class="w-6 h-6"
-            />
+            <Icon name="material-symbols:menu-book-outline" class="w-6 h-6" />
         </button>
 
         <!-- Mobile TOC Overlay -->
