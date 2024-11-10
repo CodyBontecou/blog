@@ -2,7 +2,7 @@
 ignore: true
 todo: true
 created_at: 2024-11-05T20:08
-last_modified: 2024-11-09T23:12
+last_modified: 2024-11-09T23:21
 ---
 
 Pre-launch:
@@ -14,6 +14,7 @@ Pre-launch:
 - [ ] Article should not show self in "you might also like" section
 - [x] sitemap generation
 - [ ] rss feed
+- [ ] analytics
 
 Post-launch:
 - [ ] Translate articles on build or pre-commit hook
