@@ -9,23 +9,14 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T21:19
+last_modified: 2024-11-09T22:20
 ---
 
 A step-by-step guide on how to connect your obsidian vault that is stored on Github to your iOS device. 
 
-The [obsidian-git](https://github.com/Vinzent03/obsidian-git) plugin works for iOS and Android, but it claims it is unreliable and in some cases, simply does not work. 
+The [obsidian-git](https://github.com/Vinzent03/obsidian-git) plugin works for iOS and Android, although it claims on their github repository that it is unreliable and in some cases, simply does not work.
 
-I tried many of the options and guides discussed online, but after hours of work, only the steps I'm sharing worked for me.
-
-## Stack
-
-> This solution probably works with your device, I'm just sharing the explicit details of what I have.
-
-- iPhone 13 Pro Max
-- iOS v18.1
-- Obsidian v1.7.5.
-- Working Copy v6.1.8
+I tried many of the options and guides discussed online, but after hours of work, only the steps I'm sharing here worked for me.
 
 ## Cloning the git repo to iPhone
 
@@ -40,7 +31,7 @@ I tried many of the options and guides discussed online, but after hours of work
 ![Browse repo in Working Copy](https://i.imgur.com/2SCcfvZ.gif)
 
 
-**Note**: I  ran into issues when including the `.obsidian` directory in my git repo. There are plugins that work on desktop that are not supported on mobile, resulting in mobile-specific bugs. Sometimes crashing the application and making the vault unusable. 
+**Note**: I  ran into issues when including the `.obsidian` directory in my git repo. There are plugins that work on desktop that are not supported on mobile, resulting in mobile-specific bugs. Sometimes crashing the application and making the vault unusable on mobile. 
 
 I recommend removing this directory from source when using this method to sync vaults between devices. 
 
@@ -98,3 +89,12 @@ The easier I can document my thoughts, the better.
 - [Opening an existing vault on IOS](https://www.reddit.com/r/ObsidianMD/comments/wtgi57/opening_an_existing_vault_on_ios/)
 - [The Easiest Way to Connect Your Obsidian Vault with Github](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github)
 - [The Easiest Way to Setup Obsidian Git (4 Minutes) Video](https://www.youtube.com/watch?v=5YZz38U20ws)
+
+## Tech stack
+
+This solution probably works with your device, I'm just sharing the explicit details of what I have.
+
+- iPhone 13 Pro Max
+- iOS v18.1
+- Obsidian v1.7.5.
+- Working Copy v6.1.8
