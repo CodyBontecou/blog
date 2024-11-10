@@ -299,7 +299,7 @@ watch(isMobileMenuOpen, newValue => {
                         </article>
                     </ContentDoc>
 
-                    <Newsletter class="mt-10 lg:w-2/3" />
+                    <!-- <Newsletter class="mt-10 lg:w-2/3" /> -->
                     <Comments class="mt-10" />
 
                     <Separator class="my-20" />
