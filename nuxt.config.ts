@@ -45,4 +45,9 @@ export default defineNuxtConfig({
          */
         componentDir: './components/ui',
     },
+    nitro: {
+        prerender: {
+            routes: ['/sitemap.xml'],
+        },
+    },
 })

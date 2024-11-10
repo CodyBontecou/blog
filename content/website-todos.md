@@ -12,6 +12,7 @@ Pre-launch:
 - [x] Article sidebar navigation (toc)
 - [ ] Swap domain over
 - [ ] Article should not show self in "you might also like" section
+- [ ] sitemap generation
 
 Post-launch:
 - [ ] Translate articles on build or pre-commit hook

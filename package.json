@@ -19,6 +19,7 @@
     "jsonp": "^0.2.1",
     "lucide-vue-next": "^0.453.0",
     "nuxt": "^3.13.2",
+    "sitemap": "^8.0.0",
     "vee-validate": "^4.14.6",
     "zod": "^3.23.8"
   },
