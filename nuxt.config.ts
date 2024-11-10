@@ -50,4 +50,7 @@ export default defineNuxtConfig({
             routes: ['/sitemap.xml'],
         },
     },
+    runtimeConfig: {
+      MAILCHIMP_SECRET_KEY: process.env.MAILCHIMP_SECRET_KEY,
+    }
 })
