@@ -51,6 +51,8 @@ export default defineNuxtConfig({
         },
     },
     runtimeConfig: {
-      MAILCHIMP_SECRET_KEY: process.env.MAILCHIMP_SECRET_KEY,
-    }
+        MAILCHIMP_SECRET_KEY: process.env.MAILCHIMP_SECRET_KEY,
+        MAILCHIMP_API_SERVER: process.env.MAILCHIMP_API_SERVER,
+        MAILCHIMP_AUDIENCE_ID: process.env.MAILCHIMP_AUDIENCE_ID,
+    },
 })
