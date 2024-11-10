@@ -193,18 +193,20 @@ watch(isMobileMenuOpen, newValue => {
 
         <!-- Mobile TOC Button (hidden on desktop) -->
         <button
+            v-if="headings.length"
             @click="isMobileMenuOpen = true"
-            class="lg:hidden fixed right-4 bottom-4 z-20 rounded-full w-10 h-10 bg-white shadow transition-colors duration-200"
+            class="lg:hidden flex items-center justify-center fixed right-4 bottom-4 z-20 rounded-full p-3 bg-white shadow transition-colors duration-200"
             aria-label="Open table of contents"
         >
             <Icon
                 name="material-symbols-light:menu-book-outline"
-                class=""
+                class="w-6 h-6"
             ></Icon>
         </button>
 
         <!-- Mobile TOC Overlay -->
         <Transition
+            v-if="headings.length"
             enter-active-class="transition-opacity duration-200"
             enter-from-class="opacity-0"
             enter-to-class="opacity-100"
@@ -221,6 +223,7 @@ watch(isMobileMenuOpen, newValue => {
 
         <!-- Mobile TOC Drawer -->
         <Transition
+            v-if="headings.length"
             enter-active-class="transition-transform duration-300 ease-out"
             enter-from-class="translate-y-full"
             enter-to-class="translate-y-0"
@@ -257,9 +260,9 @@ watch(isMobileMenuOpen, newValue => {
                                         "
                                         class="block py-2 px-3 rounded-lg transition-colors duration-200"
                                         :class="{
-                                            'bg-indigo-50 text-indigo-600':
+                                            'bg-gray-100 font-semibold':
                                                 activeSection === link.id,
-                                            'hover:bg-gray-50':
+                                            'hover:bg-gray-100':
                                                 activeSection !== link.id,
                                         }"
                                     >
