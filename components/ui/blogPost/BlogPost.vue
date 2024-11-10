@@ -154,7 +154,7 @@ watch(isMobileMenuOpen, newValue => {
             <Suspense>
                 <template #default>
                     <nav class="toc">
-                        <h2 class="text-lg font-semibold mb-4">On this page</h2>
+                        <h2 class="font-medium mb-4">On this page</h2>
                         <ul class="space-y-3">
                             <li
                                 v-for="link in headings"
@@ -238,7 +238,7 @@ watch(isMobileMenuOpen, newValue => {
                 <div
                     class="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between"
                 >
-                    <h2 class="text-lg font-semibold">On this page</h2>
+                    <h2 class="font-medium">On this page</h2>
                     <button
                         @click="isMobileMenuOpen = false"
                         class="p-1 hover:bg-gray-100 rounded-lg transition-colors duration-200"
