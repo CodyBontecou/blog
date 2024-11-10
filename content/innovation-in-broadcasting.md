@@ -8,12 +8,12 @@ readingTime: 1
 draft: false
 backgroundColor: 
 created_at: 2024-10-31T13:54
-last_modified: 2024-11-09T21:19
+last_modified: 2024-11-09T23:38
 ---
 
-**Those with the greatest ability to communicate their intentions tend to get the greatest number of followers.**
+Those with the greatest ability to communicate their intentions tend to get the greatest number of followers.
 
-# Part of communication is broadcasting. The further your message goes, the more likely you are to find a potential follower.
+Part of communication is broadcasting. The further your message goes, the more likely you are to find a potential follower.
 
 The ability to communicate to people of other languages in other countries is an interesting area.
 
