@@ -86,6 +86,7 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
 const postBody = computed(() => getPostBody(post.value?.body))
 
 // TableOfContents
+const isMobileMenuOpen = ref(false)
 const activeSection = ref('')
 const observer = ref<IntersectionObserver | null>(null)
 const tocLinks = ref<string[]>([])
@@ -100,7 +101,6 @@ onMounted(() => {
     // Store all section IDs
     tocLinks.value = headings.value.map(link => link.id)
 
-    // Create intersection observer
     observer.value = new IntersectionObserver(
         entries => {
             entries.forEach(entry => {
@@ -115,7 +115,6 @@ onMounted(() => {
         }
     )
 
-    // Observe all section headings
     tocLinks.value.forEach(id => {
         const element = document.getElementById(id)
         if (element) observer.value?.observe(element)
@@ -123,7 +122,6 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-    // Cleanup observer
     if (observer.value) {
         observer.value.disconnect()
     }
@@ -133,8 +131,18 @@ const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
         element.scrollIntoView({ behavior: 'smooth' })
+        isMobileMenuOpen.value = false // Close menu after selection
     }
 }
+
+// Prevent body scroll when mobile menu is open
+watch(isMobileMenuOpen, newValue => {
+    if (newValue) {
+        document.body.style.overflow = 'hidden'
+    } else {
+        document.body.style.overflow = ''
+    }
+})
 </script>
 <template>
     <div class="relative">
@@ -182,6 +190,95 @@ const scrollToSection = (id: string) => {
                 </template>
             </Suspense>
         </aside>
+
+        <!-- Mobile TOC Button (hidden on desktop) -->
+        <button
+            @click="isMobileMenuOpen = true"
+            class="lg:hidden fixed right-4 bottom-4 z-20 rounded-full w-10 h-10 bg-white shadow transition-colors duration-200"
+            aria-label="Open table of contents"
+        >
+            <Icon
+                name="material-symbols-light:menu-book-outline"
+                class=""
+            ></Icon>
+        </button>
+
+        <!-- Mobile TOC Overlay -->
+        <Transition
+            enter-active-class="transition-opacity duration-200"
+            enter-from-class="opacity-0"
+            enter-to-class="opacity-100"
+            leave-active-class="transition-opacity duration-200"
+            leave-from-class="opacity-100"
+            leave-to-class="opacity-0"
+        >
+            <div
+                v-if="isMobileMenuOpen"
+                class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
+                @click="isMobileMenuOpen = false"
+            />
+        </Transition>
+
+        <!-- Mobile TOC Drawer -->
+        <Transition
+            enter-active-class="transition-transform duration-300 ease-out"
+            enter-from-class="translate-y-full"
+            enter-to-class="translate-y-0"
+            leave-active-class="transition-transform duration-200 ease-in"
+            leave-from-class="translate-y-0"
+            leave-to-class="translate-y-full"
+        >
+            <div
+                v-if="isMobileMenuOpen"
+                class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white rounded-t-xl shadow-lg max-h-[75vh] overflow-y-auto"
+            >
+                <div
+                    class="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between"
+                >
+                    <h2 class="text-lg font-semibold">On this page</h2>
+                    <button
+                        @click="isMobileMenuOpen = false"
+                        class="p-1 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+                        aria-label="Close table of contents"
+                    >
+                        <X class="w-6 h-6" />
+                    </button>
+                </div>
+
+                <nav class="p-4">
+                    <Suspense>
+                        <template #default>
+                            <ul class="space-y-4">
+                                <li v-for="link in headings" :key="link.id">
+                                    <a
+                                        :href="`#${link.id}`"
+                                        @click.prevent="
+                                            scrollToSection(link.id)
+                                        "
+                                        class="block py-2 px-3 rounded-lg transition-colors duration-200"
+                                        :class="{
+                                            'bg-indigo-50 text-indigo-600':
+                                                activeSection === link.id,
+                                            'hover:bg-gray-50':
+                                                activeSection !== link.id,
+                                        }"
+                                    >
+                                        {{ link.text }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </template>
+                        <template #fallback>
+                            <div class="animate-pulse space-y-4">
+                                <div class="h-10 bg-gray-200 rounded-lg"></div>
+                                <div class="h-10 bg-gray-200 rounded-lg"></div>
+                                <div class="h-10 bg-gray-200 rounded-lg"></div>
+                            </div>
+                        </template>
+                    </Suspense>
+                </nav>
+            </div>
+        </Transition>
 
         <!-- Main Content -->
         <Suspense>
@@ -251,5 +348,20 @@ html {
 .toc {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.mobile-toc-overlay-enter-active,
+.mobile-toc-overlay-leave-active {
+    transition: opacity 0.2s ease;
+}
+
+.mobile-toc-overlay-enter-from,
+.mobile-toc-overlay-leave-to {
+    opacity: 0;
+}
+
+/* Prevent content shift when scrollbar disappears */
+.overflow-hidden {
+    padding-right: var(--scrollbar-width, 0px);
 }
 </style>
