@@ -7,6 +7,8 @@ topics:
   - vanlife
 readingTime: 1
 draft: false
+created_at: 2024-10-27T17:14
+last_modified: 2024-11-09T21:19
 ---
 
 The seats used for the table and guest-bed area are falling a part. The inside cushion is fine, so I'm going to take measurements of the cushion components and replace the outside shells.

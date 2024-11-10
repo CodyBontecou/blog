@@ -9,7 +9,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-09T10:02
-last_modified: 2024-11-09T20:44
+last_modified: 2024-11-09T21:19
 ---
 
 A step-by-step guide on how to connect your obsidian vault that is stored on Github to your iOS device. 

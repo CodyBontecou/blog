@@ -5,16 +5,14 @@ author:
   name: Cody Bontecou
   image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2022-08-11
-description: A quick and digestable introduction to meta tags, a11y, and SEO for
-  a better, quick, and accesible web.
+description: A quick and digestable introduction to meta tags, a11y, and SEO for a better, quick, and accesible web.
 category: tutorials
 dropdown: Marketing
 meta:
   - name: og:title
     content: An Introduction to Meta Tags, A11y, and SEO
   - name: og:description
-    content: A quick and digestable introduction to meta tags, a11y, and SEO for a
-      better, quick, and accesible web.
+    content: A quick and digestable introduction to meta tags, a11y, and SEO for a better, quick, and accesible web.
   - name: og:image
     content: https://codybontecou.com/images/an-intro-to-meta-tags-a11y-seo-meta.png
   - name: og:image:alt
@@ -27,9 +25,9 @@ canonicalUrl: https://codybontecou.com/an-introduction-to-meta-tags-seo-and-a11y
 topics:
   - A11y
   - SEO
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# An introduction to Meta tags, A11y, and SEO
 
 Last night I started working on the meta tags for my app Costream, which allows Twitch streamers to co-stream (also known as LiveView) alongside any Youtube stream.
 

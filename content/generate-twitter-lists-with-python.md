@@ -5,7 +5,7 @@ author:
   name: Cody Bontecou
   image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-09-15
-description: null
+description: 
 category: tutorials
 dropdown: Python
 topics:
@@ -17,22 +17,20 @@ meta:
   - name: og:title
     content: Generating Twitter Lists with Python
   - name: og:description
-    content: Automatically generating a Twitter List of Paul Grahams feed with
-      Python and Tweepy
+    content: Automatically generating a Twitter List of Paul Grahams feed with Python and Tweepy
   - name: og:image
     content: https://codybontecou.com/images/generate-twitter-lists-with-python-meta.png
   - name: og:image:alt
-    content: Automatically generating a Twitter List of Paul Grahams feed with
-      Python and Tweepy
+    content: Automatically generating a Twitter List of Paul Grahams feed with Python and Tweepy
   - name: twitter:title
     content: Generating Twitter Lists with Python
   - name: twitter:text:title
     content: Generating a Twitter List with Python
 canonicalUrl: https://codybontecou.com/generate-twitter-lists-with-python.html
 newsletter: false
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-# Generating Twitter Lists with Python and Tweepy
-
 > The finished project can be seen [here](https://github.com/CodyBontecou/Generating-Twitter-Lists-with-Python/blob/main/tweepy_lists/app.py)
 
 [Paul Graham](https://twitter.com/paulg) is an influential man in the tech and startup space.

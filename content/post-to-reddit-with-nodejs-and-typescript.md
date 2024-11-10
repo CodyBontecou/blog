@@ -4,20 +4,17 @@ author:
   name: Cody Bontecou
   image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-07-18
-description: Interacting with Reddit through their API. In this post I discuss
-  how to use snoowrap to post to Reddit and specific subreddits.
+description: Interacting with Reddit through their API. In this post I discuss how to use snoowrap to post to Reddit and specific subreddits.
 dropdown: NodeJS
 meta:
   - name: og:title
     content: Post to Reddit using its API
   - name: og:description
-    content: Interacting with Reddit through their API. In this post I discuss how
-      to use snoowrap to post to Reddit and specific subreddits.
+    content: Interacting with Reddit through their API. In this post I discuss how to use snoowrap to post to Reddit and specific subreddits.
   - name: og:image
     content: https://codybontecou.com/images/typescript-with-reddit-meta.png
   - name: og:image:alt
-    content: Illustration of a man with a baret waving his hands with Reddit and
-      Typescript logos above him
+    content: Illustration of a man with a baret waving his hands with Reddit and Typescript logos above him
   - name: twitter:title
     content: Post to Reddit using its API
   - name: twitter:text:title
@@ -28,9 +25,9 @@ topics:
   - nodejs
   - typescript
   - reddit
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# Create Reddit Posts with NodeJS and Typescript
 
 > This post is for **day 2** of my [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode?src=hashtag_click). In this post I'll be discussing how to programmatically post to Reddit using NodeJS and Typescript.
 

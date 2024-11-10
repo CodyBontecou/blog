@@ -6,9 +6,9 @@ topics:
   - Development server
   - Production
   - Deployment documentation
+created_at: 2024-10-19T11:23
+last_modified: 2024-11-09T21:19
 ---
-
-# Content v2 Minimal Starter
 
 Look at the [Content documentation](https://content.nuxt.com/) to learn more.
 

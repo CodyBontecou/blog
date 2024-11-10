@@ -25,9 +25,9 @@ meta:
     content: Getting Youtube Channel ID Using Their API
 topics:
   - youtube
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# {{ $frontmatter.title }}
 
 This is for people wanting to programmatically get the Channel ID of a Youtube Channel using Youtube's API and a Youtube Channel name.
 

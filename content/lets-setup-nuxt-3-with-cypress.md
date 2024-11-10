@@ -6,8 +6,7 @@ author:
 date: 2023-02-02
 last_modified_date: 2023-02-02
 title: Lets setup Nuxt 3 with Cypress
-description: Cypress is an excellent E2E testing tool. Let's set it up in a
-  fresh Nuxt 3 project to connect two modern web tools.
+description: Cypress is an excellent E2E testing tool. Let's set it up in a fresh Nuxt 3 project to connect two modern web tools.
 slug: lets-setup-nuxt-3-with-cypress
 dropdown: NuxtJS
 topics:
@@ -17,13 +16,11 @@ topics:
   - testing
 meta:
   - name: og:description
-    content: Cypress is an excellent E2E testing tool. Let's set it up in a fresh
-      Nuxt 3 project to connect two modern web tools.
+    content: Cypress is an excellent E2E testing tool. Let's set it up in a fresh Nuxt 3 project to connect two modern web tools.
   - name: og:image
     content: https://codybontecou.com/images/lets-setup-nuxt-3-with-cypress.png
   - name: og:image:alt
-    content: Cypress is an excellent E2E testing tool. Let's set it up in a fresh
-      Nuxt 3 project to connect two modern web tools.
+    content: Cypress is an excellent E2E testing tool. Let's set it up in a fresh Nuxt 3 project to connect two modern web tools.
   - name: og:title
     content: Lets setup Nuxt 3 with Cypress
   - name: twitter:title
@@ -31,9 +28,9 @@ meta:
   - name: twitter:text:title
     content: Lets setup Nuxt 3 with Cypress
 canonicalUrl: https://codybontecou.com/lets-setup-nuxt-3-with-cypress.html
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# {{ $frontmatter.title }}
 
 > This is a quick guide on setting up Cypress End-to-End Testing with Nuxt 3.
 

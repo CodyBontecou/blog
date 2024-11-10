@@ -5,8 +5,7 @@ author:
   name: Cody Bontecou
   image: https://codybontecou.comhttps://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-07-16
-description: I'm going to spend the next 100 days taking a dopamine fast while
-  spending the saved time writing code and sharing it with the community.
+description: I'm going to spend the next 100 days taking a dopamine fast while spending the saved time writing code and sharing it with the community.
 dropdown: Misc
 meta:
   - name: og:title
@@ -14,8 +13,7 @@ meta:
   - name: og:image
     content: https://codybontecou.com/images/dopamine-fasting-meta.png
   - name: og:image:alt
-    content: Man sitting at computer overloaded by media. 100 Days of Code While
-      Dopamine Fasting.
+    content: Man sitting at computer overloaded by media. 100 Days of Code While Dopamine Fasting.
   - name: twitter:title
     content: Dopamine Fasting with 100DaysOfCode
   - name: twitter:text:title
@@ -23,9 +21,9 @@ meta:
 canonicalUrl: https://codybontecou.com/dopamine-fasting-with-100-days-of-code
 topics:
   - Life
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# Dopamine Fasting with #100DaysOfCode
 
 > I'm stuck in a loop of consuming different means of entertainment and I want to alter this behavior, spending this time pursuing fulfilling goals.
 

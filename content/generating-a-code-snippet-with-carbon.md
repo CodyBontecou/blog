@@ -5,8 +5,7 @@ author:
   name: Cody Bontecou
   image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-07-06
-description: Check out Carbon, a site to easily create and share beautiful
-  images of your source code.
+description: Check out Carbon, a site to easily create and share beautiful images of your source code.
 category: tutorials
 dropdown: Misc
 topics:
@@ -24,6 +23,8 @@ meta:
   - name: twitter:text:title
     content: Generating a Code Snippet with Carbon
 canonicalUrl: https://codybontecou.com/generating-a-code-snippet-with-carbon.html
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
 
 <h1 class="text-4xl font-semibold">Dev Blogging 101 - Generating a Code Snippet with Carbon</h1>

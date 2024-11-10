@@ -32,9 +32,9 @@ meta:
 canonicalUrl: https://codybontecou.com/talks.html
 topics:
   - talks
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# Talks
 
 > A list of conferences I've talked at
 

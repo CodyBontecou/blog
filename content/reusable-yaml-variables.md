@@ -14,13 +14,11 @@ tags:
   - yaml
 meta:
   - name: og:description
-    content: Reusing YAML variables within grey matter to conveniently generate meta
-      tags.
+    content: Reusing YAML variables within grey matter to conveniently generate meta tags.
   - name: og:image
     content: https://codybontecou.com/images/reusable-yaml-variables.png
   - name: og:image:alt
-    content: Reusing YAML variables within grey matter to conveniently generate meta
-      tags.
+    content: Reusing YAML variables within grey matter to conveniently generate meta tags.
   - name: og:title
     content: Reusable YAML Variables
   - name: twitter:title
@@ -31,9 +29,9 @@ canonicalUrl: https://codybontecou.com/reusable-yaml-variables.html
 topics:
   - yaml
   - frontmatter
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# {{ $frontmatter.title }}
 
 Did you know you can reuse YAML code?
 

@@ -5,8 +5,7 @@ author:
   name: Cody Bontecou
   image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-07-25
-description: Use mswjs - Mock Service Worker - to mock an API request to
-  Medium's API within a Typescript project.
+description: Use mswjs - Mock Service Worker - to mock an API request to Medium's API within a Typescript project.
 category: tutorials
 dropdown: NodeJS
 tags:
@@ -18,13 +17,11 @@ meta:
   - name: og:title
     content: Mocking an API request with Mock Service Worker and Typescript
   - name: og:description
-    content: Use mswjs - Mock Service Worker - to mock an API request to Medium's
-      API within a Typescript project.
+    content: Use mswjs - Mock Service Worker - to mock an API request to Medium's API within a Typescript project.
   - name: og:image
     content: https://codybontecou.com/images/MSW-Meta.png
   - name: og:image:alt
-    content: Illustration of a man with a baret waving his hands with Reddit and
-      Typescript logos above him
+    content: Illustration of a man with a baret waving his hands with Reddit and Typescript logos above him
   - name: twitter:title
     content: Mocking an API request with Mock Service Worker and Typescript
   - name: twitter:text:title
@@ -34,9 +31,9 @@ topics:
   - mswjs
   - testing
   - mocking
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# Mocking an API request with Mock Service Worker and Typescript
 
 > Testing software is essential to the development cycle of building applications. A strong test suite gives the developer(s) a sense of freedom to organize and refactor the codebase as needed without fear of unknowingly breaking something.
 

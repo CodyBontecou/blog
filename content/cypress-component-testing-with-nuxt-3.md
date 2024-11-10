@@ -6,19 +6,16 @@ author:
 date: 2023-03-20
 last_modified_date: 2023-03-20
 title: Cypress Component Testing with Nuxt 3
-description: Showing the setup needed to get Cypress Component Testing working
-  alongside Nuxt 3
+description: Showing the setup needed to get Cypress Component Testing working alongside Nuxt 3
 slug: cypress-component-testing-with-nuxt-3
 dropdown: Cypress
 meta:
   - name: og:description
-    content: Showing the setup needed to get Cypress Component Testing working
-      alongside Nuxt 3
+    content: Showing the setup needed to get Cypress Component Testing working alongside Nuxt 3
   - name: og:image
     content: https://codybontecou.com/images/cypress-component-testing-with-nuxt-3.png
   - name: og:image:alt
-    content: Showing the setup needed to get Cypress Component Testing working
-      alongside Nuxt 3
+    content: Showing the setup needed to get Cypress Component Testing working alongside Nuxt 3
   - name: og:title
     content: Cypress Component Testing with Nuxt 3
   - name: twitter:title
@@ -30,9 +27,9 @@ topics:
   - Testing
   - Nuxt
   - Cypress
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# {{ $frontmatter.title }}
 
 > This is a guide on setting up Cypress Component Testing with Nuxt 3.
 

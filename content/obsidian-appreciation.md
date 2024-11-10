@@ -6,7 +6,9 @@ topics:
   - ui
 readingTime: 0
 draft: false
-backgroundColor: #1E1E1E
+backgroundColor: 
+created_at: 2024-10-27T18:22
+last_modified: 2024-11-09T21:19
 ---
 
 ![macos obsidian view](https://cln.sh/vsWyCGr5+)

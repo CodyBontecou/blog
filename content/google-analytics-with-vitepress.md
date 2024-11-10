@@ -15,13 +15,11 @@ topics:
   - vue
 meta:
   - name: og:description
-    content: Just add the script provided by Google to your HTML head, and it should
-      work.
+    content: Just add the script provided by Google to your HTML head, and it should work.
   - name: og:image
     content: https://codybontecou.com/images/set-up-google-analytics-with-vitepress.png
   - name: og:image:alt
-    content: Just add the script provided by Google to your HTML head, and it should
-      work.
+    content: Just add the script provided by Google to your HTML head, and it should work.
   - name: og:title
     content: Set up Google Analytics with Vitepress
   - name: twitter:title
@@ -29,9 +27,9 @@ meta:
   - name: twitter:text:title
     content: Set up Google Analytics with Vitepress
 canonicalUrl: https://codybontecou.com/set-up-google-analytics-with-vitepress.html
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# {{ $frontmatter.title }}
 
 ## Code Snippet
 

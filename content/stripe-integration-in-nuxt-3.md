@@ -6,31 +6,16 @@ author:
 date: 2024-08-21
 last_modified_date: 2024-08-21
 title: Stripe Integration in Nuxt 3
-description: Learn how to seamlessly integrate Stripe's powerful payment
-  processing system into your Nuxt 3 web application. This comprehensive guide
-  covers everything from initial setup to implementing secure checkout flows,
-  enabling you to accept payments and manage transactions with ease. Perfect for
-  developers looking to add robust e-commerce capabilities to their Nuxt 3
-  projects.
+description: Learn how to seamlessly integrate Stripe's powerful payment processing system into your Nuxt 3 web application. This comprehensive guide covers everything from initial setup to implementing secure checkout flows, enabling you to accept payments and manage transactions with ease. Perfect for developers looking to add robust e-commerce capabilities to their Nuxt 3 projects.
 slug: stripe-integration-in-nuxt-3
 dropdown: NuxtJS
 meta:
   - name: og:description
-    content: Learn how to seamlessly integrate Stripe's powerful payment processing
-      system into your Nuxt 3 web application. This comprehensive guide covers
-      everything from initial setup to implementing secure checkout flows,
-      enabling you to accept payments and manage transactions with ease. Perfect
-      for developers looking to add robust e-commerce capabilities to their Nuxt
-      3 projects.
+    content: Learn how to seamlessly integrate Stripe's powerful payment processing system into your Nuxt 3 web application. This comprehensive guide covers everything from initial setup to implementing secure checkout flows, enabling you to accept payments and manage transactions with ease. Perfect for developers looking to add robust e-commerce capabilities to their Nuxt 3 projects.
   - name: og:image
     content: https://codybontecou.com/images/stripe-integration-in-nuxt-3.png
   - name: og:image:alt
-    content: Learn how to seamlessly integrate Stripe's powerful payment processing
-      system into your Nuxt 3 web application. This comprehensive guide covers
-      everything from initial setup to implementing secure checkout flows,
-      enabling you to accept payments and manage transactions with ease. Perfect
-      for developers looking to add robust e-commerce capabilities to their Nuxt
-      3 projects.
+    content: Learn how to seamlessly integrate Stripe's powerful payment processing system into your Nuxt 3 web application. This comprehensive guide covers everything from initial setup to implementing secure checkout flows, enabling you to accept payments and manage transactions with ease. Perfect for developers looking to add robust e-commerce capabilities to their Nuxt 3 projects.
   - name: og:title
     content: Stripe Integration in Nuxt 3
   - name: twitter:title
@@ -42,9 +27,9 @@ topics:
   - nuxt
   - stripe
   - authentication
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-# {{ $frontmatter.title }}
-
 ## 01 - Introduction
 
 Welcome to my Nuxt + Stripe tutorial.

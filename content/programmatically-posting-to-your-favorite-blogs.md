@@ -5,9 +5,7 @@ author:
   name: Cody Bontecou
   image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-07-13
-description: Generate posts on Dev, Hashnode, and Medium using the same markdown
-  source file to simultaneously post on all three platforms using their REST and
-  Graphql APIs.
+description: Generate posts on Dev, Hashnode, and Medium using the same markdown source file to simultaneously post on all three platforms using their REST and Graphql APIs.
 dropdown: NodeJS
 tags:
   - VuePress
@@ -36,9 +34,9 @@ topics:
   - nodejs
   - blogging
   - automation
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# Post to Dev, Hashnode, and Medium using their APIs
 
 > The goal of this article is to help you connect to each of these site's APIs in order to programmatically post, update, and enjoy with these services.
 

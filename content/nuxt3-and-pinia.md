@@ -18,8 +18,7 @@ meta:
   - name: og:title
     content: Nuxt 3 and Pinia
   - name: og:description
-    content: Integrate Pinia as your state management library for your Nuxt 3
-      application.
+    content: Integrate Pinia as your state management library for your Nuxt 3 application.
   - name: og:image
     content: https://codybontecou.com/images/nuxt3-and-pinia-meta.png
   - name: og:image:alt
@@ -36,9 +35,9 @@ topics:
   - Pinia
   - State
   - Vue
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# Nuxt 3 and Pinia
 
 > Integrate Pinia as your state management library for your Nuxt 3 application.
 

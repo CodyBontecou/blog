@@ -6,19 +6,16 @@ author:
 date: 2023-08-13
 last_modified_date: 2023-08-13
 title: Mocking HTTP Responses in Elixir and Phoenix
-description: A quick walkthrough of the configuration needed to support mocks
-  and modules only used within your Elixir tests
+description: A quick walkthrough of the configuration needed to support mocks and modules only used within your Elixir tests
 slug: mocking-http-responses-in-elixir-and-phoenix
 dropdown: Elixir
 meta:
   - name: og:description
-    content: A quick walkthrough of the configuration needed to support mocks and
-      modules only used within your Elixir tests
+    content: A quick walkthrough of the configuration needed to support mocks and modules only used within your Elixir tests
   - name: og:image
     content: https://codybontecou.com/images/mocking-http-responses-in-elixir-and-phoenix.png
   - name: og:image:alt
-    content: A quick walkthrough of the configuration needed to support mocks and
-      modules only used within your Elixir tests
+    content: A quick walkthrough of the configuration needed to support mocks and modules only used within your Elixir tests
   - name: og:title
     content: Mocking HTTP Responses in Elixir and Phoenix
   - name: twitter:title
@@ -30,9 +27,9 @@ topics:
   - elixir
   - testing
   - mocking
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-# {{ $frontmatter.title }}
-
 I just came across this error while attempting to mock the response of a 3rd party api:
 
 `** (UndefinedFunctionError) function LeagueInfoMocks.get_live/0 is undefined (module LeagueInfoMocks is not available)`

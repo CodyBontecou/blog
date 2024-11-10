@@ -5,8 +5,7 @@ author:
   name: Cody Bontecou
   image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-07-16
-description: Interacting with Twitter through their API. In this post I discuss
-  how to use twitter-lite to create and post a tweet.
+description: Interacting with Twitter through their API. In this post I discuss how to use twitter-lite to create and post a tweet.
 dropdown: NodeJS
 meta:
   - name: og:title
@@ -14,8 +13,7 @@ meta:
   - name: og:image
     content: https://codybontecou.com/images/tweeting-with-nodejs-og-image.png
   - name: og:image:alt
-    content: Man sitting at computer overloaded by media. 100 Days of Code While
-      Dopamine Fasting.
+    content: Man sitting at computer overloaded by media. 100 Days of Code While Dopamine Fasting.
   - name: twitter:title
     content: Programmatically Tweeting with NodeJS
   - name: twitter:text:title
@@ -25,9 +23,9 @@ topics:
   - nodejs
   - twitter
   - automation
+created_at: 2024-10-31T14:26
+last_modified: 2024-11-09T21:19
 ---
-
-# Creating a Tweet With NodeJS
 
 > This post is for **day 1** of my [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode?src=hashtag_click). In this post I'll be discussing how to programmatically tweet to Twitter using NodeJS.
 
