@@ -50,9 +50,4 @@ export default defineNuxtConfig({
             routes: ['/sitemap.xml'],
         },
     },
-    icon: {
-        serverBundle: {
-            collections: ['material-symbols'],
-        },
-    },
 })

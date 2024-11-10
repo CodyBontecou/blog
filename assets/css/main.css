@@ -5,9 +5,15 @@ p:has(img) {
 }
 
 img {
-    max-height: 400px;
+    max-height: 600px;
     border-radius: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media screen and (max-width: 768px) {
+    img {
+        max-height: 400px;
+    }
 }
 
 code {
