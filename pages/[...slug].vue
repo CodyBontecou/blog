@@ -1,6 +1,19 @@
 <script setup lang="ts">
 import { BlogPost } from '@/components/ui/blogPost'
-import { Comments } from '@/components/ui/comments'
+
+import { getFirstParagraphText } from '~/lib/utils/getFirstParagraphText'
+
+// Get the current route params
+const { path } = useRoute()
+
+// Fetch the post data
+const { data: post } = await useAsyncData(`post-${path}`, () =>
+    queryContent(path).findOne()
+)
+
+defineOgImageComponent('Frame', {
+    title: post.title,
+})
 </script>
 
 <template>

@@ -20,6 +20,10 @@ const { data: articles } = await useAsyncData(`post-${route.path}`, () =>
 )
 
 const articleCount = articles.value ? articles.value.length : 0
+
+defineOgImageComponent('Frame', {
+    title: 'Topics / ' + topic,
+})
 </script>
 
 <template>

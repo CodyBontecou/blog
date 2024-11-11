@@ -7,6 +7,10 @@ import { getPostBody } from '~/lib/utils/getPostBody'
 import { getTopics } from '~/lib/utils/getTopics'
 
 const { t } = useI18n()
+defineOgImageComponent('Frame', {
+    title: 'Cody Bontecou',
+    description: 'is enjoying life.',
+})
 
 // Fetch all posts sorted by date and ignoring where draft is true
 const { data: articles } = await useAsyncData('articles', () =>
