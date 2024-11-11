@@ -22,7 +22,7 @@ const latestArticle = getLatestPost(articles.value)
 const postBody = computed(() => getPostBody(latestArticle?.body))
 
 const formattedDateWithMonth = formatDateWithMonth(
-    latestArticle.date,
+    latestArticle.date || latestArticle.created_at,
     calculateReadingTime(postBody.value),
     t
 )
