@@ -4,6 +4,7 @@ import { useToast } from '@/components/ui/toast/use-toast'
 const { toast } = useToast()
 const { t } = useI18n()
 const emailInput = ref('')
+const { subscribeUserToNewsletter } = useNewsletter()
 
 const handleSubmit = async () => {
     const { error } = await subscribeUserToNewsletter(emailInput.value)
@@ -21,13 +22,6 @@ const handleSubmit = async () => {
             description: t('newsletter.successDescription'),
         })
     }
-}
-
-const subscribeUserToNewsletter = async (email: string) => {
-    return await useFetch('/api/subscribeUser', {
-        method: 'POST',
-        body: { email },
-    })
 }
 </script>
 
