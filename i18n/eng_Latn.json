@@ -36,6 +36,8 @@
     "email": "Email",
     "submit": "Submit",
     "successTitle": "Success",
-    "successDescription": "Thanks for signup up! I promise to only send interesting content."
+    "successDescription": "Thanks for signup up! I promise to only send interesting content.",
+    "signupError": "Error",
+    "signupErrorDescription": "There was an error subscribing to the newsletter. Hit me up codybontecou@gmail.com and I'll add you the old fashioned way."
   }
 }

@@ -34,11 +34,12 @@ export default defineEventHandler(async (event: H3Event) => {
             }
         )
 
+        // Parse the response body
         if (!response.ok) {
             throw createError({
                 statusCode: 400,
                 message:
-                    "There was an error subscribing to the newsletter. Hit me up peter@peterlunch.com and I'll add you the old fashioned way :(.",
+                    "There was an error subscribing to the newsletter. Hit me up codybontecou@gmail.com and I'll add you the old fashioned way :(.",
             })
         }
 

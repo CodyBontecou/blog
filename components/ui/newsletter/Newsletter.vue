@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { addToMailchimp } from '~/lib/utils/addToMailchimp'
 import { useToast } from '@/components/ui/toast/use-toast'
 
 const { toast } = useToast()
@@ -7,18 +6,25 @@ const { t } = useI18n()
 const emailInput = ref('')
 
 const handleSubmit = async () => {
+    const { error } = await subscribeUserToNewsletter(emailInput.value)
+
     emailInput.value = ''
 
-
-
-    toast({
-        title: t('newsletter.successTitle'),
-        description: t('newsletter.successDescription'),
-    })
+    if (error.length) {
+        toast({
+            title: t('newsletter.signupError'),
+            description: t('newsletter.signupErrorDescription'),
+        })
+    } else {
+        toast({
+            title: t('newsletter.successTitle'),
+            description: t('newsletter.successDescription'),
+        })
+    }
 }
 
 const subscribeUserToNewsletter = async (email: string) => {
-    const { data, error } = await useFetch('/api/subscribe', {
+    return await useFetch('/api/subscribeUser', {
         method: 'POST',
         body: { email },
     })
