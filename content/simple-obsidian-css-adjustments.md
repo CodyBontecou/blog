@@ -7,7 +7,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-10T22:06
-last_modified: 2024-11-10T22:40
+last_modified: 2024-11-11T09:39
 ---
 
 ## Problem
@@ -30,6 +30,31 @@ In your Obsidian settings, navigate to the Appearances tab and scroll to the `CS
 
 Your css file should now be injected into your Obsidian view. Any changes you make to the css using this file will reflect in your Obsidian editor.
 
+Here is my `image_size.css` file:
+
+```
+// image_size.css
+img {
+    max-height: 600px;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media screen and (max-width: 768px) {
+    img {
+        max-height: 400px;
+    }
+}
+
+.markdown-source-view.mod-cm6 .cm-content > img {
+    margin: 0 auto !important;
+}
+```
+
+This controls the image dimensions a bit and centers them. Here's an example:
+
+![ios device screenshot centered in obsidian editor](https://cln.sh/N1XqL4Md+)
+
 ## Obsidian Devtools
 
 To view the html and css Obsidian uses, we need to open the devtools.
@@ -40,6 +65,7 @@ Obsidian is a Chromium application, so the interface will look similar if you've
 
 You should be able to identify the element(s) you are interested in adjusting and now write the css needed to make the adjustments.
 
+![devtools open in an obsidian editor](https://cln.sh/PcWLJY4g+)
 
 ## Resources
 
