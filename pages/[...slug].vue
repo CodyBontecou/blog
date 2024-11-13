@@ -11,8 +11,15 @@ const { data: post } = await useAsyncData(`post-${path}`, () =>
     queryContent(path).findOne()
 )
 
-defineOgImageComponent('Frame', {
+// defineOgImageComponent('Frame', {
+//     title: post.title,
+// })
+
+const text = getFirstParagraphText(post.value.body)
+
+defineOgImageComponent('BlogPost', {
     title: post.title,
+    description: getFirstParagraphText(post.value.body),
 })
 </script>
 
