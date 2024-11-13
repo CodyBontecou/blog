@@ -7,7 +7,7 @@ draft: false
 ignore: false
 date: 2024-11-13T12:25
 created_at: 2024-11-13T12:25
-last_modified: 2024-11-13T13:07
+last_modified: 2024-11-13T13:23
 ---
 
 In this guide, I'll show you how I achieved a cleaner, more focused writing environment without sacrificing any of Obsidian's powerful functionality
@@ -40,7 +40,7 @@ If you ever want to re-show the folder, you have to go to the `File Hider` setti
 **NOTE:** If you hide the folders and then disable and/or remove the File Hider plugin, the files and folders will continue to be hidden. To fix this, re-install and enable the plugin and ensure you re-show the hidden folders.
 
 
-### Filter relevant search results
+## Filter relevant search results
 
 You can "exclude" files and folders from search results. 
 
