@@ -2,9 +2,9 @@
 title: Hidden Files for Cleaner Obsidian
 topics:
   - obsidian
-  - organizatio
-draft: true
-ignore: true
+  - organization
+draft: false
+ignore: false
 created_at: 2024-11-13T12:25
 last_modified: 2024-11-13T13:01
 ---
