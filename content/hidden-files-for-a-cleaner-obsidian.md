@@ -1,5 +1,5 @@
 ---
-title: Hidden Files for Cleaner Obsidian
+title: Hidden files for a cleaner Obsidian
 topics:
   - obsidian
   - organization
@@ -7,7 +7,7 @@ draft: false
 ignore: false
 date: 2024-11-13T12:25
 created_at: 2024-11-13T12:25
-last_modified: 2024-11-13T13:01
+last_modified: 2024-11-13T13:07
 ---
 
 In this guide, I'll show you how I achieved a cleaner, more focused writing environment without sacrificing any of Obsidian's powerful functionality
