@@ -25,9 +25,9 @@ const { data: allArticles } = await useAsyncData('allArticles', () =>
 
 const similarArticles = computed(() => {
     return allArticles.value
-        .filter(article => {
+        ?.filter(article => {
             // Skip if it's the same article
-            if (article.title === post.value.title) return false
+            if (article.title === post.value?.title) return false
 
             // Handle cases where topics might be undefined/null
             const articleTopics = article.topics || []
@@ -63,7 +63,7 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
     Making sure none of the randomly selected articles are the same as
     the similarArticles
     */
-    const filteredArticles = allArticles.value.filter(
+    const filteredArticles = allArticles.value?.filter(
         article =>
             !similarArticles.value.map(a => a.title).includes(article.title)
     )
@@ -290,11 +290,39 @@ watch(isMobileMenuOpen, newValue => {
                             <h1 class="text-4xl font-normal mb-4">
                                 {{ post?.title }}
                             </h1>
-                            <div class="text-gray-600 text-lg mb-10">
+                            <div class="text-gray-600 text-lg flex mb-10">
                                 {{ formatDate(post?.date) }} ·
                                 {{ calculateReadingTime(postBody) }}
-                                {{ $t('latest.minuteRead') }}
+                                {{ $t('latest.minuteRead') }} ·
+
+                                <NuxtLink
+                                    class="ml-1 text-gray-600"
+                                    v-for="(topic, index) in post?.topics"
+                                    :to="'topics/' + topic"
+                                >
+                                    <!-- GROSS -->
+                                    <!-- This add a , to topic if its not the last one in the post topics -->
+                                    {{
+                                        `${topic}${
+                                            index !== post?.topics.length - 1
+                                                ? ','
+                                                : ''
+                                        }`
+                                    }}
+                                </NuxtLink>
+
+                                <ul
+                                    class="ml-2 flex list-none not-prose gap-x-2"
+                                >
+                                    <li
+                                        class="not-prose underline hover:opacity-75 break-keep whitespace-nowrap"
+                                        :key="topic"
+                                    ></li>
+                                </ul>
                             </div>
+
+                            <!-- Topics -->
+
                             <ContentRenderer :value="post" />
                         </article>
                     </ContentDoc>
