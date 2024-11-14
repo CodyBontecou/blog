@@ -21,7 +21,7 @@ withDefaults(
                     <h1 class="text-[80px] font-black">
                         {{ title }}
                     </h1>
-                    <p class="text-xl -mt-2 font-medium opacity-50 w-2/3">
+                    <p class="text-3xl -mt-2 font-medium opacity-50 w-2/3">
                         {{ description }}
                     </p>
                 </div>
