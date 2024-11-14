@@ -10,7 +10,7 @@ onMounted(() => {
         duration: 5000,
         title: t('work.title'),
         description:
-            "Contact me at {codybontecou}{'@'}{gmail.com} if you would like to chat.",
+            'Contact me at codybontecou@gmail.com if you would like to chat.',
     })
 })
 </script>
