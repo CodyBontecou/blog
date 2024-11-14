@@ -9,7 +9,8 @@ onMounted(() => {
     toast({
         duration: 5000,
         title: t('work.title'),
-        description: t('work.description'),
+        description:
+            "Contact me at {codybontecou}{'@'}{gmail.com} if you would like to chat.",
     })
 })
 </script>

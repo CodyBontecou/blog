@@ -43,6 +43,6 @@
 
   "work": {
     "title": "Open to work",
-    "description": "Contact me at codybontecou@gmail.com if you would like to chat."
+    "description": "Contact me at {codybontecou}{'@'}{gmail.com} if you would like to chat."
   }
 }
