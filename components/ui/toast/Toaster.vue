@@ -11,6 +11,11 @@ import {
 import { useToast } from './use-toast'
 
 const { toasts } = useToast()
+const { setValue } = useLocalStorage()
+
+const handleOpenEvent = async () => {
+    setValue('toast:work', true)
+}
 </script>
 
 <template>
@@ -20,6 +25,7 @@ const { toasts } = useToast()
             v-for="toast in toasts"
             :key="toast.id"
             v-bind="toast"
+            @update:open="handleOpenEvent"
         >
             <div class="grid gap-1">
                 <ToastTitle v-if="toast.title">
