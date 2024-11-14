@@ -39,5 +39,10 @@
     "successDescription": "Thanks for signup up! I promise to only send interesting content.",
     "signupError": "Error",
     "signupErrorDescription": "There was an error subscribing to the newsletter. Hit me up codybontecou@gmail.com and I'll add you the old fashioned way."
+  },
+
+  "work": {
+    "title": "Open to work",
+    "description": "Contact me at codybontecou@gmail.com if you would like to chat."
   }
 }
