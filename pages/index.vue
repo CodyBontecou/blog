@@ -30,6 +30,28 @@ const formattedDateWithMonth = formatDateWithMonth(
     calculateReadingTime(postBody.value),
     t
 )
+
+useSeoMeta({
+    description: 'is enjoying life',
+    ogTitle: "Cody Bontecou's Blog",
+    ogDescription: 'is enjoying life',
+    twitterTitle: "Cody Bontecou's Blog",
+    twitterDescription: 'is enjoying life',
+    twitterCard: 'summary',
+})
+
+useHead({
+    htmlAttrs: {
+        lang: 'en',
+    },
+    link: [
+        {
+            rel: 'icon',
+            type: 'image/ico',
+            href: '/favicon.ico',
+        },
+    ],
+})
 </script>
 
 <template>

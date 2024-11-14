@@ -24,6 +24,28 @@ const articleCount = articles.value ? articles.value.length : 0
 defineOgImageComponent('Frame', {
     title: 'Topics / ' + topic,
 })
+
+useSeoMeta({
+    description: `${articleCount} of articles about ${topic}`,
+    ogTitle: 'Topics / ' + topic,
+    ogDescription: `${articleCount} of articles about ${topic}`,
+    twitterTitle: 'Topics / ' + topic,
+    twitterDescription: `${articleCount} of articles about ${topic}`,
+    twitterCard: 'summary',
+})
+
+useHead({
+    htmlAttrs: {
+        lang: 'en',
+    },
+    link: [
+        {
+            rel: 'icon',
+            type: 'image/ico',
+            href: '/favicon.ico',
+        },
+    ],
+})
 </script>
 
 <template>

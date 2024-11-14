@@ -12,8 +12,30 @@ const { data: post } = await useAsyncData(`post-${path}`, () =>
 )
 
 defineOgImageComponent('BlogPost', {
-    title: post.title,
-    description: getFirstParagraphText(post.value.body),
+    title: post.value?.title ?? '',
+    description: getFirstParagraphText(post.value?.body),
+})
+
+useSeoMeta({
+    description: getFirstParagraphText(post.value?.body),
+    ogTitle: post.value?.title,
+    ogDescription: getFirstParagraphText(post.value?.body),
+    twitterTitle: post.value?.title,
+    twitterDescription: getFirstParagraphText(post.value?.body),
+    twitterCard: 'summary',
+})
+
+useHead({
+    htmlAttrs: {
+        lang: 'en',
+    },
+    link: [
+        {
+            rel: 'icon',
+            type: 'image/ico',
+            href: '/favicon.ico',
+        },
+    ],
 })
 </script>
 
