@@ -33,9 +33,9 @@ const formattedDateWithMonth = formatDateWithMonth(
 
 useSeoMeta({
     description: 'is enjoying life',
-    ogTitle: "Cody Bontecou's Blog",
+    ogTitle: 'Blog | Cody Bontecou',
     ogDescription: 'is enjoying life',
-    twitterTitle: "Cody Bontecou's Blog",
+    twitterTitle: 'Blog | Cody Bontecou',
     twitterDescription: 'is enjoying life',
     twitterCard: 'summary',
 })
