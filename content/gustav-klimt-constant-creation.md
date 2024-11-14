@@ -7,16 +7,16 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-13T22:45
-last_modified: 2024-11-13T23:06
+last_modified: 2024-11-13T23:07
 ---
 
 I was exposed to Gustav Klimt's artwork today and it was fascinating. I can clearly see how some of his work has inspired many of the video games and shows that have entertained me.
 
+But, what amazed me the most about him and his work, inciting this ramble, was **his continuous acts of creation throughout his life**.
+
 ![Gustav Klimt's The Embrace](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Gustav_Klimt_031.jpg/1024px-Gustav_Klimt_031.jpg)
 
 ## Years of work
-
-But, what amazed me the most about him and his work, inciting this ramble, was **his continuous acts of creation throughout his life**.
 
 Gustav Klimt had an artistic career spanning from approximately 1880 until his death in 1918 - about 38 years (~13,879 days) of active work.
 
