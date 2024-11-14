@@ -1,8 +1,7 @@
 ---
 title: 
-date: 
+draft: true
+ignore: true
 topics:
   - 
-draft: false
-ignore: true
 ---
