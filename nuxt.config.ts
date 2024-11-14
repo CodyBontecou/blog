@@ -14,6 +14,7 @@ export default defineNuxtConfig({
         '@nuxt/icon',
         '@nuxtjs/color-mode',
         'nuxt-og-image',
+        'nuxt-gtag',
     ],
     routeRules: {
         '/': { prerender: true },
@@ -59,5 +60,8 @@ export default defineNuxtConfig({
     site: {
         url: 'https://codybontecou.com',
         name: 'Cody Bontecou',
+    },
+    gtag: {
+        id: 'G-3NM0E524EK',
     },
 })
