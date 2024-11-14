@@ -15,7 +15,6 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode',
         'nuxt-og-image',
         'nuxt-gtag',
-        '@vueuse/nuxt',
     ],
     routeRules: {
         '/': { prerender: true },
