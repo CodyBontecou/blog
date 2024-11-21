@@ -6,7 +6,7 @@ topics:
   - rv
 date: 2024-11-20T20:13
 created_at: 2024-11-20T20:13
-last_modified: 2024-11-20T21:22
+last_modified: 2024-11-20T21:23
 ---
 
 What my dad calls the "Wall of Water" just hit his town. It's a yearly flip in the weather where the rain begins and doesn't stops until spring. Nearly 4.25" of rain landed on them today.
@@ -25,7 +25,7 @@ Here's a bit of data from todays adventure:
 
 **Stay:** Our campground cost $40.
 
-Our total expenses for today: **$99.22**.
+**Total** expenses for today: **$99.22**.
 
 ### Reflection
 
