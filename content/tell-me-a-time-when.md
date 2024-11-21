@@ -7,7 +7,7 @@ topics:
 draft: true
 ignore: true
 created_at: 2024-11-12T22:54
-last_modified: 2024-11-18T08:46
+last_modified: 2024-11-18T08:49
 ---
 ## Customer Obsession
 
@@ -24,14 +24,13 @@ R: User's loved it. But shortly after deploying my release, the official League 
 
 1. Give me an example of a time when you did not meet a client’s expectation. What happened, and how did you attempt to rectify the situation? 
 
-S: While working in China I did a multi backpacking trip along the great wall. My students wre doing it for an award and I took that as an experiential learning, to throw them in the deep-end to see how they do, some of the students struggle and at the end of the trip one of teacher gave me some critique on how I could have done better. The teacher noticed kids were slipping down the gravel hills, and asked me why I didn't teach them how to properly walk down the steps, this came a s a surprise, what came to me naturally with experience in the outdoors could be a teachable moment for kids that are not familiar with it. This helped me reflect on things I do naturally that other might not know. 
+S: While working in China I did a multi-day backpacking trip along the Great Wall of China. My students were doing it for an award and I took that as an experiential learning, to throw them in the deep-end to see how they do, some of the students struggle and at the end of the trip one of teacher gave me some critique on how I could have done better. The teacher noticed kids were slipping down the gravel hills, and asked me why I didn't teach them how to properly walk down the steps, this came as a surprise, what came to me naturally with experience in the outdoors could be a teachable moment for kids that are not familiar with it. This helped me reflect on things I do naturally that other might not know. 
 
 T:  I reflected on the critique and decided to bit a little bit more hands on with future students.
 
 A: I tried to be more attentive to students and apply teach them when given the opportunity. I would teach prior to the activity 
 
 R: I gained a better awareness on my leadership skills and the skills of my students when I should step in to teach. 
-
 
 1. Tell the story of the last time you had to apologize to someone
 
@@ -68,9 +67,9 @@ R: I got a lot of comments from users, they were very impressed by the site and 
 
 1. Tell me about a time when you had to make a difficult short term decision to make long term gains.
 
-S: I lead a team that was building an app for a goverment organization, we were using a green flied stack that included using their new enterprise Github infrastructure, strict firewalls rules were in place that prevented us from running certain tests in our ci/cd pipeline. 
+S: I lead a team that was building an app for a government organization, we were on a greenfield project that included using their new enterprise Github infrastructure. We were the first team in their organization to move to this platform. There ended up being strict firewall rules were in place that prevented us from running certain tests in our CI/CD pipeline. 
 
-T: Our task was to maintain a strong tested application give the costraing while the infrastructure team figured out how to adjust our firewalls setting to run our tests, which would take months and we only had week to launch this website. 
+T: Our task was to maintain a strong tested application given the constraints while the infrastructure team figured out how to adjust our firewalls setting to run our tests, which would take months and we only had week to launch this website. 
 
 A: We organized our tests in a way were we can maintain max testability in our ci/cd pipeline and created a system that allowed us to run the remaining test in our local envioerment.
 
