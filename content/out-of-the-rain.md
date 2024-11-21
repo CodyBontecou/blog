@@ -6,7 +6,7 @@ topics:
   - rv
 date: 2024-11-20T20:13
 created_at: 2024-11-20T20:13
-last_modified: 2024-11-20T21:23
+last_modified: 2024-11-21T06:37
 ---
 
 What my dad calls the "Wall of Water" just hit his town. It's a yearly flip in the weather where the rain begins and doesn't stops until spring. Nearly 4.25" of rain landed on them today.
@@ -20,6 +20,8 @@ I'm now writing this on top of a cozy hill outside of Monterey, CA. at the Lagun
 Here's a bit of data from todays adventure:
 
 **Gas:** Our odometer started the day off at 37,665 miles with a full gas tank at 9:34am. At 12:55pm we topped off our gas tank with 6.152 gallons and our odometer read 37,747 miles costing $24.60.
+
+This averages out to approximately 13.32 miles per gallon.
 
 **Food:** We spent $24.92 on Panda Express at 11:39am followed by $9.70 at Starbucks at 12:38pm.
 
