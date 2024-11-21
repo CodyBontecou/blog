@@ -79,11 +79,11 @@ useHead({
                                 {{ $t('landing.cta') }}
                             </Button>
                         </NuxtLink>
-                        <a href="#key-features" @click="">
+                        <NuxtLink to="about">
                             <Button variant="outline">
                                 {{ $t('landing.learnMore') }}
                             </Button>
-                        </a>
+                        </NuxtLink>
                     </div>
 
                     <!-- Latest -->
