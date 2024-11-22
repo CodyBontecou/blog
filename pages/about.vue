@@ -74,20 +74,27 @@ const allLinks = [
         <ul class="list-disc list-inside space-y-1">
             <li>
                 RSS feed:
-                <a class="underline" href="/rss.xml"> codybontecou.com/rss </a>
+                <a class="underline" href="/rss.xml" target="_blank">
+                    codybontecou.com/rss
+                </a>
             </li>
             <li>
                 Youtube:
                 <a
                     class="underline"
                     href="https://www.youtube.com/@codybontecou"
+                    target="_blank"
                 >
                     @codybontecou
                 </a>
             </li>
             <li>
                 Github:
-                <a class="underline" href="http://github.com/codybontecou">
+                <a
+                    class="underline"
+                    href="http://github.com/codybontecou"
+                    target="_blank"
+                >
                     @codybontecou
                 </a>
             </li>
@@ -96,25 +103,38 @@ const allLinks = [
                 <a
                     class="underline"
                     href="https://bsky.app/profile/codybontecou.com"
+                    target="_blank"
                 >
                     @codybontecou.com
                 </a>
             </li>
             <li>
                 Twitter:
-                <a class="underline" href="http://x.com/codybontecou">
+                <a
+                    class="underline"
+                    href="http://x.com/codybontecou"
+                    target="_blank"
+                >
                     @codybontecou
                 </a>
             </li>
             <li>
                 Threads:
-                <a class="underline" href="http://threads.net/@bonteq">
+                <a
+                    class="underline"
+                    href="http://threads.net/@bonteq"
+                    target="_blank"
+                >
                     @bonteq
                 </a>
             </li>
             <li>
                 Instagram:
-                <a class="underline" href="https://www.instagram.com/bonteq/">
+                <a
+                    class="underline"
+                    href="https://www.instagram.com/bonteq/"
+                    target="_blank"
+                >
                     @bonteq
                 </a>
             </li>
@@ -123,6 +143,7 @@ const allLinks = [
                 <a
                     class="underline"
                     href="https://www.linkedin.com/in/cody-bontecou/"
+                    target="_blank"
                 >
                     codybontecou
                 </a>
@@ -134,24 +155,40 @@ const allLinks = [
         <h2 class="text-lg font-normal">Colophon</h2>
         <p class="my-4">
             This site is written and editted using
-            <a class="underline" href="https://obsidian.md"> Obsidian </a>
+            <a class="underline" href="https://obsidian.md" target="_blank">
+                Obsidian
+            </a>
             . I strive to stay inline the with philosophy of
-            <a class="underline" href="https://stephango.com/file-over-app">
+            <a
+                class="underline"
+                href="https://stephango.com/file-over-app"
+                target="_blank"
+            >
                 File over app</a
             >.
         </p>
         <p class="my-4">
             My markdown files are compiled into web pages using
-            <a class="underline" href="https://nuxt.com">Nuxt</a>
+            <a class="underline" href="https://nuxt.com" target="_blank"
+                >Nuxt</a
+            >
             and
-            <a class="underline" href="https://content.nuxt.com">
+            <a
+                class="underline"
+                href="https://content.nuxt.com"
+                target="_blank"
+            >
                 Nuxt content </a
             >. This site is then automatically deployed using
-            <a class="underline" href="https://nuxt.studio">Nuxt Studio</a>.
+            <a class="underline" href="https://nuxt.studio" target="_blank"
+                >Nuxt Studio</a
+            >.
         </p>
         <p class="my-4">
             The site is styled using
-            <a class="underline" href="https://tailwindcss.com">tailwindcss</a>.
+            <a class="underline" href="https://tailwindcss.com" target="_blank"
+                >tailwindcss</a
+            >.
         </p>
 
         <Separator class="my-10" />
