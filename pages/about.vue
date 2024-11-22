@@ -13,12 +13,6 @@ const linksToExplore = [
     { to: 'now', name: "What I'm doing now" },
 ]
 
-// const elsewhereLinks = [
-//     { to: 'feed', name: 'codybontecou.com/feed' },
-//     { to: 'twitter', name: '@codybontecou' },
-//     { to: 'github', name: '@codybontecou' },
-// ]
-
 const allLinks = [
     { links: cofoundedLinks, header: t('about.cofoundedHeader') },
     { links: linksToExplore, header: t('about.linksToExploreHeader') },
