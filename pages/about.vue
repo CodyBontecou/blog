@@ -155,7 +155,7 @@ const allLinks = [
                         class="underline"
                         href="https://stephango.com/file-over-app"
                     >
-                        File over app </a
+                        File over app</a
                     >.
                 </p>
                 <p class="my-4">
