@@ -4,8 +4,8 @@
             <NuxtLink to="/" class="hover:opacity-75"> Cody Bontecou </NuxtLink>
         </h1>
         <nav class="flex gap-6 text-gray-600">
-            <NuxtLink to="/"> Articles </NuxtLink>
-            <NuxtLink to="/about"> Learn more </NuxtLink>
+            <NuxtLink to="/"> {{ $t('writing.writing') }} </NuxtLink>
+            <NuxtLink to="/about"> {{ $t('landing.learnMore') }} </NuxtLink>
         </nav>
     </header>
 </template>

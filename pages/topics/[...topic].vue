@@ -50,21 +50,23 @@ useHead({
 
 <template>
     <div class="max-w-3xl mx-auto py-8 px-4">
-        <TopNav />
+        <div class="max-w-lg mx-auto mb-16 lg:max-w-3xl">
+            <TopNav />
 
-        <main>
-            <div class="mb-12">
-                <h1 class="text-4xl font-normal mb-8">
-                    <span class="text-gray-500">Topics / </span>
-                    <span>{{ capitalizeFirstLetter(topic) }}</span>
-                </h1>
+            <main>
+                <div class="mb-12">
+                    <h1 class="text-4xl font-normal mb-8">
+                        <span class="text-gray-500">Topics / </span>
+                        <span>{{ capitalizeFirstLetter(topic) }}</span>
+                    </h1>
 
-                <p class="text-gray-600 text-lg">
-                    {{ articleCount }} entries about this topic
-                </p>
-            </div>
+                    <p class="text-gray-600 text-lg">
+                        {{ articleCount }} entries about this topic
+                    </p>
+                </div>
 
-            <ArticleList :articles="articles" />
-        </main>
+                <ArticleList :articles="articles" />
+            </main>
+        </div>
     </div>
 </template>
