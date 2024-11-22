@@ -74,9 +74,7 @@ const allLinks = [
         <ul class="list-disc list-inside space-y-1">
             <li>
                 RSS feed:
-                <NuxtLink class="underline" to="/feed">
-                    codybontecou.com/feed
-                </NuxtLink>
+                <a class="underline" href="/rss.xml"> codybontecou.com/rss </a>
             </li>
             <li>
                 Youtube:

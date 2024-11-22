@@ -20,6 +20,7 @@
     "nuxt": "^3.13.2",
     "nuxt-gtag": "^3.0.1",
     "nuxt-og-image": "^3.0.8",
+    "rss": "^1.2.2",
     "sitemap": "^8.0.0",
     "vee-validate": "^4.14.6",
     "zod": "^3.23.8"
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@types/jsonp": "^0.2.3",
+    "@types/rss": "^0.0.32",
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
     "radix-vue": "^1.9.8",
