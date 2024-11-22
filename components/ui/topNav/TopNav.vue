@@ -5,7 +5,7 @@
         </h1>
         <nav class="flex gap-6 text-gray-600">
             <NuxtLink to="/"> Articles </NuxtLink>
-            <NuxtLink to="/"> Learn more </NuxtLink>
+            <NuxtLink to="/about"> Learn more </NuxtLink>
         </nav>
     </header>
 </template>
