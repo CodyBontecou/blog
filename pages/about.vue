@@ -1,6 +1,31 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
+useSeoMeta({
+    description:
+        'A bit about myself and a directory that may lead you to better understand me.',
+    ogTitle: 'About me | Cody Bontecou',
+    ogDescription:
+        'A bit about myself and a directory that may lead you to better understand me.',
+    twitterTitle: 'About me | Cody Bontecou',
+    twitterDescription:
+        'A bit about myself and a directory that may lead you to better understand me.',
+    twitterCard: 'summary',
+})
+
+useHead({
+    htmlAttrs: {
+        lang: 'en',
+    },
+    link: [
+        {
+            rel: 'icon',
+            type: 'image/ico',
+            href: '/favicon.ico',
+        },
+    ],
+})
+
 const cofoundedLinks = [
     { to: 'https://www.i18nlocale.com', name: 'i18nLocale' },
     { to: 'https://www.xfeedmuter.com', name: 'xFeedMuter' },
