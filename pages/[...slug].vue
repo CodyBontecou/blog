@@ -40,8 +40,6 @@ useHead({
 </script>
 
 <template>
-    <TopNav />
-
     <Suspense>
         <!-- Main content -->
         <template #default>

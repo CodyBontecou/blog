@@ -45,8 +45,6 @@ const allLinks = [
 </script>
 
 <template>
-    <TopNav />
-
     <main>
         <div class="mb-12">
             <h1 class="text-2xl font-normal mb-4">About me</h1>

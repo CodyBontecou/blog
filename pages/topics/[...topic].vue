@@ -49,8 +49,6 @@ useHead({
 </script>
 
 <template>
-    <TopNav />
-
     <main>
         <div class="mb-12">
             <h1 class="text-4xl font-normal mb-8">
