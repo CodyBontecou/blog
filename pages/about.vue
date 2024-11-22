@@ -7,7 +7,7 @@ const cofoundedLinks = [
 ]
 
 const linksToExplore = [
-    { to: 'writing', name: 'Writing' },
+    { to: '/', name: 'Writing' },
     { to: 'projects', name: 'Projects' },
     { to: 'talks', name: 'Talks' },
     { to: 'now', name: "What I'm doing now" },
