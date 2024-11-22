@@ -20,8 +20,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <div>
+    <NuxtLayout>
         <Toaster />
         <NuxtPage />
-    </div>
+    </NuxtLayout>
 </template>

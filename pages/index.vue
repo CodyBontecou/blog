@@ -52,6 +52,10 @@ useHead({
         },
     ],
 })
+
+definePageMeta({
+    layout: 'landing',
+})
 </script>
 
 <template>
