@@ -44,5 +44,10 @@
   "work": {
     "title": "Open to work",
     "description": "Contact me at {codybontecou}{'@'}{gmail.com} if you would like to chat."
+  },
+
+  "about": {
+    "cofoundedHeader": "Previously I co-founded:",
+    "linksToExploreHeader": "A few links to explore:"
   }
 }
