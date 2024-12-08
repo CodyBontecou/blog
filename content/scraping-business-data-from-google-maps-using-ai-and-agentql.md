@@ -1,13 +1,13 @@
 ---
 title: Scraping business data from Google Maps using AI and AgentQL
-draft: true
-ignore: true
+draft: false
+ignore: false
 topics:
   - ai
   - scraping
   - agentql
 created_at: 2024-12-05T16:04
-last_modified: 2024-12-08T12:44
+last_modified: 2024-12-08T12:45
 ---
 
 Writing web scraping scripts by hand typically follows a development pattern like:
