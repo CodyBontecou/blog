@@ -1,7 +1,11 @@
 ---
+draft: true
 ignore: true
 created_at: 2024-11-02T13:40
-last_modified: 2024-12-04T20:22
+last_modified: 2024-12-08T13:46
+title: Garage Squad Application
+topics:
+  - cars
 ---
 
 Year, make, model
