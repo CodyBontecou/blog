@@ -5,9 +5,9 @@ ignore: true
 topics:
   - recipe
 created_at: 2024-12-02T17:47
-last_modified: 2024-12-02T19:07
+last_modified: 2024-12-08T13:47
 ---
-- Better than boulion beef broth
+- Better than bouillon beef broth
 - Mirepoix (onion, carrot, celery) No curry
 - Bay leafs and thyme
 - Beef - Very important to cube it, toss it in flower and pepper, then sautee it. Take it out before adding vegetables.
