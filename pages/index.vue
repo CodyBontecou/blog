@@ -120,16 +120,22 @@ definePageMeta({
                     </section>
 
                     <!-- Topics -->
-                    <section v-if="topics.length" class="mb-16 w-full">
+                    <section
+                        v-if="topics.length"
+                        class="mb-16 w-full"
+                        style="min-height: 0"
+                    >
                         <h2 class="text-lg text-gray-600">
                             {{ $t('topics.topics') }}
                         </h2>
-                        <div class="mt-6 flex flex-wrap gap-2">
+                        <div
+                            class="mt-6 flex flex-wrap gap-2 md:max-h-64 overflow-y-auto"
+                        >
                             <NuxtLink
                                 v-for="topic in topics"
                                 :key="topic"
                                 :to="`/topics/${topic}`"
-                                class="underline hover:opacity-75 break-keep whitespace-nowrap"
+                                class="underline hover:opacity-75 break-keep"
                             >
                                 {{ topic }}
                             </NuxtLink>
