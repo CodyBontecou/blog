@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     router: {
         options: {
-            strict: true, // Enforce strict routing (optional)
+            strict: false, // Enforce strict routing (optional)
         },
     },
     devtools: {
