@@ -20,6 +20,7 @@
     "nuxt": "^3.13.2",
     "nuxt-gtag": "^3.0.1",
     "nuxt-og-image": "^3.0.8",
+    "prettier": "^3.4.2",
     "rss": "^1.2.2",
     "sitemap": "^8.0.0",
     "vee-validate": "^4.14.6",
