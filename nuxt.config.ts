@@ -16,6 +16,9 @@ export default defineNuxtConfig({
         'nuxt-og-image',
         'nuxt-gtag',
     ],
+    routeRules: {
+        '/': { prerender: true },
+    },
     compatibilityDate: '2024-10-24',
     css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
     content: {

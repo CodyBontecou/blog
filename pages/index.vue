@@ -150,7 +150,6 @@ definePageMeta({
                     {{ $t('writing.writing') }}
                 </h2>
                 <ArticleList :articles="articles" />
-                <!-- <BlurredScroller :items="articles" /> -->
             </div>
         </div>
     </div>
