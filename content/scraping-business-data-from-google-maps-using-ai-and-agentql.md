@@ -8,7 +8,7 @@ topics:
   - agentql
 date: 2024-12-05T16:04
 created_at: 2024-12-05T16:04
-last_modified: 2024-12-08T12:49
+last_modified: 2024-12-12T16:58
 ---
 
 Writing web scraping scripts by hand typically follows a development pattern like:
@@ -238,3 +238,5 @@ Running the queryData code above, I received this response:
 I haven't found a fundamental shift in how the problem is being solved. You can still write the scraping logic by hand and have it be every bit as robust and probably more efficient. But these tools are allowing me to extract data using web scraping much quicker than before.
 
 With a bit of creative engineering, I can see patterns appear that allow for much broader queries that are flexible and applicable to a wide array of websites. I've enjoyed my initial dip into this tool and am excited to see where it goes.
+
+You can find the code repository on Github [here](https://github.com/CodyBontecou/scraping-business-data-from-google-maps-using-ai-and-agentql).
