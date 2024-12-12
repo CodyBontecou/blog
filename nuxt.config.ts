@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    router: {
+        options: {
+            strict: true, // Enforce strict routing (optional)
+        },
+    },
     devtools: {
         enabled: true,
         timeline: {
