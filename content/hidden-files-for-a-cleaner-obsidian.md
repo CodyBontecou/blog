@@ -39,6 +39,9 @@ If you ever want to re-show the folder, you have to go to the `File Hider` setti
 
 **NOTE:** If you hide the folders and then disable and/or remove the File Hider plugin, the files and folders will continue to be hidden. To fix this, re-install and enable the plugin and ensure you re-show the hidden folders.
 
+This also works perfectly on mobile devices as well:
+
+![showcasing mobile file hider](https://i.imgur.com/MkLm8zq.jpeg)
 
 ## Filter relevant search results
 
