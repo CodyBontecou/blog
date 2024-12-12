@@ -9,7 +9,7 @@ description:
 category: tutorials
 dropdown: NuxtJS
 topics:
-  - Vue
+  - vue
   - Vite
   - Nuxt
 meta:
@@ -29,7 +29,7 @@ meta:
     content: Integrating Nuxt Bridge into a Nuxt 2 Project
 canonicalUrl: https://codybontecou.com/integrating-nuxt-bridge-with-nuxt2.html
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:09
 ---
 
 ## Motivation

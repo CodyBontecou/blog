@@ -10,7 +10,6 @@ category: tutorials
 dropdown: NuxtJS
 tags:
   - vue
-  - Vue
   - Vite
   - Route
   - nuxt
@@ -32,10 +31,10 @@ meta:
 canonicalUrl: https://codybontecou.com/using-url-query-params-in-nuxt-3.html
 topics:
   - nuxt
-  - vue router
+  - vue-router
   - composition
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:10
 ---
 
 > This is a continuation of my previous [post](https://codybontecou.com/silently-update-url-nuxt-3.html) on how to set query parameters in Nuxt 3. We'll be continuing with the code written there so make sure you check it out.

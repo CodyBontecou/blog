@@ -10,7 +10,6 @@ category: tutorials
 dropdown: VueJS
 tags:
   - vue
-  - Vue
   - nuxt
   - Nuxt
   - Code
@@ -37,7 +36,7 @@ topics:
   - components
   - composition
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:10
 ---
 
 > VueJS custom events are a great way to communicate between child and parent components.

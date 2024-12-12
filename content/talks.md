@@ -10,7 +10,6 @@ category: conferences
 dropdown: Misc
 tags:
   - vue
-  - Vue
   - tRPC
   - Typescript
   - Nuxt
@@ -33,7 +32,7 @@ canonicalUrl: https://codybontecou.com/talks.html
 topics:
   - talks
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:10
 ---
 
 > A list of conferences I've talked at

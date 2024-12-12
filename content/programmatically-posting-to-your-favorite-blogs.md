@@ -12,7 +12,7 @@ tags:
   - JavaScript
   - CSS
   - Refactor
-  - Vue
+  - vue
   - Medium
   - Personal Blog
   - Software Tutorials
@@ -35,7 +35,7 @@ topics:
   - blogging
   - automation
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:10
 ---
 
 > The goal of this article is to help you connect to each of these site's APIs in order to programmatically post, update, and enjoy with these services.

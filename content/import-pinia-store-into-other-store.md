@@ -24,11 +24,11 @@ meta:
     content: Import Pinia Store Into Other Store
 canonicalUrl: https://codybontecou.com/import-pinia-store-into-other-store.html
 topics:
-  - Vue
+  - vue
   - State
   - Pinia
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:09
 ---
 
 > Pinia makes state management within Vue apps a breeze to work with.

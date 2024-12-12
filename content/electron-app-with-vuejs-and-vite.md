@@ -10,7 +10,6 @@ category: tutorials
 dropdown: Electron
 topics:
   - vue
-  - Vue
   - Vite
   - Javascript
   - Electron
@@ -32,7 +31,7 @@ meta:
 canonicalUrl: https://codybontecou.com/electron-app-with-vuejs-and-vite.html
 newsletter: false
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:09
 ---
 
 > Let's combine the power of Electron with VueJS and Vite to create incredible desktop applications using nothing but Javascript.

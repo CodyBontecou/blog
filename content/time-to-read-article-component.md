@@ -13,7 +13,7 @@ tags:
   - JavaScript
   - CSS
   - Refactor
-  - Vue
+  - vue
   - Medium
 meta:
   - name: og:image
@@ -33,7 +33,7 @@ topics:
   - css
   - components
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:10
 ---
 
 <h1 class="text-4xl font-semibold">VueJS component to estimate the reading time of an article.</h1>

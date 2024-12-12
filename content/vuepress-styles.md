@@ -13,7 +13,7 @@ tags:
   - JavaScript
   - CSS
   - stylus
-  - Vue
+  - vue
 image: /images/path/page-image.jpg
 canonicalUrl: https://codybontecou.com/vuepress-styles.html
 topics:
@@ -21,7 +21,7 @@ topics:
   - css
   - stylus
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:10
 ---
 
 <span class="text-4xl font-semibold">Overriding VuePress CSS Styles</span>

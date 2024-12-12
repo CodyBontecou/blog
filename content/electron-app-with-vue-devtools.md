@@ -11,7 +11,6 @@ category: tutorials
 dropdown: Electron
 topics:
   - vue
-  - Vue
   - Vite
   - Javascript
   - Electron
@@ -32,7 +31,7 @@ meta:
     content: Integrating Vue Devtools into an Electron Application
 canonicalUrl: https://codybontecou.com/electron-app-with-vue-devtools.html
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:09
 ---
 
 > Bringing the VueJS devtools into our Electron application to help debug. This post assumes you have followed along with my previous [post](https://codybontecou.com/global-state-management-in-an-electron-app.html).

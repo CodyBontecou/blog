@@ -10,7 +10,6 @@ category: tutorials
 dropdown: NuxtJS
 tags:
   - vue
-  - Vue
   - Vite
   - Javascript
   - nuxt
@@ -32,9 +31,9 @@ meta:
 canonicalUrl: https://codybontecou.com/silently-update-url-nuxt-3.html
 topics:
   - nuxt
-  - vue router
+  - vue-router
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-12T11:10
 ---
 
 > We often need to update a query parameter like `?search=hello` within our URL without refreshing the page. I'll quickly show you how to do that using Nuxt 3.
