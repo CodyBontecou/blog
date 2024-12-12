@@ -18,9 +18,6 @@ export default defineNuxtConfig({
     ],
     routeRules: {
         '/': { prerender: true },
-        '/how-to-use-vuetify-with-nuxt-3': {
-            redirect: '/how-to-use-vuetify-with-nuxt-3',
-        },
     },
     compatibilityDate: '2024-10-24',
     css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
