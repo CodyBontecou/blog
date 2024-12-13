@@ -25,7 +25,7 @@ This can be an exhausting process, taking tons of time clicking through the rend
 
 Rather than having to write complex DOM selection code, you can instead query the rendered pages using a custom query language that AgentQL provicdes. Here is an example query that I use to target [Google's](https://google.com) search input and Google Search button:
 
-```
+```js
 {
 	search_box
 	submit_btn
@@ -43,7 +43,7 @@ And now I have the ability to type into the search box and click the submit butt
 
 Written out in Javascript using Playwright, this looks like:
 
-```
+```js
 // playwright_example.js
 const inputQuery = "'plumbing' inurl:business.site santa rosa"
 const searchBox = await page.$('xpath=//*[@id="APjFqb"]')
@@ -58,7 +58,7 @@ if (searchBox) {
 
 Using AgentQL, it looks like:
 
-```
+```js
 // agentql_example.js
 const inputQuery = "'plumbing' inurl:business.site santa rosa"
 const formQuery = `{
@@ -109,7 +109,7 @@ I recommend utilizing a `.env` file but for the simplicity of this project, we'l
 
 Start with this basic script:
 
-```
+```js
 // main.js
 const { wrap, configure } = require('agentql')
 const { chromium } = require('playwright')
@@ -129,7 +129,7 @@ const queryMap = async () => {
 
 Bring in what we discussed earlier, using AgentQL to query for the search box using the `.queryElements()` function:
 
-```
+```js
 // main.js
 const elements = await page.queryElements(`{ search_box }`)
 await elements.search_box.type("'plumbing' inurl:business.site santa rosa")
@@ -138,7 +138,7 @@ await elements.search_box.press('Enter')
 
 This will search Google Maps, showing all of the businesses listed on Google Maps that are classified as plumbing and in the Santa Rosa area.
 
-```
+```js
 // main.js
 const data = await page.queryData(`{
   business[] {
@@ -160,7 +160,7 @@ In this query, I am defining a data structure `business[]`. This forces AgentQL 
 
 Running the queryData code above, I received this response:
 
-```
+```json
 {
   business: [
     {
