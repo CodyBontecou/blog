@@ -49,4 +49,4 @@ The shortcut returns the string in markdown format, so I can simply copy and pas
 
 Link to shortcut: [Image to Imgur to Markdown](https://www.icloud.com/shortcuts/ac1a413814244e48a191ad5c3aab4dd1)
 
-
+![](https://i.imgur.com/qRje5QX.jpeg)
