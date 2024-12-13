@@ -1,5 +1,5 @@
 ---
-title: my-mobile-blogging-stack
+title: My Mobile Blogging Stack
 draft: false
 ignore: false
 topics:
@@ -8,7 +8,7 @@ topics:
   - ios
 date: 2024-12-13T11:16
 created_at: 2024-12-13T11:16
-last_modified: 2024-12-13T13:01
+last_modified: 2024-12-13T13:07
 ---
 
 ## Writing
