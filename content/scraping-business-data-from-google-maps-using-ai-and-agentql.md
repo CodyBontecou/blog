@@ -231,6 +231,8 @@ Running the queryData code above, I received this response:
 }
 ```
 
+**Note:** This code doesn’t include pagination logic, but it shouldn’t be too difficult to expand on the provided script to interact with the page numbers and continue extracting data.
+
 ## Conclusion
 
 > And there we have it.
