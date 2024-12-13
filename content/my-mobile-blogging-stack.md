@@ -1,7 +1,7 @@
 ---
 title: my-mobile-blogging-stack
-draft: true
-ignore: true
+draft: false
+ignore: false
 topics:
   - obsidian
   - blogging
