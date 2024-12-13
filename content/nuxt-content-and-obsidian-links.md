@@ -8,7 +8,7 @@ topics:
   - blogging
 date: 2024-12-13T13:38
 created_at: 2024-12-13T13:38
-last_modified: 2024-12-13T13:55
+last_modified: 2024-12-13T16:45
 ---
 
 This blog is managed using Obsidian, giving me the ability to link between files using the double bracket syntax. 
@@ -21,11 +21,12 @@ Nuxt Content exposes a few [hooks](https://content.nuxt.com/recipes/hooks) to mo
 
 If you do not have have a server and/or plugins directory, create them. 
 
-Create a file in your `server/plugins` directory that will have the markdown parsing login. I'm calling my file `obsidian-links.ts` 
+Create a file in your `server/plugins` directory that will have the markdown parsing logic. I'm calling my file `obsidian-links.ts` 
 
 In it, place this code:
 
 ```ts
+// server/plugins/obsidian-links.ts
 export default defineNitroPlugin(nitroApp => {
     nitroApp.hooks.hook('content:file:beforeParse', file => {
         const wikiLinkRegex = /\[\[(.*?)\]\]/g
