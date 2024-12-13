@@ -8,7 +8,7 @@ topics:
   - agentql
 date: 2024-12-05T16:04
 created_at: 2024-12-05T16:04
-last_modified: 2024-12-12T16:58
+last_modified: 2024-12-13T12:27
 ---
 
 Writing web scraping scripts by hand typically follows a development pattern like:
