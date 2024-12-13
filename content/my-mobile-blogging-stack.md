@@ -8,12 +8,12 @@ topics:
   - ios
 date: 2024-12-13T11:16
 created_at: 2024-12-13T11:16
-last_modified: 2024-12-13T13:07
+last_modified: 2024-12-13T13:37
 ---
 
 ## Writing
 
-My blog posts are written and stored within [Obsidian](https://obsidian.md/) and synced to [Obsidian Mobile](https://obsidian.md/mobile) using Working Copy and Github, which I document in my article [[obsidian-git-on-ios]].
+My blog posts are written and stored within [Obsidian](https://obsidian.md/) and synced to [Obsidian Mobile](https://obsidian.md/mobile) using Working Copy and Github, which I document in my article [[obsidian-git-on-ios|Obsidian Git on iOS]].
 
 ## iOS Shortcuts
 
