@@ -8,10 +8,10 @@ topics:
   - blogging
 date: 2024-12-13T13:38
 created_at: 2024-12-13T13:38
-last_modified: 2024-12-13T13:51
+last_modified: 2024-12-13T13:55
 ---
 
-This blog is managed using Obsidian, giving me the ability to link between files using the `[[]]` syntax. 
+This blog is managed using Obsidian, giving me the ability to link between files using the double bracket syntax. 
 
 This is not a supported linking structure by default in Nuxt Content. Instead, it requires using the `content:file:beforeParse` hook.
 
@@ -47,9 +47,9 @@ export default defineNitroPlugin(nitroApp => {
 })
 ```
 
-This code is using the built-in `content:file:beforeParse` hook to iterate over every file in your Nuxt Content project, and using regex to find text that contain the Obsidian linking structure: `[[]]`.
+This code is using the built-in `content:file:beforeParse` hook to iterate over every file in your Nuxt Content project, and using regex to find text that contain the Obsidian double bracket linking structure.
 
-It then splits on `|` in case you are using the Obsidian link alt text syntax `[[article-link|Article Alt Text]]` , which I've begun using a lot to make reading a bit easier, and generates a traditional markdown link using the `[]()` syntax.
+It then splits on `|` in case you are using the Obsidian link alt text syntax, double brackets with `|` between the two phrases, which I've begun using a lot to make reading a bit easier, and generates a traditional markdown link using the `[]()` syntax.
 
 ## Conclusion
 
