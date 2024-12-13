@@ -25,6 +25,19 @@ export default defineNuxtConfig({
         markdown: {
             anchorLinks: true,
         },
+        highlight: {
+            theme: 'github-dark', // You can use any Shiki theme (e.g., 'nord', 'monokai', 'dracula')
+            preload: [
+                'javascript',
+                'python',
+                'html',
+                'css',
+                'elixir',
+                'scss',
+                'sass',
+                'toml',
+            ], // Languages to preload
+        },
     },
     i18n: {
         strategy: 'no_prefix',
