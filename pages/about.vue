@@ -164,7 +164,7 @@ const allLinks = [
                 href="https://stephango.com/file-over-app"
                 target="_blank"
             >
-                File over app</a
+                file over app</a
             >.
         </p>
         <p class="my-4">
@@ -178,16 +178,31 @@ const allLinks = [
                 href="https://content.nuxt.com"
                 target="_blank"
             >
-                Nuxt content </a
+                Nuxt content</a
             >. This site is then automatically deployed using
-            <a class="underline" href="https://nuxt.studio" target="_blank"
-                >Nuxt Studio</a
+            <a
+                class="underline"
+                href="https://github.com/features/actions"
+                target="_blank"
+            >
+                Github Actions</a
+            >
+            and
+            <a class="underline" href="https://vercel.com/" target="_blank">
+                Vercel </a
             >.
         </p>
         <p class="my-4">
             The site is styled using
             <a class="underline" href="https://tailwindcss.com" target="_blank"
                 >tailwindcss</a
+            >
+            alongside
+            <a
+                class="underline"
+                href="https://www.shadcn-vue.com/"
+                target="_blank"
+                >Shadcn-vue</a
             >.
         </p>
 
