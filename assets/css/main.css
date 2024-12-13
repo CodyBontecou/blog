@@ -22,3 +22,10 @@ code {
     overflow-wrap: break-word; /* Modern version of word-wrap */
     max-width: 100%; /* Ensures code stays within container */
 }
+
+a {
+    word-wrap: break-word; /* Break long words/URLs */
+    word-break: break-word; /* For older browsers */
+    overflow-wrap: break-word; /* Modern approach */
+    white-space: normal; /* Ensure wrapping */
+}
