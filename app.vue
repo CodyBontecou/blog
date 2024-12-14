@@ -12,8 +12,18 @@ onMounted(() => {
         toast({
             duration: 5000,
             title: t('work.title'),
-            description:
-                'Contact me at codybontecou@gmail.com if you would like to chat.',
+            description: h('div', {}, [
+                'Contact me at ',
+                h(
+                    'a',
+                    {
+                        href: 'mailto:codybontecou@gmail.com',
+                        class: 'text-primary underline',
+                    },
+                    'codybontecou@gmail.com'
+                ),
+                ' if you would like to chat.',
+            ]),
         })
     }
 })
