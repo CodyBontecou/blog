@@ -10,7 +10,7 @@ onMounted(() => {
     const toastShown = getValue('toast:work') as { closed: boolean }
     if (!toastShown) {
         toast({
-            duration: 5000,
+            duration: 10000,
             title: t('work.title'),
             description: h('div', {}, [
                 'Contact me at ',
