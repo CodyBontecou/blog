@@ -33,14 +33,15 @@ const formattedDateWithMonth = formatDateWithMonth(
 
 useSeoMeta({
     description: 'is enjoying life',
-    ogTitle: 'Blog | Cody Bontecou',
+    ogTitle: 'Cody Bontecou | Blog',
     ogDescription: 'is enjoying life',
-    twitterTitle: 'Blog | Cody Bontecou',
+    twitterTitle: 'Cody Bontecou | Blog',
     twitterDescription: 'is enjoying life',
     twitterCard: 'summary',
 })
 
 useHead({
+    title: 'Cody Bontecou | Blog',
     htmlAttrs: {
         lang: 'en',
     },
