@@ -13,7 +13,7 @@ onMounted(() => {
             duration: 10000,
             title: t('work.title'),
             description: h('div', {}, [
-                'Contact me at ',
+                t('work.contactMePrefix'),
                 h(
                     'a',
                     {
@@ -22,7 +22,7 @@ onMounted(() => {
                     },
                     'codybontecou@gmail.com'
                 ),
-                ' if you would like to chat.',
+                t('work.contactMeSuffix'),
             ]),
         })
     }
