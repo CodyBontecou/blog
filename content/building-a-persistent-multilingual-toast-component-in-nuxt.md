@@ -4,7 +4,7 @@ ignore: false
 draft: false
 date: 2024-12-14T10:02
 created_at: 2024-12-14T10:02
-last_modified: 2024-12-16T10:28
+last_modified: 2024-12-16T14:02
 ---
 
 Picture this: You've just rolled out an exciting new feature on your application. You want to announce it to your users, but you don't want to bombard them with the same message every time they visit. Oh, and your app serves users across multiple languages. Sound familiar?
@@ -20,6 +20,7 @@ By the end of this guide, you'll have:
 - Persistent state management using localStorage
 - A deep understanding of how these features work together
 
+![toast code snippet showcase in blank website](https://i.imgur.com/LRcasfm.gif)
 ## Installation and setup
 
 We'll begin with creation a new Nuxt application:
@@ -274,12 +275,12 @@ You (probably) don't want your toast to appear every time your user navigates to
 
 A common solution is to store some data in local storage, persisting state between user sessions. I only want to show the toast the first time a user navigates to our site.
 
-### useLocalStorage composable
+### useLocalStorage utility functions
 
-I decided to ~~ask chatGPT~~ create a `useLocalStorage` composable to create, get, and remove values from local storage:
+I decided to ~~ask chatGPT~~ create a `useLocalStorage` utility function to create, get, and remove values from local storage:
 
 ```ts
-// composables/useLocalStorage.ts
+// lib/useLocalStorage.ts
 export const useLocalStorage = () => {
     const setValue = (key: string, value: any): void => {
         if (process.client) {
