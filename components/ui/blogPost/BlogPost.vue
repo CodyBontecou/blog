@@ -296,7 +296,7 @@ watch(isMobileMenuOpen, newValue => {
                                 {{ $t('latest.minuteRead') }} ·
 
                                 <NuxtLink
-                                    class="ml-1 text-gray-600"
+                                    class="ml-1 text-gray-600 topics"
                                     v-for="(topic, index) in post?.topics"
                                     :to="'topics/' + topic"
                                 >
