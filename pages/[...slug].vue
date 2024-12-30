@@ -11,6 +11,13 @@ const { data: post } = await useAsyncData(`post-${path}`, () =>
     queryContent(path).findOne()
 )
 
+if (!post.value) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found',
+    })
+}
+
 defineOgImageComponent('BlogPost', {
     title: post.value?.title ?? '',
     description: getFirstParagraphText(post.value?.body),

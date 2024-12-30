@@ -19,6 +19,13 @@ const { data: articles } = await useAsyncData(`post-${route.path}`, () =>
         .find()
 )
 
+if (!articles.value) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found',
+    })
+}
+
 const articleCount = articles.value ? articles.value.length : 0
 
 defineOgImageComponent('Frame', {
