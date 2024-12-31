@@ -34,7 +34,7 @@ topics:
   - IMDB
   - data
 created_at: 2024-10-31T14:26
-last_modified: 2024-12-12T10:54
+last_modified: 2024-12-31T08:58
 ---
 
 My wife (Dany) has been reviewing movies every week and posting them on her [Youtube Channel](https://www.youtube.com/channel/UCcLR5qe7dzXR-5UB_nyK_2w). She recently asked me if it was possible to scrape [this list of directors](https://www.elacervo.com/directores) and return a random movie they directed in order to help her decide on which movie to review next.

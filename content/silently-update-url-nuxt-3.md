@@ -33,7 +33,7 @@ topics:
   - nuxt
   - vue-router
 created_at: 2024-10-31T14:26
-last_modified: 2024-12-12T11:10
+last_modified: 2024-12-31T08:58
 ---
 
 > We often need to update a query parameter like `?search=hello` within our URL without refreshing the page. I'll quickly show you how to do that using Nuxt 3.

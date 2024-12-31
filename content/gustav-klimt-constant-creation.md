@@ -7,7 +7,7 @@ topics:
 draft: false
 ignore: false
 created_at: 2024-11-13T22:45
-last_modified: 2024-11-13T23:07
+last_modified: 2024-12-31T08:58
 ---
 
 I was exposed to Gustav Klimt's artwork today and it was fascinating. I can clearly see how some of his work has inspired many of the video games and shows that have entertained me.

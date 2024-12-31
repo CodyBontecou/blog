@@ -6,7 +6,7 @@ topics:
   - rv
 date: 2024-11-20T20:13
 created_at: 2024-11-20T20:13
-last_modified: 2024-11-21T16:15
+last_modified: 2024-12-31T08:58
 ---
 
 What my dad calls the "Wall of Water" just hit his town. It's a yearly flip in the weather where the rain begins and doesn't stops until spring. Nearly 4.25" of rain landed on them today.

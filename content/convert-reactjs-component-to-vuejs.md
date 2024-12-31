@@ -28,7 +28,7 @@ meta:
     content: Convert a React Component to VueJS
 canonicalUrl: https://codybontecou.com/convert-reactjs-component-to-vuejs.html
 created_at: 2024-10-31T14:26
-last_modified: 2024-12-12T11:09
+last_modified: 2024-12-31T08:58
 ---
 
 > In this tutorial, we're going to rewrite a Timeline component built in ReactJS by [Florin Pop](https://www.youtube.com/watch?v=tcUVUBlyXX8) to VueJS. You can see the component in action [here](https://www.florin-pop.com/timeline/).

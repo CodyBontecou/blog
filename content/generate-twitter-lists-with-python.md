@@ -29,7 +29,7 @@ meta:
 canonicalUrl: https://codybontecou.com/generate-twitter-lists-with-python.html
 newsletter: false
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-31T08:58
 ---
 > The finished project can be seen [here](https://github.com/CodyBontecou/Generating-Twitter-Lists-with-Python/blob/main/tweepy_lists/app.py)
 

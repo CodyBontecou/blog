@@ -29,7 +29,7 @@ topics:
   - CLI
   - Minimalism
 created_at: 2024-10-31T14:26
-last_modified: 2024-11-09T21:19
+last_modified: 2024-12-31T08:58
 ---
 Minimal setups are great when trying to focus. The standard terminal window can get cluttered. In this tutorial, I will show you how to configure your terminal window to go from this:
 
