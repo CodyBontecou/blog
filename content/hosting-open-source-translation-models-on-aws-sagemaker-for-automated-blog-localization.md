@@ -1,8 +1,8 @@
 ---
 title: Hosting Open-Source Translation Models on AWS SageMaker for Automated Blog Localization
 slug: hosting-open-source-translation-models-on-aws-sagemaker-for-automated-blog-localization
-draft: true
-ignore: true
+draft: false
+ignore: false
 lang: eng
 translate: true
 translated_to: 
