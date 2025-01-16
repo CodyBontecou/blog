@@ -28,7 +28,7 @@ topics:
   - Nuxt
   - Cypress
 created_at: 2024-10-31T14:26
-last_modified: 2024-12-31T08:58
+last_modified: 2025-01-15T17:38
 ---
 
 > This is a guide on setting up Cypress Component Testing with Nuxt 3.

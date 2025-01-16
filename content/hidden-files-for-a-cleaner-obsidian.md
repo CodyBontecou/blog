@@ -7,7 +7,7 @@ draft: false
 ignore: false
 date: 2024-11-13T12:25
 created_at: 2024-11-13T12:25
-last_modified: 2024-12-31T08:58
+last_modified: 2025-01-15T17:38
 ---
 
 In this guide, I'll show you how I achieved a cleaner, more focused writing environment without sacrificing any of Obsidian's powerful functionality

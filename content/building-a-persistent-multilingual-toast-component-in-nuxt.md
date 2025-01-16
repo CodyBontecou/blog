@@ -7,7 +7,7 @@ topics:
   - i18n
 date: 2024-12-14T10:02
 created_at: 2024-12-14T10:02
-last_modified: 2024-12-31T08:58
+last_modified: 2025-01-15T17:38
 ---
 
 Picture this: You've just rolled out an exciting new feature on your application. You want to announce it to your users, but you don't want to bombard them with the same message every time they visit. Oh, and your app serves users across multiple languages. Sound familiar?

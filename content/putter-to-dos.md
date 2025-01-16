@@ -1,7 +1,7 @@
 ---
 ignore: true
 created_at: 2024-11-03T20:39
-last_modified: 2024-12-31T08:58
+last_modified: 2025-01-15T17:38
 ---
 
 - [ ] Hooks to hang bags in closet
