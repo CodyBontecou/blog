@@ -15,7 +15,7 @@ topics:
   - huggingface
 date: 2025-01-14T17:43
 created_at: 2025-01-14T17:43
-last_modified: 2025-01-15T17:45
+last_modified: 2025-01-15T17:50
 ---
 
 ## Introduction
@@ -395,7 +395,7 @@ This automation brings several key benefits:
 
 The best part? Once set up, this system requires minimal maintenance. Your content creators can focus on writing great content in their primary language, while the automation handles the rest.
 
-You can find all the code from this tutorial in our [GitHub repository](#), complete with a working demo and additional documentation. Feel free to fork it, customize it, and make it your own.
+You can find all the code from this tutorial in our [GitHub repository](https://github.com/CodyBontecou/sagemaker-huggingface), complete with a working demo and additional documentation. Feel free to fork it, customize it, and make it your own.
 
 I'm curious to hear how you might adapt this workflow for your needs. Could this automate documentation translation for your open-source project? Perhaps help with internationalizing your marketing materials? Or maybe you're thinking about using it for something entirely different?
 
