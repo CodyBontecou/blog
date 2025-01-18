@@ -15,7 +15,7 @@ topics:
   - huggingface
 date: 2025-01-14T17:43
 created_at: 2025-01-14T17:43
-last_modified: 2025-01-15T17:50
+last_modified: 2025-01-18T06:38
 ---
 
 ## Introduction
@@ -28,13 +28,13 @@ Using these modern tools, we'll be able to fully automate the internationalizati
 
 ## Why AWS SageMaker?
 
-AWS SageMaker is a leading solution for all-things ML models:
+SageMaker is AWS's managed platform that simplifies building, training, and deploying machine learning models for developers and data scientists.
 
- - Flexibility: Easily host pre-trained models like Hugging Face transformers.
-- Scalability: Handles traffic spikes without manual intervention.
-- Cost-efficiency: Pay only for what you use.
-- Integration with AWS ecosystem: Perfect for end-to-end workflows.
-- Developer Experience: Well-documented and easy to use SDK's.
+* Flexibility: Easily host pre-trained models like Hugging Face transformers.
+* Scalability: Automated scaling and easy to scale via compute options.
+* Cost-efficient: Pay only for what you use & auto-shutdown.
+* Integration with AWS ecosystem: Perfect for end-to-end workflows.
+* Developer Experience: Well-documented and easy to use SDK's.
 
 ## Setting up the translation model
 
@@ -84,6 +84,51 @@ To create an AWS IAM role for your SageMaker application, follow these steps:
 1. Find your new role in the list of roles on the IAM dashboard.
 2. Click on the role name to open its details.
 3. Copy the **Role ARN** (it will look something like `arn:aws:iam::123456789012:role/SageMakerExecutionRole`).
+
+Here's a .gif to showcase this role creation process:
+
+![AWS Sagemaker signup flow](https://i.imgur.com/ZGeYKTK.gif)
+
+## The model - SeamlessM4T v2
+
+####  SeamlessM4T supports:
+
+- 101 languages for speech input
+- 96 languages for text input/output
+- 35 languages for speech output
+
+#### SeamlessM4T tasks:
+
+* Speech recognition (ASR)
+* Speech-to-text translation (S2TT)
+* Speech-to-speech (S2ST)
+* Text-to-text (T2TT)
+* Text-to-speech (T2ST)
+
+####  Differences in FB T2TT models
+
+Performance comparison between Facebooks main T2TT models. A future project may want to use both models, utilizing the benefits of both via dynamic mapping of the model to the particular language translation direction.
+
+Ex:
+- Translate using whichever model has the higher chrf++ score.
+- Translate to language pairs that is unique to the model.
+
+
+ > ChrF++ (Character n-gram F-score) is a metric used to evaluate machine translation quality that builds upon the original ChrF metric.
+
+| Direction | facebook/seamless-m4t-v2-large | facebook/nllb-200-3.3B | Difference |
+|-----------|-----------------|------------|------------|
+| eng-afr   | 64.47          | 64.7       | -0.23      |
+| eng-amh   | 38.31          | 37.9       | +0.41      |
+| eng-arb   | 54.92          | 55.0       | -0.08      |
+| eng-ary   | 37.31          | 36.1       | +1.21      |
+| eng-arz   | 44.85          | 44.8       | +0.05      |
+
+
+[SeamslessM4T v2 metrics](https://dl.fbaipublicfiles.com/seamless/metrics/seamlessM4T_large_v2.zip)
+
+[nllb-200 dense 3b metrics](https://dl.fbaipublicfiles.com/large_objects/nllb/models/nllb_200_dense_3b/metrics.csv)
+
 
 ### Deploying the model
 
@@ -287,9 +332,7 @@ Now that we're getting translations back, we can write the content to it's own f
 
 ## Deployment
 
-Taking the steps towards automating this entire process through Github Actions.
-
-I'm just passing the translated text that was returned by our `invokeSageMakerEndpoint` function to another utility function that manages the post-processing of the text:
+Pass the translated text that was returned by our `invokeSageMakerEndpoint` function to another utility function that manages the post-processing of the text:
 
 ```ts
 import { invokeSageMakerEndpoint } from '../utils/invokeSageMakerEndpoint'
@@ -316,7 +359,6 @@ export default defineNitroPlugin(async nitroApp => {
     })
 })
 ```
-
 
 The key here is that we are taking the translated content and writing it into the appropriate file. For example, the `content/about.md` file will be translated to Spanish and it's content will be written to `content/spa/about.md`.
 
