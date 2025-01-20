@@ -15,7 +15,7 @@ topics:
   - huggingface
 date: 2025-01-14T17:43
 created_at: 2025-01-14T17:43
-last_modified: 2025-01-20T08:20
+last_modified: 2025-01-20T09:41
 ---
 
 ## Introduction
@@ -128,7 +128,6 @@ Ex:
 [SeamslessM4T v2 metrics](https://dl.fbaipublicfiles.com/seamless/metrics/seamlessM4T_large_v2.zip)
 
 [nllb-200 dense 3b metrics](https://dl.fbaipublicfiles.com/large_objects/nllb/models/nllb_200_dense_3b/metrics.csv)
-
 
 ### Deploying the model
 
@@ -468,7 +467,13 @@ jobs:
 
 ```
 
-Now, with Vercel's auto-build and deploy settings, the site should be online with our newly translated content!
+### Vercel deployment
+
+[Import](https://vercel.com/new) your project into Vercel. 
+
+Vercel will detect the framework you are using and enable the correct deployment settings. 
+
+Now, with Vercel's auto-build and deploy settings, the site should be online with our newly translated content. It will also pickup your code changes with every commit and re-build, translate, and deploy.
 ## Scaling down resources to avoid costs
 
 Make sure to run the following command once you are done to avoid unnecessary charges from Amazon:
