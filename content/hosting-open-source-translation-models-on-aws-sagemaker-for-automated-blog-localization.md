@@ -15,7 +15,7 @@ topics:
   - huggingface
 date: 2025-01-14T17:43
 created_at: 2025-01-14T17:43
-last_modified: 2025-01-20T08:13
+last_modified: 2025-01-20T08:20
 ---
 
 ## Introduction
@@ -144,7 +144,7 @@ source .venv/bin/activate
 uv add sagemaker
 ```
 
-> **Note**: The SageMaker SDK only [supports](https://github.com/aws/sagemaker-python-sdk?tab=readme-ov-file#supported-python-versions) Python versions 3.8, 3.9,3.10, and 3.11.
+> **Note**: The SageMaker SDK only [supports](https://github.com/aws/sagemaker-python-sdk?tab=readme-ov-file#supported-python-versions) Python versions 3.8, 3.9, 3.10, and 3.11.
 
 One of my favorite parts of the SageMaker's SDK is that it has first-class Hugging Face support. Providing the `HuggingFaceModel` a Hugging Face model ID is enough to define and work with the model within our code.
 
