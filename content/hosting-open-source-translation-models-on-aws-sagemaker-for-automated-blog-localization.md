@@ -15,7 +15,7 @@ topics:
   - huggingface
 date: 2025-01-14T17:43
 created_at: 2025-01-14T17:43
-last_modified: 2025-01-18T06:38
+last_modified: 2025-01-20T08:13
 ---
 
 ## Introduction
@@ -282,139 +282,193 @@ export async function invokeSageMakerEndpoint(
 
 ### Hooking into our blog's build hooks
 
-Nuxt Content exposes hooks to allow you to modify the content before it is parsed and after it is parsed. We just need to create a custom [Nitro plugin](https://nitro.build/guide/plugins).
+Originally I was going to hook into my blog's build hooks using a custom [Nitro plugin](https://nitro.build/guide/plugins). I've struggled to get this to work, but if you can figure it out, please let me know! I think it would provide a cleaner solution.
 
-Create a new file at `server/plugins/translate.ts` and paste the code snippet:
+Instead, I opted for a [prebuild script](https://docs.npmjs.com/cli/v10/using-npm/scripts#pre--post-scripts). I placed this script in a dedicated scripts directory `scripts/translate-content.ts`. 
 
-```ts
-import { invokeSageMakerEndpoint } from '../utils/invokeSageMakerEndpoint'
+Install the [tsx](https://www.npmjs.com/package/tsx) dependency as a dev-dependency to compile the ts file.
 
-export default defineNitroPlugin(async nitroApp => {
-    const { AWS_ENDPOINT_NAME, AWS_REGION } = useRuntimeConfig()
-    const lang = {
-        src: 'eng_Latn',
-        tgt: 'spa_Latn',
-    }
-
-    nitroApp.hooks.hook('content:file:beforeParse', async file => {
-        const response = await invokeSageMakerEndpoint(
-            AWS_ENDPOINT_NAME,
-            AWS_REGION,
-            file.body,
-            lang.src,
-            lang.tgt
-        )
-    })
-})
+```zsh
+npm install -D tsx
 ```
 
-The `content:file:beforeParse` hook iterates over every markdown file within our project's `content` directory, giving us the file's id and it's text body.
+The majority of this script does the same as the Nuxt Content [content:file:beforeParse hook](https://v2.content.nuxt.com/recipes/hooks), just prior to the build. This is **key**. We need the files to be create prior to the build of the site so that these newly created files are a part of the site generation.
 
-In this simple example. I am taking the text and passing it directly to the `invokeSageMakerEndpoint` along with a source language of English and a target language of Spanish.
+In the `translate-content.ts` script, we iterate over our `content` directory, extracting all of the markdown files. We read in the body of the file, passing it to the `invokeSageMakerEndpoint` function and with the response, we write it in a new file.
+
+In this case, I am hardcoding the `lang.src` and `lang.tgt`, but it shouldn't be too difficult to expand on this and target all of the languages that the model(s) support.
 
 > **Note:** Model language codes may be different. i.e. [nllb-200](https://huggingface.co/facebook/nllb-200-distilled-600M/raw/main/README.md) requires `eng_Latn` for English, but SeamlessM4T-v2 uses `eng`. 
 
-In my case, I only have a single markdown file located at `content/index.md` with the content:
-
-```md
-# Hello world
-```
-
-If you log the response return by `invokeSageMakerEndpoint`, you will see that it looks something like this:
-
-```
-[ { translation_text: 'Hola mundo' } ] 
-```
-
-### Saving the translations into localized files
-
-Now that we're getting translations back, we can write the content to it's own file.
-
-## Deployment
-
-Pass the translated text that was returned by our `invokeSageMakerEndpoint` function to another utility function that manages the post-processing of the text:
 
 ```ts
-import { invokeSageMakerEndpoint } from '../utils/invokeSageMakerEndpoint'
-import { handleFileCreation } from '../utils/handleFileCreation'
+// scripts/translate-content.ts
+import { readdir, readFile, writeFile, mkdir } from 'fs/promises'
+import { join, dirname } from 'path'
+import { invokeSageMakerEndpoint } from '../server/utils/invokeSageMakerEndpoint'
+import { config } from 'dotenv'
 
-export default defineNitroPlugin(async nitroApp => {
-    const { AWS_ENDPOINT_NAME, AWS_REGION } = useRuntimeConfig()
-    const lang = {
-        src: 'eng',
-        tgt: 'spa',
-    }
+// Load environment variables
+config()
 
-    nitroApp.hooks.hook('content:file:beforeParse', async file => {
+const AWS_ENDPOINT_NAME = process.env.AWS_ENDPOINT_NAME
+const AWS_REGION = process.env.AWS_REGION
+
+if (!AWS_ENDPOINT_NAME || !AWS_REGION) {
+    throw new Error('Missing required AWS configuration')
+}
+
+const CONTENT_DIR = join(process.cwd(), 'content')
+
+const lang = {
+    src: 'eng',
+    tgt: 'spa',
+}
+
+async function handleTranslation(filePath: string): Promise<void> {
+    try {
+        // Read the file content
+        const content = await readFile(filePath, 'utf-8')
+
+        // Skip if it's already a Spanish translation
+        if (filePath.includes('/spa/')) {
+            return
+        }
+
+        // Get translation from SageMaker
         const response: [{ translation_text: string }] =
             await invokeSageMakerEndpoint(
                 AWS_ENDPOINT_NAME,
                 AWS_REGION,
-                file.body,
+                content,
                 lang.src,
                 lang.tgt
             )
 
-        handleFileCreation(file, response[0].translation_text, lang.tgt)
-    })
-})
+        // Create the Spanish version path
+        const relativePath = filePath.replace(CONTENT_DIR, '')
+        const spanishPath = join(CONTENT_DIR, 'spa', relativePath)
+
+        // Ensure the directory exists
+        await mkdir(dirname(spanishPath), { recursive: true })
+
+        // Write the translated content
+        await writeFile(spanishPath, response[0].translation_text)
+
+        console.log(`Translated ${relativePath} to Spanish`)
+    } catch (error) {
+        console.error(`Error processing ${filePath}:`, error)
+    }
+}
+
+async function* walkContent(dir: string): AsyncGenerator<string> {
+    const entries = await readdir(dir, { withFileTypes: true })
+
+    for (const entry of entries) {
+        const path = join(dir, entry.name)
+
+        if (entry.isDirectory()) {
+            // Skip the spa directory to avoid processing translations
+            if (entry.name === 'spa') continue
+            yield* walkContent(path)
+        } else {
+            // Only process content files
+            if (entry.name.endsWith('.md') || entry.name.endsWith('.yaml')) {
+                yield path
+            }
+        }
+    }
+}
+
+async function main() {
+    try {
+        for await (const filePath of walkContent(CONTENT_DIR)) {
+            await handleTranslation(filePath)
+        }
+        console.log('Translation completed successfully')
+    } catch (error) {
+        console.error('Translation failed:', error)
+        process.exit(1)
+    }
+}
+
+main()
 ```
 
-The key here is that we are taking the translated content and writing it into the appropriate file. For example, the `content/about.md` file will be translated to Spanish and it's content will be written to `content/spa/about.md`.
+## Deployment
 
-```ts
-import { promises as fs } from 'fs'
-import path from 'path'
+There are two parts to the deployment process.
 
-interface ContentObject {
-    _id: string
-    body: string
-}
+1. Setup, build, and commit the newly created files back to Github.
+2. Utilizing Vercel's automatic deployment process.
 
-interface ProcessResult {
-    originalId: string
-    writtenTo: string
-}
+Running `npm run build` within the action hits our pre-build script, generating the newly translated blog posts.
 
-export async function handleFileCreation(
-    contentObj: ContentObject,
-    translatedText: string,
-    languageDirectory: string
-): Promise<ProcessResult> {
-    // Remove 'content:' prefix
-    if (!contentObj._id.startsWith('content:')) {
-        throw new Error('Content object ID must start with "content:"')
-    }
+With these newly created files, we need to add, commit, and push them to our Github repository without re-running this action (avoiding an infinite loop). Our git commit message's `[skip ci]` text ensures the new commit does not run our Github Action again.
 
-    // Split remaining path and remove empty parts
-    const parts = contentObj._id.slice(8).split(':').filter(Boolean)
+If you browse your repository after this point, you should see the newly created files within `content/spa/*`.
 
-    if (parts.length === 0) {
-        throw new Error('Invalid content object ID format')
-    }
+```yml
+name: Build and Deploy to Vercel
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
-    // Construct the full file path by joining all parts
-    const filePath = path.join('content', languageDirectory, ...parts)
-    console.log(filePath)
+concurrency:
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
 
-    // Create directory if it doesn't exist
-    const dirPath = path.dirname(filePath)
-    await fs.mkdir(dirPath, { recursive: true })
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    // Write the content to the file
-    await fs.writeFile(filePath, translatedText, 'utf-8')
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
 
-    return {
-        originalId: contentObj._id,
-        writtenTo: filePath,
-    }
-}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate content
+        env:
+          AWS_ENDPOINT_NAME: ${{ secrets.AWS_ENDPOINT_NAME }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: npm run build
+
+      - name: Commit translated files
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Add translated content [skip ci]" && git push)
+          git push
+        working-directory: ${{ github.workspace }}
+
 ```
 
-For the sake of keeping this tutorial focussed, I decided to opt-out of going to in-depth on the post-processing of our markdown content. 
-
-This could be expanded to include frontmatter and handle edge cases that the AI-model may introduce such as linking, images, alt-text, etc.
-
+Now, with Vercel's auto-build and deploy settings, the site should be online with our newly translated content!
 ## Scaling down resources to avoid costs
 
 Make sure to run the following command once you are done to avoid unnecessary charges from Amazon:
@@ -436,6 +490,8 @@ This automation brings several key benefits:
 - Scales effortlessly as your content grows
 
 The best part? Once set up, this system requires minimal maintenance. Your content creators can focus on writing great content in their primary language, while the automation handles the rest.
+
+For the sake of keeping this tutorial focussed, I decided to opt-out of going to in-depth on the post-processing of our markdown content.  This could be expanded to include frontmatter and handle edge cases that the AI-model may introduce such as linking, images, alt-text, etc.
 
 You can find all the code from this tutorial in our [GitHub repository](https://github.com/CodyBontecou/sagemaker-huggingface), complete with a working demo and additional documentation. Feel free to fork it, customize it, and make it your own.
 
