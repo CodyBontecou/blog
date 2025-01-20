@@ -15,7 +15,7 @@ topics:
   - huggingface
 date: 2025-01-14T17:43
 created_at: 2025-01-14T17:43
-last_modified: 2025-01-20T09:59
+last_modified: 2025-01-20T10:08
 ---
 
 ## Introduction
@@ -34,23 +34,9 @@ SageMaker is AWS's managed platform that simplifies building, training, and depl
 * Integration with AWS ecosystem: Perfect for end-to-end workflows.
 * Developer Experience: Well-documented and easy to use SDK's.
 
-## Setting up the translation model
-
-We'll be using the pre-trained model SeamlessM4T-v2 for our translations. It is a multimodal and multilingual AI translation model built and released by Meta.
-
-SeamlessM4T-v2 supports:
-
-- Speech recognition for nearly 100 languages
-- Speech-to-text translation for nearly 100 input and output languages
-- Speech-to-speech translation, supporting nearly 100 input languages and 36 (including English) output languages
-- Text-to-text translation for nearly 100 languages
-- Text-to-speech translation, supporting nearly 100 input languages and 35 (including English) output languages
-
-What I'm interesting in is it's text-to-text translations capabilities. According to my simple *vibe-based* development experience, SeamlessM4T-v2 is the most capable open-source model for the problem we are solving.
-
 ### AWS SageMaker permissions
 
-To create an AWS IAM role for your SageMaker application, follow these steps:
+We'll need to setup a bit of permissions for AWS before we dive in. Let's create an AWS IAM role for our SageMaker application, following these steps:
 
 #### Step 1: Log in to AWS Management Console
 
