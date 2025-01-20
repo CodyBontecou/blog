@@ -15,16 +15,14 @@ topics:
   - huggingface
 date: 2025-01-14T17:43
 created_at: 2025-01-14T17:43
-last_modified: 2025-01-20T09:41
+last_modified: 2025-01-20T09:59
 ---
 
 ## Introduction
 
 Creating multilingual content is often tedious and expensive. Let’s automate it into our blog's build process!
 
-In this post, we’ll take a deep dive into deploying an open-source text-to-text translation (T2TT) model on AWS SageMaker and seamlessly integrating it into a Nuxt Content blog. Better yet, we’ll automate the workflow through a CI pipeline powered by GitHub Actions.
-
-Using these modern tools, we'll be able to fully automate the internationalization of our blog, enabling it to be read in nearly **100 languages**.
+In this post, we’ll take a deep dive into deploying an open-source text-to-text translation (T2TT) model on AWS SageMaker and integrate it into a Nuxt Content blog. We’ll automate the workflow through a CI pipeline powered by GitHub Actions, enabling our blog to be read in nearly **100 languages**.
 
 ## Why AWS SageMaker?
 
