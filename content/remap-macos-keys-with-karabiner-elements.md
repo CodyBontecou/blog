@@ -6,7 +6,8 @@ topics:
   - macos
   - keybinds
 created_at: 2025-02-09T20:49
-last_modified: 2025-02-09T21:46
+date: 2025-02-09T20:49
+last_modified: 2025-02-09T21:48
 ---
 
 I'm currently working on a project that requires me to remote in to a computer to write and deploy code. Being in Hawaii, I tend to get around 100ms of latency, making every interaction with the remote computer a pain.
