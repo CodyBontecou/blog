@@ -7,7 +7,7 @@ topics:
   - keybinds
 created_at: 2025-02-09T20:49
 date: 2025-02-09T20:49
-last_modified: 2025-02-09T21:48
+last_modified: 2025-02-09T22:02
 ---
 
 I'm currently working on a project that requires me to remote in to a computer to write and deploy code. Being in Hawaii, I tend to get around 100ms of latency, making every interaction with the remote computer a pain.
@@ -47,3 +47,5 @@ Here's my complex modification JSON config:
 ```
 
 This explicitly states that while the Windows App (`^com\\.microsoft\\.rdc\\.macos`) is the frontmost application, my left cmd key is mapped to the left control key. I personally only use the left command key, so this fine for me.
+
+Now, whenever I am interacting with the Windows App, the command key on my keyboard is mapped to the control key, making it easier and feel more natural to navigate around the Windows machine.
