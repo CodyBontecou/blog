@@ -7,7 +7,7 @@ topics:
   - startup
   - work
 created_at: 2025-02-20T09:18
-last_modified: 2025-02-21T18:31
+last_modified: 2025-02-22T13:27
 ---
 
 These last few weeks have been a bit hectic for me.
