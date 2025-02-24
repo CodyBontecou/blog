@@ -6,7 +6,8 @@ topics:
   - macos
   - keybinds
 created_at: 2025-02-24T09:25
-last_modified: 2025-02-24T14:31
+date: 2025-02-24T09:25
+last_modified: 2025-02-24T15:21
 ---
 
 I recommended [[remap-macos-keys-with-karabiner-elements|Karabiner Elements]] recently for MacOS key remapping. But after using it for a bit, I ran into an issue where it stopped working after my computer went to sleep or restarted.
