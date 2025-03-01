@@ -6,7 +6,7 @@ topics:
   - driving
   - rant
 created_at: 2025-02-28T21:22
-last_modified: 2025-02-28T21:48
+last_modified: 2025-02-28T22:02
 ---
 
 I'm curious how much time a fast drivers saves over the course of their life. 
@@ -15,6 +15,8 @@ I'm curious how much time a fast drivers saves over the course of their life.
 - Does it offset the additional time spent at gas stations re-filling the gas tank due to decreased fuel efficiency at faster speeds?
 - What about the risk of injury, dying, or car accident?
 - Does aggressive speeding and breaking impact the flow of traffic?
+
+I guess the same could be asked about driving too slow. Flipping this over and observing drivers that are going slow might be a fun thought experiment as well.
 
 My guess is no, driving fast does not save you time. *Maybe* in the immediate moment. But over the course of your life, you're just wasting time.
 
