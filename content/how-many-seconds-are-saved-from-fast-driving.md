@@ -6,7 +6,8 @@ topics:
   - driving
   - rant
 created_at: 2025-02-28T21:22
-last_modified: 2025-02-28T22:02
+date: 2025-02-28T21:22
+last_modified: 2025-03-05T19:56
 ---
 
 I'm curious how much time a fast drivers saves over the course of their life. 
