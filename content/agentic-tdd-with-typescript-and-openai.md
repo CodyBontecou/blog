@@ -10,7 +10,7 @@ topics:
   - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-10T14:13
+last_modified: 2025-03-10T14:24
 ---
 
 There's [research](https://arxiv.org/abs/2312.04687) taking place that is attempting to take TDD to another level. As David showcases in [this blog post](https://codeinthehole.com/tips/llm-tdd-loop-script/), we can write a test spec and have our AI agent generate code, looping over and adjusting the code until the tests pass.
@@ -602,10 +602,10 @@ We've implemented the main flow:
 
 ```mermaid
 flowchart LR
-    Z[Generate prompt];
-    Z --> Y[Send prompt to AI];
-    Y --> X[Write response to file];
-    X --> V[Run tests];
+    Z1[Generate prompt];
+    Z1 --> Y1[Send prompt to AI];
+    Y1 --> X1[Write response to file];
+    X1 --> V1[Run tests];
 ```
 
 The goal is to adjust our code to make it look like Anthropic's [Agents](https://www.anthropic.com/engineering/building-effective-agents) diagram:
