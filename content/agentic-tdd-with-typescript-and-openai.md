@@ -10,7 +10,7 @@ topics:
   - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-10T10:22
+last_modified: 2025-03-10T10:52
 ---
 
 There's [research](https://arxiv.org/abs/2312.04687) taking place that is attempting to take TDD to another level. As David showcases in [this blog post](https://codeinthehole.com/tips/llm-tdd-loop-script/), we can write a test spec and have our AI agent generate code, looping over and adjusting the code until the tests pass.
@@ -347,5 +347,252 @@ export async function chat(messages: ChatCompletionMessageParam[]) {
         console.error('Error:', error)
         return null
     }
+}
+```
+
+Add `call` to our `generateFunctionFromSpec` function:
+
+```ts
+// utils/generateFunctionFromSpec.ts
+export async function generateFunctionFromSpec(
+    testFilePath: string,
+    outputFilePath: string,
+    options: {
+        customPrompt?: string
+        maxAttempts?: number
+        testCommand?: string
+    } = {}
+): Promise<string | null> {
+    const { customPrompt, maxAttempts = 5, testCommand } = options
+
+    // Default prompt if none provided
+    const basePrompt =
+        customPrompt ||
+        `
+    Write a Typescript module that will make these tests pass and conforms to the passed conventions.
+
+    Only return executable Typescript code
+    Do not return Markdown output
+    Do not wrap code in triple backticks
+    Do not return YAML
+`
+
+    // Read the test specification file
+    const testSpec = readFileContent(testFilePath)
+
+    // Initialize message history
+    const messages: ChatCompletionMessageParam[] = [
+        { role: 'system', content: basePrompt + testSpec },
+    ]
+	
+	const response = await chat(messages)
+	console.log(response)
+	
+	return null
+}
+```
+
+Add the `console.log(response)` line and run this and you see see a response. In my case, the response looked like this:
+
+```ts
+function add(...numbers: number[]): number {
+    return numbers.reduce((sum, num) => sum + num, 0);
+}
+
+export { add };
+```
+
+Keep in mind your response may be a bit different simply due to ChatGPT's relative randomness.
+
+Now, in my case, the `add` function it returned looks great. If I add the content to an `add.ts` file in my root directory, I can then run the command:
+
+```bash
+npm run test
+```
+
+This will test the `add.ts` file against our test file `add.spec.ts`. In my case, the tests passed, which is good news! We can see the LLM is generating working code, it's just a bit manual logging the code and adding it to a new file.
+
+*Let's automate this.*
+
+## Writing the LLM response to file
+
+> Node #3:  Write response to file
+
+Our LLM is returning working code, but right now we are manually:
+1. Logging the response to the console
+2. Copy + pasting the output to a file
+3. Manually running the test command.
+
+In this section, we will add a function that writes the `chat` response to a file (#1).
+
+```ts
+// utils/writeFileContent.ts
+import * as fs from 'fs'
+import * as path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+// Write file content programmatically
+export const writeFileContent = (filePath: string, content: string): void => {
+    try {
+        const absolutePath = path.resolve(__dirname, '..', filePath)
+        fs.writeFileSync(absolutePath, content, 'utf8')
+        console.log(`File ${filePath} updated successfully`)
+    } catch (error) {
+        console.error(`Error writing to file ${filePath}:`, error)
+    }
+}
+```
+
+Now, let's use the `writeFileContent` within `generateFunctionFromSpec`:
+
+```ts
+// utils/generateFunctionFromSpec.ts
+export async function generateFunctionFromSpec(
+    testFilePath: string,
+    outputFilePath: string,
+    options: {
+        customPrompt?: string
+        maxAttempts?: number
+        testCommand?: string
+    } = {}
+): Promise<string | null> {
+	...
+    const messages: ChatCompletionMessageParam[] = [
+        { role: 'system', content: basePrompt + testSpec },
+    ]
+	
+	const response = await chat(messages)
+
+    if (!response) {
+        console.error('Failed to get a response from the AI.')
+    } else {
+        writeFileContent(outputFilePath, response)
+    }
+	
+	return null
+}
+```
+
+We have to do a bit of null-checking via the `if (!response)` code. 
+
+Once we ensure `response` is not null, we can pass it to our `writeFileContent` function alongside the `outputFilePath` we get from the `generateFunctionFromSpec` function parameters.
+
+Running our code now will write the response to `add.ts`.
+
+You should be able to run our test command, `npm run test`, and see the tests passing.
+
+## Running our tests
+
+> Node #4: Running tests after our function is generated
+
+Our LLM is returning working code, but right now we are manually:
+
+1. ~Logging the response to the console~
+2. ~Copy + pasting the output to a file~
+3. Manually running the test command.
+
+Our `add.ts` function is being generated. Now, we just need to programmatically run our tests. We will be using Node's [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) function.
+
+```ts
+// utils/runTests.ts
+import { exec } from 'child_process'
+
+/**
+ * Runs tests and returns a promise with the test results
+ * @param command Optional test command to run (defaults to 'npm run test')
+ * @returns Promise that resolves to an object with test results
+ */
+export function runTests(
+    command: string = 'npm run test'
+): Promise<{ passed: boolean; output: string }> {
+    return new Promise(resolve => {
+        console.log('Running tests...')
+
+        exec(command, (error: Error | null, stdout: string, stderr: string) => {
+            let testOutput = stdout
+
+            if (error) {
+                testOutput += `\nError: ${error.message}`
+            }
+
+            if (stderr) {
+                console.error(`Test stderr: ${stderr}`)
+                testOutput += `\nStderr: ${stderr}`
+            }
+
+            console.log(`Test results:\n${stdout}`)
+
+            // Check if all tests passed
+            const passed =
+                stdout.includes('✓') &&
+                !stdout.includes('✗') &&
+                !stdout.includes('fail')
+
+            if (passed) {
+                console.log('All tests passed successfully!')
+            } else {
+                console.log(
+                    'Some tests failed. Check the output above for details.'
+                )
+            }
+
+            resolve({ passed, output: testOutput })
+        })
+    })
+}
+```
+
+There are two key things happening within this function:
+
+1. Running `exec(command)` with command defaulting to `npm run test` which is our test command defined in our `package.json` file.
+2. Checking if the tests passed.
+
+```ts
+const passed =
+	stdout.includes('✓') &&
+	!stdout.includes('✗') &&
+	!stdout.includes('fail')
+```
+
+I'm using the output within the terminal to check against whether the tests pass.
+
+Here's an example of the terminal output:
+
+![](https://cln.sh/Y9y9LDN6+)
+
+Our `passed` variable is parsing this output, and ensuring there are  `✓` characters and no `✗` or `fail`.
+
+This works good enough. But, if you know of a better way please let me know!
+
+Now, let's extend our
+
+```ts
+// utils/generateFunctionFromSpec.ts
+export async function generateFunctionFromSpec(
+    testFilePath: string,
+    outputFilePath: string,
+    options: {
+        customPrompt?: string
+        maxAttempts?: number
+        testCommand?: string
+    } = {}
+): Promise<string | null> {
+	...
+    const messages: ChatCompletionMessageParam[] = [
+        { role: 'system', content: basePrompt + testSpec },
+    ]
+	
+	const response = await chat(messages)
+
+    if (!response) {
+        console.error('Failed to get a response from the AI.')
+    } else {
+        writeFileContent(outputFilePath, response)
+    }
+	
+	return null
 }
 ```
