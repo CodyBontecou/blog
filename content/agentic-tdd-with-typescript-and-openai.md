@@ -10,7 +10,7 @@ topics:
   - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-10T14:06
+last_modified: 2025-03-10T14:13
 ---
 
 There's [research](https://arxiv.org/abs/2312.04687) taking place that is attempting to take TDD to another level. As David showcases in [this blog post](https://codeinthehole.com/tips/llm-tdd-loop-script/), we can write a test spec and have our AI agent generate code, looping over and adjusting the code until the tests pass.
@@ -92,23 +92,16 @@ Here's the `tsconfig.json` file that I'm using:
 
 We'll be using OpenAI due to their ease-of-use and flexible [SDK](https://github.com/openai/openai-node). We need an OpenAI API key to access it via code, so let's set that up.
 
-Login to OpenAI's [developer platform](https://platform.openai.com/) and click the settings cog in the top right corner:
+Login to OpenAI's [developer platform](https://platform.openai.com/) and click into settings and then API keys:
 
-![](https://cln.sh/2rVDzF0f+)
+![](https://cln.sh/wL4R8yfS+)
 
-
-Then API keys:
-
-![](https://cln.sh/HPvcJqwT+)
 
 Click the `+ Create new secret key` button and finish the forms.
 
-![](https://cln.sh/1Zzx637W+)
+![](https://cln.sh/Cdg5p5yx+)
 
-Copy your new key and **save it into a .env file within your newly created project**:
-
-![](https://cln.sh/wvcR2z7L+)
-
+Copy your new key and **save it into a .env file within your newly created project**.
 
 ## Generate function from spec
 
