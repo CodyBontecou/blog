@@ -621,7 +621,7 @@ We'll connect the labels of this diagram to our own:
 We've built the data flow, but not the ability to take in feedback and apply it to future actions when the tests do not pass.
 This is where the **while** loop comes in.
 
-Here, we adjust `generateFunctionFromSpec` to continuously run until our tests pass:
+By adding a `while`, we modify `generateFunctionFromSpec` to run continuously until the tests pass:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
@@ -646,22 +646,21 @@ export async function generateFunctionFromSpec() {
 
 **Congratulations! You've built your first agent.**
 
-Run `index.ts` using the `npm run tdd` script to continuously call ChatGPT until it generates an `add.ts` function that passes our tests.
+There are issues with this approach:
 
-There are a few issues with this approach:
-
-1. This can be infinite - *what if you write a test that can never pass?*
+1. What if you write a test that cannot pass?
 2. There is no feedback.
 
-## Improving the agent with maxAttempts
+## Improving the Agent with `maxAttempts`
 
-> This can potentially be infinite - *what if you write a test that can never pass?*
+> What if you write a test that cannot pass?
 
-There are cases where you may want an agent constantly on in the background in an infinite loop, but this is not one of them.
+In some cases, you may want an agent running constantly in the background.
+This is not one of them.
+The agent needs an escape hatch.
 
-Our agent needs an escape hatch.
-
-Create a `maxAttempts` variable that is kept track of during our while loop. After each iteration, increment `attempts` until it equals `maxAttempts`. The loop ends if they are equal.
+The `maxAttempts` constant determines the maximum number of attempts to produce a working function.
+After each iteration, we increment `attempts` until it equals `maxAttempts`:
 
 ```mermaid
 flowchart LR
@@ -676,15 +675,16 @@ flowchart LR
     B21 -->|true| V71[Fail];
 ```
 
-The goal is to break out of the agent if one of two conditions are met:
+We break out of the agent if either:
 
 1. Tests pass
 2. `attempts === maxAttempts`
 
-Our test passing case is in place, but not the attempts logic:
+We have the "test passing" case, but not the attempts logic:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec(
  options: {
          customPrompt?: string
@@ -692,11 +692,11 @@ export async function generateFunctionFromSpec(
          testCommand?: string
      } = {}
     ) {
- // Commented the rest of the function for brevity
- const { customPrompt, maxAttempts = 5, testCommand } = options
+    // Commented the rest of the function for brevity
+    const { customPrompt, maxAttempts = 5, testCommand } = options
 
     let testPassed = false
- let attempts = 0
+    let attempts = 0
     while (!testPassed && attempts < maxAttempts) {
         attempts++
         const response = await chat(messages)
@@ -709,35 +709,38 @@ export async function generateFunctionFromSpec(
         const { passed } = await runTests(testCommand)
         testPassed = passed
     }
- return null
+    return null
 }
 ```
 
-Here we extract the `maxAttempts` value from our function's `options` parameter. If the `maxAttempts` option is not passed to the function, it defaults to 5.
+We extract `maxAttempts` value from the `generateFunctionFromSpec` `options` parameter. If the `maxAttempts` option is not passed to the function, it defaults to 5.
 
-Then we define `let attempts = 0`, increment if every loop iteration, and adjust the while loop to check if we've reached our `maxAttempts`:
+We increment `attempts` on every loop iteration, and check to see if we've reached `maxAttempts`:
 
 ```ts
 while (!testPassed && attempts < maxAttempts) {
- attempts++
- // rest of our code
+    attempts++
+    // remainder of code ...
 }
 ```
 
-Our code should now run continuously until our tests pass or once we reach our pre-defined max attempts.
+The code now runs continuously until the tests pass or we reach `maxAttempts`.
 
-## Adapting our prompt to feedback
+## Adapting the Prompt for feedback
 
-We want each agentic loop (attempt) to apply the feedback we received during the previous iteration.
+We want each agentic loop (attempt) to apply the feedback we receive during the previous iteration.
+We use the logs that the tests display on the console.
+A failing test provides high-quality information about the failure.
 
-We use the logs the tests prints to the console. A failing test provides high-quality information about the failure.
-
-Append `output` to our `messages` array so every attempt has the necessary context within the agentic loop.
+Here, we append `output` to the `messages` array.
+Now every attempt has the necessary context within the agentic loop:
 
 ```ts
+// utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec() {
  // Commented the rest of the function for brevity
- const messages: ChatCompletionMessageParam[] = [
+    const messages: ChatCompletionMessageParam[] = [
         { role: 'system', content: basePrompt + testSpec },
     ]
 
@@ -769,9 +772,11 @@ export async function generateFunctionFromSpec() {
 }
 ```
 
-Here's the final source code of our `generateFunctionFromSpec` function:
+Here's the final source code for `generateFunctionFromSpec`:
 
 ```ts
+// utils/generateFunctionFromSpec.ts
+
 import { ChatCompletionMessageParam } from 'openai/resources'
 import { chat } from './chat'
 import { readFileContent } from './readFileContent'
@@ -845,4 +850,4 @@ export async function generateFunctionFromSpec(
 }
 ```
 
-You can read all of the code provided in this blog post on [Github](https://github.com/CodyBontecou/typescript-llm4tdd-example).
+All of the code in this blog post is on [Github](https://github.com/CodyBontecou/typescript-llm4tdd-example).
