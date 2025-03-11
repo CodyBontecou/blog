@@ -13,11 +13,11 @@ date: 2025-03-08T12:53
 last_modified: 2025-03-10T17:55
 ---
 
-[Research](https://arxiv.org/abs/2312.04687) takes TDD to another level: in [this blog post](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
+[AI](https://arxiv.org/abs/2312.04687) takes TDD to another level: [here](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
 
 ## Agentic flow
 
-In this post, I walk you through the Agentic flow showcased in the diagram below. Each section of this blog implements a node.
+This post walks you through the Agentic flow showcased in the diagram below. Each section of this blog implements a node.
 
 ```mermaid
 flowchart LR
@@ -30,7 +30,7 @@ flowchart LR
     I --> D;
 ```
 
-Using [David's](https://codeinthehole.com/tips/llm-tdd-loop-script/) shell script as a starting point, we convert his script to Typescript using the tools:
+Using [David's](https://codeinthehole.com/tips/llm-tdd-loop-script/) shell script as a starting point, we convert his script to Typescript using:
 
 1. [OpenAI's Node SDK](https://github.com/openai/openai-node)
 2. [Vite](https://github.com/vitejs/vite)
@@ -43,13 +43,13 @@ Let's start by creating a new project with the necessary dependencies.
 
 [Nodejs](https://nodejs.org/) must be installed and working on your computer. I built this using Node v20.11.1.
 
-### Dependencies
-
 - Create the project:
 
     ```bash
     npm init --yes
     ```
+
+### Dependencies
 
 - Install runtime dependencies:
 
@@ -67,7 +67,7 @@ Let's start by creating a new project with the necessary dependencies.
     npm install -D vitest tsx 
     ```
 
-- Create `tsconfig.json` and add this:
+- Create `tsconfig.json` and add the following:
 
     ```json
     {
@@ -88,7 +88,7 @@ Let's start by creating a new project with the necessary dependencies.
 
 ### OpenAI API Key
 
-We use the OpenAI [SDK](https://github.com/openai/openai-node). To access OpenAI programmatically, we need an API key.
+To access [OpenAI](https://github.com/openai/openai-node) programmatically, we need an API key.
 
 1. Login to OpenAI's [developer platform](https://platform.openai.com/), click into "settings", then "API keys":
 
@@ -100,11 +100,13 @@ Click the "+ Create new secret key" button and finish the forms.
 
 Copy your new key and **save it into a .env file within your newly created project**.
 
-> Since this is a secret key, we don't include it in the github repository by adding `.env` to the `.gitignore`.
+> This is a secret key, so we exclude it from the GitHub repository by adding `.env` to the `.gitignore`.
 
 ## Generate function from spec
 
-Create a file at `utils/generateFunctionFromSpec.ts`. We add snippets of code to it as we move through our diagram. For now, just add the skeleton of the function:
+Create a file at `utils/generateFunctionFromSpec.ts`.
+We'll add snippets of code to it as we move through our diagram.
+Here's the skeleton of the function:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
@@ -233,7 +235,7 @@ describe('add function', () => {
 })
 ```
 
-- Update our `generateFunctionFromSpec` function to create a prompt 
+- Update our `generateFunctionFromSpec` function to create a prompt
 - Read the inputted file's content,
 - Add the test file's content to the prompt within a `messages` array.
 
@@ -316,6 +318,7 @@ export async function generateFunctionFromSpec(
 ```
 
 Programmatically managing the messages prompt gives us a lot of power over the LLM.
+
 ## Sending prompt to AI
 
 > Node #2: Send our `messages` array to ChatGPT via their SDK.
@@ -401,7 +404,7 @@ export { add };
 
 Copy and pasting the returned response to an `add.ts` file in the root directory and run `npm run test`.
 
-This tests the `add.ts` file against the test `add.spec.ts`. The generated add function should pass the tests. 
+This tests the `add.ts` file against the test `add.spec.ts`. The generated add function should pass the tests.
 
 *Let's automate this.*
 
