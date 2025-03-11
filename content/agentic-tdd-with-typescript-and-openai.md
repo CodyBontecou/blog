@@ -540,10 +540,10 @@ export function runTests(
 }
 ```
 
-There are two key things happening within this function:
+This function:
 
-1. Running `exec(command)` with command defaulting to `npm run test` which is our test command defined in our `package.json` file.
-2. Returning information about whether the tests passed as part of the `Promise`.
+1. Runs `exec(command)` with the `command` defaulted to `npm run test`. The is the test command defined in `package.json`.
+2. Returns information about whether the tests passed as part of the `Promise`. We use the terminal output to discover results:
 
 ```ts
 const passed =
@@ -552,17 +552,14 @@ const passed =
  !stdout.includes('fail')
 ```
 
-I'm using the output within the terminal to check against whether the tests pass.
-
-Here's an example of the terminal output:
+Here's an example:
 
 ![](https://cln.sh/Y9y9LDN6+)
 
-Our `passed` variable is parsing this output, and ensuring there are  `✓` characters and no `✗` or `fail`.
+The `passed` variable parses the output and ensures `✓`s and no `✗`s or `fail`s.
+This is effective enough, but it's quick and dirty--please add ideas for improvements in the comments.
 
-This works good enough. But, if you know of a better way please let me know!
-
-Now, let's extend our `generateFunctionFromSpec` file to also run the tests:
+Let's extend `generateFunctionFromSpec` to run the tests:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
@@ -580,23 +577,23 @@ export async function generateFunctionFromSpec(
         { role: 'system', content: basePrompt + testSpec },
     ]
  
- const response = await chat(messages)
+    const response = await chat(messages)
 
     if (!response) {
         console.error('Failed to get a response from the AI.')
     } else {
         writeFileContent(outputFilePath, response)
-        const { passed, output } = await runTests(testCommand)
+        const { passed, output } = await runTests(testCommand) // Added this
         console.log(passed, output)
     }
  
- return null
+    return null
 }
 ```
 
-## Making this agentic
+## Making it Agentic
 
-> While loop = agent?
+> While loop === agent?
 
 We've implemented the main flow:
 
@@ -608,11 +605,11 @@ flowchart LR
     X1 --> V1[Run tests];
 ```
 
-The goal is to adjust our code to make it look like Anthropic's [Agents](https://www.anthropic.com/engineering/building-effective-agents) diagram:
+Our ultimate goal is to look like Anthropic's [Agents](https://www.anthropic.com/engineering/building-effective-agents) diagram:
 
 ![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F58d9f10c985c4eb5d53798dea315f7bb5ab6249e-2401x1000.png&w=3840&q=75)
 
-Let's connect the labels of this diagram to our own:
+We'll connect the labels of this diagram to our own:
 
 - **Human:** This is the test file we wrote ([add.test.ts](https://github.com/CodyBontecou/typescript-llm4tdd-example/blob/01/add/tests/add.spec.ts)) ✅.
 - **LLM Call**: This is our [chat](https://github.com/CodyBontecou/typescript-llm4tdd-example/blob/01/add/utils/chat.ts) function talking to ChatGPT with a prompt built alongside our test file's content ✅.
@@ -621,16 +618,16 @@ Let's connect the labels of this diagram to our own:
   - *Action* is running our tests with the new response from the LLM ✖︎.
 - **Stop:** This occurs when our tests pass ✖︎.
 
-We've built the data flow, but we haven't built the ability to take in feedback and apply it to future actions when the tests do not pass.
-
+We've built the data flow, but not the ability to take in feedback and apply it to future actions when the tests do not pass.
 This is where the **while** loop comes in.
 
-Adjust `generateFunctionFromSpec` to continuously run until our tests pass:
+Here, we adjust `generateFunctionFromSpec` to continuously run until our tests pass:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec() {
- // Commented the rest of the function for brevity
+    // Commented the rest of the function for brevity
     let testPassed = false
     while (!testPassed) {
         const response = await chat(messages)
@@ -643,7 +640,7 @@ export async function generateFunctionFromSpec() {
         const { passed } = await runTests(testCommand)
         testPassed = passed
     }
- return null
+    return null
 }
 ```
 
