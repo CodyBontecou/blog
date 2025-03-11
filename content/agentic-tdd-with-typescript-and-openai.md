@@ -132,6 +132,7 @@ export async function generateFunctionFromSpec(
 We import this function into an `index.ts` file in the root directory:
 
 ```ts
+// index.ts
 import { generateFunctionFromSpec } from './utils'
 
 /**
@@ -150,7 +151,7 @@ async function runTDDWorkflow() {
 runTDDWorkflow()
 ```
 
-Update our `package.json` file to run this file:
+Update the `package.json` file to run this file:
 
 ```json
 {
@@ -177,15 +178,16 @@ Update our `package.json` file to run this file:
 }
 ```
 
-Now run the program with the command `npm run tdd`. This uses [tsx](https://tsx.is/) to compile and run the `index.ts` file which calls `generateFunctionFromSpec`. We spend the majority of our time in the individual functions and use `index.ts` as our main file.
+Now run the program with the command `npm run tdd`.
+This uses [tsx](https://tsx.is/) to compile and run `index.ts`which calls `generateFunctionFromSpec`.
+The majority of the time is spent in the individual functions.
 
 ## Programmatically prompting the LLM
 
 > Node #1: Generate prompt.
 
-The goal of Node #1 in our agentic loop is to attach the content of the test file to our prompt, adding context to the prompt before we send it.
-
-The `readFileContent` function extracts the file's content:
+Node #1 attaches the content of the test file to the prompt, adding context before we send it.
+`readFileContent` extracts the file's content:
 
 ```ts
 // utils/readFileContent.ts
@@ -197,7 +199,6 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// Read file content programmatically
 export const readFileContent = (filePath: string): string => {
     try {
         const absolutePath = path.resolve(__dirname, '..', filePath)
@@ -209,7 +210,8 @@ export const readFileContent = (filePath: string): string => {
 }
 ```
 
-Create a `tests` directory and place our test spec file `add.spec.ts` into it.
+Create a `tests` directory, then write our test spec file `add.spec.ts`.
+(`add` has not been defined yet; it is the target function that we are defining using TDD).
 
 ```ts
 // tests/add.spec.ts
@@ -235,14 +237,18 @@ describe('add function', () => {
 })
 ```
 
-- Update our `generateFunctionFromSpec` function to create a prompt
-- Read the inputted file's content,
+Next, we:
+
+- Update `generateFunctionFromSpec` to create a prompt.
+- Read the input file content.
 - Add the test file's content to the prompt within a `messages` array.
 
-Crafting the `messages` array for ChatGPT:
+Our initial modification of `generateFunctionFromSpec` creates a `messages` array and inserts the test specification:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+import ChatCompletionMessageParam // TOODO
+
 export async function generateFunctionFromSpec(
     testFilePath: string,
     outputFilePath: string,
@@ -274,15 +280,16 @@ export async function generateFunctionFromSpec(
         { role: 'system', content: basePrompt + testSpec },
     ]
  
- console.log(messages)
+    console.log(messages)
  
- return null
+    return null
 }
 ```
 
-`npm run tdd` logs our constructed `messages` array:
+To run the program, execute `npm run tdd`.
+At this point, we only display the constructed `messages` array to see what it looks like:
 
-```json
+```bash
 [
   {
     role: 'system',
@@ -317,13 +324,13 @@ export async function generateFunctionFromSpec(
 ]
 ```
 
-Programmatically managing the messages prompt gives us a lot of power over the LLM.
+Now we have something to submit to the LLM.
 
-## Sending prompt to AI
+## Sending the prompt to the LLM
 
 > Node #2: Send our `messages` array to ChatGPT via their SDK.
 
-The `chat` function takes in `messages`, returning the content results.
+The `chat` function takes in `messages` and returns the LLM results:
 
 ```ts
 // utils/chat.ts
@@ -339,7 +346,6 @@ export async function chat(messages: ChatCompletionMessageParam[]) {
             model,
             messages,
         })
-
         return completion.choices[0].message.content
     } catch (error) {
         console.error('Error:', error)
@@ -383,14 +389,14 @@ export async function generateFunctionFromSpec(
         { role: 'system', content: basePrompt + testSpec },
     ]
  
- const response = await chat(messages)
- console.log(response)
- 
- return null
+    const response = await chat(messages)
+    console.log(response)
+    
+    return null
 }
 ```
 
-Run this to see a response. The response may look like this:
+The response may look like this (depending on ChatGPT's randomness):
 
 ```ts
 function add(...numbers: number[]): number {
@@ -400,25 +406,24 @@ function add(...numbers: number[]): number {
 export { add };
 ```
 
-> Your response may be difference due to ChatGPT's randomness.
+Copy and paste the returned response into an `add.ts` file in the root directory and run `npm run test`.
 
-Copy and pasting the returned response to an `add.ts` file in the root directory and run `npm run test`.
-
-This tests the `add.ts` file against the test `add.spec.ts`. The generated add function should pass the tests.
-
-*Let's automate this.*
+This tests the `add.ts` file against the test `add.spec.ts`.
+The generated add function should pass the tests.
 
 ## Writing the LLM response to file
+
+*Let's automate this.*
 
 > Node #3:  Write response to file
 
 Our LLM is returning working code, but right now we are manually:
 
-1. Logging the response to the console
-2. Copy + pasting the output to a file
+1. Logging the response to the console.
+2. Copy and pasting the output to a file.
 3. Manually running the test command.
 
-Now we add a function that writes the `chat` response to a file:
+This function writes the `chat` response to a file:
 
 ```ts
 // utils/writeFileContent.ts
@@ -426,10 +431,8 @@ import * as fs from 'fs'
 import * as path from 'path'
 import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// Write file content programmatically
 export const writeFileContent = (filePath: string, content: string): void => {
     try {
         const absolutePath = path.resolve(__dirname, '..', filePath)
@@ -441,7 +444,7 @@ export const writeFileContent = (filePath: string, content: string): void => {
 }
 ```
 
-Add the `writeFileContent` function to `generateFunctionFromSpec`:
+Adding `writeFileContent` to `generateFunctionFromSpec`:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
@@ -454,12 +457,12 @@ export async function generateFunctionFromSpec(
         testCommand?: string
     } = {}
 ): Promise<string | null> {
- ...
+    ...
     const messages: ChatCompletionMessageParam[] = [
         { role: 'system', content: basePrompt + testSpec },
     ]
  
- const response = await chat(messages)
+    const response = await chat(messages)
 
     if (!response) {
         console.error('Failed to get a response from the AI.')
@@ -467,26 +470,23 @@ export async function generateFunctionFromSpec(
         writeFileContent(outputFilePath, response)
     }
  
- return null
+    return null
 }
 ```
 
-We have to do a bit of null-checking via the `if (!response)` code.
+Once we ensure `response` is not null, we pass it to `writeFileContent` with the `outputFilePath`.
 
-Once we ensure `response` is not null, we pass it to our `writeFileContent` function with the `outputFilePath`.
+Running `npm run tdd` writes the response to `add.ts`.
+Running `npm run test` shows the tests passing.
 
-Running our code writes the response to `add.ts`.
-
-Running `npm run test` to see the tests passing.
-
-## Running our tests
+## Running the tests
 
 > Node #4: Running tests after our function is generated
 
-Our LLM is returning working code, but right now we are manually:
+Our LLM is returning working code, but right now we are:
 
-1. ~Logging the response to the console~
-2. ~Copy + pasting the output to a file~
+1. ~Logging the response to the console~.
+2. ~Copy + pasting the output to a file~.
 3. Manually running the test command.
 
 We can run our tests programmatically using Node's [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) function:
