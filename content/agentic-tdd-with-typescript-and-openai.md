@@ -496,13 +496,13 @@ We can run our tests programmatically using Node's [exec](https://nodejs.org/api
 import { exec } from 'child_process'
 
 /**
- * Runs tests and returns a promise with the test results
+ * Runs tests and returns a promise with the test results.
  * @param command Optional test command to run (defaults to 'npm run test')
  * @returns Promise that resolves to an object with test results
  */
 export function runTests(
     command: string = 'npm run test'
-): Promise<{ passed: boolean; output: string }> {
+): Promise<{ passed: boolean; errMsg: string }> {
     return new Promise(resolve => {
         console.log('Running tests...')
 
@@ -534,7 +534,7 @@ export function runTests(
                 )
             }
 
-            resolve({ passed, output: testOutput })
+            resolve({ passed, errMsg: testOutput })
         })
     })
 }
@@ -543,7 +543,7 @@ export function runTests(
 There are two key things happening within this function:
 
 1. Running `exec(command)` with command defaulting to `npm run test` which is our test command defined in our `package.json` file.
-2. Checking if the tests passed.
+2. Returning information about whether the tests passed as part of the `Promise`.
 
 ```ts
 const passed =
