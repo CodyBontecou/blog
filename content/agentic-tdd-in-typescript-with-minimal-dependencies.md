@@ -1,5 +1,5 @@
 ---
-title: Agentic TDD with Typescript Minimal Dependencies
+title: Agentic TDD in Typescript with Minimal Dependencies
 draft: false
 ignore: false
 topics:
@@ -10,7 +10,7 @@ topics:
   - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-14T11:33
+last_modified: 2025-03-14T11:37
 ---
 
 [AI](https://arxiv.org/abs/2312.04687) takes TDD to another level: [here](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
@@ -53,9 +53,9 @@ Let's start by creating a new project with the necessary dependencies.
 
 - Install runtime dependencies:
 
-    ```bash
-    npm install openai zod
-    ```
+```bash
+npm install openai zod
+```
 
 - Install development tools:
 
@@ -63,14 +63,14 @@ Let's start by creating a new project with the necessary dependencies.
 
   - `tsx` (Typescript Execute)
 
-    ```bash
-    npm install -D vitest tsx 
-    ```
+```bash
+npm install -D vitest tsx 
+```
 
 - Create `tsconfig.json` and add the following:
 
-    ```json
-    {
+```json
+{
     "compilerOptions": {
         "target": "ES2022",
         "module": "ESNext",
@@ -83,8 +83,8 @@ Let's start by creating a new project with the necessary dependencies.
     },
     "include": ["**/*.ts"],
     "exclude": ["node_modules"]
-    }
-    ```
+}
+```
 
 ### OpenAI API Key
 
