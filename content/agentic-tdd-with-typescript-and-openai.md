@@ -13,11 +13,11 @@ date: 2025-03-08T12:53
 last_modified: 2025-03-14T11:20
 ---
 
-[Research](https://arxiv.org/abs/2312.04687) takes TDD to another level: in [this blog post](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
+[AI](https://arxiv.org/abs/2312.04687) takes TDD to another level: [here](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
 
 ## Agentic flow
 
-In this post, I walk you through the Agentic flow showcased in the diagram below. Each section of this blog implements a node.
+This post walks you through the Agentic flow showcased in the diagram below. Each section of this blog implements a node.
 
 ```mermaid
 flowchart LR
@@ -30,7 +30,7 @@ flowchart LR
     I --> D;
 ```
 
-Using [David's](https://codeinthehole.com/tips/llm-tdd-loop-script/) shell script as a starting point, we convert his script to Typescript using the tools:
+Using [David's](https://codeinthehole.com/tips/llm-tdd-loop-script/) shell script as a starting point, we convert his script to Typescript using:
 
 1. [OpenAI's Node SDK](https://github.com/openai/openai-node)
 2. [Vite](https://github.com/vitejs/vite)
@@ -43,13 +43,13 @@ Let's start by creating a new project with the necessary dependencies.
 
 [Nodejs](https://nodejs.org/) must be installed and working on your computer. I built this using Node v20.11.1.
 
-### Dependencies
-
 - Create the project:
 
     ```bash
     npm init --yes
     ```
+
+### Dependencies
 
 - Install runtime dependencies:
 
@@ -67,7 +67,7 @@ Let's start by creating a new project with the necessary dependencies.
     npm install -D vitest tsx 
     ```
 
-- Create `tsconfig.json` and add this:
+- Create `tsconfig.json` and add the following:
 
     ```json
     {
@@ -88,7 +88,7 @@ Let's start by creating a new project with the necessary dependencies.
 
 ### OpenAI API Key
 
-We use the OpenAI [SDK](https://github.com/openai/openai-node). To access OpenAI programmatically, we need an API key.
+To access [OpenAI](https://github.com/openai/openai-node) programmatically, we need an API key.
 
 1. Login to OpenAI's [developer platform](https://platform.openai.com/), click into "settings", then "API keys":
 
@@ -100,11 +100,13 @@ Click the "+ Create new secret key" button and finish the forms.
 
 Copy your new key and **save it into a .env file within your newly created project**.
 
-> Since this is a secret key, we don't include it in the github repository by adding `.env` to the `.gitignore`.
+> This is a secret key, so we exclude it from the GitHub repository by adding `.env` to the `.gitignore`.
 
 ## Generate function from spec
 
-Create a file at `utils/generateFunctionFromSpec.ts`. We add snippets of code to it as we move through our diagram. For now, just add the skeleton of the function:
+Create a file at `utils/generateFunctionFromSpec.ts`.
+We'll add snippets of code to it as we move through our diagram.
+Here's the skeleton of the function:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
@@ -130,6 +132,7 @@ export async function generateFunctionFromSpec(
 We import this function into an `index.ts` file in the root directory:
 
 ```ts
+// index.ts
 import { generateFunctionFromSpec } from './utils'
 
 /**
@@ -148,7 +151,7 @@ async function runTDDWorkflow() {
 runTDDWorkflow()
 ```
 
-Update our `package.json` file to run this file:
+Update the `package.json` file to run this file:
 
 ```json
 {
@@ -175,15 +178,16 @@ Update our `package.json` file to run this file:
 }
 ```
 
-Now run the program with the command `npm run tdd`. This uses [tsx](https://tsx.is/) to compile and run the `index.ts` file which calls `generateFunctionFromSpec`. We spend the majority of our time in the individual functions and use `index.ts` as our main file.
+Now run the program with the command `npm run tdd`.
+This uses [tsx](https://tsx.is/) to compile and run `index.ts`which calls `generateFunctionFromSpec`.
+The majority of the time is spent in the individual functions.
 
 ## Programmatically prompting the LLM
 
 > Node #1: Generate prompt.
 
-The goal of Node #1 in our agentic loop is to attach the content of the test file to our prompt, adding context to the prompt before we send it.
-
-The `readFileContent` function extracts the file's content:
+Node #1 attaches the content of the test file to the prompt, adding context before we send it.
+`readFileContent` extracts the file's content:
 
 ```ts
 // utils/readFileContent.ts
@@ -195,7 +199,6 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// Read file content programmatically
 export const readFileContent = (filePath: string): string => {
     try {
         const absolutePath = path.resolve(__dirname, '..', filePath)
@@ -207,7 +210,8 @@ export const readFileContent = (filePath: string): string => {
 }
 ```
 
-Create a `tests` directory and place our test spec file `add.spec.ts` into it.
+Create a `tests` directory, then write our test spec file `add.spec.ts`.
+(`add` has not been defined yet; it is the target function that we are defining using TDD).
 
 ```ts
 // tests/add.spec.ts
@@ -233,14 +237,18 @@ describe('add function', () => {
 })
 ```
 
-- Update our `generateFunctionFromSpec` function to create a prompt 
-- Read the inputted file's content,
+Next, we:
+
+- Update `generateFunctionFromSpec` to create a prompt.
+- Read the input file content.
 - Add the test file's content to the prompt within a `messages` array.
 
-Crafting the `messages` array for ChatGPT:
+Our initial modification of `generateFunctionFromSpec` creates a `messages` array and inserts the test specification:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+import ChatCompletionMessageParam // TOODO
+
 export async function generateFunctionFromSpec(
     testFilePath: string,
     outputFilePath: string,
@@ -272,15 +280,16 @@ export async function generateFunctionFromSpec(
         { role: 'system', content: basePrompt + testSpec },
     ]
  
- console.log(messages)
+    console.log(messages)
  
- return null
+    return null
 }
 ```
 
-`npm run tdd` logs our constructed `messages` array:
+To run the program, execute `npm run tdd`.
+At this point, we only display the constructed `messages` array to see what it looks like:
 
-```json
+```bash
 [
   {
     role: 'system',
@@ -315,12 +324,13 @@ export async function generateFunctionFromSpec(
 ]
 ```
 
-Programmatically managing the messages prompt gives us a lot of power over the LLM.
-## Sending prompt to AI
+Now we have something to submit to the LLM.
+
+## Sending the prompt to the LLM
 
 > Node #2: Send our `messages` array to ChatGPT via their SDK.
 
-The `chat` function takes in `messages`, returning the content results.
+The `chat` function takes in `messages` and returns the LLM results:
 
 ```ts
 // utils/chat.ts
@@ -336,7 +346,6 @@ export async function chat(messages: ChatCompletionMessageParam[]) {
             model,
             messages,
         })
-
         return completion.choices[0].message.content
     } catch (error) {
         console.error('Error:', error)
@@ -380,14 +389,14 @@ export async function generateFunctionFromSpec(
         { role: 'system', content: basePrompt + testSpec },
     ]
  
- const response = await chat(messages)
- console.log(response)
- 
- return null
+    const response = await chat(messages)
+    console.log(response)
+    
+    return null
 }
 ```
 
-Run this to see a response. The response may look like this:
+The response may look like this (depending on ChatGPT's randomness):
 
 ```ts
 function add(...numbers: number[]): number {
@@ -397,25 +406,24 @@ function add(...numbers: number[]): number {
 export { add };
 ```
 
-> Your response may be difference due to ChatGPT's randomness.
+Copy and paste the returned response into an `add.ts` file in the root directory and run `npm run test`.
 
-Copy and pasting the returned response to an `add.ts` file in the root directory and run `npm run test`.
-
-This tests the `add.ts` file against the test `add.spec.ts`. The generated add function should pass the tests. 
-
-*Let's automate this.*
+This tests the `add.ts` file against the test `add.spec.ts`.
+The generated add function should pass the tests.
 
 ## Writing the LLM response to file
+
+*Let's automate this.*
 
 > Node #3:  Write response to file
 
 Our LLM is returning working code, but right now we are manually:
 
-1. Logging the response to the console
-2. Copy + pasting the output to a file
+1. Logging the response to the console.
+2. Copy and pasting the output to a file.
 3. Manually running the test command.
 
-Now we add a function that writes the `chat` response to a file:
+This function writes the `chat` response to a file:
 
 ```ts
 // utils/writeFileContent.ts
@@ -423,10 +431,8 @@ import * as fs from 'fs'
 import * as path from 'path'
 import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// Write file content programmatically
 export const writeFileContent = (filePath: string, content: string): void => {
     try {
         const absolutePath = path.resolve(__dirname, '..', filePath)
@@ -438,7 +444,7 @@ export const writeFileContent = (filePath: string, content: string): void => {
 }
 ```
 
-Add the `writeFileContent` function to `generateFunctionFromSpec`:
+Adding `writeFileContent` to `generateFunctionFromSpec`:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
@@ -451,12 +457,12 @@ export async function generateFunctionFromSpec(
         testCommand?: string
     } = {}
 ): Promise<string | null> {
- ...
+    ...
     const messages: ChatCompletionMessageParam[] = [
         { role: 'system', content: basePrompt + testSpec },
     ]
  
- const response = await chat(messages)
+    const response = await chat(messages)
 
     if (!response) {
         console.error('Failed to get a response from the AI.')
@@ -464,26 +470,23 @@ export async function generateFunctionFromSpec(
         writeFileContent(outputFilePath, response)
     }
  
- return null
+    return null
 }
 ```
 
-We have to do a bit of null-checking via the `if (!response)` code.
+Once we ensure `response` is not null, we pass it to `writeFileContent` with the `outputFilePath`.
 
-Once we ensure `response` is not null, we pass it to our `writeFileContent` function with the `outputFilePath`.
+Running `npm run tdd` writes the response to `add.ts`.
+Running `npm run test` shows the tests passing.
 
-Running our code writes the response to `add.ts`.
-
-Running `npm run test` to see the tests passing.
-
-## Running our tests
+## Running the tests
 
 > Node #4: Running tests after our function is generated
 
-Our LLM is returning working code, but right now we are manually:
+Our LLM is returning working code, but right now we are:
 
-1. ~Logging the response to the console~
-2. ~Copy + pasting the output to a file~
+1. ~Logging the response to the console~.
+2. ~Copy + pasting the output to a file~.
 3. Manually running the test command.
 
 We can run our tests programmatically using Node's [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) function:
@@ -493,13 +496,13 @@ We can run our tests programmatically using Node's [exec](https://nodejs.org/api
 import { exec } from 'child_process'
 
 /**
- * Runs tests and returns a promise with the test results
+ * Runs tests and returns a promise with the test results.
  * @param command Optional test command to run (defaults to 'npm run test')
  * @returns Promise that resolves to an object with test results
  */
 export function runTests(
     command: string = 'npm run test'
-): Promise<{ passed: boolean; output: string }> {
+): Promise<{ passed: boolean; errMsg: string }> {
     return new Promise(resolve => {
         console.log('Running tests...')
 
@@ -531,16 +534,16 @@ export function runTests(
                 )
             }
 
-            resolve({ passed, output: testOutput })
+            resolve({ passed, errMsg: testOutput })
         })
     })
 }
 ```
 
-There are two key things happening within this function:
+This function:
 
-1. Running `exec(command)` with command defaulting to `npm run test` which is our test command defined in our `package.json` file.
-2. Checking if the tests passed.
+1. Runs `exec(command)` with the `command` defaulted to `npm run test`. The is the test command defined in `package.json`.
+2. Returns information about whether the tests passed as part of the `Promise`. We use the terminal output to discover results:
 
 ```ts
 const passed =
@@ -549,17 +552,14 @@ const passed =
  !stdout.includes('fail')
 ```
 
-I'm using the output within the terminal to check against whether the tests pass.
-
-Here's an example of the terminal output:
+Here's an example:
 
 ![](https://cln.sh/Y9y9LDN6+)
 
-Our `passed` variable is parsing this output, and ensuring there are  `✓` characters and no `✗` or `fail`.
+The `passed` variable parses the output and ensures `✓`s and no `✗`s or `fail`s.
+This is effective enough, but it's quick and dirty--please add ideas for improvements in the comments.
 
-This works good enough. But, if you know of a better way please let me know!
-
-Now, let's extend our `generateFunctionFromSpec` file to also run the tests:
+Let's extend `generateFunctionFromSpec` to run the tests:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
@@ -577,23 +577,23 @@ export async function generateFunctionFromSpec(
         { role: 'system', content: basePrompt + testSpec },
     ]
  
- const response = await chat(messages)
+    const response = await chat(messages)
 
     if (!response) {
         console.error('Failed to get a response from the AI.')
     } else {
         writeFileContent(outputFilePath, response)
-        const { passed, output } = await runTests(testCommand)
+        const { passed, output } = await runTests(testCommand) // Added this
         console.log(passed, output)
     }
  
- return null
+    return null
 }
 ```
 
-## Making this agentic
+## Making it Agentic
 
-> While loop = agent?
+> While loop === agent?
 
 We've implemented the main flow:
 
@@ -605,11 +605,11 @@ flowchart LR
     X1 --> V1[Run tests];
 ```
 
-The goal is to adjust our code to make it look like Anthropic's [Agents](https://www.anthropic.com/engineering/building-effective-agents) diagram:
+Our ultimate goal is to look like Anthropic's [Agents](https://www.anthropic.com/engineering/building-effective-agents) diagram:
 
 ![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F58d9f10c985c4eb5d53798dea315f7bb5ab6249e-2401x1000.png&w=3840&q=75)
 
-Let's connect the labels of this diagram to our own:
+We'll connect the labels of this diagram to our own:
 
 - **Human:** This is the test file we wrote ([add.test.ts](https://github.com/CodyBontecou/typescript-llm4tdd-example/blob/01/add/tests/add.spec.ts)) ✅.
 - **LLM Call**: This is our [chat](https://github.com/CodyBontecou/typescript-llm4tdd-example/blob/01/add/utils/chat.ts) function talking to ChatGPT with a prompt built alongside our test file's content ✅.
@@ -618,16 +618,16 @@ Let's connect the labels of this diagram to our own:
   - *Action* is running our tests with the new response from the LLM ✖︎.
 - **Stop:** This occurs when our tests pass ✖︎.
 
-We've built the data flow, but we haven't built the ability to take in feedback and apply it to future actions when the tests do not pass.
-
+We've built the data flow, but not the ability to take in feedback and apply it to future actions when the tests do not pass.
 This is where the **while** loop comes in.
 
-Adjust `generateFunctionFromSpec` to continuously run until our tests pass:
+By adding a `while`, we modify `generateFunctionFromSpec` to run continuously until the tests pass:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec() {
- // Commented the rest of the function for brevity
+    // Commented the rest of the function for brevity
     let testPassed = false
     while (!testPassed) {
         const response = await chat(messages)
@@ -640,28 +640,27 @@ export async function generateFunctionFromSpec() {
         const { passed } = await runTests(testCommand)
         testPassed = passed
     }
- return null
+    return null
 }
 ```
 
 **Congratulations! You've built your first agent.**
 
-Run `index.ts` using the `npm run tdd` script to continuously call ChatGPT until it generates an `add.ts` function that passes our tests.
+There are issues with this approach:
 
-There are a few issues with this approach:
-
-1. This can be infinite - *what if you write a test that can never pass?*
+1. What if you write a test that cannot pass?
 2. There is no feedback.
 
-## Improving the agent with maxAttempts
+## Improving the Agent with `maxAttempts`
 
-> This can potentially be infinite - *what if you write a test that can never pass?*
+> What if you write a test that cannot pass?
 
-There are cases where you may want an agent constantly on in the background in an infinite loop, but this is not one of them.
+In some cases, you may want an agent running constantly in the background.
+This is not one of them.
+The agent needs an escape hatch.
 
-Our agent needs an escape hatch.
-
-Create a `maxAttempts` variable that is kept track of during our while loop. After each iteration, increment `attempts` until it equals `maxAttempts`. The loop ends if they are equal.
+The `maxAttempts` constant determines the maximum number of attempts to produce a working function.
+After each iteration, we increment `attempts` until it equals `maxAttempts`:
 
 ```mermaid
 flowchart LR
@@ -676,15 +675,16 @@ flowchart LR
     B21 -->|true| V71[Fail];
 ```
 
-The goal is to break out of the agent if one of two conditions are met:
+We break out of the agent if either:
 
 1. Tests pass
 2. `attempts === maxAttempts`
 
-Our test passing case is in place, but not the attempts logic:
+We have the "test passing" case, but not the attempts logic:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec(
  options: {
          customPrompt?: string
@@ -692,11 +692,11 @@ export async function generateFunctionFromSpec(
          testCommand?: string
      } = {}
     ) {
- // Commented the rest of the function for brevity
- const { customPrompt, maxAttempts = 5, testCommand } = options
+    // Commented the rest of the function for brevity
+    const { customPrompt, maxAttempts = 5, testCommand } = options
 
     let testPassed = false
- let attempts = 0
+    let attempts = 0
     while (!testPassed && attempts < maxAttempts) {
         attempts++
         const response = await chat(messages)
@@ -709,35 +709,38 @@ export async function generateFunctionFromSpec(
         const { passed } = await runTests(testCommand)
         testPassed = passed
     }
- return null
+    return null
 }
 ```
 
-Here we extract the `maxAttempts` value from our function's `options` parameter. If the `maxAttempts` option is not passed to the function, it defaults to 5.
+We extract `maxAttempts` value from the `generateFunctionFromSpec` `options` parameter. If the `maxAttempts` option is not passed to the function, it defaults to 5.
 
-Then we define `let attempts = 0`, increment if every loop iteration, and adjust the while loop to check if we've reached our `maxAttempts`:
+We increment `attempts` on every loop iteration, and check to see if we've reached `maxAttempts`:
 
 ```ts
 while (!testPassed && attempts < maxAttempts) {
- attempts++
- // rest of our code
+    attempts++
+    // remainder of code ...
 }
 ```
 
-Our code should now run continuously until our tests pass or once we reach our pre-defined max attempts.
+The code now runs continuously until the tests pass or we reach `maxAttempts`.
 
-## Adapting our prompt to feedback
+## Adapting the Prompt for feedback
 
-We want each agentic loop (attempt) to apply the feedback we received during the previous iteration.
+We want each agentic loop (attempt) to apply the feedback we receive during the previous iteration.
+We use the logs that the tests display on the console.
+A failing test provides high-quality information about the failure.
 
-We use the logs the tests prints to the console. A failing test provides high-quality information about the failure.
-
-Append `output` to our `messages` array so every attempt has the necessary context within the agentic loop.
+Here, we append `output` to the `messages` array.
+Now every attempt has the necessary context within the agentic loop:
 
 ```ts
+// utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec() {
  // Commented the rest of the function for brevity
- const messages: ChatCompletionMessageParam[] = [
+    const messages: ChatCompletionMessageParam[] = [
         { role: 'system', content: basePrompt + testSpec },
     ]
 
@@ -769,9 +772,11 @@ export async function generateFunctionFromSpec() {
 }
 ```
 
-Here's the final source code of our `generateFunctionFromSpec` function:
+Here's the final source code for `generateFunctionFromSpec`:
 
 ```ts
+// utils/generateFunctionFromSpec.ts
+
 import { ChatCompletionMessageParam } from 'openai/resources'
 import { chat } from './chat'
 import { readFileContent } from './readFileContent'
@@ -845,4 +850,4 @@ export async function generateFunctionFromSpec(
 }
 ```
 
-You can read all of the code provided in this blog post on [Github](https://github.com/CodyBontecou/typescript-llm4tdd-example).
+All of the code in this blog post is on [Github](https://github.com/CodyBontecou/typescript-llm4tdd-example).
