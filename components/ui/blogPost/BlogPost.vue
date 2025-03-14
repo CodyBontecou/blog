@@ -213,8 +213,7 @@ watch(isMobileMenuOpen, newValue => {
         >
             <div
                 v-if="isMobileMenuOpen"
-                class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
-                @click="isMobileMenuOpen = false"
+                class="xl:hidden fixed bottom-0 inset-x-0 z-40 bg-white rounded-t-xl shadow-lg max-h-[75vh] overflow-y-auto"
             />
         </Transition>
 
