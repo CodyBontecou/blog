@@ -10,7 +10,7 @@ topics:
   - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-14T12:23
+last_modified: 2025-03-14T12:24
 ---
 
 [AI](https://arxiv.org/abs/2312.04687) takes TDD to another level: [here](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
@@ -70,6 +70,8 @@ npm install -D vitest tsx
 - Create `tsconfig.json` and add the following:
 
 ```json
+// tsconfig.json
+
 {
     "compilerOptions": {
         "target": "ES2022",
@@ -133,6 +135,7 @@ We import this function into an `index.ts` file in the root directory:
 
 ```ts
 // index.ts
+
 import { generateFunctionFromSpec } from './utils'
 
 /**
@@ -154,6 +157,8 @@ runTDDWorkflow()
 Update the `package.json` file to run this file:
 
 ```json
+// package.json
+
 {
   "name": "typescript-example",
   "version": "1.0.0",
@@ -215,6 +220,7 @@ Create a `tests` directory, then write our test spec file `add.spec.ts`.
 
 ```ts
 // tests/add.spec.ts
+
 import { describe, it, expect } from 'vitest'
 import { add } from './add'
 
@@ -247,6 +253,7 @@ Our initial modification of `generateFunctionFromSpec` creates a `messages` arra
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+
 import { ChatCompletionMessageParam } from 'openai/resources'
 
 export async function generateFunctionFromSpec(
@@ -334,6 +341,7 @@ The `chat` function takes in `messages` and returns the LLM results:
 
 ```ts
 // utils/chat.ts
+
 import OpenAI from 'openai'
 import { ChatCompletionMessageParam } from 'openai/resources'
 
@@ -358,6 +366,7 @@ Add `call` to `generateFunctionFromSpec`:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec(
     testFilePath: string,
     outputFilePath: string,
@@ -427,6 +436,7 @@ This function writes the `chat` response to a file:
 
 ```ts
 // utils/writeFileContent.ts
+
 import * as fs from 'fs'
 import * as path from 'path'
 import { fileURLToPath } from 'url'
@@ -448,6 +458,7 @@ Adding `writeFileContent` to `generateFunctionFromSpec`:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec(
     testFilePath: string,
     outputFilePath: string,
@@ -493,6 +504,7 @@ We can run our tests programmatically using Node's [exec](https://nodejs.org/api
 
 ```ts
 // utils/runTests.ts
+
 import { exec } from 'child_process'
 
 /**
@@ -563,6 +575,7 @@ Let's extend `generateFunctionFromSpec` to run the tests:
 
 ```ts
 // utils/generateFunctionFromSpec.ts
+
 export async function generateFunctionFromSpec(
     testFilePath: string,
     outputFilePath: string,
