@@ -149,7 +149,7 @@ watch(isMobileMenuOpen, newValue => {
         <!-- Table of Contents -->
         <aside
             v-if="headings.length"
-            class="hidden lg:block fixed right-8 top-32 w-64 max-h-[calc(100vh-200px)] overflow-y-auto"
+            class="hidden xl:block fixed right-8 top-32 w-64 max-h-[calc(100vh-200px)] overflow-y-auto"
         >
             <Suspense>
                 <template #default>
@@ -195,7 +195,7 @@ watch(isMobileMenuOpen, newValue => {
         <button
             v-if="headings.length"
             @click="isMobileMenuOpen = true"
-            class="lg:hidden flex items-center justify-center fixed right-4 bottom-4 z-20 rounded-full p-3 bg-white shadow transition-colors duration-200"
+            class="xl:hidden flex items-center justify-center fixed right-4 bottom-4 z-20 rounded-full p-3 bg-white shadow transition-colors duration-200"
             aria-label="Open table of contents"
         >
             <Icon name="material-symbols:menu-book-outline" class="w-6 h-6" />
