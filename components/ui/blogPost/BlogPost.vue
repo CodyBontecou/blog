@@ -229,7 +229,7 @@ watch(isMobileMenuOpen, newValue => {
         >
             <div
                 v-if="isMobileMenuOpen"
-                class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white rounded-t-xl shadow-lg max-h-[75vh] overflow-y-auto"
+                class="xl:hidden fixed bottom-0 inset-x-0 z-40 bg-white rounded-t-xl shadow-lg max-h-[75vh] overflow-y-auto"
             >
                 <div
                     class="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between"
