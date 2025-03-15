@@ -10,7 +10,7 @@ topics:
   - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-14T12:24
+last_modified: 2025-03-15T16:37
 ---
 
 [AI](https://arxiv.org/abs/2312.04687) takes TDD to another level: [here](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
@@ -35,7 +35,6 @@ Using [David's](https://codeinthehole.com/tips/llm-tdd-loop-script/) shell scrip
 1. [OpenAI's Node SDK](https://github.com/openai/openai-node)
 2. [Vite](https://github.com/vitejs/vite)
 3. [Vitest](https://github.com/vitest-dev/vitest)
-4. [Zod](https://github.com/colinhacks/zod)
 
 ## Project Setup
 
@@ -54,7 +53,7 @@ npm init --yes
 - Install runtime dependencies:
 
 ```bash
-npm install openai zod
+npm install openai
 ```
 
 - Install development tools:
@@ -173,8 +172,7 @@ Update the `package.json` file to run this file:
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "openai": "^4.86.1",
-    "zod": "^3.24.2"
+    "openai": "^4.86.1"
   },
   "devDependencies": {
 	"vitest": "^3.0.7",
