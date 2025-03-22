@@ -13,6 +13,8 @@ date: 2025-03-08T12:53
 last_modified: 2025-03-16T13:08
 ---
 
+> [Youtube Playlist](https://youtube.com/playlist?list=PLQdX2Upwv8S4b2CIoqkqT0G9cPXNfiKg1&si=eVxYiuBGBtL2fZGl) for those that prefer video content.
+
 [AI](https://arxiv.org/abs/2312.04687) takes TDD to another level: [here](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
 
 ## Agentic flow
