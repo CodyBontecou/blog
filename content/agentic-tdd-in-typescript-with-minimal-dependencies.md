@@ -306,6 +306,7 @@ import type { ChatCompletionMessageParam } from 'openai/resources'
 
 const fileContent = readFileContent('tests/add.spec.ts')
 const openai = new OpenAI()
+const model = 'gpt-4o-mini'
 const messages: ChatCompletionMessageParam[] = [
     {
         role: 'system',
@@ -395,6 +396,7 @@ import type { ChatCompletionMessageParam } from 'openai/resources'
 
 const fileContent = readFileContent('tests/add.spec.ts')
 const openai = new OpenAI()
+const model = 'gpt-4o-mini'
 const messages: ChatCompletionMessageParam[] = [
     {
         role: 'system',
@@ -526,6 +528,7 @@ import type { ChatCompletionMessageParam } from 'openai/resources'
 
 const fileContent = readFileContent('tests/add.spec.ts')
 const openai = new OpenAI()
+const model = 'gpt-4o-mini'
 const messages: ChatCompletionMessageParam[] = [
     {
         role: 'system',
@@ -605,6 +608,7 @@ import type { ChatCompletionMessageParam } from 'openai/resources'
 
 const fileContent = readFileContent('tests/add.spec.ts')
 const openai = new OpenAI()
+const model = 'gpt-4o-mini'
 const messages: ChatCompletionMessageParam[] = [
     {
         role: 'system',
@@ -695,6 +699,7 @@ import type { ChatCompletionMessageParam } from 'openai/resources'
 
 const fileContent = readFileContent('tests/add.spec.ts')
 const openai = new OpenAI()
+const model = 'gpt-4o-mini'
 const messages: ChatCompletionMessageParam[] = [
     {
         role: 'system',
@@ -770,6 +775,7 @@ import type { ChatCompletionMessageParam } from 'openai/resources'
 
 const fileContent = readFileContent('tests/add.spec.ts')
 const openai = new OpenAI()
+const model = 'gpt-4o-mini'
 const messages: ChatCompletionMessageParam[] = [
     {
         role: 'system',
@@ -834,6 +840,7 @@ import type { ChatCompletionMessageParam } from 'openai/resources'
 
 const fileContent = readFileContent('tests/add.spec.ts')
 const openai = new OpenAI()
+const model = 'gpt-4o-mini'
 const messages: ChatCompletionMessageParam[] = [
     {
         role: 'system',
