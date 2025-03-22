@@ -386,6 +386,7 @@ Adding `writeFileContent` to `index.ts`:
 // index.ts
 
 import { readFileContent } from './utils/readFileContent'
+import { writeFileContent } from './utils/writeFileContent'
 
 import OpenAI from 'openai'
 import type { ChatCompletionMessageParam } from 'openai/resources'
@@ -515,6 +516,8 @@ Let's extend `index.ts` to run the tests:
 // index.ts
 
 import { readFileContent } from './utils/readFileContent'
+import { writeFileContent } from './utils/writeFileContent'
+import { runTests } from './utils/runTests'
 
 import OpenAI from 'openai'
 import type { ChatCompletionMessageParam } from 'openai/resources'
@@ -592,6 +595,8 @@ By adding a `while`, we modify our code to run continuously until the tests pass
 // index.ts
 
 import { readFileContent } from './utils/readFileContent'
+import { writeFileContent } from './utils/writeFileContent'
+import { runTests } from './utils/runTests'
 
 import OpenAI from 'openai'
 import type { ChatCompletionMessageParam } from 'openai/resources'
@@ -680,6 +685,8 @@ We have the "test passing" case, but not the attempts logic:
 // index.ts
 
 import { readFileContent } from './utils/readFileContent'
+import { writeFileContent } from './utils/writeFileContent'
+import { runTests } from './utils/runTests'
 
 import OpenAI from 'openai'
 import type { ChatCompletionMessageParam } from 'openai/resources'
@@ -753,6 +760,8 @@ Now every attempt has the necessary context within the agentic loop:
 // index.ts
 
 import { readFileContent } from './utils/readFileContent'
+import { writeFileContent } from './utils/writeFileContent'
+import { runTests } from './utils/runTests'
 
 import OpenAI from 'openai'
 import type { ChatCompletionMessageParam } from 'openai/resources'
@@ -815,6 +824,8 @@ Here's the final source code for our agent:
 // index.ts
 
 import { readFileContent } from './utils/readFileContent'
+import { writeFileContent } from './utils/writeFileContent'
+import { runTests } from './utils/runTests'
 
 import OpenAI from 'openai'
 import type { ChatCompletionMessageParam } from 'openai/resources'
