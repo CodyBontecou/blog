@@ -3,14 +3,14 @@ title: Agentic TDD in Typescript with Minimal Dependencies
 draft: false
 ignore: false
 topics:
-  - ai
-  - llm
-  - agents
-  - tdd
-  - typescript
+    - ai
+    - llm
+    - agents
+    - tdd
+    - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-15T16:37
+last_modified: 2025-03-16T13:08
 ---
 
 [AI](https://arxiv.org/abs/2312.04687) takes TDD to another level: [here](https://codeinthehole.com/tips/llm-tdd-loop-script/), David writes a test spec and the AI agent generates code, looping over and adjusting the code until the tests pass.
@@ -58,12 +58,12 @@ npm install openai
 
 - Install development tools:
 
-  - `vitest` (Vite test runner)
+    - `vitest` (Vite test runner)
 
-  - `tsx` (Typescript Execute)
+    - `tsx` (Typescript Execute)
 
 ```bash
-npm install -D vitest tsx 
+npm install -D vitest tsx
 ```
 
 - Create `tsconfig.json` and add the following:
@@ -103,89 +103,7 @@ Copy your new key and **save it into a .env file within your newly created proje
 
 > This is a secret key, so we exclude it from the GitHub repository by adding `.env` to the `.gitignore`.
 
-## Generate function from spec
-
-Create a file at `utils/generateFunctionFromSpec.ts`.
-We'll add snippets of code to it as we move through our diagram.
-Here's the skeleton of the function:
-
-```ts
-// utils/generateFunctionFromSpec.ts
-
-/**
- * Generates a function implementation from a test specification using AI
- * @param testFilePath Path to the test specification file
- * @param outputFilePath Path where the generated function should be saved
- * @param options Optional configuration parameters
- * @returns Promise that resolves to the generated content if successful, or null if all attempts failed
- */
-export async function generateFunctionFromSpec(
-    testFilePath: string,
-    outputFilePath: string,
-    options: {
-        customPrompt?: string
-        maxAttempts?: number
-        testCommand?: string
-    } = {}
-): Promise<string | null> {}
-```
-
-We import this function into an `index.ts` file in the root directory:
-
-```ts
-// index.ts
-
-import { generateFunctionFromSpec } from './utils'
-
-/**
- * Complete TDD workflow:
- * 1. Generate a function implementation that passes the tests
- */
-async function runTDDWorkflow() {
-    try {
-        await generateFunctionFromSpec('tests/add.spec.ts', 'add.ts')
-    } catch (error) {
-        console.error('Workflow failed:', error)
-    }
-}
-
-// Run the TDD workflow
-runTDDWorkflow()
-```
-
-Update the `package.json` file to run this file:
-
-```json
-// package.json
-
-{
-  "name": "typescript-example",
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "vitest run",
-    "tdd": "tsx index.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "openai": "^4.86.1"
-  },
-  "devDependencies": {
-	"vitest": "^3.0.7",
-    "tsx": "^4.19.3"
-  }
-}
-```
-
-Now run the program with the command `npm run tdd`.
-This uses [tsx](https://tsx.is/) to compile and run `index.ts`which calls `generateFunctionFromSpec`.
-The majority of the time is spent in the individual functions.
-
-## Programmatically prompting the LLM
+## Generate prompt
 
 > Node #1: Generate prompt.
 
@@ -220,7 +138,7 @@ Create a `tests` directory, then write our test spec file `add.spec.ts`.
 // tests/add.spec.ts
 
 import { describe, it, expect } from 'vitest'
-import { add } from './add'
+import { add } from '../add'
 
 describe('add function', () => {
     it('returns the sum of multiple numbers', () => {
@@ -241,54 +159,87 @@ describe('add function', () => {
 })
 ```
 
-Next, we:
-
-- Update `generateFunctionFromSpec` to create a prompt.
-- Read the input file content.
-- Add the test file's content to the prompt within a `messages` array.
-
-Our initial modification of `generateFunctionFromSpec` creates a `messages` array and inserts the test specification:
+We import this function into an `index.ts` file in the root directory and read in the test file's content:
 
 ```ts
-// utils/generateFunctionFromSpec.ts
+// index.ts
 
-import { ChatCompletionMessageParam } from 'openai/resources'
+import { readFileContent } from './utils/readFileContent'
 
-export async function generateFunctionFromSpec(
-    testFilePath: string,
-    outputFilePath: string,
-    options: {
-        customPrompt?: string
-        maxAttempts?: number
-        testCommand?: string
-    } = {}
-): Promise<string | null> {
-    const { customPrompt, maxAttempts = 5, testCommand } = options
+const fileContent = readFileContent('tests/add.spec.ts')
+```
 
-    // Default prompt if none provided
-    const basePrompt =
-        customPrompt ||
-        `
-    Write a Typescript module that passes these tests.
+Update `package.json` to run `index.ts`:
 
-    Only return executable Typescript code
-    Do not return Markdown output
-    Do not wrap code in triple backticks
-    Do not return YAML
-`
+```json
+// package.json
 
-    // Read the test specification file
-    const testSpec = readFileContent(testFilePath)
-
-    // Initialize message history
-    const messages: ChatCompletionMessageParam[] = [
-        { role: 'system', content: basePrompt + testSpec },
-    ]
- 
-    console.log(messages)
- 
-    return null
+{
+    "name": "typescript-example",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "vitest run",
+        "tdd": "tsx index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "openai": "^4.86.1"
+    },
+    "devDependencies": {
+        "vitest": "^3.0.7",
+        "tsx": "^4.19.3"
+    }
 }
+```
+
+Run the program with the command `npm run tdd`.
+This uses [tsx](https://tsx.is/) to compile and run `index.ts`.
+
+Next, we:
+
+- Update `index.ts` to create a prompt.
+- Read the test file's content.
+- Add the file's content to the prompt within a `messages` array.
+
+Our initial modification creates a `messages` array and inserts the test specification:
+
+```ts
+// index.ts
+
+import { readFileContent } from './utils/readFileContent'
+
+import OpenAI from 'openai'
+import type { ChatCompletionMessageParam } from 'openai/resources'
+
+const fileContent = readFileContent('tests/add.spec.ts')
+const openai = new OpenAI()
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write a Typescript function that passes these tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
+
+console.log(messages)
 ```
 
 To run the program, execute `npm run tdd`.
@@ -299,32 +250,38 @@ At this point, we only display the constructed `messages` array to see what it l
   {
     role: 'system',
     content: '\n' +
-      '    Write a Typescript module that passes these tests.\n' +
-      '\n' +
-      '    Only return executable Typescript code\n' +
-      '    Do not return Markdown output\n' +
-      '    Do not wrap code in triple backticks\n' +
-      '    Do not return YAML\n' +
+      '            You are a professional software developer that relies on well-tested code.\n' +
+      '        '
+  },
+  {
+    role: 'user',
+    content: "import add from '../add'\n" +
       "import { describe, it, expect } from 'vitest'\n" +
-      "import { add } from './add'\n" +
       '\n' +
       "describe('add function', () => {\n" +
-      "    it('should return the sum of multiple numbers', () => {\n" +
+      "    it('returns the sum of multiple numbers', () => {\n" +
       '        expect(add(1, 2, 3)).toBe(6)\n' +
       '    })\n' +
       '\n' +
-      "    it('should return 0 if no arguments are passed', () => {\n" +
+      "    it('returns 0 if no arguments are passed', () => {\n" +
       '        expect(add()).toBe(0)\n' +
       '    })\n' +
       '\n' +
-      "    it('should return the same number if one number is passed', () => {\n" +
+      "    it('returns the same number if one number is passed', () => {\n" +
       '        expect(add(5)).toBe(5)\n' +
       '    })\n' +
       '\n' +
-      "    it('should handle negative numbers', () => {\n" +
+      "    it('handles negative numbers', () => {\n" +
       '        expect(add(-1, -2, -3)).toBe(-6)\n' +
       '    })\n' +
-      '})\n'
+      '})\n' +
+      '\n' +
+      '              Write a Typescript function that passes these tests.\n' +
+      '              Only return executable Typescript code.\n' +
+      '              Do not return Markdown output.\n' +
+      '              Do not wrap code in triple backticks.\n' +
+      '              Do not return YAML.\n' +
+      '            '
   }
 ]
 ```
@@ -335,82 +292,55 @@ Now we have something to submit to the LLM.
 
 > Node #2: Send our `messages` array to ChatGPT via their SDK.
 
-The `chat` function takes in `messages` and returns the LLM results:
+Add OpenAI's `chat.completions.create` to `index.ts`:
 
 ```ts
-// utils/chat.ts
+// index.ts
+
+import { readFileContent } from './utils/readFileContent'
 
 import OpenAI from 'openai'
-import { ChatCompletionMessageParam } from 'openai/resources'
+import type { ChatCompletionMessageParam } from 'openai/resources'
 
+const fileContent = readFileContent('tests/add.spec.ts')
 const openai = new OpenAI()
-const model = 'gpt-4o-mini'
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write a Typescript function that passes these tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
 
-export async function chat(messages: ChatCompletionMessageParam[]) {
-    try {
-        const completion = await openai.chat.completions.create({
-            model,
-            messages,
-        })
-        return completion.choices[0].message.content
-    } catch (error) {
-        console.error('Error:', error)
-        return null
-    }
-}
-```
+const response = await openai.chat.completions.create({
+    model,
+    messages,
+})
 
-Add `call` to `generateFunctionFromSpec`:
-
-```ts
-// utils/generateFunctionFromSpec.ts
-
-export async function generateFunctionFromSpec(
-    testFilePath: string,
-    outputFilePath: string,
-    options: {
-        customPrompt?: string
-        maxAttempts?: number
-        testCommand?: string
-    } = {}
-): Promise<string | null> {
-    const { customPrompt, maxAttempts = 5, testCommand } = options
-
-    // Default prompt if none provided
-    const basePrompt =
-        customPrompt ||
-        `
-    Write a Typescript module that passes these tests.
-
-    Only return executable Typescript code
-    Do not return Markdown output
-    Do not wrap code in triple backticks
-    Do not return YAML
-`
-
-    // Read the test specification file
-    const testSpec = readFileContent(testFilePath)
-
-    // Initialize message history
-    const messages: ChatCompletionMessageParam[] = [
-        { role: 'system', content: basePrompt + testSpec },
-    ]
- 
-    const response = await chat(messages)
-    console.log(response)
-    
-    return null
-}
+console.log(response)
 ```
 
 The response may look like this (depending on ChatGPT's randomness):
 
 ```ts
 function add(...numbers: number[]): number {
-    return numbers.reduce((sum, num) => sum + num, 0);
+    return numbers.reduce((sum, num) => sum + num, 0)
 }
 
-export { add };
+export { add }
 ```
 
 Copy and paste the returned response into an `add.ts` file in the root directory and run `npm run test`.
@@ -420,9 +350,7 @@ The generated add function should pass the tests.
 
 ## Writing the LLM response to file
 
-*Let's automate this.*
-
-> Node #3:  Write response to file
+> Node #3: Write response to file
 
 Our LLM is returning working code, but right now we are manually:
 
@@ -430,7 +358,7 @@ Our LLM is returning working code, but right now we are manually:
 2. Copy and pasting the output to a file.
 3. Manually running the test command.
 
-This function writes the `chat` response to a file:
+This function writes content to a file:
 
 ```ts
 // utils/writeFileContent.ts
@@ -452,34 +380,48 @@ export const writeFileContent = (filePath: string, content: string): void => {
 }
 ```
 
-Adding `writeFileContent` to `generateFunctionFromSpec`:
+Adding `writeFileContent` to `index.ts`:
 
 ```ts
-// utils/generateFunctionFromSpec.ts
+// index.ts
 
-export async function generateFunctionFromSpec(
-    testFilePath: string,
-    outputFilePath: string,
-    options: {
-        customPrompt?: string
-        maxAttempts?: number
-        testCommand?: string
-    } = {}
-): Promise<string | null> {
-    ...
-    const messages: ChatCompletionMessageParam[] = [
-        { role: 'system', content: basePrompt + testSpec },
-    ]
- 
-    const response = await chat(messages)
+import { readFileContent } from './utils/readFileContent'
 
-    if (!response) {
-        console.error('Failed to get a response from the AI.')
-    } else {
-        writeFileContent(outputFilePath, response)
-    }
- 
-    return null
+import OpenAI from 'openai'
+import type { ChatCompletionMessageParam } from 'openai/resources'
+
+const fileContent = readFileContent('tests/add.spec.ts')
+const openai = new OpenAI()
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write a Typescript function that passes these tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
+
+const response = await openai.chat.completions.create({
+    model,
+    messages,
+})
+
+if (!response) {
+    console.error('Failed to get a response from the AI.')
+} else {
+    writeFileContent(outputFilePath, response)
 }
 ```
 
@@ -512,7 +454,7 @@ import { exec } from 'child_process'
  */
 export function runTests(
     command: string = 'npm run test'
-): Promise<{ passed: boolean; errMsg: string }> {
+): Promise<{ passed: boolean; testOutput: string }> {
     return new Promise(resolve => {
         console.log('Running tests...')
 
@@ -544,7 +486,7 @@ export function runTests(
                 )
             }
 
-            resolve({ passed, errMsg: testOutput })
+            resolve({ passed, testOutput })
         })
     })
 }
@@ -557,9 +499,7 @@ This function:
 
 ```ts
 const passed =
- stdout.includes('✓') &&
- !stdout.includes('✗') &&
- !stdout.includes('fail')
+    stdout.includes('✓') && !stdout.includes('✗') && !stdout.includes('fail')
 ```
 
 Here's an example:
@@ -569,36 +509,50 @@ Here's an example:
 The `passed` variable parses the output and ensures `✓`s and no `✗`s or `fail`s.
 This is effective enough, but it's quick and dirty--please add ideas for improvements in the comments.
 
-Let's extend `generateFunctionFromSpec` to run the tests:
+Let's extend `index.ts` to run the tests:
 
 ```ts
-// utils/generateFunctionFromSpec.ts
+// index.ts
 
-export async function generateFunctionFromSpec(
-    testFilePath: string,
-    outputFilePath: string,
-    options: {
-        customPrompt?: string
-        maxAttempts?: number
-        testCommand?: string
-    } = {}
-): Promise<string | null> {
- ...
-    const messages: ChatCompletionMessageParam[] = [
-        { role: 'system', content: basePrompt + testSpec },
-    ]
- 
-    const response = await chat(messages)
+import { readFileContent } from './utils/readFileContent'
 
-    if (!response) {
-        console.error('Failed to get a response from the AI.')
-    } else {
-        writeFileContent(outputFilePath, response)
-        const { passed, output } = await runTests(testCommand) // Added this
-        console.log(passed, output)
-    }
- 
-    return null
+import OpenAI from 'openai'
+import type { ChatCompletionMessageParam } from 'openai/resources'
+
+const fileContent = readFileContent('tests/add.spec.ts')
+const openai = new OpenAI()
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write a Typescript function that passes these tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
+
+const response = await openai.chat.completions.create({
+    model,
+    messages,
+})
+
+if (!response) {
+    console.error('Failed to get a response from the AI.')
+} else {
+    writeFileContent(outputFilePath, response)
+    const { passed, output } = await runTests(testCommand) // Added this
+    console.log(passed, output)
 }
 ```
 
@@ -623,35 +577,64 @@ Our ultimate goal is to look like Anthropic's [Agents](https://www.anthropic.com
 We'll connect the labels of this diagram to our own:
 
 - **Human:** This is the test file we wrote ([add.test.ts](https://github.com/CodyBontecou/typescript-llm4tdd-example/blob/01/add/tests/add.spec.ts)) ✅.
-- **LLM Call**: This is our [chat](https://github.com/CodyBontecou/typescript-llm4tdd-example/blob/01/add/utils/chat.ts) function talking to ChatGPT with a prompt built alongside our test file's content ✅.
+- **LLM Call**: This is our [openai.chat.completions](https://github.com/CodyBontecou/typescript-llm4tdd-example/blob/01/add/utils/chat.ts) call talking to ChatGPT with a prompt built alongside our test file's content ✅.
 - **Environment:** This is a check to see if our tests pass ([runTests.ts](https://github.com/CodyBontecou/typescript-llm4tdd-example/blob/01/add/utils/runTests.ts)) ✅.
-  - *Feedback* is the response from our tests ✖︎.
-  - *Action* is running our tests with the new response from the LLM ✖︎.
+    - _Feedback_ is the response from our tests ✖︎.
+    - _Action_ is running our tests with the new response from the LLM ✖︎.
 - **Stop:** This occurs when our tests pass ✖︎.
 
 We've built the data flow, but not the ability to take in feedback and apply it to future actions when the tests do not pass.
 This is where the **while** loop comes in.
 
-By adding a `while`, we modify `generateFunctionFromSpec` to run continuously until the tests pass:
+By adding a `while`, we modify our code to run continuously until the tests pass:
 
 ```ts
-// utils/generateFunctionFromSpec.ts
+// index.ts
 
-export async function generateFunctionFromSpec() {
-    // Commented the rest of the function for brevity
-    let testPassed = false
-    while (!testPassed) {
-        const response = await chat(messages)
-        if (!response) {
-            console.error('Failed to get a response from the AI.')
-            break
-        }
-        // Save implementation and run tests
+import { readFileContent } from './utils/readFileContent'
+
+import OpenAI from 'openai'
+import type { ChatCompletionMessageParam } from 'openai/resources'
+
+const fileContent = readFileContent('tests/add.spec.ts')
+const openai = new OpenAI()
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write a Typescript function that passes these tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
+
+let testPassed = false
+
+while (!testPassed) {
+    const response = await openai.chat.completions.create({
+        model,
+        messages,
+    })
+
+    if (!response) {
+        console.error('Failed to get a response from the AI.')
+        break
+    } else {
         writeFileContent(outputFilePath, response)
         const { passed } = await runTests(testCommand)
         testPassed = passed
     }
-    return null
 }
 ```
 
@@ -694,38 +677,58 @@ We break out of the agent if either:
 We have the "test passing" case, but not the attempts logic:
 
 ```ts
-// utils/generateFunctionFromSpec.ts
+// index.ts
 
-export async function generateFunctionFromSpec(
- options: {
-         customPrompt?: string
-         maxAttempts?: number
-         testCommand?: string
-     } = {}
-    ) {
-    // Commented the rest of the function for brevity
-    const { customPrompt, maxAttempts = 5, testCommand } = options
+import { readFileContent } from './utils/readFileContent'
 
-    let testPassed = false
-    let attempts = 0
-    while (!testPassed && attempts < maxAttempts) {
-        attempts++
-        const response = await chat(messages)
-        if (!response) {
-            console.error('Failed to get a response from the AI.')
-            break
-        }
-        // Save implementation and run tests
+import OpenAI from 'openai'
+import type { ChatCompletionMessageParam } from 'openai/resources'
+
+const fileContent = readFileContent('tests/add.spec.ts')
+const openai = new OpenAI()
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write a Typescript function that passes these tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
+
+let testPassed = false
+let attempts = 0
+const maxAttempts = 5
+while (!testPassed && attempts < maxAttempts) {
+    attempts++
+    const response = await openai.chat.completions.create({
+        model,
+        messages,
+    })
+
+    if (!response) {
+        console.error('Failed to get a response from the AI.')
+        break
+    } else {
         writeFileContent(outputFilePath, response)
         const { passed } = await runTests(testCommand)
         testPassed = passed
     }
-    return null
 }
 ```
 
-We extract `maxAttempts` value from the `generateFunctionFromSpec` `options` parameter. If the `maxAttempts` option is not passed to the function, it defaults to 5.
-
+We set `maxAttempts` value to 5.
 We increment `attempts` on every loop iteration, and check to see if we've reached `maxAttempts`:
 
 ```ts
@@ -747,29 +750,52 @@ Here, we append `output` to the `messages` array.
 Now every attempt has the necessary context within the agentic loop:
 
 ```ts
-// utils/generateFunctionFromSpec.ts
+// index.ts
 
-export async function generateFunctionFromSpec() {
- // Commented the rest of the function for brevity
-    const messages: ChatCompletionMessageParam[] = [
-        { role: 'system', content: basePrompt + testSpec },
-    ]
+import { readFileContent } from './utils/readFileContent'
 
-    let testPassed = false
-    let attempts = 0
+import OpenAI from 'openai'
+import type { ChatCompletionMessageParam } from 'openai/resources'
 
-    while (!testPassed && attempts < maxAttempts) {
-        attempts++
-        const response = await chat(messages)
+const fileContent = readFileContent('tests/add.spec.ts')
+const openai = new OpenAI()
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write a Typescript function that passes these tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
 
-        if (!response) {
-            console.error('Failed to get a response from the AI.')
-            break
-        }
+let testPassed = false
+let attempts = 0
+const maxAttempts = 5
+while (!testPassed && attempts < maxAttempts) {
+    attempts++
+    const response = await openai.chat.completions.create({
+        model,
+        messages,
+    })
 
+    if (!response) {
+        console.error('Failed to get a response from the AI.')
+        break
+    } else {
         messages.push({ role: 'assistant', content: response })
 
-        // Save implementation and run tests
         writeFileContent(outputFilePath, response)
         const { passed, output } = await runTests(testCommand)
         testPassed = passed
@@ -783,69 +809,55 @@ export async function generateFunctionFromSpec() {
 }
 ```
 
-Here's the final source code for `generateFunctionFromSpec`:
+Here's the final source code for our agent:
 
 ```ts
-// utils/generateFunctionFromSpec.ts
+// index.ts
 
-import { ChatCompletionMessageParam } from 'openai/resources'
-import { chat } from './chat'
-import { readFileContent } from './readFileContent'
-import { writeFileContent } from './writeFileContent'
-import { runTests } from './runTests'
+import { readFileContent } from './utils/readFileContent'
 
-/**
- * Generates a function implementation from a test specification using AI
- * @param testFilePath Path to the test specification file
- * @param outputFilePath Path where the generated function should be saved
- * @param options Optional configuration parameters
- * @returns Promise that resolves to the generated content if successful, or null if all attempts failed
- */
-export async function generateFunctionFromSpec(
-    testFilePath: string,
-    outputFilePath: string,
-    options: {
-        customPrompt?: string
-        maxAttempts?: number
-        testCommand?: string
-    } = {}
-): Promise<string | null> {
-    const { customPrompt, maxAttempts = 5, testCommand } = options
+import OpenAI from 'openai'
+import type { ChatCompletionMessageParam } from 'openai/resources'
 
-    // Default prompt if none provided
-    const basePrompt =
-        customPrompt ||
-        `
-    Write a Typescript module that passes these tests.
+const fileContent = readFileContent('tests/add.spec.ts')
+const openai = new OpenAI()
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write a Typescript function that passes these tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
 
-    Only return executable Typescript code
-    Do not return Markdown output
-    Do not wrap code in triple backticks
-    Do not return YAML
-`
+let testPassed = false
+let attempts = 0
+const maxAttempts = 5
+while (!testPassed && attempts < maxAttempts) {
+    attempts++
+    const response = await openai.chat.completions.create({
+        model,
+        messages,
+    })
 
-    // Read the test specification file
-    const testSpec = readFileContent(testFilePath)
-
-    // Initialize message history
-    const messages: ChatCompletionMessageParam[] = [
-        { role: 'system', content: basePrompt + testSpec },
-    ]
-
-    let testPassed = false
-    let attempts = 0
-    while (!testPassed && attempts < maxAttempts) {
-        attempts++
-        const response = await chat(messages)
-
-        if (!response) {
-            console.error('Failed to get a response from the AI.')
-            break
-        }
-
+    if (!response) {
+        console.error('Failed to get a response from the AI.')
+        break
+    } else {
         messages.push({ role: 'assistant', content: response })
 
-        // Save implementation and run tests
         writeFileContent(outputFilePath, response)
         const { passed, output } = await runTests(testCommand)
         testPassed = passed
@@ -856,8 +868,6 @@ export async function generateFunctionFromSpec(
                 'Tests are failing with this output. Try again.\n\n' + output,
         })
     }
-
-    return null
 }
 ```
 
