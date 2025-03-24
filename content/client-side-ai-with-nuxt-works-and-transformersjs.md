@@ -9,7 +9,7 @@ topics:
   - transformers.js
 created_at: 2025-03-24T12:25
 date: 2025-03-24T12:25
-last_modified: 2025-03-24T13:20
+last_modified: 2025-03-24T13:26
 ---
 
 This post walks you through an implementation of [NLLB-200](https://huggingface.co/Xenova/nllb-200-distilled-600M), Facebook's text-to-text translation model, in the browser.
@@ -73,6 +73,8 @@ export async function translate(input: string) {
 }
 
 ```
+
+Transformers.js pulls the model from HuggingFace and installs it into your browser session. Now you can interact with it via the `pipeline` function.
 
 > You can view task options on [Huggingface](https://huggingface.co/tasks). 
 
