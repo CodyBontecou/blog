@@ -9,7 +9,7 @@ topics:
   - transformers.js
 created_at: 2025-03-24T12:25
 date: 2025-03-24T12:25
-last_modified: 2025-03-24T13:09
+last_modified: 2025-03-24T13:20
 ---
 
 This post walks you through an implementation of [NLLB-200](https://huggingface.co/Xenova/nllb-200-distilled-600M), Facebook's text-to-text translation model, in the browser.
@@ -110,6 +110,12 @@ async function runTranslate() {
     <button @click="runTranslate">Translate</button>
 </template>
 ```
+
+## Showcase
+
+> Simple and effective
+
+![](https://i.imgur.com/E1Euk2X.gif)
 
 ## Beyond Translation
 
