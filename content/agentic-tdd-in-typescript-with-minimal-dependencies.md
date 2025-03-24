@@ -826,26 +826,94 @@ while (!testPassed && attempts < maxAttempts) {
 }
 ```
 
-Here's the final source code for our agent:
+## Tool calls
+
+We currently control the flow of our agent and decide when these functions are called. This static, and unflexible.
+
+Tools give up the control of the flow, allowing our agent to decide which function(s) to call.
+
+Our agent relies on three main functions:
+
+1. readFileContent: Reading the test file content.
+2. writeFileContent: Writing to `add.ts`.
+3. runTests: Running the tests.
+
+Define a tools array following OpenAI's [Function Call](https://platform.openai.com/docs/guides/function-calling?api-mode=chat) syntax to share knowledge of these functions with our LLM:
 
 ```ts
-// index.ts
+import type { ChatCompletionTool } from 'openai/resources'
 
-import { readFileContent } from './utils/readFileContent'
-import { writeFileContent } from './utils/writeFileContent'
-import { runTests } from './utils/runTests'
+const tools: ChatCompletionTool[] = [
+    {
+        type: 'function',
+        function: {
+            name: 'writeFileContent',
+            description: 'Writes content to a file at the specified path.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    filePath: { type: 'string' },
+                    content: { type: 'string' },
+                },
+                required: ['filePath', 'content'],
+                additionalProperties: false,
+            },
+            strict: true,
+        },
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'readFileContent',
+            description: 'Read content of a file at the specified path.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    filePath: { type: 'string' },
+                },
+                required: ['filePath'],
+                additionalProperties: false,
+            },
+            strict: true,
+        },
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'runTests',
+            description:
+                'Runs tests, returning if the tests passed and the stdout.',
+        },
+    },
+]
+```
 
-import OpenAI from 'openai'
-import type { ChatCompletionMessageParam } from 'openai/resources'
+Pass the tools array to our OpenAI call:
 
-const fileContent = readFileContent('tests/add.spec.ts')
-const openai = new OpenAI()
-const model = 'gpt-4o-mini'
+```ts
+const completion = await openai.chat.completions.create({
+    model,
+    messages,
+    tools,
+    tool_choice: 'required',
+})
+```
+
+> `tool_choice: 'required'` forces the model to call a tool.
+
+Adjust `messages` to explicity mention the tools and their uses:
+
+```ts
 const messages: ChatCompletionMessageParam[] = [
     {
         role: 'system',
         content: `
             You are a professional software developer that relies on well-tested code.
+
+            Once you've written the test, you should:
+            - Use the writeFileContent tool to write the function to a file
+            - Use the runTests tool to ensure the newly created function passes the tests.
+            - Use the readFileContent tool read file content and adjust
         `,
     },
     {
@@ -853,7 +921,7 @@ const messages: ChatCompletionMessageParam[] = [
         content:
             fileContent +
             `
-              Write a Typescript function that passes these tests.
+              Write Typescript functions that passes all of the tests.
               Only return executable Typescript code.
               Do not return Markdown output.
               Do not wrap code in triple backticks.
@@ -861,34 +929,4 @@ const messages: ChatCompletionMessageParam[] = [
             `,
     },
 ]
-
-let testPassed = false
-let attempts = 0
-const maxAttempts = 5
-while (!testPassed && attempts < maxAttempts) {
-    attempts++
-    const response = await openai.chat.completions.create({
-        model,
-        messages,
-    })
-
-    if (!response) {
-        console.error('Failed to get a response from the AI.')
-        break
-    } else {
-        messages.push({ role: 'assistant', content: response })
-
-        writeFileContent(outputFilePath, response)
-        const { passed, output } = await runTests(testCommand)
-        testPassed = passed
-
-        messages.push({
-            role: 'system',
-            content:
-                'Tests are failing with this output. Try again.\n\n' + output,
-        })
-    }
-}
 ```
-
-All of the code in this blog post is on [Github](https://github.com/CodyBontecou/typescript-llm4tdd-example).
