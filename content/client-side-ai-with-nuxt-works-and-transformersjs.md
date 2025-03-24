@@ -9,8 +9,10 @@ topics:
   - transformers.js
 created_at: 2025-03-24T12:25
 date: 2025-03-24T12:25
-last_modified: 2025-03-24T13:26
+last_modified: 2025-03-24T15:35
 ---
+
+> [Youtube video](https://www.youtube.com/watch?v=bV6MlWpS9-0) for those that prefer video content.
 
 This post walks you through an implementation of [NLLB-200](https://huggingface.co/Xenova/nllb-200-distilled-600M), Facebook's text-to-text translation model, in the browser.
 
