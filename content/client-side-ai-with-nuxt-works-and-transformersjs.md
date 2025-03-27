@@ -9,7 +9,7 @@ topics:
   - transformers.js
 created_at: 2025-03-24T12:25
 date: 2025-03-24T12:25
-last_modified: 2025-03-27T10:13
+last_modified: 2025-03-27T16:16
 ---
 
 > [Youtube video](https://www.youtube.com/watch?v=bV6MlWpS9-0) for those that prefer video content.
@@ -93,15 +93,9 @@ This implementation looks straightforward. However, there's a significant perfor
     - Setting up the computational graph
     - Allocating memory for the model
 
-### The Problem: Repeated Initialization
 
 In the current implementation, if you call `translate()` multiple times:
-
 - The model will be downloaded and initialized **every single time**
-- This leads to unnecessary network requests
-- Increases load times
-- Wastes computational resources
-- Creates a poor user experience
 
 ## Introducing the Singleton Pattern
 
