@@ -3,14 +3,14 @@ title: Agentic TDD in Typescript with Minimal Dependencies
 draft: false
 ignore: false
 topics:
-    - ai
-    - llm
-    - agents
-    - tdd
-    - typescript
+  - ai
+  - llm
+  - agents
+  - tdd
+  - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-16T13:08
+last_modified: 2025-03-29T11:41
 ---
 
 > [Youtube Playlist](https://youtube.com/playlist?list=PLQdX2Upwv8S4b2CIoqkqT0G9cPXNfiKg1&si=eVxYiuBGBtL2fZGl) for those that prefer video content.
@@ -888,20 +888,7 @@ const tools: ChatCompletionTool[] = [
 ]
 ```
 
-Pass the tools array to our OpenAI call:
-
-```ts
-const completion = await openai.chat.completions.create({
-    model,
-    messages,
-    tools,
-    tool_choice: 'required',
-})
-```
-
-> `tool_choice: 'required'` forces the model to call a tool.
-
-Adjust `messages` to explicity mention the tools and their uses:
+Adjust `messages` to explicitly mention the tools and their uses:
 
 ```ts
 const messages: ChatCompletionMessageParam[] = [
@@ -929,4 +916,259 @@ const messages: ChatCompletionMessageParam[] = [
             `,
     },
 ]
+```
+
+Pass the tools array to our OpenAI call:
+
+```ts
+const completion = await openai.chat.completions.create({
+    model,
+    messages,
+    tools,
+    tool_choice: 'required',
+})
+```
+
+> `tool_choice: 'required'` forces the model to call a tool.
+
+Logging `completion.choices[0].message.tool_calls` will output data like so:
+
+```bash
+[
+  {
+    id: 'call_aBqSkiD9f1nR7mo9Tihj0G7F',
+    type: 'function',
+    function: { name: 'readFileContent', arguments: '{"filePath":"../add.ts"}' }
+  }
+]
+```
+
+The model tells us which functions it wants to call via the response object's `function` parameter:
+
+```json
+{ 
+	name: 'readFileContent', 
+	arguments: '{"filePath":"../add.ts"}' 
+}
+```
+
+ We can use this value to then run the function:
+
+```ts
+const func = completion.choices[0].message.tool_calls[0].function
+let result
+
+if (func.name === 'readFileContent') {
+	result = readFileContent(JSON.parse(func.arguments).filePath)
+}
+```
+
+This is the premise of tool calling. 
+We tell the LLM about our functions (tools) and it decides which to run.
+
+We then append the response to `messages` and send it back to the LLM:
+
+```ts
+const newMessage: ChatCompletionMessageParam = {
+	role: 'tool',
+	tool_call_id: completion.choices[0].message.tool_calls[0].id,
+	content: result,
+}
+messages.push(newMessage)
+const completion = await openai.chat.completions.create({
+	model,
+	messages,
+	tools,
+	tool_choice: 'required',
+})
+```
+
+Conditionally checking the tool call's function name via a ton of if statements is clunky.
+
+Instead, we use a utility function `callFunction`:
+
+```ts
+// utils/callFunction.ts
+
+import { readFileContent } from './readFileContent'
+import { runTests } from './runTests'
+import { writeFileContent } from './writeFileContent'
+
+export const callFunction = async (name: string, args: any) => {
+    const functionMap: Record<string, (args: any) => Promise<any>> = {
+        writeFileContent: async args => {
+            return await writeFileContent(args.filePath, args.content)
+        },
+
+        runTests: async () => {
+            const { passed, testOutput } = await runTests()
+            return JSON.stringify({ passed, testOutput })
+        },
+
+        readFileContent: async args => {
+            return await readFileContent(args.filePath)
+        },
+    }
+
+    // Check if the requested function exists
+    const requestedFunction = functionMap[name]
+
+    if (requestedFunction) {
+        return await requestedFunction(args)
+    }
+
+    throw new Error(`Function ${name} not implemented`)
+}
+```
+
+Now, instead of having to conditionally run the function the LLM wants, we can parse the response, pass it to `callFunction`, and have it figure out which function to call:
+
+```ts
+const args = JSON.parse(toolCall.function.arguments)
+const result = await callFunction(toolCall.function.name, args)
+```
+
+Here's the final code snippet with tool calling:
+
+```ts
+// index.ts
+
+import OpenAI from 'openai'
+import type {
+    ChatCompletionMessageParam,
+    ChatCompletionTool,
+} from 'openai/resources'
+import { callFunction } from './utils/callFunction'
+import { readFileContent } from './utils/readFileContent'
+
+const fileContent = readFileContent('tests/add.spec.ts')
+const openai = new OpenAI()
+const model = 'gpt-4o-mini'
+const messages: ChatCompletionMessageParam[] = [
+    {
+        role: 'system',
+        content: `
+            You are a professional software developer that relies on well-tested code.
+
+            Once you've written the test, you should:
+            - Use the writeFileContent tool to write the function to a file
+            - Use the runTests tool to ensure the newly created function passes the tests.
+            - Use the readFileContent tool read file content and adjust
+        `,
+    },
+    {
+        role: 'user',
+        content:
+            fileContent +
+            `
+              Write Typescript functions that passes all of the tests.
+              Only return executable Typescript code.
+              Do not return Markdown output.
+              Do not wrap code in triple backticks.
+              Do not return YAML.
+            `,
+    },
+]
+const tools: ChatCompletionTool[] = [
+    {
+        type: 'function',
+        function: {
+            name: 'writeFileContent',
+            description: 'Writes content to a file at the specified path.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    filePath: { type: 'string' },
+                    content: { type: 'string' },
+                },
+                required: ['filePath', 'content'],
+                additionalProperties: false,
+            },
+            strict: true,
+        },
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'readFileContent',
+            description: 'Read content of a file at the specified path.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    filePath: { type: 'string' },
+                },
+                required: ['filePath'],
+                additionalProperties: false,
+            },
+            strict: true,
+        },
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'runTests',
+            description:
+                'Runs tests, returning if the tests passed and the stdout.',
+        },
+    },
+]
+
+let testPassed = false
+while (!testPassed) {
+    const completion = await openai.chat.completions.create({
+        model,
+        messages,
+        tools,
+        tool_choice: 'required',
+    })
+
+    const message = completion.choices[0].message
+    messages.push(message)
+
+    if (message.tool_calls) {
+        for (const toolCall of message.tool_calls) {
+            try {
+                const args = JSON.parse(toolCall.function.arguments)
+                console.log(
+                    `Calling ${toolCall.function.name} with ${JSON.stringify(
+                        args
+                    )}`
+                )
+                const result = await callFunction(toolCall.function.name, args)
+                const newMessage: ChatCompletionMessageParam = {
+                    role: 'tool',
+                    tool_call_id: toolCall.id,
+                    content: result,
+                }
+
+                // Explicit check on `runTests` to extract passed and testOutput from result
+                if (toolCall.function.name === 'runTests') {
+                    const { passed, testOutput } = JSON.parse(result)
+
+                    testPassed = passed
+                    newMessage.content = testOutput
+                }
+
+                messages.push(newMessage)
+            } catch (error) {
+                console.log('error: ', error)
+                messages.push({
+                    role: 'tool',
+                    tool_call_id: toolCall.id,
+                    content: JSON.stringify(error),
+                })
+            }
+        }
+    }
+
+    if (testPassed) break
+
+    if (!testPassed) {
+        messages.push({
+            role: 'user',
+            content:
+                'The tests are failing. Please fix your implementation and try again.',
+        })
+    }
+}
 ```
