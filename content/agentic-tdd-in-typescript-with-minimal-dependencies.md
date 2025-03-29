@@ -10,7 +10,7 @@ topics:
   - typescript
 created_at: 2025-03-08T12:53
 date: 2025-03-08T12:53
-last_modified: 2025-03-29T11:41
+last_modified: 2025-03-29T11:46
 ---
 
 > [Youtube Playlist](https://youtube.com/playlist?list=PLQdX2Upwv8S4b2CIoqkqT0G9cPXNfiKg1&si=eVxYiuBGBtL2fZGl) for those that prefer video content.
@@ -945,7 +945,7 @@ Logging `completion.choices[0].message.tool_calls` will output data like so:
 
 The model tells us which functions it wants to call via the response object's `function` parameter:
 
-```json
+```ts
 { 
 	name: 'readFileContent', 
 	arguments: '{"filePath":"../add.ts"}' 
