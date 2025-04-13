@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         '@nuxtjs/i18n',
         '@nuxt/icon',
         '@nuxtjs/color-mode',
-        'nuxt-og-image',
+        // 'nuxt-og-image',
         'nuxt-gtag',
     ],
     routeRules: {
