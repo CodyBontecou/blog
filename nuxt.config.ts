@@ -61,6 +61,7 @@ export default defineNuxtConfig({
         componentDir: './components/ui',
     },
     nitro: {
+        preset: 'vercel',
         prerender: {
             routes: ['/sitemap.xml', '/rss.xml'],
         },
