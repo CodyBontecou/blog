@@ -18,9 +18,10 @@ export default defineNuxtConfig({
     ],
     routeRules: {
         '/': { prerender: true },
-        '/:path*/': {
+        // Redirect *only* paths ending in `/` to their slashless equivalent
+        '/:path((?!index$).*)/': {
             redirect: {
-                to: '/:path*',
+                to: '/:path',
                 statusCode: 301,
             },
         },
