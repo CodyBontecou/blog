@@ -86,7 +86,7 @@ const scrollToSection = (id: string) => {
                     {{ post?.title }}
                 </h1>
                 <div class="text-gray-600 text-lg mb-10">
-                    {{ formatDate(post?.date) }} ·
+                    {{ formatDate(post?.created_at) }} ·
                     {{ calculateReadingTime(postBody) }}
                     {{ $t('latest.minuteRead') }}
                 </div>

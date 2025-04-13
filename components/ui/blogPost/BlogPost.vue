@@ -76,7 +76,7 @@ const suggestedArticles = computed<ParsedContent[]>(() => {
     const shuffledArray = shuffleArray(filteredArticles)
         .slice(0, remainder)
         .sort((a, b) => {
-            return new Date(b.date) - new Date(a.date)
+            return new Date(b.created_at) - new Date(a.created_at)
         })
 
     // Concatting to ensure related articles are first in suggestion
