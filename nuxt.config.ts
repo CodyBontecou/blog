@@ -18,6 +18,12 @@ export default defineNuxtConfig({
     ],
     routeRules: {
         '/': { prerender: true },
+        '/:path*/': {
+            redirect: {
+                to: '/:path*',
+                statusCode: 301,
+            },
+        },
     },
     compatibilityDate: '2024-10-24',
     css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
