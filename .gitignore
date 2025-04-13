@@ -11,3 +11,4 @@ dist
 
 # Obsidian config
 .obsidian/
+.vercel*

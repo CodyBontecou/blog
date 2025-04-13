@@ -17,8 +17,13 @@ export default defineNuxtConfig({
         'nuxt-gtag',
     ],
     routeRules: {
+        // Ensure root is prerendered
         '/': { prerender: true },
-        // Redirect *only* paths ending in `/` to their slashless equivalent
+
+        // Prerender clean (non-slash) paths
+        '/:path': { prerender: true },
+
+        // Redirect only trailing slash URLs to slashless ones
         '/:path((?!index$).*)/': {
             redirect: {
                 to: '/:path',
