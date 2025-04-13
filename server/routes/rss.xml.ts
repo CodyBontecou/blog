@@ -12,7 +12,7 @@ export default defineEventHandler(async event => {
 
     const docs = await serverQueryContent(event)
         .sort({ date: -1 })
-        .where({ draft: false, ignore: false })
+        .where({ draft: false })
         .find()
 
     for (const doc of docs) {

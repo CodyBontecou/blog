@@ -16,7 +16,7 @@ defineOgImageComponent('Frame', {
 const { data: articles } = await useAsyncData('articles', () =>
     queryContent('/')
         .sort({ date: -1 })
-        .where({ draft: { $ne: true }, ignore: { $ne: true } })
+        .where({ draft: { $ne: true } })
         .find()
 )
 // Extract unique topics from all posts

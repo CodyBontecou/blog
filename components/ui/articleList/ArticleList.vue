@@ -17,7 +17,7 @@ defineProps<Props>()
             class="flex items-baseline leading-tight mb-1"
         >
             <div class="flex-shrink-0 text-gray-600 text-md pr-6 font-mono">
-                {{ formatPostDate(article.date) }}
+                {{ formatPostDate(article.created_at) }}
             </div>
             <NuxtLink
                 :to="article._path"

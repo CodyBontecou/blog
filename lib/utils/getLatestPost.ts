@@ -5,6 +5,6 @@ export const getLatestPost = (
 ): ParsedContent | null => {
     if (!posts || !posts.length) return null
 
-    // Find first post that doesn't have ignore: true
-    return posts.find(post => !post.ignore) || null
+    // Find first post that doesn't have draft: true
+    return posts.find(post => !post.draft) || null
 }
