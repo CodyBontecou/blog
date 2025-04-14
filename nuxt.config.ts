@@ -14,24 +14,9 @@ export default defineNuxtConfig({
         '@nuxtjs/i18n',
         '@nuxt/icon',
         '@nuxtjs/color-mode',
-        // 'nuxt-og-image',
+        'nuxt-og-image',
         'nuxt-gtag',
     ],
-    // routeRules: {
-    //     // Ensure root is prerendered
-    //     '/': { prerender: true },
-
-    //     // Prerender clean (non-slash) paths
-    //     '/:path': { prerender: true },
-
-    //     // Redirect only trailing slash URLs to slashless ones
-    //     '/:path((?!index$).*)/': {
-    //         redirect: {
-    //             to: '/:path',
-    //             statusCode: 301,
-    //         },
-    //     },
-    // },
     compatibilityDate: '2024-10-24',
     css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
     content: {

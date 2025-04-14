@@ -28,9 +28,9 @@ if (!articles.value) {
 
 const articleCount = articles.value ? articles.value.length : 0
 
-// defineOgImageComponent('Frame', {
-//     title: 'Topics / ' + topic,
-// })
+defineOgImageComponent('Frame', {
+    title: 'Topics / ' + topic,
+})
 
 useSeoMeta({
     description: `${articleCount} of articles about ${topic}`,
