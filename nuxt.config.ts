@@ -64,14 +64,6 @@ export default defineNuxtConfig({
             routes: ['/sitemap.xml', '/rss.xml'],
         },
     },
-    routeRules: {
-        '/:path*.+:ext(vue|scss|ts|postcss|json|md)': {
-            redirect: {
-                to: '/',
-                statusCode: 301,
-            },
-        },
-    },
     runtimeConfig: {
         MAILCHIMP_SECRET_KEY: process.env.MAILCHIMP_SECRET_KEY,
         MAILCHIMP_API_SERVER: process.env.MAILCHIMP_API_SERVER,
