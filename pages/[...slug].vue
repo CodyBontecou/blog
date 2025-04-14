@@ -42,6 +42,10 @@ useHead({
             type: 'image/ico',
             href: '/favicon.ico',
         },
+        {
+            rel: 'canonical',
+            href: `https://codybontecou.com/${path}`,
+        },
     ],
 })
 </script>

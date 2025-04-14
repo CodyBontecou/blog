@@ -297,12 +297,12 @@ watch(isMobileMenuOpen, newValue => {
                                 <NuxtLink
                                     class="ml-1 text-gray-600 topics"
                                     v-for="(topic, index) in post?.topics"
-                                    :to="'topics/' + topic"
+                                    :to="'topics/' + topic.toLowerCase()"
                                 >
                                     <!-- GROSS -->
                                     <!-- This add a , to topic if its not the last one in the post topics -->
                                     {{
-                                        `${topic}${
+                                        `${topic.toLowerCase()}${
                                             index !== post?.topics.length - 1
                                                 ? ','
                                                 : ''
@@ -310,14 +310,14 @@ watch(isMobileMenuOpen, newValue => {
                                     }}
                                 </NuxtLink>
 
-                                <ul
+                                <!-- <ul
                                     class="ml-2 flex list-none not-prose gap-x-2"
                                 >
                                     <li
                                         class="not-prose underline hover:opacity-75 break-keep whitespace-nowrap"
                                         :key="topic"
                                     ></li>
-                                </ul>
+                                </ul> -->
                             </div>
 
                             <!-- Topics -->
