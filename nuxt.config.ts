@@ -7,6 +7,15 @@ export default defineNuxtConfig({
             enabled: true,
         },
     },
+    routeRules: {
+        // Match any path ending with .html
+        '/:path(.*).html': {
+            redirect: {
+                to: '/:path', // Redirect to same path WITHOUT .html
+                statusCode: 301,
+            },
+        },
+    },
     modules: [
         '@nuxt/content',
         '@nuxtjs/tailwindcss',
