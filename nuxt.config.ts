@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    ssr: false,
+    ssr: true,
     devtools: {
         enabled: true,
         timeline: {
@@ -83,10 +83,6 @@ export default defineNuxtConfig({
         MAILCHIMP_SECRET_KEY: process.env.MAILCHIMP_SECRET_KEY,
         MAILCHIMP_API_SERVER: process.env.MAILCHIMP_API_SERVER,
         MAILCHIMP_AUDIENCE_ID: process.env.MAILCHIMP_AUDIENCE_ID,
-    },
-    site: {
-        url: 'https://codybontecou.com',
-        name: 'Cody Bontecou',
     },
     gtag: {
         id: 'G-3NM0E524EK',
