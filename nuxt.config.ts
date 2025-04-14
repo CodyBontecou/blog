@@ -7,15 +7,6 @@ export default defineNuxtConfig({
             enabled: true,
         },
     },
-    routeRules: {
-        // Match any path ending with .html
-        '/:path(.*).html': {
-            redirect: {
-                to: '/:path', // Redirect to same path WITHOUT .html
-                statusCode: 301,
-            },
-        },
-    },
     modules: [
         '@nuxt/content',
         '@nuxtjs/tailwindcss',
@@ -71,6 +62,15 @@ export default defineNuxtConfig({
         preset: 'vercel',
         prerender: {
             routes: ['/sitemap.xml', '/rss.xml'],
+        },
+        routeRules: {
+            // Match any path ending with .html
+            '/:path*.+:ext(vue|scss|ts|postcss)': {
+                redirect: {
+                    to: '/:path', // Redirect to same path WITHOUT .html
+                    statusCode: 301,
+                },
+            },
         },
     },
     runtimeConfig: {
