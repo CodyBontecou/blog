@@ -63,13 +63,12 @@ export default defineNuxtConfig({
         prerender: {
             routes: ['/sitemap.xml', '/rss.xml'],
         },
-        routeRules: {
-            // Match any path ending with .html
-            '/:path*.+:ext(vue|scss|ts|postcss)': {
-                redirect: {
-                    to: '/:path', // Redirect to same path WITHOUT .html
-                    statusCode: 301,
-                },
+    },
+    routeRules: {
+        '/:path*.+:ext(vue|scss|ts|postcss|json|md)': {
+            redirect: {
+                to: '/',
+                statusCode: 301,
             },
         },
     },
