@@ -18,7 +18,7 @@ const postTopics: string[] = post.value?.topics
 
 const { data: allArticles } = await useAsyncData('allArticles', () =>
     queryContent('/')
-        .sort({ date: -1 })
+        .sort({ created_at: -1 })
         .where({ draft: { $ne: true } })
         .find()
 )

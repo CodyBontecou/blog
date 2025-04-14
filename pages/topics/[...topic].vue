@@ -15,7 +15,7 @@ const { data: articles } = await useAsyncData(`post-${route.path}`, () =>
                 ],
             },
         })
-        .sort({ date: -1 })
+        .sort({ created_at: -1 })
         .find()
 )
 

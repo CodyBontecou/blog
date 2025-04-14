@@ -233,14 +233,14 @@ const updateFrontmatter = async (filePath: string): Promise<void> => {
 const currentDir = process.cwd()
 const files = fs.readdirSync(currentDir)
 
-console.log('Starting frontmatter updates...')
-;(async () => {
-    for (const file of files) {
-        const filePath = path.join(currentDir, file)
-        if (fs.statSync(filePath).isFile() && isMarkdownFile(file)) {
-            await updateFrontmatter(filePath)
-        }
-    }
+// console.log('Starting frontmatter updates...')
+// ;(async () => {
+//     for (const file of files) {
+//         const filePath = path.join(currentDir, file)
+//         if (fs.statSync(filePath).isFile() && isMarkdownFile(file)) {
+//             await updateFrontmatter(filePath)
+//         }
+//     }
 
-    console.log('Finished processing all markdown files.')
-})()
+//     console.log('Finished processing all markdown files.')
+// })()

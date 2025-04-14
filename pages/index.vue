@@ -15,7 +15,7 @@ const { t } = useI18n()
 // Fetch all posts sorted by date and ignoring where draft is true
 const { data: articles } = await useAsyncData('articles', () =>
     queryContent('/')
-        .sort({ date: -1 })
+        .sort({ created_at: -1 })
         .where({ draft: { $ne: true } })
         .find()
 )
@@ -26,7 +26,7 @@ const latestArticle = getLatestPost(articles.value)
 const postBody = computed(() => getPostBody(latestArticle?.body))
 
 const formattedDateWithMonth = formatDateWithMonth(
-    latestArticle.date || latestArticle.created_at,
+    latestArticle.created_at,
     calculateReadingTime(postBody.value),
     t
 )

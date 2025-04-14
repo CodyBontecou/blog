@@ -11,7 +11,7 @@ export default defineEventHandler(async event => {
     })
 
     const docs = await serverQueryContent(event)
-        .sort({ date: -1 })
+        .sort({ created_at: -1 })
         .where({ draft: false })
         .find()
 
