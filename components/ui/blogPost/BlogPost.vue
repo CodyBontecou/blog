@@ -6,82 +6,62 @@ import { getPostBody } from '~/lib/utils/getPostBody'
 import type { ParsedContent } from '@nuxt/content'
 
 // Get the current route params
-const { path } = useRoute()
+const route = useRoute()
 
 // Fetch the post data
-const { data: post } = await useAsyncData(`post-${path}`, () =>
-    queryContent(path).findOne()
+const { data: post } = await useAsyncData('post', () =>
+    queryContent(`/${route.params.slug}`).findOne()
 )
 
-// Extract topics and create an array of queries
-const postTopics: string[] = post.value?.topics
+const postTopics = computed(() => (post.value?.topics as string[]) || [])
 
-const { data: allArticles } = await useAsyncData('allArticles', () =>
-    queryContent('/')
-        .sort({ created_at: -1 })
-        .where({ draft: { $ne: true } })
-        .find()
-)
+const { data: allArticles } = await useAsyncData(
+    'allArticles',
+    async () => {
+        const all = await queryContent('/') // Ensure you are querying the correct path
+            .sort({ created_at: -1 })
+            .where({ draft: { $ne: true } })
+            .find()
 
-const similarArticles = computed(() => {
-    return allArticles.value
-        ?.filter(article => {
-            // Skip if it's the same article
-            if (article.title === post.value?.title) return false
+        if (!post.value) {
+            return all // Return all if the post data isn't available yet (shouldn't happen often)
+        }
 
-            // Handle cases where topics might be undefined/null
-            const articleTopics = article.topics || []
-            const currentPostTopics = postTopics || []
-
-            // Only check topic overlap if both articles have topics
-            return (
-                articleTopics.length > 0 &&
-                currentPostTopics.length > 0 &&
-                articleTopics.some((topic: string) =>
-                    currentPostTopics.includes(topic)
+        const similar = all
+            .filter(article => {
+                if (article.title === post.value?.title) return false
+                const articleTopics = article.topics || []
+                const currentPostTopics = postTopics.value || []
+                return (
+                    articleTopics.length > 0 &&
+                    currentPostTopics.length > 0 &&
+                    articleTopics.some((topic: string) =>
+                        currentPostTopics.includes(topic)
+                    )
                 )
+            })
+            .slice(0, 5)
+
+        // For the remaining slots, we can't do true random on the server.
+        // A simple approach is to take the next few articles based on the existing sort order.
+        const remainder = 5 - similar.length
+        const additional = all
+            .filter(
+                article =>
+                    !similar.map(a => a.title).includes(article.title) &&
+                    article.title !== post.value?.title
             )
-        })
-        .slice(0, 5)
-})
+            .slice(5, 5 + remainder) // Take articles after the initial 5 (excluding similar)
 
-/*
-Return similar if there are 5
-Otherwise randomly inserts additional articles
-*/
-const suggestedArticles = computed<ParsedContent[]>(() => {
-    const suggestedLength = 5
-
-    if (similarArticles.value.length === suggestedLength) {
-        return similarArticles.value
+        return [...similar, ...additional].slice(0, 5) // Combine and ensure max 5
+    },
+    {
+        // Pass the post title as a key dependency to re-run when the post loads
+        watch: [() => post.value?.title],
     }
+)
 
-    // Remaining amount that we need to randomly find
-    const remainder = suggestedLength - similarArticles.value.length
-
-    /*
-    Making sure none of the randomly selected articles are the same as
-    the similarArticles
-    */
-    const filteredArticles = allArticles.value?.filter(
-        article =>
-            !similarArticles.value.map(a => a.title).includes(article.title)
-    )
-
-    /*
-    Shuffling filteredArticles array to ensure added articles are random
-    getting the remainder of the suggested article length
-    then sorting the array to
-    */
-    const shuffledArray = shuffleArray(filteredArticles)
-        .slice(0, remainder)
-        .sort((a, b) => {
-            return new Date(b.created_at) - new Date(a.created_at)
-        })
-
-    // Concatting to ensure related articles are first in suggestion
-    return similarArticles.value.concat(shuffledArray)
-})
+const suggestedArticles = computed(() => allArticles.value)
 
 const postBody = computed(() => getPostBody(post.value?.body))
 
