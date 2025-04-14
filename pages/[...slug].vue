@@ -18,10 +18,10 @@ if (!post.value) {
     })
 }
 
-defineOgImageComponent('BlogPost', {
-    title: post.value?.title ?? '',
-    description: getFirstParagraphText(post.value?.body),
-})
+// defineOgImageComponent('BlogPost', {
+//     title: post.value?.title ?? '',
+//     description: getFirstParagraphText(post.value?.body),
+// })
 
 useSeoMeta({
     description: getFirstParagraphText(post.value?.body),
