@@ -72,4 +72,16 @@ export default defineNuxtConfig({
     gtag: {
         id: 'G-3NM0E524EK',
     },
+    app: {
+        head: {
+            link: [
+                {
+                    rel: 'alternate',
+                    type: 'application/rss+xml',
+                    title: 'Cody Bontecou RSS Feed',
+                    href: '/rss.xml',
+                },
+            ],
+        },
+    },
 })
