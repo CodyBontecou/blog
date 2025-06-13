@@ -2,6 +2,7 @@
 import { capitalizeFirstLetter } from '~/lib/utils/capitalizeFirstLetter'
 
 const route = useRoute()
+const config = useRuntimeConfig()
 const topic = route.params.topic[0]
 
 const { data: articles } = await useAsyncData(`post-${route.path}`, () =>
@@ -38,7 +39,7 @@ useSeoMeta({
     ogDescription: `${articleCount} of articles about ${topic}`,
     twitterTitle: 'Topics / ' + topic,
     twitterDescription: `${articleCount} of articles about ${topic}`,
-    twitterCard: 'summary',
+    twitterCard: 'summary_large_image',
 })
 
 useHead({
@@ -53,7 +54,7 @@ useHead({
         },
         {
             rel: 'canonical',
-            href: `https://codybontecou.com/${route.path}`,
+            href: `${config.public.siteUrl}${route.path}`,
         },
     ],
 })

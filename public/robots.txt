@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+Sitemap: https://codybontecou.com/sitemap.xml

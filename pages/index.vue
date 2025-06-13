@@ -7,9 +7,34 @@ import { getPostBody } from '~/lib/utils/getPostBody'
 import { getTopics } from '~/lib/utils/getTopics'
 
 const { t } = useI18n()
+const config = useRuntimeConfig()
+
 defineOgImageComponent('Frame', {
     title: 'Cody Bontecou',
     description: 'is enjoying life.',
+})
+
+useHead({
+    link: [
+        {
+            rel: 'canonical',
+            href: config.public.siteUrl,
+        },
+    ],
+})
+
+// Add organization structured data
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Cody Bontecou',
+    url: config.public.siteUrl,
+    sameAs: [
+        'https://github.com/CodyBontecou',
+        'https://twitter.com/CodyBontecou',
+    ],
+    jobTitle: 'Software Developer',
+    description: 'Software developer and content creator.',
 })
 
 // Fetch all posts sorted by date and ignoring where draft is true
@@ -37,7 +62,7 @@ useSeoMeta({
     ogDescription: 'is enjoying life',
     twitterTitle: 'Cody Bontecou | Blog',
     twitterDescription: 'is enjoying life',
-    twitterCard: 'summary',
+    twitterCard: 'summary_large_image',
 })
 
 useHead({

@@ -68,6 +68,9 @@ export default defineNuxtConfig({
         MAILCHIMP_SECRET_KEY: process.env.MAILCHIMP_SECRET_KEY,
         MAILCHIMP_API_SERVER: process.env.MAILCHIMP_API_SERVER,
         MAILCHIMP_AUDIENCE_ID: process.env.MAILCHIMP_AUDIENCE_ID,
+        public: {
+            siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://codybontecou.com'
+        }
     },
     gtag: {
         id: 'G-3NM0E524EK',

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const config = useRuntimeConfig()
 
 useSeoMeta({
     description:
@@ -10,7 +11,7 @@ useSeoMeta({
     twitterTitle: 'About me | Cody Bontecou',
     twitterDescription:
         'A bit about myself and a directory that may lead you to better understand me.',
-    twitterCard: 'summary',
+    twitterCard: 'summary_large_image',
 })
 
 useHead({
@@ -22,6 +23,10 @@ useHead({
             rel: 'icon',
             type: 'image/ico',
             href: '/favicon.ico',
+        },
+        {
+            rel: 'canonical',
+            href: `${config.public.siteUrl}/about`,
         },
     ],
 })

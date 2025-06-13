@@ -5,6 +5,7 @@ import { getFirstParagraphText } from '~/lib/utils/getFirstParagraphText'
 
 // Get the current route params
 const { path } = useRoute()
+const config = useRuntimeConfig()
 
 // Fetch the post data
 const { data: post } = await useAsyncData(`post-${path}`, () =>
@@ -23,13 +24,37 @@ defineOgImageComponent('BlogPost', {
     description: getFirstParagraphText(post.value?.body),
 })
 
+// Add structured data for blog posts
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.value?.title,
+    description: getFirstParagraphText(post.value?.body),
+    author: {
+        '@type': 'Person',
+        name: 'Cody Bontecou',
+        url: config.public.siteUrl,
+    },
+    datePublished: post.value?.date || post.value?.created_at,
+    dateModified: post.value?.updatedAt || post.value?.date || post.value?.created_at,
+    publisher: {
+        '@type': 'Person',
+        name: 'Cody Bontecou',
+        url: config.public.siteUrl,
+    },
+    mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${config.public.siteUrl}${path}`,
+    },
+})
+
 useSeoMeta({
     description: getFirstParagraphText(post.value?.body),
     ogTitle: post.value?.title,
     ogDescription: getFirstParagraphText(post.value?.body),
     twitterTitle: post.value?.title,
     twitterDescription: getFirstParagraphText(post.value?.body),
-    twitterCard: 'summary',
+    twitterCard: 'summary_large_image',
 })
 
 useHead({
@@ -44,7 +69,7 @@ useHead({
         },
         {
             rel: 'canonical',
-            href: `https://codybontecou.com/${path}`,
+            href: `${config.public.siteUrl}${path}`,
         },
     ],
 })

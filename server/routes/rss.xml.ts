@@ -2,7 +2,8 @@ import { serverQueryContent } from '#content/server'
 import RSS from 'rss'
 
 export default defineEventHandler(async event => {
-    const baseUrl = 'https://codybontecou.com'
+    const config = useRuntimeConfig()
+    const baseUrl = config.public.siteUrl
 
     const feed = new RSS({
         title: 'Cody Bontecou',
