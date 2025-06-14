@@ -12,12 +12,17 @@ export default defineEventHandler(async event => {
     for (const doc of docs) {
         // Skip draft posts
         if (doc.draft) continue
-        
+
         sitemap.write({
             url: doc._path!,
             changefreq: 'monthly',
             lastmod: doc.updatedAt || doc.date || new Date().toISOString(),
-            priority: doc._path === '/' ? 1.0 : doc._path?.startsWith('/blog/') ? 0.8 : 0.6
+            priority:
+                doc._path === '/'
+                    ? 1.0
+                    : doc._path?.startsWith('/blog/')
+                      ? 0.8
+                      : 0.6,
         })
     }
     sitemap.end()
