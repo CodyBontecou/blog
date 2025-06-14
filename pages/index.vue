@@ -85,9 +85,9 @@ definePageMeta({
 </script>
 
 <template>
-    <div class="h-screen flex flex-col overflow-hidden">
-        <div class="flex-1 mx-auto max-w-7xl w-full py-16 px-4 sm:px-6 lg:px-8 lg:py-0 lg:h-full lg:overflow-hidden">
-            <div class="h-full lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+    <div class="lg:h-screen lg:flex lg:flex-col lg:overflow-hidden">
+        <div class="mx-auto max-w-7xl w-full py-16 px-4 sm:px-6 lg:px-8 lg:py-0 lg:h-full lg:flex-1 lg:overflow-hidden">
+            <div class="lg:h-full lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
                 <!-- Left Column -->
                 <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0 lg:h-full lg:overflow-y-auto lg:pr-4">
                     <div class="lg:py-16">
