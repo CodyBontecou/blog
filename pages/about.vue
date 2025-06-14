@@ -161,9 +161,8 @@ const allLinks = [
         <p class="my-4">
             This site is written and editted using
             <a class="underline" href="https://obsidian.md" target="_blank">
-                Obsidian
-            </a>
-            . I strive to stay inline the with philosophy of
+                Obsidian</a
+            >. I strive to stay inline the with philosophy of
             <a
                 class="underline"
                 href="https://stephango.com/file-over-app"
@@ -194,7 +193,7 @@ const allLinks = [
             >
             and
             <a class="underline" href="https://vercel.com/" target="_blank">
-                Vercel </a
+                Vercel</a
             >.
         </p>
         <p class="my-4">
