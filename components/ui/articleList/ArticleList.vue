@@ -3,7 +3,7 @@ import { formatPostDate } from '~/lib/utils/formatPostDate'
 import type { ParsedContent } from '@nuxt/content'
 
 interface Props {
-    articles: globalThis.ComputedRef<ParsedContent[]>
+    articles: ParsedContent[]
 }
 
 defineProps<Props>()

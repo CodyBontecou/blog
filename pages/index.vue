@@ -85,97 +85,101 @@ definePageMeta({
 </script>
 
 <template>
-    <div class="h-full mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
-        <div class="lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
-            <!-- Left Column -->
-            <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0 lg:pr-8">
-                <div class="lg:fixed lg:max-w-lg lg:pr-8">
-                    <!-- Hero, description -->
-                    <div class="mb-4">
-                        <h1
-                            class="mb-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
-                        >
-                            {{ $t('landing.hero') }}
-                        </h1>
-                        <p class="text-lg italic leading-8 text-gray-600">
-                            {{ $t('landing.description') }}
-                        </p>
-                    </div>
-
-                    <!-- CTA, learn more -->
-                    <div class="mb-8 flex items-center gap-x-2.5 w-full">
-                        <NuxtLink to="/">
-                            <Button>
-                                {{ $t('landing.cta') }}
-                            </Button>
-                        </NuxtLink>
-                        <NuxtLink to="about">
-                            <Button variant="outline">
-                                {{ $t('landing.learnMore') }}
-                            </Button>
-                        </NuxtLink>
-                    </div>
-
-                    <!-- Latest -->
-                    <section v-if="latestArticle" class="mb-16 w-full">
-                        <h2 class="text-gray-600 mb-6">
-                            {{ $t('latest.latest') }}
-                        </h2>
-                        <article>
-                            <h3 class="text-xl font-medium mb-2">
-                                <NuxtLink
-                                    :to="latestArticle._path"
-                                    class="hover:opacity-75"
-                                >
-                                    {{ latestArticle.title }}
-                                </NuxtLink>
-                            </h3>
-                            <div class="text-gray-600 mb-4">
-                                {{ formattedDateWithMonth }}
-                            </div>
-                            <p class="text-gray-600">
-                                {{ getFirstParagraphText(latestArticle.body) }}
-                                <NuxtLink
-                                    :to="latestArticle._path"
-                                    class="text-gray-900 hover:opacity-75"
-                                >
-                                    {{ $t('latest.keepReading') }}
-                                </NuxtLink>
-                            </p>
-                        </article>
-                    </section>
-
-                    <!-- Topics -->
-                    <section
-                        v-if="topics.length"
-                        class="mb-16 w-full"
-                        style="min-height: 0"
-                    >
-                        <h2 class="text-lg text-gray-600">
-                            {{ $t('topics.topics') }}
-                        </h2>
-                        <div
-                            class="mt-6 flex flex-wrap gap-2 md:max-h-64 lg:max-h-96 overflow-y-auto pr-2"
-                        >
-                            <NuxtLink
-                                v-for="topic in topics"
-                                :key="topic"
-                                :to="`/topics/${topic}`"
-                                class="underline hover:opacity-75 break-keep"
+    <div class="h-screen flex flex-col overflow-hidden">
+        <div class="flex-1 mx-auto max-w-7xl w-full py-16 px-4 sm:px-6 lg:px-8 lg:py-0 lg:h-full lg:overflow-hidden">
+            <div class="h-full lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+                <!-- Left Column -->
+                <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0 lg:h-full lg:overflow-y-auto lg:pr-4">
+                    <div class="lg:py-16">
+                        <!-- Hero, description -->
+                        <div class="mb-4">
+                            <h1
+                                class="mb-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
                             >
-                                {{ topic }}
+                                {{ $t('landing.hero') }}
+                            </h1>
+                            <p class="text-lg italic leading-8 text-gray-600">
+                                {{ $t('landing.description') }}
+                            </p>
+                        </div>
+
+                        <!-- CTA, learn more -->
+                        <div class="mb-8 flex items-center gap-x-2.5 w-full">
+                            <NuxtLink to="/">
+                                <Button>
+                                    {{ $t('landing.cta') }}
+                                </Button>
+                            </NuxtLink>
+                            <NuxtLink to="about">
+                                <Button variant="outline">
+                                    {{ $t('landing.learnMore') }}
+                                </Button>
                             </NuxtLink>
                         </div>
-                    </section>
-                </div>
-            </div>
 
-            <!-- Right Column -->
-            <div class="max-w-lg mx-auto lg:mt-0">
-                <h2 class="mb-6 text-lg text-gray-600">
-                    {{ $t('writing.writing') }}
-                </h2>
-                <ArticleList :articles="articles" />
+                        <!-- Latest -->
+                        <section v-if="latestArticle" class="mb-16 w-full">
+                            <h2 class="text-gray-600 mb-6">
+                                {{ $t('latest.latest') }}
+                            </h2>
+                            <article>
+                                <h3 class="text-xl font-medium mb-2">
+                                    <NuxtLink
+                                        :to="latestArticle._path"
+                                        class="hover:opacity-75"
+                                    >
+                                        {{ latestArticle.title }}
+                                    </NuxtLink>
+                                </h3>
+                                <div class="text-gray-600 mb-4">
+                                    {{ formattedDateWithMonth }}
+                                </div>
+                                <p class="text-gray-600">
+                                    {{ getFirstParagraphText(latestArticle.body) }}
+                                    <NuxtLink
+                                        :to="latestArticle._path"
+                                        class="text-gray-900 hover:opacity-75"
+                                    >
+                                        {{ $t('latest.keepReading') }}
+                                    </NuxtLink>
+                                </p>
+                            </article>
+                        </section>
+
+                        <!-- Topics -->
+                        <section
+                            v-if="topics.length"
+                            class="mb-16 w-full"
+                            style="min-height: 0"
+                        >
+                            <h2 class="text-lg text-gray-600">
+                                {{ $t('topics.topics') }}
+                            </h2>
+                            <div
+                                class="mt-6 flex flex-wrap gap-2"
+                            >
+                                <NuxtLink
+                                    v-for="topic in topics"
+                                    :key="topic"
+                                    :to="`/topics/${topic}`"
+                                    class="underline hover:opacity-75 break-keep"
+                                >
+                                    {{ topic }}
+                                </NuxtLink>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="max-w-lg mx-auto lg:mt-0 lg:h-full lg:overflow-y-auto lg:pl-4">
+                    <div class="lg:py-16">
+                        <h2 class="mb-6 text-lg text-gray-600">
+                            {{ $t('writing.writing') }}
+                        </h2>
+                        <ArticleList v-if="articles" :articles="articles" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
