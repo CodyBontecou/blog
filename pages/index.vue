@@ -86,10 +86,10 @@ definePageMeta({
 
 <template>
     <div class="h-full mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
-        <div class="lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-12">
+        <div class="lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
             <!-- Left Column -->
-            <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0">
-                <div class="lg:fixed lg:max-w-lg">
+            <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0 lg:pr-8">
+                <div class="lg:fixed lg:max-w-lg lg:pr-8">
                     <!-- Hero, description -->
                     <div class="mb-4">
                         <h1
@@ -155,7 +155,7 @@ definePageMeta({
                             {{ $t('topics.topics') }}
                         </h2>
                         <div
-                            class="mt-6 flex flex-wrap gap-2 md:max-h-64 overflow-y-auto"
+                            class="mt-6 flex flex-wrap gap-2 md:max-h-64 lg:max-h-96 overflow-y-auto pr-2"
                         >
                             <NuxtLink
                                 v-for="topic in topics"
