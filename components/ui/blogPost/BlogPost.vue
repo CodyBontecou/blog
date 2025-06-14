@@ -8,12 +8,10 @@ import type { ParsedContent } from '@nuxt/content'
 // Get the current route params
 const route = useRoute()
 
-// Fetch the post data
-const { data: post } = await useAsyncData('post', () =>
-    queryContent(`/${route.params.slug}`).findOne()
-)
+// Get post data from the parent page
+const post = await queryContent(route.path).findOne()
 
-const postTopics = computed(() => (post.value?.topics as string[]) || [])
+const postTopics = computed(() => (post?.topics as string[]) || [])
 
 const { data: allArticles } = await useAsyncData(
     'allArticles',
@@ -23,13 +21,13 @@ const { data: allArticles } = await useAsyncData(
             .where({ draft: { $ne: true } })
             .find()
 
-        if (!post.value) {
+        if (!post) {
             return all // Return all if the post data isn't available yet (shouldn't happen often)
         }
 
         const similar = all
             .filter(article => {
-                if (article.title === post.value?.title) return false
+                if (article.title === post?.title) return false
                 const articleTopics = article.topics || []
                 const currentPostTopics = postTopics.value || []
                 return (
@@ -49,7 +47,7 @@ const { data: allArticles } = await useAsyncData(
             .filter(
                 article =>
                     !similar.map(a => a.title).includes(article.title) &&
-                    article.title !== post.value?.title
+                    article.title !== post?.title
             )
             .slice(5, 5 + remainder) // Take articles after the initial 5 (excluding similar)
 
@@ -57,13 +55,13 @@ const { data: allArticles } = await useAsyncData(
     },
     {
         // Pass the post title as a key dependency to re-run when the post loads
-        watch: [() => post.value?.title],
+        watch: [() => post?.title],
     }
 )
 
 const suggestedArticles = computed(() => allArticles.value)
 
-const postBody = computed(() => getPostBody(post.value?.body))
+const postBody = computed(() => getPostBody(post?.body))
 
 // TableOfContents
 const isMobileMenuOpen = ref(false)
@@ -73,8 +71,8 @@ const tocLinks = ref<string[]>([])
 
 // Get all headings from the article
 const headings = computed(() => {
-    if (!post.value?.body?.toc?.links) return []
-    return post.value.body.toc.links
+    if (!post?.body?.toc?.links) return []
+    return post.body.toc.links
 })
 
 onMounted(() => {
