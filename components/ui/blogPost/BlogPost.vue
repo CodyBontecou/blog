@@ -267,35 +267,21 @@ watch(isMobileMenuOpen, newValue => {
                             <h1 class="text-4xl font-normal mb-4">
                                 {{ post?.title }}
                             </h1>
-                            <div class="text-gray-600 text-lg flex mb-10">
-                                {{ formatDate(post?.created_at) }} ·
-                                {{ calculateReadingTime(postBody) }}
-                                {{ $t('latest.minuteRead') }} ·
-
-                                <NuxtLink
-                                    class="ml-1 text-gray-600 topics"
-                                    v-for="(topic, index) in post?.topics"
-                                    :to="'topics/' + topic.toLowerCase()"
-                                >
-                                    <!-- GROSS -->
-                                    <!-- This add a , to topic if its not the last one in the post topics -->
-                                    {{
-                                        `${topic.toLowerCase()}${
-                                            index !== post?.topics.length - 1
-                                                ? ','
-                                                : ''
-                                        }`
-                                    }}
-                                </NuxtLink>
-
-                                <!-- <ul
-                                    class="ml-2 flex list-none not-prose gap-x-2"
-                                >
-                                    <li
-                                        class="not-prose underline hover:opacity-75 break-keep whitespace-nowrap"
-                                        :key="topic"
-                                    ></li>
-                                </ul> -->
+                            <div class="text-gray-600 text-base sm:text-lg flex flex-wrap items-center gap-x-2 mb-10">
+                                <span class="whitespace-nowrap">
+                                    {{ formatDate(post?.created_at) }} ·
+                                    {{ calculateReadingTime(postBody) }}
+                                    {{ $t('latest.minuteRead') }}
+                                </span>
+                                <span class="hidden sm:inline">·</span>
+                                <div class="flex flex-wrap gap-x-2 gap-y-1 mt-1 sm:mt-0">
+                                    <NuxtLink
+                                        class="text-gray-600 topics hover:underline"
+                                        v-for="(topic, index) in post?.topics"
+                                        :to="'/topics/' + topic.toLowerCase()"
+                                    >{{ topic.toLowerCase() }}<span v-if="index !== post?.topics.length - 1">,</span>
+                                    </NuxtLink>
+                                </div>
                             </div>
 
                             <!-- Topics -->
