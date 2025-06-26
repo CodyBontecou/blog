@@ -75,6 +75,9 @@ export default defineNuxtConfig({
     },
 
 
+    site: {
+        url: process.env.NUXT_PUBLIC_SITE_URL || 'https://codybontecou.com',
+    },
     runtimeConfig: {
         MAILCHIMP_SECRET_KEY: process.env.MAILCHIMP_SECRET_KEY,
         MAILCHIMP_API_SERVER: process.env.MAILCHIMP_API_SERVER,
