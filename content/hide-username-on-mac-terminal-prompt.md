@@ -22,14 +22,14 @@ meta:
     content: Hide username on Mac terminal prompt
   - name: twitter:text:title
     content: Hide username on Mac terminal prompt
-canonicalUrl: https://codybontecou.com/hide-username-on-mac-terminal-prompt.html
+canonicalUrl: https://codybontecou.com/hide-username-on-mac-terminal-prompt
 topics:
   - Terminal
   - Zsh
   - CLI
   - Minimalism
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 Minimal setups are great when trying to focus. The standard terminal window can get cluttered. In this tutorial, I will show you how to configure your terminal window to go from this:
 

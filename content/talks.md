@@ -28,11 +28,11 @@ meta:
     content: Conferences I have spoken at
   - name: twitter:text:title
     content: Conferences I have spoken at
-canonicalUrl: https://codybontecou.com/talks.html
+canonicalUrl: https://codybontecou.com/talks
 topics:
   - talks
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T07:59
 ---
 
 > A list of conferences I've talked at

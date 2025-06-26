@@ -26,9 +26,9 @@ meta:
     content: Set up Google Analytics with Vitepress
   - name: twitter:text:title
     content: Set up Google Analytics with Vitepress
-canonicalUrl: https://codybontecou.com/set-up-google-analytics-with-vitepress.html
+canonicalUrl: https://codybontecou.com/set-up-google-analytics-with-vitepress
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 
 ## Code Snippet

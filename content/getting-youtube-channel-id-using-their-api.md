@@ -9,7 +9,7 @@ title: Getting Youtube Channel ID Using Their API
 description: Getting a youtube channel's Channel Id using the Youtube v3 API.
 slug: getting-youtube-channel-id-using-their-api
 dropdown: Youtube
-canonicalUrl: https://codybontecou.com/getting-youtube-channel-id-using-their-api.html
+canonicalUrl: https://codybontecou.com/getting-youtube-channel-id-using-their-api
 meta:
   - name: og:description
     content: Getting a youtube channel's Channel Id using the Youtube v3 API.
@@ -26,7 +26,7 @@ meta:
 topics:
   - youtube
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 
 This is for people wanting to programmatically get the Channel ID of a Youtube Channel using Youtube's API and a Youtube Channel name.

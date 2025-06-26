@@ -27,9 +27,9 @@ meta:
     content: Integrating Nuxt Bridge into a Nuxt 2 Project
   - name: twitter:text:title
     content: Integrating Nuxt Bridge into a Nuxt 2 Project
-canonicalUrl: https://codybontecou.com/integrating-nuxt-bridge-with-nuxt2.html
+canonicalUrl: https://codybontecou.com/integrating-nuxt-bridge-with-nuxt2
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 
 ## Motivation

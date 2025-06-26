@@ -22,12 +22,12 @@ meta:
     content: Disable Video Recording on Cypress Run
   - name: twitter:text:title
     content: Disable Video Recording on Cypress Run
-canonicalUrl: https://codybontecou.com/disable-video-recording-on-cypress-run.html
+canonicalUrl: https://codybontecou.com/disable-video-recording-on-cypress-run
 topics:
   - Cypress
   - Configuration
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:01
 ---
 
 ## Code Snippet

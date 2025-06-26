@@ -28,13 +28,13 @@ meta:
     content: Using URL Query Params in Nuxt 3
   - name: twitter:text:title
     content: Using URL Query Params in Nuxt 3
-canonicalUrl: https://codybontecou.com/using-url-query-params-in-nuxt-3.html
+canonicalUrl: https://codybontecou.com/using-url-query-params-in-nuxt-3
 topics:
   - nuxt
   - vue-router
   - composition
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T07:59
 ---
 
 > This is a continuation of my previous [post](https://codybontecou.com/silently-update-url-nuxt-3.html) on how to set query parameters in Nuxt 3. We'll be continuing with the code written there so make sure you check it out.

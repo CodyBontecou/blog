@@ -86,10 +86,16 @@ definePageMeta({
 
 <template>
     <div class="lg:h-screen lg:flex lg:flex-col lg:overflow-hidden">
-        <div class="mx-auto max-w-7xl w-full py-16 px-4 sm:px-6 lg:px-8 lg:py-0 lg:h-full lg:flex-1 lg:overflow-hidden">
-            <div class="lg:h-full lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+        <div
+            class="mx-auto max-w-7xl w-full py-16 px-4 sm:px-6 lg:px-8 lg:py-0 lg:h-full lg:flex-1 lg:overflow-hidden"
+        >
+            <div
+                class="lg:h-full lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16"
+            >
                 <!-- Left Column -->
-                <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0 lg:h-full lg:overflow-y-auto lg:pr-4">
+                <div
+                    class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0 lg:h-full lg:overflow-y-auto lg:pr-4"
+                >
                     <div class="lg:py-16">
                         <!-- Hero, description -->
                         <div class="mb-4">
@@ -135,7 +141,11 @@ definePageMeta({
                                     {{ formattedDateWithMonth }}
                                 </div>
                                 <p class="text-gray-600">
-                                    {{ getFirstParagraphText(latestArticle.body) }}
+                                    {{
+                                        getFirstParagraphText(
+                                            latestArticle.body
+                                        )
+                                    }}
                                     <NuxtLink
                                         :to="latestArticle._path"
                                         class="text-gray-900 hover:opacity-75"
@@ -155,9 +165,7 @@ definePageMeta({
                             <h2 class="text-lg text-gray-600">
                                 {{ $t('topics.topics') }}
                             </h2>
-                            <div
-                                class="mt-6 flex flex-wrap gap-2"
-                            >
+                            <div class="mt-6 flex flex-wrap gap-2">
                                 <NuxtLink
                                     v-for="topic in topics"
                                     :key="topic"
@@ -172,7 +180,9 @@ definePageMeta({
                 </div>
 
                 <!-- Right Column -->
-                <div class="max-w-lg mx-auto lg:mt-0 lg:h-full lg:overflow-y-auto lg:pl-4">
+                <div
+                    class="max-w-lg mx-auto lg:mt-0 lg:h-full lg:overflow-y-auto lg:pl-4"
+                >
                     <div class="lg:py-16">
                         <h2 class="mb-6 text-lg text-gray-600">
                             {{ $t('writing.writing') }}

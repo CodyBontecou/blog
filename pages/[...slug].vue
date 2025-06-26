@@ -69,7 +69,7 @@ useHead({
         },
         {
             rel: 'canonical',
-            href: `${config.public.siteUrl}${path}`,
+            href: post.value?.canonicalUrl || `${config.public.siteUrl}${path}`,
         },
     ],
 })

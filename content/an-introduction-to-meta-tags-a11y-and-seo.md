@@ -21,12 +21,12 @@ meta:
     content: An Introduction to Meta Tags, A11y, and SEO
   - name: twitter:text:title
     content: An Introduction to Meta Tags, A11y, and SEO
-canonicalUrl: https://codybontecou.com/an-introduction-to-meta-tags-seo-and-a11y.html
+canonicalUrl: https://codybontecou.com/an-introduction-to-meta-tags-seo-and-a11y
 topics:
   - A11y
   - SEO
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:01
 ---
 
 Last night I started working on the meta tags for my app Costream, which allows Twitch streamers to co-stream (also known as LiveView) alongside any Youtube stream.

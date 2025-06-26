@@ -22,13 +22,13 @@ meta:
     content: Mocking HTTP Responses in Elixir and Phoenix
   - name: twitter:text:title
     content: Mocking HTTP Responses in Elixir and Phoenix
-canonicalUrl: https://codybontecou.com/mocking-http-responses-in-elixir-and-phoenix.html
+canonicalUrl: https://codybontecou.com/mocking-http-responses-in-elixir-and-phoenix
 topics:
   - elixir
   - testing
   - mocking
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 I just came across this error while attempting to mock the response of a 3rd party api:
 

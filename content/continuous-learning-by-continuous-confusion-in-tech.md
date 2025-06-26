@@ -20,12 +20,12 @@ meta:
     content: Continuous learning by continuous confusion in tech
   - name: twitter:text:title
     content: Continuous learning by continuous confusion in tech
-canonicalUrl: https://codybontecou.com/continuous-learning-by-continuous-confusion-in-tech.html
+canonicalUrl: https://codybontecou.com/continuous-learning-by-continuous-confusion-in-tech
 topics:
   - Life
   - Learning
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:01
 ---
 
 > A key to becoming a good developer is continuously learning.

@@ -22,13 +22,13 @@ meta:
     content: Cypress Component Testing with Nuxt 3
   - name: twitter:text:title
     content: Cypress Component Testing with Nuxt 3
-canonicalUrl: https://codybontecou.com/cypress-component-testing-with-nuxt-3.html
+canonicalUrl: https://codybontecou.com/cypress-component-testing-with-nuxt-3
 topics:
   - Testing
   - Nuxt
   - Cypress
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:01
 ---
 
 > This is a guide on setting up Cypress Component Testing with Nuxt 3.

@@ -28,7 +28,7 @@ meta:
     content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
   - name: twitter:text:title
     content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
-canonicalUrl: https://codybontecou.com/vuejs-emit-multiple-values-from-child-to-parent.html
+canonicalUrl: https://codybontecou.com/vuejs-emit-multiple-values-from-child-to-parent
 newsletter: false
 topics:
   - vue
@@ -36,7 +36,7 @@ topics:
   - components
   - composition
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T07:59
 ---
 
 > VueJS custom events are a great way to communicate between child and parent components.

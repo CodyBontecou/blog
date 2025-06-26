@@ -22,13 +22,13 @@ meta:
     content: Stripe Integration in Nuxt 3
   - name: twitter:text:title
     content: Stripe Integration in Nuxt 3
-canonicalUrl: https://codybontecou.com/stripe-integration-in-nuxt-3.html
+canonicalUrl: https://codybontecou.com/stripe-integration-in-nuxt-3
 topics:
   - nuxt
   - stripe
   - authentication
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T07:59
 ---
 ## 01 - Introduction
 

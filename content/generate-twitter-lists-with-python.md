@@ -26,10 +26,10 @@ meta:
     content: Generating Twitter Lists with Python
   - name: twitter:text:title
     content: Generating a Twitter List with Python
-canonicalUrl: https://codybontecou.com/generate-twitter-lists-with-python.html
+canonicalUrl: https://codybontecou.com/generate-twitter-lists-with-python
 newsletter: false
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 > The finished project can be seen [here](https://github.com/CodyBontecou/Generating-Twitter-Lists-with-Python/blob/main/tweepy_lists/app.py)
 

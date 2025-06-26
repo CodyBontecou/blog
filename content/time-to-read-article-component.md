@@ -26,14 +26,14 @@ meta:
     content: Building a VueJS component to estimate the expected reading time of an article.
   - name: twitter:text:title
     content: Building a VueJS component to estimate the expected reading time of an article.
-canonicalUrl: https://codybontecou.com/reading-time-vuejs-component.html
+canonicalUrl: https://codybontecou.com/reading-time-vuejs-component
 topics:
   - vue
   - javascript
   - css
   - components
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T07:59
 ---
 
 <h1 class="text-4xl font-semibold">VueJS component to estimate the reading time of an article.</h1>

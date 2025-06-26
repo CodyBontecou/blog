@@ -25,12 +25,12 @@ meta:
     content: Reusable YAML Variables
   - name: twitter:text:title
     content: Reusable YAML Variables
-canonicalUrl: https://codybontecou.com/reusable-yaml-variables.html
+canonicalUrl: https://codybontecou.com/reusable-yaml-variables
 topics:
   - yaml
   - frontmatter
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T07:59
 ---
 
 Did you know you can reuse YAML code?

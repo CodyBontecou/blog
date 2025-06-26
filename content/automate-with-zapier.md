@@ -13,9 +13,9 @@ topics:
   - youtube
   - marketing
   - zapier
-canonicalUrl: https://codybontecou.com/automate-with-zapier.html
+canonicalUrl: https://codybontecou.com/automate-with-zapier
 created_at: 2024-10-31T14:26
-last_modified: 2024-12-31T08:58
+last_modified: 2025-06-26T08:01
 ---
 
 <h1 class="text-4xl font-semibold">Automate Social Media Content With Zapier</h1>

@@ -29,10 +29,10 @@ meta:
     content: How to use Vuetify with Nuxt 3
   - name: twitter:text:title
     content: How to use Vuetify with Nuxt 3
-canonicalUrl: https://codybontecou.com/how-to-use-vuetify-with-nuxt-3.html
+canonicalUrl: https://codybontecou.com/how-to-use-vuetify-with-nuxt-3
 newsletter: false
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 
 > Utilize the latest versions of Vuetify and Nuxt together.

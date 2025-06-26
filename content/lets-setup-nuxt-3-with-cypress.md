@@ -27,9 +27,9 @@ meta:
     content: Lets setup Nuxt 3 with Cypress
   - name: twitter:text:title
     content: Lets setup Nuxt 3 with Cypress
-canonicalUrl: https://codybontecou.com/lets-setup-nuxt-3-with-cypress.html
+canonicalUrl: https://codybontecou.com/lets-setup-nuxt-3-with-cypress
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 
 > This is a quick guide on setting up Cypress End-to-End Testing with Nuxt 3.

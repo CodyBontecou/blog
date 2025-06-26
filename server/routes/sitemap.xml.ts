@@ -16,11 +16,11 @@ export default defineEventHandler(async event => {
         sitemap.write({
             url: doc._path!,
             changefreq: 'monthly',
-            lastmod: doc.updatedAt || doc.date || new Date().toISOString(),
+            lastmod: doc.updatedAt || doc.date || doc.created_at || new Date().toISOString(),
             priority:
                 doc._path === '/'
                     ? 1.0
-                    : doc._path?.startsWith('/blog/')
+                    : doc.type === 'post' || doc._path?.includes('/')
                       ? 0.8
                       : 0.6,
         })

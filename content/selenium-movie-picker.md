@@ -26,7 +26,7 @@ meta:
     content: Building a Random Movie Picker Using Python and Selenium
   - name: twitter:text:title
     content: Building a Random Movie Picker Using Python and Selenium
-canonicalUrl: https://codybontecou.com/selenium-movie-picker.html
+canonicalUrl: https://codybontecou.com/selenium-movie-picker
 topics:
   - web-scraping
   - python
@@ -34,7 +34,7 @@ topics:
   - IMDB
   - data
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T07:59
 ---
 
 My wife (Dany) has been reviewing movies every week and posting them on her [Youtube Channel](https://www.youtube.com/channel/UCcLR5qe7dzXR-5UB_nyK_2w). She recently asked me if it was possible to scrape [this list of directors](https://www.elacervo.com/directores) and return a random movie they directed in order to help her decide on which movie to review next.

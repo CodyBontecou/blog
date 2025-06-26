@@ -28,10 +28,10 @@ meta:
     content: Building an Electron App with VueJS and Vite
   - name: twitter:text:title
     content: Building an Electron App with VueJS and Vite
-canonicalUrl: https://codybontecou.com/electron-app-with-vuejs-and-vite.html
+canonicalUrl: https://codybontecou.com/electron-app-with-vuejs-and-vite
 newsletter: false
 created_at: 2024-10-31T14:26
-last_modified: 2025-01-15T17:38
+last_modified: 2025-06-26T08:00
 ---
 
 > Let's combine the power of Electron with VueJS and Vite to create incredible desktop applications using nothing but Javascript.
