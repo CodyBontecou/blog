@@ -16,6 +16,8 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode',
         'nuxt-og-image',
         'nuxt-gtag',
+        // '@nuxt/image',
+        // '@vueuse/nuxt',
     ],
     compatibilityDate: '2024-10-24',
     css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
@@ -63,14 +65,24 @@ export default defineNuxtConfig({
         prerender: {
             routes: ['/sitemap.xml', '/rss.xml'],
         },
+        minify: true,
+        compressPublicAssets: true,
     },
+
+    // Performance optimizations
+    experimental: {
+        payloadExtraction: false,
+    },
+
+
     runtimeConfig: {
         MAILCHIMP_SECRET_KEY: process.env.MAILCHIMP_SECRET_KEY,
         MAILCHIMP_API_SERVER: process.env.MAILCHIMP_API_SERVER,
         MAILCHIMP_AUDIENCE_ID: process.env.MAILCHIMP_AUDIENCE_ID,
         public: {
-            siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://codybontecou.com'
-        }
+            siteUrl:
+                process.env.NUXT_PUBLIC_SITE_URL || 'https://codybontecou.com',
+        },
     },
     gtag: {
         id: 'G-3NM0E524EK',
@@ -105,6 +117,14 @@ export default defineNuxtConfig({
                     type: 'application/rss+xml',
                     title: 'Cody Bontecou RSS Feed',
                     href: '/rss.xml',
+                },
+                {
+                    rel: 'preconnect',
+                    href: 'https://fonts.googleapis.com',
+                },
+                {
+                    rel: 'dns-prefetch',
+                    href: 'https://www.google-analytics.com',
                 },
             ],
         },

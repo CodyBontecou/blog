@@ -4,17 +4,20 @@ const config = useRuntimeConfig()
 
 useSeoMeta({
     description:
-        'A bit about myself and a directory that may lead you to better understand me.',
-    ogTitle: 'About me | Cody Bontecou',
+        'Learn about Cody Bontecou, software developer and content creator. Discover my journey in web development, projects, and adventures while living in a vintage 1977 Toyota RV.',
+    ogTitle: 'About | Cody Bontecou',
     ogDescription:
-        'A bit about myself and a directory that may lead you to better understand me.',
-    twitterTitle: 'About me | Cody Bontecou',
+        'Software developer and content creator sharing web development insights. Currently living the RV life while building amazing web applications.',
+    ogImage: `/og-image.png`,
+    twitterTitle: 'About | Cody Bontecou',
     twitterDescription:
-        'A bit about myself and a directory that may lead you to better understand me.',
+        'Software developer and content creator sharing web development insights. Currently living the RV life while building amazing web applications.',
     twitterCard: 'summary_large_image',
+    twitterImage: `/og-image.png`,
 })
 
 useHead({
+    title: 'About | Cody Bontecou',
     htmlAttrs: {
         lang: 'en',
     },

@@ -21,7 +21,7 @@ export default defineEventHandler(async event => {
             title: doc.title ?? '-',
             url: baseUrl + doc._path,
             date: doc.created_at,
-            description: doc.description,
+            description: doc.description || doc.body?.children?.[0]?.children?.[0]?.value || 'Read more on codybontecou.com',
         })
     }
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { capitalizeFirstLetter } from '~/lib/utils/capitalizeFirstLetter'
+import { Breadcrumb } from '@/components/ui/breadcrumb'
 
 const route = useRoute()
 const config = useRuntimeConfig()
@@ -34,15 +35,19 @@ defineOgImageComponent('Frame', {
 })
 
 useSeoMeta({
-    description: `${articleCount} of articles about ${topic}`,
-    ogTitle: 'Topics / ' + topic,
-    ogDescription: `${articleCount} of articles about ${topic}`,
-    twitterTitle: 'Topics / ' + topic,
-    twitterDescription: `${articleCount} of articles about ${topic}`,
+    title: `${capitalizeFirstLetter(topic)} Articles | Cody Bontecou`,
+    description: `Discover ${articleCount} articles about ${topic}. Learn from tutorials, insights, and practical examples covering ${topic} development and best practices.`,
+    ogTitle: `${capitalizeFirstLetter(topic)} Articles | Cody Bontecou`,
+    ogDescription: `Discover ${articleCount} articles about ${topic}. Learn from tutorials, insights, and practical examples covering ${topic} development.`,
+    ogImage: `/og-image.png`,
+    twitterTitle: `${capitalizeFirstLetter(topic)} Articles | Cody Bontecou`,
+    twitterDescription: `Discover ${articleCount} articles about ${topic}. Learn from tutorials, insights, and practical examples.`,
     twitterCard: 'summary_large_image',
+    twitterImage: `/og-image.png`,
 })
 
 useHead({
+    title: `${capitalizeFirstLetter(topic)} Articles | Cody Bontecou`,
     htmlAttrs: {
         lang: 'en',
     },
@@ -58,10 +63,19 @@ useHead({
         },
     ],
 })
+
+// Generate breadcrumb items
+const breadcrumbItems = computed(() => [
+    { name: 'Home', path: '/' },
+    { name: 'Topics', path: '/topics' },
+    { name: capitalizeFirstLetter(topic), isActive: true },
+])
 </script>
 
 <template>
     <main>
+        <Breadcrumb :items="breadcrumbItems" />
+        
         <div class="mb-12">
             <h1 class="text-4xl font-normal mb-8">
                 <span class="text-gray-500">Topics / </span>

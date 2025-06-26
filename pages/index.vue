@@ -29,12 +29,25 @@ useJsonLd({
     '@type': 'Person',
     name: 'Cody Bontecou',
     url: config.public.siteUrl,
+    image: `${config.public.siteUrl}/og-image.png`,
     sameAs: [
         'https://github.com/CodyBontecou',
         'https://twitter.com/CodyBontecou',
+        'https://www.linkedin.com/in/cody-bontecou/',
+        'https://bsky.app/profile/codybontecou.com',
+        'https://www.youtube.com/@codybontecou',
     ],
     jobTitle: 'Software Developer',
-    description: 'Software developer and content creator.',
+    description: 'Software developer and content creator sharing insights on Vue.js, Nuxt, TypeScript, and modern web development.',
+    knowsAbout: ['Vue.js', 'Nuxt.js', 'TypeScript', 'JavaScript', 'Web Development', 'Frontend Development', 'Software Engineering'],
+    worksFor: {
+        '@type': 'Organization',
+        name: 'Independent',
+    },
+    alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'Software Development',
+    },
 })
 
 // Fetch all posts sorted by date and ignoring where draft is true
@@ -57,12 +70,14 @@ const formattedDateWithMonth = formatDateWithMonth(
 )
 
 useSeoMeta({
-    description: 'is enjoying life',
+    description: 'Software developer and content creator sharing insights on Vue.js, Nuxt, TypeScript, web development, and modern programming practices. Tutorials, tips, and adventures in code.',
     ogTitle: 'Cody Bontecou | Blog',
-    ogDescription: 'is enjoying life',
+    ogDescription: 'Software developer sharing web development tutorials, Vue.js insights, and programming adventures. Learn modern web technologies and best practices.',
+    ogImage: `/og-image.png`,
     twitterTitle: 'Cody Bontecou | Blog',
-    twitterDescription: 'is enjoying life',
+    twitterDescription: 'Software developer sharing web development tutorials, Vue.js insights, and programming adventures. Learn modern web technologies and best practices.',
     twitterCard: 'summary_large_image',
+    twitterImage: `/og-image.png`,
 })
 
 useHead({
