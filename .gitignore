@@ -12,3 +12,6 @@ dist
 # Obsidian config
 .obsidian/
 .vercel*
+
+.mcp*
+mcp*
