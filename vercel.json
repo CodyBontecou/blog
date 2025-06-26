@@ -5,10 +5,5 @@
       "destination": "/$1",
       "permanent": true
     }
-  ],
-  "functions": {
-    "app/server/index.mjs": {
-      "maxDuration": 60
-    }
-  }
+  ]
 }
