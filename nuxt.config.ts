@@ -14,7 +14,17 @@ export default defineNuxtConfig({
         '@nuxtjs/i18n',
         '@nuxt/icon',
         '@nuxtjs/color-mode',
-        'nuxt-og-image',
+        ['nuxt-og-image', {
+            debug: false,
+            compatibility: {
+                prerender: {
+                    chromium: false
+                }
+            },
+            defaults: {
+                cacheMaxAgeSeconds: 60 * 60 * 24 * 7 // 1 week
+            }
+        }],
         'nuxt-gtag',
         // '@nuxt/image',
         // '@vueuse/nuxt',
@@ -64,9 +74,16 @@ export default defineNuxtConfig({
         preset: 'vercel',
         prerender: {
             routes: ['/sitemap.xml', '/rss.xml'],
+            crawlLinks: false,
+            ignore: [
+                '/__og-image__/**'
+            ]
         },
         minify: true,
         compressPublicAssets: true,
+        experimental: {
+            wasm: true,
+        },
     },
 
     // Performance optimizations

@@ -5,5 +5,19 @@
       "destination": "/$1",
       "permanent": true
     }
+  ],
+  "functions": {
+    "app/server/index.mjs": {
+      "maxDuration": 60
+    }
+  },
+  "builds": [
+    {
+      "src": "nuxt.config.ts",
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": ["server/**"]
+      }
+    }
   ]
 }
