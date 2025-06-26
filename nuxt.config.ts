@@ -88,6 +88,10 @@ export default defineNuxtConfig({
         experimental: {
             wasm: true,
         },
+        routeRules: {
+            // Remove .html extensions - redirect to clean URLs
+            '/**/*.html': { redirect: '/**', prerender: false },
+        },
     },
 
     // Performance optimizations
