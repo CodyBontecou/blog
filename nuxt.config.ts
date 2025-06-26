@@ -48,6 +48,9 @@ export default defineNuxtConfig({
                 'toml',
             ], // Languages to preload
         },
+        experimental: {
+            clientDB: true
+        }
     },
     i18n: {
         strategy: 'no_prefix',
@@ -71,12 +74,13 @@ export default defineNuxtConfig({
         componentDir: './components/ui',
     },
     nitro: {
-        preset: 'vercel',
+        preset: 'static',
         prerender: {
             routes: ['/sitemap.xml', '/rss.xml'],
             crawlLinks: false,
             ignore: [
-                '/__og-image__/**'
+                '/__og-image__/**',
+                '/api/_content/**'
             ]
         },
         minify: true,
@@ -84,6 +88,9 @@ export default defineNuxtConfig({
         experimental: {
             wasm: true,
         },
+        storage: {
+            redis: false
+        }
     },
 
     // Performance optimizations
