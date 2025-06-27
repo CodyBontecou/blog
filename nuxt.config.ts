@@ -83,8 +83,8 @@ export default defineNuxtConfig({
                 '/api/_content/**'
             ]
         },
+        compressPublicAssets: false,
         minify: true,
-        compressPublicAssets: true,
         experimental: {
             wasm: true,
         },
