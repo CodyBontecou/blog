@@ -76,7 +76,22 @@ export default defineNuxtConfig({
     nitro: {
         preset: 'static',
         prerender: {
-            routes: ['/sitemap.xml', '/rss.xml', '/'],
+            routes: [
+                '/sitemap.xml', 
+                '/rss.xml', 
+                '/',
+                '/topics/ai',
+                '/topics/nuxt',
+                '/topics/transformers',
+                '/topics/vue',
+                '/topics/pinia',
+                '/topics/state',
+                '/topics/management',
+                '/topics/javascript',
+                '/topics/typescript',
+                '/topics/machine-learning',
+                '/topics/web-development'
+            ],
             crawlLinks: true,
             ignore: [
                 '/__og-image__/**',

@@ -21,6 +21,7 @@ const { data: articles } = await useAsyncData(`post-${route.path}`, () =>
         .find()
 )
 
+// Only throw 404 if the query failed, not if it returned empty results
 if (!articles.value) {
     throw createError({
         statusCode: 404,
