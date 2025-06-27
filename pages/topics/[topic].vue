@@ -4,9 +4,9 @@ import { Breadcrumb } from '@/components/ui/breadcrumb'
 
 const route = useRoute()
 const config = useRuntimeConfig()
-const topic = route.params.topic[0]
+const topic = route.params.topic as string
 
-const { data: articles } = await useAsyncData(`post-${route.path}`, () =>
+const { data: articles } = await useAsyncData(`topic-${topic}`, () =>
     queryContent()
         .where({
             topics: {

@@ -79,18 +79,7 @@ export default defineNuxtConfig({
             routes: [
                 '/sitemap.xml', 
                 '/rss.xml', 
-                '/',
-                '/topics/ai',
-                '/topics/nuxt',
-                '/topics/transformers',
-                '/topics/vue',
-                '/topics/pinia',
-                '/topics/state',
-                '/topics/management',
-                '/topics/javascript',
-                '/topics/typescript',
-                '/topics/machine-learning',
-                '/topics/web-development'
+                '/'
             ],
             crawlLinks: true,
             ignore: [
@@ -106,6 +95,8 @@ export default defineNuxtConfig({
         routeRules: {
             // Remove .html extensions - redirect to clean URLs
             '/**/*.html': { redirect: '/**', prerender: false },
+            // Ensure dynamic topic routes are rendered on-demand
+            '/topics/**': { prerender: false },
         },
     },
 
