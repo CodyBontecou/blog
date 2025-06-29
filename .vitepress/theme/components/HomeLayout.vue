@@ -49,16 +49,43 @@
             <!-- Topics -->
             <section v-if="topicsWithCounts.length" class="mb-16 w-full" style="min-height: 0">
               <h2 class="text-lg text-gray-600">Topics</h2>
+              
+              <!-- Multiple topics info -->
+              <div v-if="selectedTopics.length > 1" class="mt-4">
+                <p class="text-sm text-gray-600">
+                  Filtering by {{ selectedTopics.length }} topics. 
+                  <button @click="clearAllTopics" class="underline hover:opacity-75">
+                    Clear all filters
+                  </button>
+                </p>
+              </div>
+              
+              <!-- Single topic suggestion -->
+              <div v-if="selectedTopics.length === 1" class="mt-4 mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                <p class="text-sm text-blue-800">
+                  📍 Viewing articles about <strong>{{ selectedTopics[0] }}</strong>. 
+                  <a :href="`/topics/${selectedTopics[0]}/`" class="underline hover:opacity-75">
+                    Visit the dedicated {{ selectedTopics[0] }} page
+                  </a> for better SEO and sharing.
+                </p>
+              </div>
+              
               <div class="mt-6 flex flex-wrap gap-2">
-                <a
+                <button
                   v-for="{ topic, count } in topicsWithCounts"
                   :key="topic"
-                  :href="`/topics/${topic}`"
-                  class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 text-sm transition-colors"
+                  type="button"
+                  @click="toggleTopic(topic, $event)"
+                  :class="[
+                    'inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm transition-colors duration-200',
+                    selectedTopics.includes(topic)
+                      ? 'bg-gray-900 text-white'
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  ]"
                 >
                   <span>{{ topic }}</span>
-                  <span class="text-gray-500">({{ count }})</span>
-                </a>
+                  <span :class="selectedTopics.includes(topic) ? 'text-gray-300' : 'text-gray-500'">({{ count }})</span>
+                </button>
               </div>
             </section>
           </div>
@@ -77,14 +104,26 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { data as posts } from '../posts.data'
 import { getLatestPost, getTopicsWithCounts, formatDateWithMonth, calculateReadingTime, getFirstParagraphText } from '../utils'
 import ArticleList from './ArticleList.vue'
 import Button from './Button.vue'
 
+// Topic filtering state
+const selectedTopics = ref<string[]>([])
+
+// Initialize from URL query parameters
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search)
+  const topicsParam = urlParams.get('topics')
+  if (topicsParam) {
+    selectedTopics.value = topicsParam.split(',').filter(Boolean)
+  }
+})
+
 // Filter out draft posts and sort by date
-const articles = computed(() => {
+const allArticles = computed(() => {
   return posts
     .filter(post => !post.frontmatter?.draft)
     .sort((a, b) => {
@@ -94,8 +133,77 @@ const articles = computed(() => {
     })
 })
 
-const latestArticle = computed(() => getLatestPost(articles.value))
-const topicsWithCounts = computed(() => getTopicsWithCounts(articles.value))
+// Filtered articles based on selected topics
+const articles = computed(() => {
+  if (selectedTopics.value.length === 0) {
+    return allArticles.value
+  }
+  
+  return allArticles.value.filter(article => {
+    const articleTopics = article.frontmatter?.topics || []
+    return articleTopics.some((topic: string) => 
+      selectedTopics.value.includes(topic.toLowerCase())
+    )
+  })
+})
+
+// Toggle topic selection and update URL
+const toggleTopic = (topic: string, event: Event) => {
+  event.preventDefault()
+  
+  const index = selectedTopics.value.indexOf(topic)
+  if (index > -1) {
+    selectedTopics.value.splice(index, 1)
+  } else {
+    selectedTopics.value.push(topic)
+  }
+  
+  // Update URL query parameters
+  const url = new URL(window.location.href)
+  if (selectedTopics.value.length > 0) {
+    url.searchParams.set('topics', selectedTopics.value.join(','))
+  } else {
+    url.searchParams.delete('topics')
+  }
+  
+  window.history.replaceState({}, '', url.toString())
+  
+  // Update canonical URL for SEO
+  updateCanonicalUrl()
+}
+
+// Update canonical URL based on selected topics
+const updateCanonicalUrl = () => {
+  if (typeof window === 'undefined') return
+  
+  let canonicalUrl = window.location.origin + '/'
+  
+  // If single topic is selected, point to the topic page
+  if (selectedTopics.value.length === 1) {
+    canonicalUrl = `${window.location.origin}/topics/${selectedTopics.value[0]}/`
+  }
+  
+  // Update or create canonical link
+  let canonicalLink = document.querySelector('link[rel="canonical"]')
+  if (!canonicalLink) {
+    canonicalLink = document.createElement('link')
+    canonicalLink.setAttribute('rel', 'canonical')
+    document.head.appendChild(canonicalLink)
+  }
+  canonicalLink.setAttribute('href', canonicalUrl)
+}
+
+// Clear all topic filters
+const clearAllTopics = () => {
+  selectedTopics.value = []
+  const url = new URL(window.location.href)
+  url.searchParams.delete('topics')
+  window.history.replaceState({}, '', url.toString())
+  updateCanonicalUrl()
+}
+
+const latestArticle = computed(() => getLatestPost(allArticles.value))
+const topicsWithCounts = computed(() => getTopicsWithCounts(allArticles.value))
 
 const formattedDate = computed(() => {
   if (!latestArticle.value?.frontmatter?.created_at && !latestArticle.value?.frontmatter?.date) return ''
