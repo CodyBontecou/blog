@@ -84,9 +84,9 @@ const articleCount = computed(() => filteredArticles.value.length)
 
 // Generate breadcrumb items
 const breadcrumbItems = computed(() => [
-  { name: 'Home', path: '/' },
-  { name: 'Topics', path: '/topics' },
-  { name: capitalizedTopic.value, isActive: true },
+  { name: 'home', path: '/' },
+  { name: 'topics', path: '/topics' },
+  { name: topic.value.toLowerCase(), isActive: true },
 ])
 
 // SEO metadata

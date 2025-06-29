@@ -59,7 +59,3 @@ export function useCopyCodeEnhancement() {
   })
 }
 
-function showCopyToast() {
-  // Dispatch custom event for toast
-  window.dispatchEvent(new CustomEvent('show-copy-toast'))
-}

@@ -285,3 +285,37 @@ div[class*="language-"] pre code .line span {
     border-radius: 0 !important;
     border: none !important;
 }
+
+/* Anchor links for headings */
+.prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    position: relative;
+    scroll-margin-top: 100px;
+}
+
+/* Anchor link styling */
+.prose .header-anchor {
+    position: absolute;
+    left: -24px;
+    color: #3b82f6;
+    font-weight: normal;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+    user-select: none;
+}
+
+.prose h2:hover .header-anchor,
+.prose h3:hover .header-anchor,
+.prose h4:hover .header-anchor,
+.prose h5:hover .header-anchor,
+.prose h6:hover .header-anchor {
+    opacity: 0.7;
+}
+
+.prose .header-anchor:hover {
+    opacity: 1 !important;
+}
+
+.dark .prose .header-anchor {
+    color: #60a5fa;
+}
