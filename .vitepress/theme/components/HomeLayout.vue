@@ -51,7 +51,7 @@
               <h2 class="text-lg text-gray-600">Topics</h2>
               
               <!-- Multiple topics info -->
-              <div v-if="selectedTopics.length > 1" class="mt-4">
+              <div v-if="selectedTopics.length > 1 && hasUrlParams" class="mt-4">
                 <p class="text-sm text-gray-600">
                   Filtering by {{ selectedTopics.length }} topics. 
                   <button @click="clearAllTopics" class="underline hover:opacity-75">
@@ -111,14 +111,20 @@ import ArticleList from './ArticleList.vue'
 import Button from './Button.vue'
 
 // Topic filtering state
+const defaultTopics = ['typescript', 'a11y', 'ai', 'javascript', 'vue', 'blogging', 'obsidian', 'nuxt']
 const selectedTopics = ref<string[]>([])
+const hasUrlParams = ref(false)
 
-// Initialize from URL query parameters
+// Initialize from URL query parameters or use defaults
 onMounted(() => {
   const urlParams = new URLSearchParams(window.location.search)
-  const topicsParam = urlParams.get('topics')
-  if (topicsParam) {
-    selectedTopics.value = topicsParam.split(',').filter(Boolean)
+  const topicParams = urlParams.getAll('topic')
+  if (topicParams.length > 0) {
+    selectedTopics.value = topicParams
+    hasUrlParams.value = true
+  } else {
+    selectedTopics.value = [...defaultTopics]
+    hasUrlParams.value = false
   }
 })
 
@@ -158,13 +164,17 @@ const toggleTopic = (topic: string, event: Event) => {
     selectedTopics.value.push(topic)
   }
   
+  // Mark that we now have URL params from user interaction
+  hasUrlParams.value = true
+  
   // Update URL query parameters
   const url = new URL(window.location.href)
-  if (selectedTopics.value.length > 0) {
-    url.searchParams.set('topics', selectedTopics.value.join(','))
-  } else {
-    url.searchParams.delete('topics')
-  }
+  // Clear existing topic parameters
+  url.searchParams.delete('topic')
+  // Add each selected topic as a separate parameter
+  selectedTopics.value.forEach(topic => {
+    url.searchParams.append('topic', topic)
+  })
   
   window.history.replaceState({}, '', url.toString())
   
@@ -197,7 +207,7 @@ const updateCanonicalUrl = () => {
 const clearAllTopics = () => {
   selectedTopics.value = []
   const url = new URL(window.location.href)
-  url.searchParams.delete('topics')
+  url.searchParams.delete('topic')
   window.history.replaceState({}, '', url.toString())
   updateCanonicalUrl()
 }
