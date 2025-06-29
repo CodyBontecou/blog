@@ -1,8 +1,8 @@
 <template>
   <ul>
     <li
-      v-for="article in articles"
-      :key="article.frontmatter?.title"
+      v-for="article in filteredArticles"
+      :key="article.frontmatter?.title || article.url"
       class="flex items-baseline leading-tight mb-1 min-w-0 overflow-hidden"
     >
       <div
@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { formatPostDate } from '../utils'
 
 interface Article {
@@ -38,4 +39,12 @@ interface Props {
   articles: Article[]
 }
 
-defineProps<Props>()</script>
+const props = defineProps<Props>()
+
+// Filter out articles without titles to prevent empty list items
+const filteredArticles = computed(() => {
+  return props.articles.filter(article => 
+    article.frontmatter?.title && 
+    article.frontmatter.title.trim() !== ''
+  )
+})</script>
