@@ -9,9 +9,10 @@ import {
     ToastViewport,
 } from '.'
 import { useToast } from './use-toast'
+import { useLocalStorage } from '~/composables/useLocalStorage'
 
 const { toasts } = useToast()
-const { setValue } = useLocalStorage()
+const [, setValue] = useLocalStorage('toast:work', false)
 
 const handleOpenEvent = async () => {
     setValue('toast:work', true)

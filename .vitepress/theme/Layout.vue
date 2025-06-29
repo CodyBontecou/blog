@@ -43,20 +43,32 @@
           </div>
           
           <Content />
+          
+          <!-- Newsletter and Comments for blog posts -->
+          <div class="not-prose mt-12">
+            <Newsletter />
+            <Comments />
+          </div>
         </article>
+        
+        <!-- Table of Contents for blog posts -->
+        <TableOfContents v-if="isBlogPost" />
       </div>
       
       <!-- Regular page without header -->
       <article v-else class="prose lg:prose-lg max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-code:before:content-none prose-code:after:content-none prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded dark:prose-code:bg-gray-800 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-blue-400 prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2 dark:prose-blockquote:bg-gray-800 dark:prose-blockquote:border-l-blue-400">
         <Content />
       </article>
+      
+      <!-- Table of Contents for regular pages -->
+      <TableOfContents v-if="!isBlogPost" />
     </div>
   </div>
   
-  <!-- Toast notifications - temporarily disabled -->
-  <!-- <ToastProvider>
+  <!-- Toast notifications -->
+  <ToastProvider>
     <Toaster />
-  </ToastProvider> -->
+  </ToastProvider>
 </template>
 
 <script setup lang="ts">
@@ -68,6 +80,7 @@ import BlogLayout from './components/BlogLayout.vue'
 import TopicLayout from './components/TopicLayout.vue'
 import TopicsIndexLayout from './components/TopicsIndexLayout.vue'
 import Breadcrumb from './components/Breadcrumb.vue'
+import TableOfContents from './components/TableOfContents.vue'
 import { calculateReadingTime } from './utils/index.ts'
 // import ToastProvider from '../../components/ui/toast/ToastProvider.vue'
 // import Toaster from '../../components/ui/toast/Toaster.vue'
@@ -130,20 +143,20 @@ const breadcrumbItems = computed(() => {
   if (!isBlogPost.value) return []
   
   const items = [
-    { name: 'Home', path: '/' }
+    { name: 'home', path: '/' }
   ]
   
   // Add first topic if available
   if (frontmatter.value.topics?.length) {
     items.push({
-      name: frontmatter.value.topics[0],
+      name: frontmatter.value.topics[0].toLowerCase(),
       path: `/topics/${frontmatter.value.topics[0].toLowerCase()}`
     })
   }
   
   // Add current post
   items.push({
-    name: frontmatter.value.title,
+    name: frontmatter.value.title.toLowerCase(),
     isActive: true
   })
   
