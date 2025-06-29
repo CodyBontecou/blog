@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '~/lib/utils/cn'
+import { cn } from '../../../lib/utils/cn'
 import { ToastAction, type ToastActionProps } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
 

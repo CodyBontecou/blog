@@ -52,6 +52,11 @@
       </article>
     </div>
   </div>
+  
+  <!-- Toast notifications - temporarily disabled -->
+  <!-- <ToastProvider>
+    <Toaster />
+  </ToastProvider> -->
 </template>
 
 <script setup lang="ts">
@@ -64,9 +69,36 @@ import TopicLayout from './components/TopicLayout.vue'
 import TopicsIndexLayout from './components/TopicsIndexLayout.vue'
 import Breadcrumb from './components/Breadcrumb.vue'
 import { calculateReadingTime } from './utils/index.ts'
+// import ToastProvider from '../../components/ui/toast/ToastProvider.vue'
+// import Toaster from '../../components/ui/toast/Toaster.vue'
+import { useCopyCodeEnhancement } from './copyCodeEnhancement'
+// import { useToast } from '../../components/ui/toast/use-toast'
+import { onMounted } from 'vue'
 
 const { page, frontmatter } = useData()
 const route = useRoute()
+// const { toast } = useToast()
+
+// Initialize copy code enhancement
+useCopyCodeEnhancement()
+
+// Listen for copy toast events (temporarily disabled)
+// onMounted(() => {
+//   const handleCopyToast = () => {
+//     toast({
+//       title: "Copied to clipboard",
+//       description: "Code snippet has been copied to your clipboard.",
+//       duration: 2000,
+//     })
+//   }
+//   
+//   window.addEventListener('show-copy-toast', handleCopyToast)
+//   
+//   // Cleanup
+//   return () => {
+//     window.removeEventListener('show-copy-toast', handleCopyToast)
+//   }
+// })
 
 // Check if this is a blog post (has title, created_at/date, and topics)
 const isBlogPost = computed(() => {

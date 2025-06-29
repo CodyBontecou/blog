@@ -3,13 +3,12 @@ const animate = require('tailwindcss-animate')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
+        './.vitepress/**/*.{js,vue,ts}',
         './components/**/*.{js,vue,ts}',
-        './layouts/**/*.vue',
-        './pages/**/*.vue',
-        './plugins/**/*.{js,ts}',
-        './app.vue',
-        './error.vue',
-        './content/**/*.md'
+        './blog/*.md',
+        './topics/*.md',
+        './index.md',
+        './about.md'
     ],
     darkMode: ['class'],
     safelist: ['dark'],

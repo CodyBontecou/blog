@@ -1,3 +1,4 @@
+
 ---
 title: 
 draft: true
@@ -39,3 +40,6 @@ git push -u origin main
 ## Newsletter
 
 - [ ] Send blog post in email format + link to blog + youtube video in email
+
+## Resources
+

@@ -42,7 +42,7 @@ export default defineConfig({
   // Markdown config
   markdown: {
     theme: 'github-dark',
-    lineNumbers: true
+    lineNumbers: false
   },
   
   // Head config for SEO
