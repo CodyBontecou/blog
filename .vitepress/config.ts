@@ -45,7 +45,7 @@ export default defineConfig({
     },
 
     // Build config for static generation
-    outDir: 'dist',
+    outDir: '.vitepress/dist',
     base: '/',
 
     // Markdown config
@@ -53,7 +53,7 @@ export default defineConfig({
         theme: 'github-dark',
         lineNumbers: false,
         anchor: {
-            permalink: false,
+            permalink: true,
         },
     },
 
