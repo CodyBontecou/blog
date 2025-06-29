@@ -263,29 +263,27 @@ watch(isMobileMenuOpen, newValue => {
             <template #default>
                 <main class="flex flex-col justify-center max-w-3xl mx-auto">
                     <ContentDoc v-slot="{ doc }">
-                        <article class="prose lg:prose-lg">
-                            <h1 class="text-4xl font-normal mb-4">
-                                {{ post?.title }}
-                            </h1>
-                            <div class="text-gray-600 text-base sm:text-lg flex flex-wrap items-center gap-x-2 mb-10">
-                                <span class="whitespace-nowrap">
-                                    {{ formatDate(post?.created_at) }} ·
-                                    {{ calculateReadingTime(postBody) }}
-                                    {{ $t('latest.minuteRead') }}
-                                </span>
-                                <span class="hidden sm:inline">·</span>
-                                <div class="flex flex-wrap gap-x-2 gap-y-1 mt-1 sm:mt-0">
-                                    <NuxtLink
-                                        class="text-gray-600 topics hover:underline"
-                                        v-for="(topic, index) in post?.topics"
-                                        :to="'/topics/' + topic.toLowerCase()"
-                                    >{{ topic.toLowerCase() }}<span v-if="index !== post?.topics.length - 1">,</span>
-                                    </NuxtLink>
-                                </div>
+                        <h1 class="text-4xl font-normal mb-4">
+                            {{ post?.title }}
+                        </h1>
+                        <div class="text-gray-600 text-base sm:text-lg flex flex-wrap items-center gap-x-2 mb-10">
+                            <span class="whitespace-nowrap">
+                                {{ formatDate(post?.created_at) }} ·
+                                {{ calculateReadingTime(postBody) }}
+                                {{ $t('latest.minuteRead') }}
+                            </span>
+                            <span class="hidden sm:inline">·</span>
+                            <div class="flex flex-wrap gap-x-2 gap-y-1 mt-1 sm:mt-0">
+                                <NuxtLink
+                                    class="text-gray-600 topics hover:underline"
+                                    v-for="(topic, index) in post?.topics"
+                                    :to="'/topics/' + topic.toLowerCase()"
+                                >{{ topic.toLowerCase() }}<span v-if="index !== post?.topics.length - 1">,</span>
+                                </NuxtLink>
                             </div>
+                        </div>
 
-                            <!-- Topics -->
-
+                        <article class="prose prose-slate lg:prose-lg xl:prose-xl max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-code:before:content-none prose-code:after:content-none prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded dark:prose-code:bg-gray-800 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-blue-400 prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2 dark:prose-blockquote:bg-gray-800 dark:prose-blockquote:border-l-blue-400">
                             <ContentRenderer :value="post" />
                         </article>
                     </ContentDoc>

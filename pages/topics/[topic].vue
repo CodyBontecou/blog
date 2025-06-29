@@ -21,15 +21,9 @@ const { data: articles } = await useAsyncData(`topic-${topic}`, () =>
         .find()
 )
 
-// Only throw 404 if the query failed, not if it returned empty results
-if (!articles.value) {
-    throw createError({
-        statusCode: 404,
-        statusMessage: 'Page Not Found',
-    })
-}
-
-const articleCount = articles.value ? articles.value.length : 0
+const articleCount = computed(() => {
+    return articles.value ? articles.value.length : 0
+})
 
 defineOgImageComponent('Frame', {
     title: 'Topics / ' + topic,
@@ -71,12 +65,23 @@ const breadcrumbItems = computed(() => [
     { name: 'Topics', path: '/topics' },
     { name: capitalizeFirstLetter(topic), isActive: true },
 ])
+
+onMounted(() => {
+    console.log(articles.value)
+
+    if (!articles.value) {
+        throw createError({
+            statusCode: 404,
+            statusMessage: 'Page Not Found',
+        })
+    }
+})
 </script>
 
 <template>
     <main>
         <Breadcrumb :items="breadcrumbItems" />
-        
+
         <div class="mb-12">
             <h1 class="text-4xl font-normal mb-8">
                 <span class="text-gray-500">Topics / </span>
@@ -88,6 +93,6 @@ const breadcrumbItems = computed(() => [
             </p>
         </div>
 
-        <ArticleList :articles="articles" />
+        <ArticleList :articles="articles || []" />
     </main>
 </template>

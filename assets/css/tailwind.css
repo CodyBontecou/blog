@@ -75,4 +75,56 @@
     body {
         @apply text-foreground;
     }
+    
+    /* Hide scrollbars globally while maintaining functionality */
+    * {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+    }
+
+    *::-webkit-scrollbar {
+        display: none !important;
+    }
+}
+
+@layer utilities {
+    /* Ensure Tailwind overflow classes don't show scrollbars */
+    .overflow-y-auto::-webkit-scrollbar,
+    .overflow-x-auto::-webkit-scrollbar,
+    .overflow-auto::-webkit-scrollbar,
+    .overflow-scroll::-webkit-scrollbar,
+    .overflow-y-scroll::-webkit-scrollbar,
+    .overflow-x-scroll::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .overflow-y-auto,
+    .overflow-x-auto,
+    .overflow-auto,
+    .overflow-scroll,
+    .overflow-y-scroll,
+    .overflow-x-scroll {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+    }
+    
+    /* Target specific elements that might need scrollbar hiding */
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar,
+    main::-webkit-scrollbar,
+    div::-webkit-scrollbar,
+    section::-webkit-scrollbar,
+    article::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    html,
+    body,
+    main,
+    div,
+    section,
+    article {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+    }
 }

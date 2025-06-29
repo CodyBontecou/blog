@@ -1,26 +1,29 @@
-p:has(img) {
+
+/* Only apply code wrapping to inline code, not code blocks */
+:not(pre) > code {
+    white-space: pre-wrap; /* Allows wrapping */
+    word-wrap: break-word; /* Breaks long words if needed */
+    overflow-wrap: break-word; /* Modern version of word-wrap */
+    max-width: 100%; /* Ensures code stays within container */
+}
+
+/* Ensure prose images work well */
+.prose p:has(img) {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-img {
+.prose img {
     max-height: 600px;
     border-radius: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 @media screen and (max-width: 768px) {
-    img {
+    .prose img {
         max-height: 400px;
     }
-}
-
-code {
-    white-space: pre-wrap; /* Allows wrapping */
-    word-wrap: break-word; /* Breaks long words if needed */
-    overflow-wrap: break-word; /* Modern version of word-wrap */
-    max-width: 100%; /* Ensures code stays within container */
 }
 
 a:not(.topics):not(.truncate) {

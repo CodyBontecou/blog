@@ -1,5 +1,7 @@
 <template>
-    <pre :class="$props.class"><slot /></pre>
+    <div class="not-prose my-6">
+        <pre :class="`${$props.class} overflow-x-auto bg-gray-900 text-gray-100 p-4 rounded-lg text-sm`"><slot /></pre>
+    </div>
 </template>
 
 <script setup lang="ts">
