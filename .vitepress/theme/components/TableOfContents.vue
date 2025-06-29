@@ -130,6 +130,8 @@ const generateHeadingId = (text: string): string => {
 }
 
 const extractHeadings = () => {
+    console.log('🔍 Extracting headings...')
+    
     // Try multiple selectors to find headings
     const selectors = [
         'article h2, article h3, article h4',
@@ -142,15 +144,24 @@ const extractHeadings = () => {
 
     for (const selector of selectors) {
         const elements = document.querySelectorAll(selector)
+        console.log(`🎯 Selector "${selector}" found ${elements.length} elements`)
         if (elements.length > 0) {
             headingElements = elements
+            console.log('📋 Elements found:', Array.from(elements).map(el => ({
+                tagName: el.tagName,
+                textContent: el.textContent?.trim(),
+                id: el.id,
+                className: el.className
+            })))
             break
         }
     }
 
     // Fallback if no elements found
     if (!headingElements) {
+        console.log('🔄 Using fallback selector')
         headingElements = document.querySelectorAll('h2, h3, h4')
+        console.log(`🎯 Fallback found ${headingElements.length} elements`)
     }
 
     const extractedHeadings: Heading[] = []
@@ -160,7 +171,15 @@ const extractHeadings = () => {
         const text = element.textContent?.trim() || ''
 
         // Clean up text by removing permalink symbols and extra whitespace
-        const cleanText = text.replace(/^#\s*/, '').replace(/\s*#$/, '').trim()
+        const cleanText = text.replace(/^#\s*/, '').replace(/\s*#$/, '').replace(/¶/g, '').trim()
+
+        console.log(`📝 Processing heading: "${cleanText}" (level ${level})`)
+
+        // Skip Newsletter and Comments sections
+        if (cleanText === 'Stay Updated' || cleanText === 'Comments') {
+            console.log('⏭️ Skipping filtered heading:', cleanText)
+            return
+        }
 
         const id = element.id || generateHeadingId(cleanText)
 
@@ -191,8 +210,10 @@ const extractHeadings = () => {
         }
 
         extractedHeadings.push({ id, text: cleanText, level })
+        console.log(`✅ Added heading to TOC: "${cleanText}"`)
     })
 
+    console.log(`📊 Total headings extracted: ${extractedHeadings.length}`)
     headings.value = extractedHeadings
 }
 
@@ -229,19 +250,32 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
+    console.log('🚀 TableOfContents mounted')
+    
     // Wait for content to be rendered
     setTimeout(() => {
+        console.log('⏰ First extraction attempt (500ms)')
         extractHeadings()
         updateActiveHeading()
     }, 500)
 
     // Also try again after a longer delay in case content loads slowly
     setTimeout(() => {
+        console.log('⏰ Second extraction attempt (1000ms)')
         if (headings.value.length === 0) {
             extractHeadings()
             updateActiveHeading()
         }
     }, 1000)
+
+    // Try again after page is fully loaded
+    setTimeout(() => {
+        console.log('⏰ Third extraction attempt (2000ms)')
+        if (headings.value.length === 0) {
+            extractHeadings()
+            updateActiveHeading()
+        }
+    }, 2000)
 
     window.addEventListener('scroll', handleScroll, { passive: true })
 })
