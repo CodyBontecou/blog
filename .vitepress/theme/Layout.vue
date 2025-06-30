@@ -1,4 +1,7 @@
 <template>
+  <!-- Meta tags management -->
+  <MetaTags />
+  
   <div v-if="frontmatter.layout === 'home'">
     <HomeLayout />
   </div>
@@ -51,6 +54,9 @@
           </div>
         </article>
         
+        <!-- Structured Data for blog posts -->
+        <StructuredData />
+        
         <!-- Table of Contents for blog posts -->
         <TableOfContents v-if="isBlogPost" />
       </div>
@@ -59,6 +65,9 @@
       <article v-else class="prose lg:prose-lg max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-code:before:content-none prose-code:after:content-none prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded dark:prose-code:bg-gray-800 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-blue-400 prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2 dark:prose-blockquote:bg-gray-800 dark:prose-blockquote:border-l-blue-400">
         <Content />
       </article>
+      
+      <!-- Structured Data for regular pages -->
+      <StructuredData v-if="!isBlogPost" />
       
       <!-- Table of Contents for regular pages -->
       <TableOfContents v-if="!isBlogPost" />
@@ -83,6 +92,8 @@ import Breadcrumb from './components/Breadcrumb.vue'
 import TableOfContents from './components/TableOfContents.vue'
 import Newsletter from './components/NewsletterWrapper.vue'
 import Comments from './components/Comments.vue'
+import StructuredData from './components/StructuredData.vue'
+import MetaTags from './components/MetaTags.vue'
 import { calculateReadingTime } from './utils/index.ts'
 // import ToastProvider from '../../components/ui/toast/ToastProvider.vue'
 // import Toaster from '../../components/ui/toast/Toaster.vue'

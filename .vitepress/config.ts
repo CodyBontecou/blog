@@ -4,6 +4,9 @@ import path from 'path'
 export default defineConfig({
     srcDir: 'blog',
     srcExclude: ['**/templates/**', '**/node_modules/**'],
+    sitemap: {
+        hostname: 'https://codybontecou.com'
+    },
     vite: {
         css: {
             postcss: './postcss.config.cjs',
@@ -96,5 +99,19 @@ export default defineConfig({
                 href: '/rss.xml',
             },
         ],
+        ['meta', { name: 'author', content: 'Cody Bontecou' }],
+        ['meta', { name: 'keywords', content: 'web development, javascript, typescript, vue, nuxt, react, programming, software engineering, technical writing' }],
+        ['meta', { property: 'og:type', content: 'website' }],
+        ['meta', { property: 'og:locale', content: 'en_US' }],
+        ['meta', { property: 'og:site_name', content: 'Cody Bontecou' }],
+        ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+        ['meta', { name: 'twitter:site', content: '@codybontecou' }],
+        ['meta', { name: 'twitter:creator', content: '@codybontecou' }],
+        ['meta', { name: 'robots', content: 'index, follow' }],
+        ['link', { rel: 'canonical', href: 'https://codybontecou.com' }],
+        ['meta', { name: 'theme-color', content: '#ffffff' }],
+        ['meta', { name: 'msapplication-TileColor', content: '#ffffff' }],
+        ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+        ['link', { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' }],
     ],
 })
