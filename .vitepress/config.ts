@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import path from 'path'
 
 export default defineConfig({
+    srcDir: 'blog',
     srcExclude: ['**/templates/**', '**/node_modules/**'],
     vite: {
         css: {

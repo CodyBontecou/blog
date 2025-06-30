@@ -319,3 +319,20 @@ div[class*="language-"] pre code .line span {
 .dark .prose .header-anchor {
     color: #60a5fa;
 }
+
+/* Hide VitePress permalink symbols */
+.vp-doc .header-anchor,
+.prose .header-anchor[aria-label="Permalink"],
+.header-anchor {
+    display: none !important;
+}
+
+/* Hide permalink symbols in text content */
+h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+    content: none !important;
+}
+
+/* Hide any ¶ symbols that might be added as text */
+*:contains('¶') {
+    visibility: hidden;
+}

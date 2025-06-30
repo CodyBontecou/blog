@@ -1,6 +1,6 @@
 import { createContentLoader } from 'vitepress'
 
-export default createContentLoader('blog/*.md', {
+export default createContentLoader('*.md', {
   excerpt: true,
   transform(rawData) {
     return rawData

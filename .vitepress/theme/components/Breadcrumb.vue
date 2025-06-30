@@ -1,6 +1,6 @@
 <template>
   <nav aria-label="Breadcrumb" class="mb-8">
-    <ol class="flex items-center space-x-2 text-sm text-gray-600">
+    <ol class="flex items-center flex-wrap gap-x-2 gap-y-1 text-sm text-gray-600">
       <li v-for="(item, index) in items" :key="index" class="flex items-center">
         <template v-if="index > 0">
           <span class="mx-2 text-gray-400">/</span>
@@ -18,8 +18,9 @@
         
         <template v-else>
           <span 
-            class="text-gray-900 font-medium"
+            class="text-gray-900 font-medium max-w-xs sm:max-w-none truncate"
             :aria-current="item.isActive ? 'page' : undefined"
+            :title="item.name"
           >
             {{ item.name }}
           </span>
