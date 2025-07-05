@@ -44,7 +44,7 @@ export default defineConfig({
     },
 
     // Build config for static generation
-    outDir: 'dist',
+    // outDir: 'dist',
     base: '/',
 
     // Markdown config
