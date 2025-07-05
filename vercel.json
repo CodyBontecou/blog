@@ -1,13 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".vitepress/dist",
-  "redirects": [
-    {
-      "source": "/(.*).html",
-      "destination": "/$1",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
