@@ -42,7 +42,7 @@
             </div>
           </div>
           
-          <Content />
+          <Content :key="route.path" />
           
           <!-- Newsletter and Comments for blog posts -->
           <div class="not-prose mt-12">
@@ -57,7 +57,7 @@
       
       <!-- Regular page without header -->
       <article v-else class="prose lg:prose-lg max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-code:before:content-none prose-code:after:content-none prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded dark:prose-code:bg-gray-800 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-blue-400 prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2 dark:prose-blockquote:bg-gray-800 dark:prose-blockquote:border-l-blue-400">
-        <Content />
+        <Content :key="route.path" />
       </article>
       
       <!-- Table of Contents for regular pages -->
@@ -73,7 +73,7 @@
 
 <script setup lang="ts">
 import { useData, useRoute } from 'vitepress'
-import { computed } from 'vue'
+import { computed, onMounted, nextTick } from 'vue'
 import TopNav from './components/TopNav.vue'
 import HomeLayout from './components/HomeLayout.vue'
 import BlogLayout from './components/BlogLayout.vue'
@@ -88,8 +88,6 @@ import { calculateReadingTime } from './utils/index.ts'
 // import Toaster from '../../components/ui/toast/Toaster.vue'
 import { useCopyCodeEnhancement } from './copyCodeEnhancement'
 // import { useToast } from '../../components/ui/toast/use-toast'
-import { onMounted } from 'vue'
-
 const { page, frontmatter } = useData()
 const route = useRoute()
 // const { toast } = useToast()
@@ -126,8 +124,8 @@ const isBlogPost = computed(() => {
 const readingTime = computed(() => {
   if (!isBlogPost.value) return 0
   
-  // Get the rendered content from the DOM or use a fallback method
-  const content = page.value?.content || ''
+  // Use the markdown content from page data
+  const content = page.value?.content || page.value?.src || ''
   if (!content) {
     // Fallback: estimate based on typical article length
     return 3
