@@ -106,6 +106,13 @@ export default defineConfig({
         ['meta', { name: 'twitter:site', content: '@codybontecou' }],
         ['meta', { name: 'twitter:creator', content: '@codybontecou' }],
         ['meta', { name: 'theme-color', content: '#ffffff' }],
+        ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-3NM0E524EK' }],
+        ['script', {}, `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3NM0E524EK');
+        `],
     ],
 
     // Build hooks for SEO
