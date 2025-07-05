@@ -5,7 +5,7 @@ module.exports = {
     content: [
         './.vitepress/**/*.{js,vue,ts}',
         './components/**/*.{js,vue,ts}',
-        './blog/*.md',
+        './*.md',
         './topics/*.md',
         './index.md',
         './about.md'
