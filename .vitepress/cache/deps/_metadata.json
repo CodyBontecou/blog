@@ -1,61 +1,61 @@
 {
-  "hash": "c654c4be",
-  "configHash": "3da1dce2",
+  "hash": "f82a8ca0",
+  "configHash": "6fe0c017",
   "lockfileHash": "c6018733",
-  "browserHash": "469c381a",
+  "browserHash": "82fa03ba",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "c9ab776e",
+      "fileHash": "df658e0f",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "854edd23",
+      "fileHash": "f4cae3d5",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../node_modules/vitepress/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "71fc2780",
+      "fileHash": "29b7a365",
       "needsInterop": false
     },
     "radix-vue": {
       "src": "../../../node_modules/radix-vue/dist/index.js",
       "file": "radix-vue.js",
-      "fileHash": "617b750a",
+      "fileHash": "c02d91e8",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "087978c8",
-      "needsInterop": false
-    },
-    "class-variance-authority": {
-      "src": "../../../node_modules/class-variance-authority/dist/index.mjs",
-      "file": "class-variance-authority.js",
-      "fileHash": "45a64223",
+      "fileHash": "65d8e63a",
       "needsInterop": false
     },
     "clsx": {
       "src": "../../../node_modules/clsx/dist/clsx.mjs",
       "file": "clsx.js",
-      "fileHash": "94b8c024",
+      "fileHash": "da145eff",
       "needsInterop": false
     },
     "tailwind-merge": {
       "src": "../../../node_modules/tailwind-merge/dist/bundle-mjs.mjs",
       "file": "tailwind-merge.js",
-      "fileHash": "0ac2edbf",
+      "fileHash": "6250cddd",
+      "needsInterop": false
+    },
+    "class-variance-authority": {
+      "src": "../../../node_modules/class-variance-authority/dist/index.mjs",
+      "file": "class-variance-authority.js",
+      "fileHash": "da8bdfba",
       "needsInterop": false
     },
     "lucide-vue-next": {
       "src": "../../../node_modules/lucide-vue-next/dist/esm/lucide-vue-next.js",
       "file": "lucide-vue-next.js",
-      "fileHash": "8d2728c9",
+      "fileHash": "76cd46d5",
       "needsInterop": false
     }
   },
