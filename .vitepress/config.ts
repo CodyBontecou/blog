@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 import path from 'path'
+import { generateSitemap } from './buildEnd'
+import { generateRSS } from './rss'
 
 export default defineConfig({
     srcDir: './content',
@@ -18,7 +20,7 @@ export default defineConfig({
         },
     },
     title: 'Cody Bontecou',
-    description: 'Personal blog and portfolio',
+    description: 'Personal blog covering web development, Vue.js, TypeScript, and tech insights',
 
     // Site config
     cleanUrls: true,
@@ -95,5 +97,55 @@ export default defineConfig({
                 href: '/rss.xml',
             },
         ],
+        ['meta', { name: 'author', content: 'Cody Bontecou' }],
+        ['meta', { name: 'keywords', content: 'web development, Vue.js, TypeScript, JavaScript, frontend, blog' }],
+        ['meta', { property: 'og:type', content: 'website' }],
+        ['meta', { property: 'og:locale', content: 'en_US' }],
+        ['meta', { property: 'og:site_name', content: 'Cody Bontecou' }],
+        ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+        ['meta', { name: 'twitter:site', content: '@codybontecou' }],
+        ['meta', { name: 'twitter:creator', content: '@codybontecou' }],
+        ['meta', { name: 'theme-color', content: '#ffffff' }],
     ],
+
+    // Build hooks for SEO
+    buildEnd: async (siteConfig) => {
+        await generateSitemap(siteConfig)
+        await generateRSS(siteConfig)
+    },
+
+    // Transform head for structured data
+    transformHead: ({ pageData }) => {
+        const head = []
+        
+        // Add structured data for blog posts
+        if (pageData.frontmatter.date && pageData.frontmatter.title) {
+            const structuredData = {
+                '@context': 'https://schema.org',
+                '@type': 'BlogPosting',
+                headline: pageData.frontmatter.title,
+                description: pageData.frontmatter.description || pageData.description,
+                author: {
+                    '@type': 'Person',
+                    name: 'Cody Bontecou',
+                    url: 'https://codybontecou.com/about'
+                },
+                datePublished: new Date(pageData.frontmatter.date).toISOString(),
+                url: `https://codybontecou.com${pageData.relativePath.replace(/\.md$/, '')}`,
+                image: pageData.frontmatter.image || 'https://codybontecou.com/apple-touch-icon.png',
+                publisher: {
+                    '@type': 'Organization',
+                    name: 'Cody Bontecou',
+                    logo: {
+                        '@type': 'ImageObject',
+                        url: 'https://codybontecou.com/apple-touch-icon.png'
+                    }
+                }
+            }
+            
+            head.push(['script', { type: 'application/ld+json' }, JSON.stringify(structuredData)] as [string, Record<string, string>, string])
+        }
+        
+        return head
+    },
 })
