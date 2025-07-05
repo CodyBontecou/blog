@@ -1,6 +1,12 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".vitepress/dist",
+  "rewrites": [
+    {
+      "source": "/(.+)",
+      "destination": "/$1.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
