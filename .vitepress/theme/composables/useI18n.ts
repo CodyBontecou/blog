@@ -6,7 +6,8 @@ const translations = {
   'newsletter.signupError': 'Subscription Error',
   'newsletter.signupErrorDescription': 'Something went wrong. Please try again.',
   'newsletter.successTitle': 'Successfully Subscribed!',
-  'newsletter.successDescription': 'Thanks for subscribing! You\'ll receive updates about new posts.'
+  'newsletter.successDescription': 'Thanks for subscribing! You\'ll receive updates about new posts.',
+  'newsletter.checkEmail': 'Check Your Email'
 }
 
 export function useI18n() {

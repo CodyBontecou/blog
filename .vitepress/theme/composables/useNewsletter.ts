@@ -1,43 +1,42 @@
-// VitePress-compatible newsletter subscription
+// Newsletter subscription composable that integrates with Supabase backend
 export function useNewsletter() {
   const subscribeUserToNewsletter = async (email: string) => {
     try {
-      // Simple Mailchimp JSONP subscription
-      const emailEncoded = encodeURIComponent(email)
-      const dataCenter = 'gmail'
-      const userId = 'cd437705ede047b78169e4337'
-      const listId = 'c7dcc86f21'
-      const endpoint = `https://${dataCenter}.us10.list-manage.com/subscribe/post-json?u=${userId}&id=${listId}&f_id=00b0bbe3f0&EMAIL=${emailEncoded}&c=?`
+      console.log('📧 Subscribing email:', email)
       
-      // Use fetch with JSONP-style callback
-      return new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        const callbackName = 'mailchimpCallback' + Date.now()
-        
-        // Create global callback
-        ;(window as any)[callbackName] = (data: any) => {
-          document.head.removeChild(script)
-          delete (window as any)[callbackName]
-          
-          if (data.result === 'success') {
-            resolve({ error: [] })
-          } else {
-            resolve({ error: [data.msg || 'Subscription failed'] })
-          }
-        }
-        
-        script.src = endpoint.replace('c=?', `c=${callbackName}`)
-        script.onerror = () => {
-          document.head.removeChild(script)
-          delete (window as any)[callbackName]
-          reject(new Error('Network error'))
-        }
-        
-        document.head.appendChild(script)
+      // Call the server endpoint to handle subscription
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
       })
+      
+      const result = await response.json()
+      console.log('📬 Subscription response:', result)
+      
+      if (!response.ok) {
+        return { 
+          success: false, 
+          message: result.message || 'Subscription failed',
+          error: [result.message || 'Subscription failed'] 
+        }
+      }
+      
+      return { 
+        success: result.success,
+        message: result.message,
+        confirmationRequired: result.confirmationRequired,
+        error: result.success ? [] : [result.message]
+      }
     } catch (error) {
       console.error('Newsletter subscription error:', error)
-      return { error: ['Something went wrong. Please try again.'] }
+      return { 
+        success: false,
+        message: 'Network error. Please try again.',
+        error: ['Network error. Please try again.'] 
+      }
     }
   }
   

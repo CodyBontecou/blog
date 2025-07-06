@@ -10,19 +10,18 @@ const emailInput = ref('')
 const { subscribeUserToNewsletter } = useNewsletter()
 
 const handleSubmit = async () => {
-    const { error } = await subscribeUserToNewsletter(emailInput.value)
+    const result = await subscribeUserToNewsletter(emailInput.value)
 
-    emailInput.value = ''
-
-    if (error.length) {
+    if (result.success) {
+        emailInput.value = ''
         toast({
-            title: t('newsletter.signupError'),
-            description: t('newsletter.signupErrorDescription'),
+            title: result.confirmationRequired ? t('newsletter.checkEmail') : t('newsletter.successTitle'),
+            description: result.message || t('newsletter.successDescription'),
         })
     } else {
         toast({
-            title: t('newsletter.successTitle'),
-            description: t('newsletter.successDescription'),
+            title: t('newsletter.signupError'),
+            description: result.message || t('newsletter.signupErrorDescription'),
         })
     }
 }
