@@ -16,3 +16,4 @@ dist
 .mcp*
 mcp*
 .vercel
+.newsletter-last-build
