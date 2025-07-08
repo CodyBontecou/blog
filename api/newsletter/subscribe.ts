@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { newsletterService } from '../../lib/newsletter'
+import { newsletterService } from '../../lib/newsletter.js'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Enable CORS
