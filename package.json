@@ -26,6 +26,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@types/rss": "^0.0.32",
+    "@vercel/node": "^5.3.4",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
     "dotenv": "^17.0.1",
