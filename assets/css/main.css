@@ -1,10 +1,25 @@
-
 /* Only apply code wrapping to inline code, not code blocks */
 :not(pre) > code {
-    white-space: pre-wrap; /* Allows wrapping */
-    word-wrap: break-word; /* Breaks long words if needed */
-    overflow-wrap: break-word; /* Modern version of word-wrap */
-    max-width: 100%; /* Ensures code stays within container */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+/* Allow VitePress to handle code block styling */
+.prose .vp-code-group,
+.prose [class*="language-"] {
+    /* Remove prose typography styles from code blocks */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* Ensure prose images work well */

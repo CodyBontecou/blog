@@ -7,6 +7,13 @@ export default defineConfig({
   description: 'A blog built with VitePress',
   srcDir: 'content',
   cleanUrls: true,
+  markdown: {
+    theme: {
+      light: 'github-light',
+      dark: 'material-theme-palenight'
+    },
+    lineNumbers: false
+  },
   vite: {
     plugins: [apiPlugin()],
     resolve: {
