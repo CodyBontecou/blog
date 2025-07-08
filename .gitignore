@@ -10,6 +10,9 @@ node_modules
 dist
 .DS_Store
 
+# VitePress cache
+.vitepress/cache/
+
 # Obsidian config
 .obsidian/
 .vercel*
