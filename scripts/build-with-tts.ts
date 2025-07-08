@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from 'fs';
+import { readFileSync, readdirSync, statSync, cpSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 import { TtsGenerator } from './tts-generator.js';
 
@@ -38,6 +38,28 @@ async function buildWithTts() {
   console.log(`\n🎉 TTS generation complete!`);
   console.log(`✅ Generated: ${successCount} audio files`);
   console.log(`⏭️  Skipped: ${skipCount} files`);
+  
+  // Copy audio files to public directory
+  console.log('\n📁 Copying audio files to public directory...');
+  const sourceAudioDir = 'content/audio';
+  const targetAudioDir = 'public/audio';
+  
+  try {
+    if (existsSync(sourceAudioDir)) {
+      // Create public/audio directory if it doesn't exist
+      if (!existsSync(targetAudioDir)) {
+        mkdirSync(targetAudioDir, { recursive: true });
+      }
+      
+      // Copy all files from content/audio to public/audio
+      cpSync(sourceAudioDir, targetAudioDir, { recursive: true });
+      console.log('✅ Audio files copied successfully');
+    } else {
+      console.log('⚠️  No audio directory found, skipping copy');
+    }
+  } catch (error) {
+    console.error('❌ Error copying audio files:', error);
+  }
   
   // Now run the regular VitePress build
   console.log('\n📦 Running VitePress build...');
