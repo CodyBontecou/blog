@@ -1,4 +1,4 @@
-import { EMAIL_CONFIG } from './resend'
+import { EMAIL_CONFIG } from './resend.js'
 
 export interface ArticleData {
   title: string

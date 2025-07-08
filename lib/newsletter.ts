@@ -1,6 +1,6 @@
-import { supabase, type Subscriber, type NewsletterCampaign } from './supabase'
-import { resend, EMAIL_CONFIG } from './resend'
-import { generateArticleEmailHTML, generateArticleEmailText, type ArticleData } from './email-templates'
+import { supabase, type Subscriber, type NewsletterCampaign } from './supabase.js'
+import { resend, EMAIL_CONFIG } from './resend.js'
+import { generateArticleEmailHTML, generateArticleEmailText, type ArticleData } from './email-templates.js'
 
 export class NewsletterService {
   /**
