@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "tsx scripts/copy-audio-files.ts && vitepress build",
+    "build": "vitepress build",
     "build:tts": "tsx scripts/build-with-tts.ts",
     "preview": "vitepress preview",
     "newsletter": "tsx scripts/newsletter.ts",
