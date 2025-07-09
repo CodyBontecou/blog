@@ -2,8 +2,8 @@
 title: 'Building a Fullstack Text-to-Speech System with Kokoro and Replicate'
 description: 'Learn how I built an automated text-to-speech system for my blog using Kokoro TTS, Replicate API, and Vue.js - complete with audio player and build pipeline integration.'
 draft: false
-publishedAt: 2025-01-09
-updatedAt: 2025-01-09
+created_at: 2025-07-08T14:30
+last_modified: 2025-07-08T14:30
 topics:
     - typescript
     - vue
