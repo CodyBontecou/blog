@@ -1,9 +1,9 @@
 import { cpSync, mkdirSync, existsSync } from 'fs';
 
 function copyAudioFiles() {
-  console.log('📁 Copying audio files to public directory...');
+  console.log('📁 Copying audio files to content/public directory...');
   const sourceAudioDir = 'content/audio';
-  const targetAudioDir = 'public/audio';
+  const targetAudioDir = 'content/public/audio';
   
   try {
     if (existsSync(sourceAudioDir)) {
