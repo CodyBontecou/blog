@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
 import { apiPlugin } from './vite-plugin-api'
+import { generateSitemap, generateRSS } from './buildEnd'
 
 export default defineConfig({
   title: 'Blog',
@@ -13,6 +14,12 @@ export default defineConfig({
       dark: 'material-theme-palenight'
     },
     lineNumbers: false
+  },
+  buildEnd: async (siteConfig) => {
+    await Promise.all([
+      generateSitemap(siteConfig),
+      generateRSS(siteConfig)
+    ])
   },
   vite: {
     plugins: [apiPlugin()],
