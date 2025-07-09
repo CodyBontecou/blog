@@ -12,8 +12,6 @@ topics:
     - audio
 ---
 
-# Building a Fullstack Text-to-Speech System with Kokoro and Replicate
-
 I've been thinking about accessibility on my blog lately, and one thing that kept coming up was how people consume content differently. Some folks prefer to read, others learn better by listening, and many want both options available.
 
 So I decided to add audio versions of my blog posts. But here's the thing - I didn't want to manually record dozens of posts (who has time for that?), and I definitely didn't want to pay hundreds of dollars per month for enterprise TTS solutions.
