@@ -2,7 +2,7 @@
     <div v-if="frontmatter.layout === 'home'">
         <HomeLayout />
     </div>
-    <div v-else-if="frontmatter.layout === 'blog'" class="content-container">
+    <div v-else-if="frontmatter.layout === 'blog'">
         <BlogLayout />
     </div>
     <div v-else-if="frontmatter.layout === 'topic'">
@@ -11,13 +11,13 @@
     <div v-else-if="frontmatter.layout === 'topics-index'">
         <TopicsIndexLayout />
     </div>
-    <div v-else class="content-container">
+    <div v-else>
         <!-- Blog post with header -->
         <div v-if="isBlogPost">
             <article>
                 <!-- Article Header -->
                 <h1>{{ frontmatter.title }}</h1>
-                <div class="article-meta">
+                <div>
                     <span>{{ formatDate(frontmatter.created_at || frontmatter.date) }}</span>
                     <span v-for="(topic, index) in frontmatter.topics" :key="topic">
                         <a :href="`/topics/${topic.toLowerCase()}`">

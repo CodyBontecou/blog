@@ -1,14 +1,10 @@
 <template>
   <ul>
-    <li
-      v-for="article in filteredArticles"
-      :key="article.frontmatter?.title || article.url"
-      class="article-item"
-    >
-      <span class="article-date">
+    <li v-for="article in filteredArticles" :key="article.frontmatter?.title || article.url">
+      <span>
         {{ formatPostDate(article.frontmatter?.created_at || article.frontmatter?.date) }}
       </span>
-      <a :href="article.url" class="article-title">
+      <a :href="article.url">
         {{ article.frontmatter?.title }}
       </a>
     </li>
@@ -44,33 +40,3 @@ const filteredArticles = computed(() => {
   )
 })
 </script>
-
-<style scoped>
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 1em;
-  display: flex;
-  align-items: baseline;
-  gap: 1em;
-}
-
-.article-date {
-  color: #666;
-  font-family: monospace;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
-.article-title {
-  text-decoration: none;
-}
-
-.article-title:hover {
-  text-decoration: underline;
-}
-</style>
