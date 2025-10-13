@@ -1,215 +1,100 @@
 <template>
-    <div class="">
-        <div class="mx-auto max-w-7xl w-full py-16 px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
-                <!-- Left Column -->
-                <div class="max-w-lg mx-auto mb-16 lg:mb-0 lg:mx-0 lg:pr-4">
-                    <div class="">
-                        <!-- Hero, description -->
-                        <div class="mb-4">
-                            <h1
-                                class="mb-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
-                            >
-                                Cody Bontecou
-                            </h1>
-                            <p class="text-lg italic leading-8 text-gray-600">
-                                is enjoying life 💭
-                            </p>
-                        </div>
+    <div class="content-container">
+        <div>
+            <h1>Cody Bontecou</h1>
+            <p>is enjoying life</p>
+        </div>
 
-                        <!-- Toggle Switch -->
-                        <div class="mb-8 w-full">
-                            <ToggleSwitch
-                                v-model="isAboutView"
-                                @update:modelValue="handleViewToggle"
-                            />
-                        </div>
+        <div>
+            <button @click="isAboutView = !isAboutView">
+                {{ isAboutView ? 'Writing' : 'About' }}
+            </button>
+        </div>
 
-                        <!-- Writing View Content -->
-                        <div v-if="!isAboutView">
-                            <!-- Latest -->
-                            <section v-if="latestArticle" class="mb-16 w-full">
-                                <h2 class="text-gray-600 mb-6">Latest</h2>
-                                <article>
-                                    <h3 class="text-xl font-medium mb-2">
-                                        <a
-                                            :href="latestArticle.url"
-                                            class="hover:opacity-75"
-                                        >
-                                            {{
-                                                latestArticle.frontmatter?.title
-                                            }}
-                                        </a>
-                                    </h3>
-                                    <div class="text-gray-600 mb-3">
-                                        {{ formattedDate }} ·
-                                        {{ readingTime }} minute read
-                                    </div>
-                                    <div class="text-gray-700 text-sm mb-4">
-                                        {{ excerpt }}
-                                    </div>
-                                    <p class="text-gray-600">
-                                        <a
-                                            :href="latestArticle.url"
-                                            class="text-gray-900 hover:opacity-75"
-                                        >
-                                            Keep reading
-                                        </a>
-                                    </p>
-                                </article>
-                            </section>
-
-                            <!-- Topics -->
-                            <section
-                                v-if="topicsWithCounts.length"
-                                class="mb-16 w-full"
-                                style="min-height: 0"
-                            >
-                                <h2 class="text-lg text-gray-600">Topics</h2>
-
-                                <!-- Multiple topics info -->
-                                <div
-                                    v-if="
-                                        selectedTopics.length > 1 &&
-                                        hasUrlParams
-                                    "
-                                    class="mt-4"
-                                >
-                                    <p class="text-sm text-gray-600">
-                                        Filtering by
-                                        {{ selectedTopics.length }} topics.
-                                        <button
-                                            @click="clearAllTopics"
-                                            class="underline hover:opacity-75"
-                                        >
-                                            Clear all filters
-                                        </button>
-                                    </p>
-                                </div>
-
-                                <!-- Single topic suggestion -->
-                                <div
-                                    v-if="selectedTopics.length === 1"
-                                    class="mt-4 mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg"
-                                >
-                                    <p class="text-sm text-blue-800">
-                                        📍 Viewing articles about
-                                        <strong>{{ selectedTopics[0] }}</strong
-                                        >.
-                                        <a
-                                            :href="`/topics/${selectedTopics[0]}/`"
-                                            class="underline hover:opacity-75"
-                                        >
-                                            Visit the dedicated
-                                            {{ selectedTopics[0] }} page
-                                        </a>
-                                        for better SEO and sharing.
-                                    </p>
-                                </div>
-
-                                <div class="mt-6 flex flex-wrap gap-2">
-                                    <button
-                                        v-for="{
-                                            topic,
-                                            count,
-                                        } in topicsWithCounts"
-                                        :key="topic"
-                                        type="button"
-                                        @click="toggleTopic(topic, $event)"
-                                        :class="[
-                                            'inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm transition-colors duration-200',
-                                            selectedTopics.includes(topic)
-                                                ? 'bg-gray-900 text-white'
-                                                : 'bg-gray-100 hover:bg-gray-200 text-gray-700',
-                                        ]"
-                                    >
-                                        <span>{{ topic }}</span>
-                                        <span
-                                            :class="
-                                                selectedTopics.includes(topic)
-                                                    ? 'text-gray-300'
-                                                    : 'text-gray-500'
-                                            "
-                                            >({{ count }})</span
-                                        >
-                                    </button>
-                                </div>
-                            </section>
-                        </div>
-
-                        <!-- About View Content -->
-                        <div v-else class="mb-16 w-full">
-                            <section class="w-full">
-                                <h2 class="text-lg text-gray-600 mb-6">
-                                    About
-                                </h2>
-                                <div class="prose prose-gray max-w-none">
-                                    <p
-                                        class="text-gray-700 leading-relaxed mb-4"
-                                    >
-                                        I'm a software engineer with a passion
-                                        for building meaningful products and
-                                        sharing knowledge through writing.
-                                    </p>
-
-                                    <p
-                                        class="text-gray-700 leading-relaxed mb-4"
-                                    >
-                                        My interests span across TypeScript,
-                                        Vue.js, accessibility, AI, and the
-                                        evolving landscape of web development. I
-                                        enjoy exploring new technologies and
-                                        documenting my learnings along the way.
-                                    </p>
-
-                                    <p
-                                        class="text-gray-700 leading-relaxed mb-6"
-                                    >
-                                        When I'm not coding, you'll find me
-                                        experimenting with new tools,
-                                        contributing to open source, or writing
-                                        about the intersection of technology and
-                                        human experience.
-                                    </p>
-
-                                    <div class="space-y-3">
-                                        <h3 class="text-gray-900 font-medium">
-                                            Connect
-                                        </h3>
-                                        <div class="flex flex-col space-y-2">
-                                            <a
-                                                href="https://github.com/codybontecou"
-                                                class="text-blue-600 hover:underline flex items-center gap-2"
-                                            >
-                                                <span>GitHub</span>
-                                                <svg
-                                                    class="w-4 h-4"
-                                                    fill="currentColor"
-                                                    viewBox="0 0 20 20"
-                                                >
-                                                    <path
-                                                        fill-rule="evenodd"
-                                                        d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                                                        clip-rule="evenodd"
-                                                    />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
+        <!-- Writing View -->
+        <div v-if="!isAboutView">
+            <!-- Latest Article -->
+            <section v-if="latestArticle">
+                <h2>Latest</h2>
+                <article class="article-item">
+                    <div class="article-title">
+                        <a :href="latestArticle.url">
+                            {{ latestArticle.frontmatter?.title }}
+                        </a>
                     </div>
+                    <div class="article-meta">
+                        {{ formattedDate }} · {{ readingTime }} minute read
+                    </div>
+                    <p>{{ excerpt }}</p>
+                    <a :href="latestArticle.url">Keep reading</a>
+                </article>
+            </section>
+
+            <!-- Topics -->
+            <section v-if="topicsWithCounts.length">
+                <h2>Topics</h2>
+
+                <div v-if="selectedTopics.length > 1 && hasUrlParams">
+                    <p>
+                        Filtering by {{ selectedTopics.length }} topics.
+                        <button @click="clearAllTopics">Clear all filters</button>
+                    </p>
                 </div>
 
-                <!-- Right Column -->
-                <div class="max-w-lg mx-auto lg:mt-0 lg:pl-4">
-                    <div v-if="!isAboutView">
-                        <h2 class="mb-6 text-lg text-gray-600">Writing</h2>
-                        <ArticleList v-if="articles" :articles="articles" />
-                    </div>
+                <div v-if="selectedTopics.length === 1">
+                    <p>
+                        Viewing articles about <strong>{{ selectedTopics[0] }}</strong>.
+                        <a :href="`/topics/${selectedTopics[0]}/`">
+                            Visit the dedicated {{ selectedTopics[0] }} page
+                        </a>
+                    </p>
                 </div>
-            </div>
+
+                <ul class="topic-list">
+                    <li v-for="{ topic, count } in topicsWithCounts" :key="topic">
+                        <button
+                            type="button"
+                            @click="toggleTopic(topic, $event)"
+                            :class="['topic-tag', { active: selectedTopics.includes(topic) }]"
+                        >
+                            {{ topic }} ({{ count }})
+                        </button>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Articles List -->
+            <section>
+                <h2>Writing</h2>
+                <ArticleList v-if="articles" :articles="articles" />
+            </section>
+        </div>
+
+        <!-- About View -->
+        <div v-else>
+            <section>
+                <h2>About</h2>
+                <p>
+                    I'm a software engineer with a passion for building meaningful products and
+                    sharing knowledge through writing.
+                </p>
+                <p>
+                    My interests span across TypeScript, Vue.js, accessibility, AI, and the
+                    evolving landscape of web development. I enjoy exploring new technologies and
+                    documenting my learnings along the way.
+                </p>
+                <p>
+                    When I'm not coding, you'll find me experimenting with new tools,
+                    contributing to open source, or writing about the intersection of technology and
+                    human experience.
+                </p>
+                <h3>Connect</h3>
+                <ul>
+                    <li>
+                        <a href="https://github.com/codybontecou">GitHub</a>
+                    </li>
+                </ul>
+            </section>
         </div>
     </div>
 </template>
@@ -225,7 +110,6 @@ import {
     getFirstParagraphText,
 } from '../utils'
 import ArticleList from './ArticleList.vue'
-import ToggleSwitch from './ToggleSwitch.vue'
 
 // View state
 const isAboutView = ref(false)
@@ -268,25 +152,6 @@ onMounted(() => {
 const initializeViewFromUrl = () => {
     const urlParams = new URLSearchParams(window.location.search)
     isAboutView.value = urlParams.get('view') === 'about'
-}
-
-// Handle view toggle and update URL
-const handleViewToggle = (newValue: boolean) => {
-    const url = new URL(window.location.href)
-
-    if (newValue) {
-        // Set view to about
-        url.searchParams.set('view', 'about')
-    } else {
-        // Remove view parameter (default to writing)
-        url.searchParams.delete('view')
-    }
-
-    // Update URL without page reload
-    window.history.pushState({}, '', url.toString())
-
-    // Update view state
-    isAboutView.value = newValue
 }
 
 // Filter out draft posts and sort by date
@@ -393,44 +258,38 @@ const formattedDate = computed(() => {
 })
 
 const readingTime = computed(() => {
-    if (!latestArticle.value) return 3 // Default fallback like individual posts
+    if (!latestArticle.value) return 3
 
-    // Try to get full content for accurate reading time calculation
     const content =
         latestArticle.value.content || latestArticle.value.excerpt || ''
 
     if (!content) {
-        return 3 // Same fallback as individual blog posts
+        return 3
     }
 
-    // Use same calculation as individual blog posts (200 WPM)
     const wordsPerMinute = 200
     const words = content
         .trim()
         .split(/\s+/)
         .filter(word => word.length > 0).length
     const minutes = Math.ceil(words / wordsPerMinute)
-    return minutes || 1 // At least 1 minute
+    return minutes || 1
 })
 
 const excerpt = computed(() => {
     if (!latestArticle.value) return ''
 
-    // First try to get excerpt, then fall back to content
     let content =
         latestArticle.value.excerpt || latestArticle.value.content || ''
 
-    // If still no content, create a simple excerpt from the post
     if (!content) {
-        // Return first paragraph from the markdown file
         return 'Open-source AI is an exciting space. There is a lot of research and innovation is taking place here.'
     }
 
-    // Clean up the content
     const text = content
-        .replace(/<[^>]*>/g, '') // Remove HTML tags
-        .replace(/\n/g, ' ') // Replace newlines with spaces
-        .replace(/#{1,6}\s+/g, '') // Remove markdown headers
+        .replace(/<[^>]*>/g, '')
+        .replace(/\n/g, ' ')
+        .replace(/#{1,6}\s+/g, '')
         .trim()
 
     return text.length > 150 ? text.substring(0, 150) + '...' : text
