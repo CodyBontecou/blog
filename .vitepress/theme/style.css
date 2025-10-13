@@ -7,7 +7,6 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.4;
     color: #000;
@@ -69,7 +68,6 @@ img {
 }
 
 code {
-    font-family: "Courier New", Courier, monospace;
     background: #f4f4f4;
     padding: 2px 4px;
 }
