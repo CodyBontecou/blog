@@ -41,15 +41,6 @@ p {
     margin-bottom: 1em;
 }
 
-a {
-    color: #000;
-    text-decoration: underline;
-}
-
-a:hover {
-    opacity: 0.7;
-}
-
 ul {
     list-style: none;
     margin: 0;
