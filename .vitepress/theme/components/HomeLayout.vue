@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Cody Bontecou</h1>
-        <p>Software engineer interested in TypeScript, Vue.js, accessibility, AI, and web development.</p>
+        <p>I'm a software engineer who loves building things with TypeScript and Vue.js. I write about web development, AI, and making the web more accessible. When I'm not coding, you'll find me tinkering with new technologies, contributing to open source, or writing essays to share what I've learned.</p>
 
         <h2>Essays</h2>
         <ul>
