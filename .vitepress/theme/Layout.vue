@@ -41,11 +41,13 @@
 
 <script setup lang="ts">
 import { useData, useRoute } from 'vitepress'
-import { computed } from 'vue'
-import HomeLayout from './components/HomeLayout.vue'
-import BlogLayout from './components/BlogLayout.vue'
-import TopicLayout from './components/TopicLayout.vue'
-import TopicsIndexLayout from './components/TopicsIndexLayout.vue'
+import { computed, defineAsyncComponent } from 'vue'
+
+// Lazy load layout components for better performance
+const HomeLayout = defineAsyncComponent(() => import('./components/HomeLayout.vue'))
+const BlogLayout = defineAsyncComponent(() => import('./components/BlogLayout.vue'))
+const TopicLayout = defineAsyncComponent(() => import('./components/TopicLayout.vue'))
+const TopicsIndexLayout = defineAsyncComponent(() => import('./components/TopicsIndexLayout.vue'))
 
 const { page, frontmatter } = useData()
 const route = useRoute()
