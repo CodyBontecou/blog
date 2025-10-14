@@ -40,3 +40,19 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<style scoped>
+ol {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+</style>

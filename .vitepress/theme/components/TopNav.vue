@@ -9,3 +9,10 @@
     </nav>
   </header>
 </template>
+
+<style scoped>
+nav {
+  display: flex;
+  gap: 1rem;
+}
+</style>

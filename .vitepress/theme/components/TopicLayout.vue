@@ -2,9 +2,11 @@
   <div>
     <main>
       <div>
-        <TopNav />
-
-        <Breadcrumb :items="breadcrumbItems" />
+        <div>
+          <a href="/" class="back-button">
+            ← Back
+          </a>
+        </div>
 
         <div>
           <h1>
@@ -15,19 +17,6 @@
           <p>
             {{ articleCount }} {{ articleCount === 1 ? 'article' : 'articles' }} about {{ capitalizedTopic.toLowerCase() }}
           </p>
-
-          <div v-if="relatedTopics.length > 0">
-            <h2>Related Topics</h2>
-            <div>
-              <a
-                v-for="relatedTopic in relatedTopics"
-                :key="relatedTopic"
-                :href="`/topics/${relatedTopic}/`"
-              >
-                {{ capitalizeFirstLetter(relatedTopic) }}
-              </a>
-            </div>
-          </div>
         </div>
 
         <div v-if="filteredArticles.length === 0">
@@ -38,6 +27,19 @@
         </div>
 
         <ArticleList v-else :articles="filteredArticles" />
+
+        <div v-if="relatedTopics.length > 0 && filteredArticles.length > 0">
+          <h2>Related Topics</h2>
+          <div class="related-topics-links">
+            <a
+              v-for="relatedTopic in relatedTopics"
+              :key="relatedTopic"
+              :href="`/topics/${relatedTopic}/`"
+            >
+              {{ capitalizeFirstLetter(relatedTopic) }}
+            </a>
+          </div>
+        </div>
 
         <div v-if="filteredArticles.length > 0">
           <p>
@@ -57,8 +59,6 @@ import { computed, onMounted } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import { data as posts } from '../posts.data'
 import { capitalizeFirstLetter, getArticlesByTopic, getTopics } from '../utils'
-import TopNav from './TopNav.vue'
-import Breadcrumb from './Breadcrumb.vue'
 import ArticleList from './ArticleList.vue'
 
 const { page, site } = useData()
@@ -200,3 +200,22 @@ onMounted(() => {
   })
 })
 </script>
+
+<style scoped>
+.back-button {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.related-topics-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+</style>

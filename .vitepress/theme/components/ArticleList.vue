@@ -1,9 +1,6 @@
 <template>
   <ul>
     <li v-for="article in filteredArticles" :key="article.frontmatter?.title || article.url">
-      <span>
-        {{ formatPostDate(article.frontmatter?.created_at || article.frontmatter?.date) }}
-      </span>
       <a :href="article.url">
         {{ article.frontmatter?.title }}
       </a>
