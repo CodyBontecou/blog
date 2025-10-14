@@ -1,14 +1,14 @@
 <template>
     <div
         v-if="audioSrc && audioFileExists"
-        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 mb-6 border border-gray-200 dark:border-gray-700"
+        class="bg-white rounded-lg shadow-lg p-4 mb-6 border border-gray-200"
     >
         <div class="flex items-center justify-between mb-3">
             <div class="flex items-center space-x-3">
                 <button
                     @click="togglePlayPause"
                     :disabled="!audioSrc || loading"
-                    class="flex items-center justify-center w-10 h-10 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 dark:disabled:bg-gray-600 text-white rounded-full transition-colors"
+                    class="flex items-center justify-center w-10 h-10 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white rounded-full transition-colors"
                 >
                     <svg
                         v-if="loading"
@@ -50,11 +50,11 @@
 
                 <div class="flex flex-col">
                     <span
-                        class="text-sm font-medium text-gray-900 dark:text-gray-100"
+                        class="text-sm font-medium text-gray-900"
                     >
                         {{ title || 'Audio Version' }}
                     </span>
-                    <span class="text-xs text-gray-500 dark:text-gray-400">
+                    <span class="text-xs text-gray-500">
                         {{ formatTime(currentTime) }} /
                         {{ formatTime(duration) }}
                     </span>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="relative">
-            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+            <div class="w-full bg-gray-200 rounded-full h-2">
                 <div
                     class="bg-blue-500 h-2 rounded-full transition-all duration-100"
                     :style="{ width: `${progress}%` }"

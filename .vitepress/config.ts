@@ -9,10 +9,7 @@ export default defineConfig({
   srcDir: 'content',
   cleanUrls: true,
   markdown: {
-    theme: {
-      light: 'github-light',
-      dark: 'material-theme-palenight'
-    },
+    theme: 'github-light',
     lineNumbers: false
   },
   buildEnd: async (siteConfig) => {

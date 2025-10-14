@@ -183,7 +183,7 @@ Now for the fun part - creating a custom Vue.js audio player that doesn't look l
 <template>
     <div v-if="audioExists" class="audio-player">
         <div
-            class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
+            class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg"
         >
             <button
                 @click="togglePlay"
@@ -201,7 +201,7 @@ Now for the fun part - creating a custom Vue.js audio player that doesn't look l
                     :value="progress"
                     @input="seek"
                     :max="duration || 100"
-                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                 />
                 <div class="flex justify-between text-sm text-gray-500 mt-1">
                     <span>{{ formatTime(currentTime) }}</span>
