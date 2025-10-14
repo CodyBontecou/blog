@@ -266,21 +266,20 @@ watch(isMobileMenuOpen, newValue => {
                         <h1 class="text-4xl font-normal mb-4">
                             {{ post?.title }}
                         </h1>
-                        <div class="text-gray-600 text-base sm:text-lg flex flex-wrap items-center gap-x-2 mb-10">
+                        <div class="text-gray-600 text-base sm:text-lg mb-10">
                             <span class="whitespace-nowrap">
                                 {{ formatDate(post?.created_at) }} ·
                                 {{ calculateReadingTime(postBody) }}
                                 {{ $t('latest.minuteRead') }}
                             </span>
-                            <span class="hidden sm:inline">·</span>
-                            <div class="flex flex-wrap gap-x-2 gap-y-1 mt-1 sm:mt-0">
+                            <span class="mx-2 hidden sm:inline">·</span>
+                            <span class="inline sm:hidden"><br /></span>
+                            <template v-for="(topic, index) in post?.topics" :key="topic">
                                 <NuxtLink
                                     class="text-gray-600 topics hover:underline"
-                                    v-for="(topic, index) in post?.topics"
                                     :to="'/topics/' + topic.toLowerCase()"
-                                >{{ topic.toLowerCase() }}<span v-if="index !== post?.topics.length - 1">,</span>
-                                </NuxtLink>
-                            </div>
+                                >{{ topic.toLowerCase() }}</NuxtLink><span v-if="index !== post?.topics.length - 1">, </span>
+                            </template>
                         </div>
 
                         <article class="prose prose-slate lg:prose-lg xl:prose-xl max-w-none prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-code:before:content-none prose-code:after:content-none prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2">

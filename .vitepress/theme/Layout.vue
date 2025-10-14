@@ -19,6 +19,7 @@
                 <h1>{{ frontmatter.title }}</h1>
                 <div>
                     <span>{{ formatDate(frontmatter.created_at || frontmatter.date) }}</span>
+                    <span v-if="frontmatter.topics && frontmatter.topics.length"> · </span>
                     <span v-for="(topic, index) in frontmatter.topics" :key="topic">
                         <a :href="`/topics/${topic.toLowerCase()}`">
                             {{ topic.toLowerCase() }}

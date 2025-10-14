@@ -6,14 +6,14 @@
         {{ formatDate(date) }}
       </span>
       <span v-if="readingTime">· {{ readingTime }} min read</span>
-      <div v-if="topics">
+      <span v-if="topics"> ·
         <span
           v-for="(topic, index) in topics"
           :key="topic"
         >
-          {{ topic.toLowerCase() }}<span v-if="index !== topics.length - 1">,</span>
+          {{ topic.toLowerCase() }}<span v-if="index !== topics.length - 1">, </span>
         </span>
-      </div>
+      </span>
     </div>
     <slot />
   </article>
