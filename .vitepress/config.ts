@@ -8,6 +8,7 @@ export default defineConfig({
   description: 'A blog built with VitePress',
   srcDir: 'content',
   cleanUrls: true,
+  appearance: false,
   markdown: {
     theme: 'github-light',
     lineNumbers: false

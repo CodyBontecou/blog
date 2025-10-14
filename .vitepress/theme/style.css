@@ -1,3 +1,9 @@
+html,
+body {
+  background: #fff;
+  color: #000;
+}
+
 body {
   max-width: 700px;
   margin: 60px auto;
