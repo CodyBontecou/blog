@@ -14,23 +14,8 @@ export default defineConfig({
     lineNumbers: false
   },
   head: [
-    // Preload critical font with font-display swap
-    ['link', {
-      rel: 'preload',
-      href: '/assets/inter-roman-latin.Di8DUHzh.woff2',
-      as: 'font',
-      type: 'font/woff2',
-      crossorigin: ''
-    }],
     // Inline critical CSS for above-the-fold content
     ['style', {}, `
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('/assets/inter-roman-latin.Di8DUHzh.woff2') format('woff2');
-      }
       html,body{background:#fff;color:#000}
       body{max-width:650px;margin:50px auto;padding:0 20px;font-family:Times;font-size:16px;line-height:1.4}
       h1{font-weight:bold;margin:19.92px 0;font-size:24px;line-height:1.4}

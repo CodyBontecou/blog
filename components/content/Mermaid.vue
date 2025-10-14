@@ -5,14 +5,18 @@
 </template>
 
 <script setup lang="ts">
-let show = ref(false)
+import { ref, onMounted, nextTick } from 'vue'
+import mermaid from 'mermaid'
 
-const { $mermaid } = useNuxtApp()
+const show = ref(false)
 
 onMounted(async () => {
     show.value = true
-    $mermaid().initialize({ startOnLoad: true })
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default'
+    })
     await nextTick()
-    $mermaid().init()
+    mermaid.run()
 })
 </script>
