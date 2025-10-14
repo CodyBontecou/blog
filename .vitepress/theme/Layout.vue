@@ -14,7 +14,7 @@
     <div v-else>
         <!-- Blog post with header -->
         <div v-if="isBlogPost">
-            <article>
+            <article class="vp-doc">
                 <!-- Article Header -->
                 <h1>{{ frontmatter.title }}</h1>
                 <div>
@@ -32,7 +32,7 @@
         </div>
 
         <!-- Regular page without header -->
-        <article v-else>
+        <article v-else class="vp-doc">
             <Content :key="route.path" />
         </article>
     </div>
