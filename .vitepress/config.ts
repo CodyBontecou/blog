@@ -8,11 +8,9 @@ export default defineConfig({
   description: 'A blog built with VitePress',
   srcDir: 'content',
   cleanUrls: true,
+  appearance: false,
   markdown: {
-    theme: {
-      light: 'github-light',
-      dark: 'material-theme-palenight'
-    },
+    theme: 'github-light',
     lineNumbers: false
   },
   buildEnd: async (siteConfig) => {

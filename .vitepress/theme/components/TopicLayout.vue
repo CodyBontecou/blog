@@ -1,54 +1,52 @@
 <template>
   <div>
+    <main>
+      <div>
+        <div>
+          <a href="/" class="back-button">
+            ← Back
+          </a>
+        </div>
 
-    <main class="max-w-3xl mx-auto py-8 px-4">
-      <div class="max-w-lg mx-auto mb-16 lg:max-w-3xl">
-        <TopNav />
-        
-        <Breadcrumb :items="breadcrumbItems" />
-
-        <div class="mb-12">
-          <h1 class="text-4xl font-normal mb-4">
-            <span class="text-gray-500">Topics / </span>
+        <div>
+          <h1>
+            <span>Topics / </span>
             <span>{{ capitalizedTopic }}</span>
           </h1>
 
-          <p class="text-gray-600 text-lg mb-6">
+          <p>
             {{ articleCount }} {{ articleCount === 1 ? 'article' : 'articles' }} about {{ capitalizedTopic.toLowerCase() }}
           </p>
+        </div>
 
-          <!-- Related Topics -->
-          <div v-if="relatedTopics.length > 0" class="mb-8">
-            <h2 class="text-sm font-medium text-gray-500 mb-3">Related Topics</h2>
-            <div class="flex flex-wrap gap-2">
-              <a
-                v-for="relatedTopic in relatedTopics"
-                :key="relatedTopic"
-                :href="`/topics/${relatedTopic}/`"
-                class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 text-sm text-gray-700 transition-colors"
-              >
-                {{ capitalizeFirstLetter(relatedTopic) }}
-              </a>
-            </div>
+        <div v-if="filteredArticles.length === 0">
+          <p>No articles found for this topic yet.</p>
+          <p>
+            <a href="/">← Back to all posts</a>
+          </p>
+        </div>
+
+        <ArticleList v-else :articles="filteredArticles" />
+
+        <div v-if="relatedTopics.length > 0 && filteredArticles.length > 0">
+          <h2>Related Topics</h2>
+          <div class="related-topics-links">
+            <a
+              v-for="relatedTopic in relatedTopics"
+              :key="relatedTopic"
+              :href="`/topics/${relatedTopic}/`"
+            >
+              {{ capitalizeFirstLetter(relatedTopic) }}
+            </a>
           </div>
         </div>
 
-        <div v-if="filteredArticles.length === 0" class="text-gray-600">
-          <p>No articles found for this topic yet.</p>
-          <p class="mt-4">
-            <a href="/" class="underline hover:opacity-75">← Back to all posts</a>
-          </p>
-        </div>
-        
-        <ArticleList v-else :articles="filteredArticles" />
-
-        <!-- Internal linking suggestions -->
-        <div v-if="filteredArticles.length > 0" class="mt-16 pt-8 border-t border-gray-200">
-          <p class="text-gray-600 text-center">
-            Explore more topics: 
-            <a href="/topics/" class="underline hover:opacity-75">View all topics</a>
-            or 
-            <a href="/" class="underline hover:opacity-75">browse all articles</a>
+        <div v-if="filteredArticles.length > 0">
+          <p>
+            Explore more topics:
+            <a href="/topics/">View all topics</a>
+            or
+            <a href="/">browse all articles</a>
           </p>
         </div>
       </div>
@@ -61,8 +59,6 @@ import { computed, onMounted } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import { data as posts } from '../posts.data'
 import { capitalizeFirstLetter, getArticlesByTopic, getTopics } from '../utils'
-import TopNav from './TopNav.vue'
-import Breadcrumb from './Breadcrumb.vue'
 import ArticleList from './ArticleList.vue'
 
 const { page, site } = useData()
@@ -204,3 +200,22 @@ onMounted(() => {
   })
 })
 </script>
+
+<style scoped>
+.back-button {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.related-topics-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+</style>
