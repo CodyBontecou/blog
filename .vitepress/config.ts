@@ -9,7 +9,6 @@ export default defineConfig({
   srcDir: 'content',
   cleanUrls: true,
   appearance: false,
-  mpa: true, // Disable client-side routing - site works without JS
   markdown: {
     theme: 'github-light',
     lineNumbers: false
