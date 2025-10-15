@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="article-list">
     <li v-for="article in filteredArticles" :key="article.frontmatter?.title || article.url">
       <a :href="article.url">
         {{ article.frontmatter?.title }}
@@ -37,3 +37,23 @@ const filteredArticles = computed(() => {
   )
 })
 </script>
+
+<style scoped>
+.article-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.article-list a {
+  display: block;
+  min-height: 48px;
+  padding: 12px 0;
+  line-height: 1.5;
+}
+</style>
