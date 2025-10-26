@@ -29,6 +29,9 @@
                 </div>
 
                 <Content :key="route.path" />
+
+                <!-- Newsletter subscription form at bottom of blog posts -->
+                <BlogPostNewsletterForm />
             </article>
         </div>
 
@@ -48,6 +51,7 @@ const HomeLayout = defineAsyncComponent(() => import('./components/HomeLayout.vu
 const BlogLayout = defineAsyncComponent(() => import('./components/BlogLayout.vue'))
 const TopicLayout = defineAsyncComponent(() => import('./components/TopicLayout.vue'))
 const TopicsIndexLayout = defineAsyncComponent(() => import('./components/TopicsIndexLayout.vue'))
+const BlogPostNewsletterForm = defineAsyncComponent(() => import('./components/BlogPostNewsletterForm.vue'))
 
 const { page, frontmatter } = useData()
 const route = useRoute()
