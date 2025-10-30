@@ -1,7 +1,6 @@
 <template>
-    <div :class="`language-${language || 'text'} ${$props.class || ''}`">
-        <span class="lang" v-if="language">{{ language }}</span>
-        <pre><code><slot /></code></pre>
+    <div class="not-prose my-6">
+        <pre :class="`${$props.class} overflow-x-auto bg-gray-900 text-gray-100 p-4 rounded-lg text-sm`"><slot /></pre>
     </div>
 </template>
 

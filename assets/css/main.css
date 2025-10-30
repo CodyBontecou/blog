@@ -1,0 +1,49 @@
+/* Only apply code wrapping to inline code, not code blocks */
+:not(pre) > code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+/* Allow VitePress to handle code block styling */
+.prose .vp-code-group,
+.prose [class*="language-"] {
+    /* Remove prose typography styles from code blocks */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Ensure prose images work well */
+.prose p:has(img) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prose img {
+    max-height: 600px;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media screen and (max-width: 768px) {
+    .prose img {
+        max-height: 400px;
+    }
+}
+
+a:not(.topics):not(.truncate) {
+    word-wrap: break-word; /* Break long words/URLs */
+    word-break: break-word; /* For older browsers */
+    overflow-wrap: break-word; /* Modern approach */
+    white-space: normal; /* Ensure wrapping */
+}

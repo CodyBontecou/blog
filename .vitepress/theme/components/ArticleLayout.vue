@@ -1,19 +1,20 @@
 <template>
-  <article>
-    <h1>{{ title }}</h1>
-    <div>
-      <span v-if="date">
+  <article class="prose lg:prose-lg max-w-none">
+    <h1 class="text-4xl font-normal mb-4">{{ title }}</h1>
+    <div class="text-gray-600 text-base sm:text-lg flex flex-wrap items-center gap-x-2 mb-10">
+      <span class="whitespace-nowrap" v-if="date">
         {{ formatDate(date) }}
       </span>
       <span v-if="readingTime">· {{ readingTime }} min read</span>
-      <span v-if="topics"> ·
-        <span
+      <div class="flex flex-wrap gap-x-2 gap-y-1 mt-1 sm:mt-0" v-if="topics">
+        <span 
+          class="text-gray-600 topics"
           v-for="(topic, index) in topics"
           :key="topic"
         >
-          {{ topic.toLowerCase() }}<span v-if="index !== topics.length - 1">, </span>
+          {{ topic.toLowerCase() }}<span v-if="index !== topics.length - 1">,</span>
         </span>
-      </span>
+      </div>
     </div>
     <slot />
   </article>

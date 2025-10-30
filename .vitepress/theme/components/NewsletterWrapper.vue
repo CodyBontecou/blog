@@ -37,15 +37,15 @@ const handleSubmit = async () => {
         </CardHeader>
         <CardContent>
             <form @submit.prevent="handleSubmit">
-                <div>
-                    <div>
+                <div class="flex flex-col gap-2">
+                    <div class="flex space-x-1.5">
                         <Input
                             name="emailInput"
                             v-model="emailInput"
                             type="email"
                             placeholder="Enter your email"
                         />
-                        <Button type="submit">
+                        <Button class="self-end" type="submit">
                             {{ t('newsletter.submit') }}
                         </Button>
                     </div>

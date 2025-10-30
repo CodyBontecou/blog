@@ -1,101 +1,306 @@
-html,
-body {
-  background: #fff;
-  color: #000;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: rgb(121, 248, 252, 0.15);
+        --foreground: 222.2 84% 4.9%;
+
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 222.2 84% 4.9%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: rgb(121, 248, 252, 0.15);
+        --foreground: 210 40% 98%;
+
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 212.7 26.8% 83.9%;
+    }
 }
 
-body {
-  max-width: 650px;
-  margin: 50px auto;
-  padding: 0 20px;
-  font-family: Times;
-  font-size: 16px;
-  line-height: 1.4;
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply text-foreground;
+    }
 }
 
-h1 {
-  font-weight: bold;
-  margin: 19.92px 0;
-  font-size: 24px;
-  line-height: 1.4;
+/* Custom styles from your original site */
+p:has(img) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-h2 {
-  font-weight: bold;
-  margin: 18.72px 0;
-  font-size: 18.72px;
-  line-height: 1.4;
+img {
+    max-height: 600px;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-p {
-  margin: 16px 0;
+@media screen and (max-width: 768px) {
+    img {
+        max-height: 400px;
+    }
 }
 
-ul {
-  list-style-type: disc;
-  padding-left: 40px;
-  margin: 16px 0;
+/* Only apply to inline code, not code blocks */
+:not(pre) > code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
-li {
-  margin: 0;
+a:not(.topics):not(.truncate) {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
-a {
-  color: #0000EE;
-  text-decoration: underline;
+/* Code block container styling */
+.prose div[class*="language-"],
+.prose .vp-code-group {
+    /* Remove prose typography styles from code blocks */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    padding: 0;
+    margin: 16px 0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    background: #f6f8fa;
 }
 
-a:visited {
-  color: #551A8B;
+/* Dark theme background */
+.dark .prose div[class*="language-"],
+.dark .prose .vp-code-group {
+    background: #0d1117;
 }
 
-/* Code blocks */
-.vp-doc div[class*='language-'] {
-  position: relative;
-  margin: 16px 0;
-  background-color: #f6f6f7;
-  overflow-x: auto;
-  transition: background-color 0.5s;
+/* Language indicator styling */
+.prose div[class*="language-"] .lang {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 12px;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    z-index: 1;
 }
 
-.vp-doc div[class*='language-'] code {
-  display: block;
-  padding: 12px 16px;
-  width: fit-content;
-  min-width: 100%;
-  line-height: 1.2;
-  font-size: 14px;
-  color: #213547;
-  transition: color 0.5s;
+.dark .prose div[class*="language-"] .lang {
+    color: #9ca3af;
 }
 
-.vp-doc div[class*='language-'] pre {
-  margin: 0;
-  padding: 0;
+/* Copy button styling */
+.prose div[class*="language-"] .copy {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    color: #6b7280;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+    z-index: 1;
 }
 
-.vp-doc div[class*='language-'] .lang {
-  position: absolute;
-  top: 2px;
-  right: 8px;
-  z-index: 2;
-  font-size: 12px;
-  font-weight: 500;
-  color: #999;
-  transition: color 0.5s;
+.prose div[class*="language-"] .copy:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+    opacity: 1;
+    color: #374151;
 }
 
-.vp-doc div[class*='language-'] code .line {
-  display: block;
+.dark .prose div[class*="language-"] .copy {
+    border-color: #4b5563;
+    color: #9ca3af;
 }
 
-/* Inline code */
-.vp-doc :not(pre) > code {
-  border-radius: 4px;
-  padding: 3px 6px;
-  color: #476582;
-  background-color: rgba(27, 31, 35, 0.05);
-  transition: color 0.5s, background-color 0.5s;
-  font-size: 14px;
+.dark .prose div[class*="language-"] .copy:hover {
+    background: #1f2937;
+    border-color: #6b7280;
+    color: #d1d5db;
+}
+
+/* Copy button icon */
+.prose div[class*="language-"] .copy {
+    text-indent: -9999px;
+}
+
+.prose div[class*="language-"] .copy::before {
+    content: "⧉";
+    text-indent: 0;
+    position: absolute;
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* Copied state */
+.prose div[class*="language-"] .copy.copied {
+    background: #10b981;
+    border-color: #10b981;
+    color: white;
+}
+
+.prose div[class*="language-"] .copy.copied::before {
+    content: "✓";
+}
+
+/* Code block pre padding to account for language and copy button */
+.prose div[class*="language-"] pre {
+    padding: 48px 24px 24px 24px;
+    margin: 0;
+    background: transparent;
+    overflow-x: auto;
+}
+
+/* Ensure syntax highlighting tokens don't have backgrounds */
+.prose .shiki span,
+.prose .vp-code span,
+.prose [class*="language-"] span,
+.prose pre code span {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* Remove any line number styling */
+.prose .line-numbers-wrapper,
+.prose .line-numbers {
+    display: none !important;
+}
+
+/* Clean up any additional token styling */
+.prose div[class*="language-"] .token,
+.prose .shiki .token,
+.prose .vp-code .token {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* Ensure code blocks have clean styling */
+.prose div[class*="language-"] pre,
+.prose .vp-code pre {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.prose div[class*="language-"] code,
+.prose .vp-code code {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Anchor links for headings */
+.prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    position: relative;
+    scroll-margin-top: 100px;
+}
+
+/* Anchor link styling */
+.prose .header-anchor {
+    position: absolute;
+    left: -24px;
+    color: #3b82f6;
+    font-weight: normal;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+    user-select: none;
+}
+
+.prose h2:hover .header-anchor,
+.prose h3:hover .header-anchor,
+.prose h4:hover .header-anchor,
+.prose h5:hover .header-anchor,
+.prose h6:hover .header-anchor {
+    opacity: 0.7;
+}
+
+.prose .header-anchor:hover {
+    opacity: 1 !important;
+}
+
+.dark .prose .header-anchor {
+    color: #60a5fa;
 }

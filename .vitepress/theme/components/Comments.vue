@@ -37,13 +37,19 @@ function createUtteranceScriptElement(path: string) {
 </script>
 
 <template>
-  <div>
-    <div>
-      <h3>Comments</h3>
-      <p>
+  <div class="comments-section my-8">
+    <div class="comments-header mb-4">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Comments</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400">
         Share your thoughts and feedback using GitHub comments.
       </p>
     </div>
-    <section ref="comments"></section>
+    <section ref="comments" class="utterances-container"></section>
   </div>
 </template>
+
+<style scoped>
+.utterances-container {
+  min-height: 200px;
+}
+</style>
