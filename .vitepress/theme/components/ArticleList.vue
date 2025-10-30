@@ -9,7 +9,7 @@
       ]"
     >
       <div
-        class="flex-shrink-0 text-gray-600 text-md pr-3 sm:pr-6 font-mono whitespace-nowrap"
+        class="flex-shrink-0 text-gray-600 dark:text-gray-400 text-md pr-3 sm:pr-6 font-mono whitespace-nowrap"
       >
         {{ formatPostDate(article.frontmatter?.created_at || article.frontmatter?.date) }}
       </div>
@@ -90,10 +90,10 @@ watch(() => props.articles, (newArticles, oldArticles) => {
 // Get CSS classes for an article based on its state
 const getArticleClasses = (articleUrl: string) => {
   const isNewlyShown = newlyShownArticles.value.includes(articleUrl)
-  
+
   return {
     'animate-fade-in': isNewlyShown,
-    'bg-gray-100': isNewlyShown,
+    'bg-gray-100 dark:bg-gray-800': isNewlyShown,
     'filter grayscale': isNewlyShown,
     'rounded-md px-2 py-1': isNewlyShown,
     '-mx-2 -my-1': isNewlyShown

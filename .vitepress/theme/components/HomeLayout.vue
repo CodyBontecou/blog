@@ -8,11 +8,11 @@
                         <!-- Hero, description -->
                         <div class="mb-4">
                             <h1
-                                class="mb-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                                class="mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl"
                             >
                                 Cody Bontecou
                             </h1>
-                            <p class="text-lg italic leading-8 text-gray-600">
+                            <p class="text-lg italic leading-8 text-gray-600 dark:text-gray-400">
                                 is enjoying life 💭
                             </p>
                         </div>
@@ -29,7 +29,7 @@
                         <div v-if="!isAboutView">
                             <!-- Latest -->
                             <section v-if="latestArticle" class="mb-16 w-full">
-                                <h2 class="text-gray-600 mb-6">Latest</h2>
+                                <h2 class="text-gray-600 dark:text-gray-400 mb-6">Latest</h2>
                                 <article>
                                     <h3 class="text-xl font-medium mb-2">
                                         <a
@@ -41,17 +41,17 @@
                                             }}
                                         </a>
                                     </h3>
-                                    <div class="text-gray-600 mb-3">
+                                    <div class="text-gray-600 dark:text-gray-400 mb-3">
                                         {{ formattedDate }} ·
                                         {{ readingTime }} minute read
                                     </div>
-                                    <div class="text-gray-700 text-sm mb-4">
+                                    <div class="text-gray-700 dark:text-gray-300 text-sm mb-4">
                                         {{ excerpt }}
                                     </div>
-                                    <p class="text-gray-600">
+                                    <p class="text-gray-600 dark:text-gray-400">
                                         <a
                                             :href="latestArticle.url"
-                                            class="text-gray-900 hover:opacity-75"
+                                            class="text-gray-900 dark:text-gray-100 hover:opacity-75"
                                         >
                                             Keep reading
                                         </a>
@@ -65,7 +65,7 @@
                                 class="mb-16 w-full"
                                 style="min-height: 0"
                             >
-                                <h2 class="text-lg text-gray-600">Topics</h2>
+                                <h2 class="text-lg text-gray-600 dark:text-gray-400">Topics</h2>
 
                                 <!-- Multiple topics info -->
                                 <div
@@ -75,7 +75,7 @@
                                     "
                                     class="mt-4"
                                 >
-                                    <p class="text-sm text-gray-600">
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
                                         Filtering by
                                         {{ selectedTopics.length }} topics.
                                         <button
@@ -90,9 +90,9 @@
                                 <!-- Single topic suggestion -->
                                 <div
                                     v-if="selectedTopics.length === 1"
-                                    class="mt-4 mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg"
+                                    class="mt-4 mb-4 p-3 bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-700 rounded-lg"
                                 >
-                                    <p class="text-sm text-blue-800">
+                                    <p class="text-sm text-blue-800 dark:text-blue-300">
                                         📍 Viewing articles about
                                         <strong>{{ selectedTopics[0] }}</strong
                                         >.
@@ -119,16 +119,16 @@
                                         :class="[
                                             'inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm transition-colors duration-200',
                                             selectedTopics.includes(topic)
-                                                ? 'bg-gray-900 text-white'
-                                                : 'bg-gray-100 hover:bg-gray-200 text-gray-700',
+                                                ? 'bg-gray-900 dark:bg-gray-700 text-white'
+                                                : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300',
                                         ]"
                                     >
                                         <span>{{ topic }}</span>
                                         <span
                                             :class="
                                                 selectedTopics.includes(topic)
-                                                    ? 'text-gray-300'
-                                                    : 'text-gray-500'
+                                                    ? 'text-gray-300 dark:text-gray-400'
+                                                    : 'text-gray-500 dark:text-gray-400'
                                             "
                                             >({{ count }})</span
                                         >
@@ -140,12 +140,12 @@
                         <!-- About View Content -->
                         <div v-else class="mb-16 w-full">
                             <section class="w-full">
-                                <h2 class="text-lg text-gray-600 mb-6">
+                                <h2 class="text-lg text-gray-600 dark:text-gray-400 mb-6">
                                     About
                                 </h2>
                                 <div class="prose prose-gray max-w-none">
                                     <p
-                                        class="text-gray-700 leading-relaxed mb-4"
+                                        class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
                                     >
                                         I'm a software engineer with a passion
                                         for building meaningful products and
@@ -153,7 +153,7 @@
                                     </p>
 
                                     <p
-                                        class="text-gray-700 leading-relaxed mb-4"
+                                        class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
                                     >
                                         My interests span across TypeScript,
                                         Vue.js, accessibility, AI, and the
@@ -163,7 +163,7 @@
                                     </p>
 
                                     <p
-                                        class="text-gray-700 leading-relaxed mb-6"
+                                        class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6"
                                     >
                                         When I'm not coding, you'll find me
                                         experimenting with new tools,
@@ -173,13 +173,13 @@
                                     </p>
 
                                     <div class="space-y-3">
-                                        <h3 class="text-gray-900 font-medium">
+                                        <h3 class="text-gray-900 dark:text-gray-100 font-medium">
                                             Connect
                                         </h3>
                                         <div class="flex flex-col space-y-2">
                                             <a
                                                 href="https://github.com/codybontecou"
-                                                class="text-blue-600 hover:underline flex items-center gap-2"
+                                                class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2"
                                             >
                                                 <span>GitHub</span>
                                                 <svg
@@ -205,7 +205,7 @@
                 <!-- Right Column -->
                 <div class="max-w-lg mx-auto lg:mt-0 lg:pl-4">
                     <div v-if="!isAboutView">
-                        <h2 class="mb-6 text-lg text-gray-600">Writing</h2>
+                        <h2 class="mb-6 text-lg text-gray-600 dark:text-gray-400">Writing</h2>
                         <ArticleList v-if="articles" :articles="articles" />
                     </div>
                 </div>
