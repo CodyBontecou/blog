@@ -1,7 +1,7 @@
 ---
 title: Vercel AI UI Elements - Chatbot
-draft: true
-ignore: true
+draft: false
+ignore: false
 topics:
   - ai
 created_at: 2025-11-17T01:19
