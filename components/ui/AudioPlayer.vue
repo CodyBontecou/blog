@@ -1,7 +1,7 @@
 <template>
     <div
         v-if="audioSrc && audioFileExists"
-        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 mb-6 border border-gray-200 dark:border-gray-700"
+        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 mb-6 border border-gray-200 dark:border-gray-700 lg:max-w-[calc(100%-20rem)] xl:max-w-full"
     >
         <div class="flex items-center justify-between mb-3">
             <div class="flex items-center space-x-3">

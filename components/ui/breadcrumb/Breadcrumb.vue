@@ -27,25 +27,25 @@ useJsonLd({
 
 <template>
     <nav aria-label="Breadcrumb" class="mb-8">
-        <ol class="flex items-center space-x-2 text-sm text-gray-600">
-            <li v-for="(item, index) in items" :key="index" class="flex items-center">
+        <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <li v-for="(item, index) in items" :key="index" class="flex items-center whitespace-nowrap">
                 <template v-if="index > 0">
-                    <span class="mx-2 text-gray-400">/</span>
+                    <span class="mx-2 text-gray-400 dark:text-gray-500">/</span>
                 </template>
-                
+
                 <template v-if="item.path && !item.isActive">
-                    <NuxtLink 
-                        :to="item.path" 
-                        class="hover:text-gray-900 transition-colors"
+                    <NuxtLink
+                        :to="item.path"
+                        class="hover:text-gray-900 dark:hover:text-white transition-colors"
                         :aria-current="item.isActive ? 'page' : undefined"
                     >
                         {{ item.name }}
                     </NuxtLink>
                 </template>
-                
+
                 <template v-else>
-                    <span 
-                        class="text-gray-900 font-medium"
+                    <span
+                        class="text-gray-900 dark:text-gray-100 font-medium"
                         :aria-current="item.isActive ? 'page' : undefined"
                     >
                         {{ item.name }}
