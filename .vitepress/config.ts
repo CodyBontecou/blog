@@ -15,6 +15,12 @@ export default defineConfig({
     },
     lineNumbers: false
   },
+  transformHead: ({ pageData }) => {
+    const canonicalUrl = `https://codybontecou.com/${pageData.relativePath.replace(/\.md$/, '').replace(/\/index$/, '')}`
+    return [
+      ['link', { rel: 'canonical', href: canonicalUrl }]
+    ]
+  },
   buildEnd: async (siteConfig) => {
     await Promise.all([
       generateSitemap(siteConfig),
