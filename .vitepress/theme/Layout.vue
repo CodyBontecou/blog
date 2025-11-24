@@ -4,7 +4,7 @@
     </div>
     <div
         v-else-if="frontmatter.layout === 'blog'"
-        class="max-w-3xl mx-auto py-8 px-4"
+        class="max-w-3xl py-8 px-4 lg:ml-auto lg:mr-[320px] lg:pl-12"
     >
         <div class="max-w-lg mx-auto mb-16 lg:max-w-3xl">
             <TopNav />
@@ -17,7 +17,7 @@
     <div v-else-if="frontmatter.layout === 'topics-index'">
         <TopicsIndexLayout />
     </div>
-    <div v-else class="max-w-3xl mx-auto py-8 px-4">
+    <div v-else class="max-w-3xl py-8 px-4 lg:ml-auto lg:mr-[320px] lg:pl-12">
         <div class="max-w-lg mx-auto mb-16 lg:max-w-3xl">
             <TopNav />
 
