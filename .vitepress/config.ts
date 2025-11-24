@@ -33,8 +33,8 @@ export default defineConfig({
   ],
   markdown: {
     theme: {
-      light: 'github-light',
-      dark: 'material-theme-palenight'
+      light: 'min-light',
+      dark: 'min-dark'
     },
     lineNumbers: false
   },

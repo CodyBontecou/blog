@@ -4,67 +4,67 @@
 
 @layer base {
     :root {
-        --background: rgb(121, 248, 252, 0.15);
-        --foreground: 222.2 84% 4.9%;
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
 
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
 
         --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
+        --popover-foreground: 0 0% 3.9%;
 
         --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
+        --card-foreground: 0 0% 3.9%;
 
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
 
-        --primary: 222.2 47.4% 11.2%;
-        --primary-foreground: 210 40% 98%;
+        --primary: 0 0% 9%;
+        --primary-foreground: 0 0% 98%;
 
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
 
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222.2 47.4% 11.2%;
+        --accent: 0 0% 96.1%;
+        --accent-foreground: 0 0% 9%;
 
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 40% 98%;
+        --destructive: 0 0% 9%;
+        --destructive-foreground: 0 0% 98%;
 
-        --ring: 222.2 84% 4.9%;
+        --ring: 0 0% 3.9%;
 
         --radius: 0.5rem;
     }
 
     .dark {
-        --background: rgb(121, 248, 252, 0.15);
-        --foreground: 210 40% 98%;
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
 
-        --muted: 217.2 32.6% 17.5%;
-        --muted-foreground: 215 20.2% 65.1%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
 
-        --popover: 222.2 84% 4.9%;
-        --popover-foreground: 210 40% 98%;
+        --popover: 0 0% 3.9%;
+        --popover-foreground: 0 0% 98%;
 
-        --card: 222.2 84% 4.9%;
-        --card-foreground: 210 40% 98%;
+        --card: 0 0% 3.9%;
+        --card-foreground: 0 0% 98%;
 
-        --border: 217.2 32.6% 17.5%;
-        --input: 217.2 32.6% 17.5%;
+        --border: 0 0% 14.9%;
+        --input: 0 0% 14.9%;
 
-        --primary: 210 40% 98%;
-        --primary-foreground: 222.2 47.4% 11.2%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 9%;
 
-        --secondary: 217.2 32.6% 17.5%;
-        --secondary-foreground: 210 40% 98%;
+        --secondary: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 98%;
 
-        --accent: 217.2 32.6% 17.5%;
-        --accent-foreground: 210 40% 98%;
+        --accent: 0 0% 14.9%;
+        --accent-foreground: 0 0% 98%;
 
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 40% 98%;
+        --destructive: 0 0% 89.8%;
+        --destructive-foreground: 0 0% 9%;
 
-        --ring: 212.7 26.8% 83.9%;
+        --ring: 0 0% 83.1%;
     }
 }
 
@@ -126,13 +126,13 @@ a:not(.topics):not(.truncate) {
     box-shadow: none;
     position: relative;
     overflow: hidden;
-    background: #f6f8fa;
+    background: #f5f5f5;
 }
 
 /* Dark theme background */
 .dark .prose div[class*="language-"],
 .dark .prose .vp-code-group {
-    background: #0d1117;
+    background: #0a0a0a;
 }
 
 /* Language indicator styling */
@@ -141,7 +141,7 @@ a:not(.topics):not(.truncate) {
     top: 12px;
     left: 16px;
     font-size: 12px;
-    color: #6b7280;
+    color: #666666;
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -150,7 +150,7 @@ a:not(.topics):not(.truncate) {
 }
 
 .dark .prose div[class*="language-"] .lang {
-    color: #9ca3af;
+    color: #999999;
 }
 
 /* Copy button styling */
@@ -161,9 +161,9 @@ a:not(.topics):not(.truncate) {
     width: 24px;
     height: 24px;
     background: transparent;
-    border: 1px solid #d1d5db;
+    border: 1px solid #cccccc;
     border-radius: 4px;
-    color: #6b7280;
+    color: #666666;
     font-size: 10px;
     display: flex;
     align-items: center;
@@ -175,21 +175,21 @@ a:not(.topics):not(.truncate) {
 }
 
 .prose div[class*="language-"] .copy:hover {
-    background: #f3f4f6;
-    border-color: #9ca3af;
+    background: #f0f0f0;
+    border-color: #999999;
     opacity: 1;
-    color: #374151;
+    color: #333333;
 }
 
 .dark .prose div[class*="language-"] .copy {
-    border-color: #4b5563;
-    color: #9ca3af;
+    border-color: #444444;
+    color: #999999;
 }
 
 .dark .prose div[class*="language-"] .copy:hover {
-    background: #1f2937;
-    border-color: #6b7280;
-    color: #d1d5db;
+    background: #1a1a1a;
+    border-color: #666666;
+    color: #cccccc;
 }
 
 /* Copy button icon */
@@ -207,8 +207,8 @@ a:not(.topics):not(.truncate) {
 
 /* Copied state */
 .prose div[class*="language-"] .copy.copied {
-    background: #10b981;
-    border-color: #10b981;
+    background: #333333;
+    border-color: #333333;
     color: white;
 }
 
@@ -281,7 +281,7 @@ a:not(.topics):not(.truncate) {
 .prose .header-anchor {
     position: absolute;
     left: -24px;
-    color: #3b82f6;
+    color: #333333;
     font-weight: normal;
     opacity: 0;
     transition: opacity 0.2s ease;
@@ -302,5 +302,5 @@ a:not(.topics):not(.truncate) {
 }
 
 .dark .prose .header-anchor {
-    color: #60a5fa;
+    color: #cccccc;
 }

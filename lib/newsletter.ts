@@ -240,9 +240,9 @@ export class NewsletterService {
     <title>Confirm Your Newsletter Subscription</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .container { background: #f8fafc; padding: 40px; border-radius: 12px; text-align: center; }
-        .button { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 20px 0; }
-        .footer { margin-top: 30px; font-size: 14px; color: #64748b; }
+        .container { background: #f5f5f5; padding: 40px; border-radius: 12px; text-align: center; }
+        .button { display: inline-block; background: #333333; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 20px 0; }
+        .footer { margin-top: 30px; font-size: 14px; color: #666666; }
     </style>
 </head>
 <body>

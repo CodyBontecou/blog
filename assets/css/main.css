@@ -32,7 +32,7 @@
 .prose img {
     max-height: 600px;
     border-radius: 20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
 }
 
 @media screen and (max-width: 768px) {

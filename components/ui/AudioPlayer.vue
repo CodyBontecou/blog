@@ -261,7 +261,7 @@ input[type='range']::-webkit-slider-thumb {
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #333333;
     cursor: pointer;
     border: 2px solid #ffffff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
@@ -271,7 +271,7 @@ input[type='range']::-moz-range-thumb {
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #333333;
     cursor: pointer;
     border: 2px solid #ffffff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);

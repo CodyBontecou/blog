@@ -111,7 +111,7 @@ const scrollToSection = (id: string) => {
 
 <style scoped>
 .toc {
-    border-left: 2px solid #e5e7eb;
+    border-left: 2px solid #cccccc;
     padding-left: 1rem;
 }
 

@@ -33,9 +33,9 @@ export function generateArticleEmailHTML(article: ArticleData): string {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8fafc;
+            background-color: #f5f5f5;
         }
-        
+
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -44,9 +44,9 @@ export function generateArticleEmailHTML(article: ArticleData): string {
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #333333;
             color: white;
             padding: 40px 32px;
             text-align: center;
@@ -70,36 +70,36 @@ export function generateArticleEmailHTML(article: ArticleData): string {
         .article-header {
             margin-bottom: 24px;
             padding-bottom: 24px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #cccccc;
         }
-        
+
         .article-title {
             font-size: 24px;
             font-weight: 700;
-            color: #1a202c;
+            color: #000000;
             margin-bottom: 12px;
             line-height: 1.3;
         }
-        
+
         .article-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 16px;
             font-size: 14px;
-            color: #64748b;
+            color: #666666;
             margin-bottom: 16px;
         }
-        
+
         .topics {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 8px;
         }
-        
+
         .topic {
-            background-color: #f1f5f9;
-            color: #475569;
+            background-color: #e5e5e5;
+            color: #333333;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 12px;
@@ -114,44 +114,44 @@ export function generateArticleEmailHTML(article: ArticleData): string {
             font-size: 20px;
             font-weight: 600;
             margin: 24px 0 16px 0;
-            color: #1a202c;
+            color: #000000;
         }
-        
+
         .article-content h3 {
             font-size: 18px;
             font-weight: 600;
             margin: 20px 0 12px 0;
-            color: #1a202c;
+            color: #000000;
         }
-        
+
         .article-content p {
             margin-bottom: 16px;
-            color: #4a5568;
+            color: #333333;
             line-height: 1.7;
         }
-        
+
         .article-content ul, .article-content ol {
             margin-bottom: 16px;
             padding-left: 24px;
         }
-        
+
         .article-content li {
             margin-bottom: 8px;
-            color: #4a5568;
+            color: #333333;
         }
-        
+
         .article-content pre {
-            background-color: #f7fafc;
-            border: 1px solid #e2e8f0;
+            background-color: #f5f5f5;
+            border: 1px solid #cccccc;
             border-radius: 8px;
             padding: 16px;
             margin: 16px 0;
             overflow-x: auto;
         }
-        
+
         .article-content code {
-            background-color: #f7fafc;
-            border: 1px solid #e2e8f0;
+            background-color: #f5f5f5;
+            border: 1px solid #cccccc;
             border-radius: 4px;
             padding: 2px 6px;
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
@@ -165,24 +165,24 @@ export function generateArticleEmailHTML(article: ArticleData): string {
         }
         
         .article-content blockquote {
-            border-left: 4px solid #667eea;
-            background-color: #f8fafc;
+            border-left: 4px solid #333333;
+            background-color: #f5f5f5;
             padding: 16px 20px;
             margin: 16px 0;
             font-style: italic;
         }
-        
+
         .cta-section {
-            background-color: #f8fafc;
+            background-color: #f5f5f5;
             padding: 24px;
             border-radius: 8px;
             text-align: center;
             margin-bottom: 32px;
         }
-        
+
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #333333;
             color: white;
             padding: 12px 24px;
             border-radius: 8px;
@@ -197,20 +197,20 @@ export function generateArticleEmailHTML(article: ArticleData): string {
         }
         
         .footer {
-            background-color: #f8fafc;
+            background-color: #f5f5f5;
             padding: 32px;
             text-align: center;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid #cccccc;
         }
-        
+
         .footer p {
-            color: #64748b;
+            color: #666666;
             font-size: 14px;
             margin-bottom: 8px;
         }
         
         .footer a {
-            color: #667eea;
+            color: #333333;
             text-decoration: none;
         }
         
@@ -287,7 +287,7 @@ export function generateArticleEmailHTML(article: ArticleData): string {
                 <a href="${EMAIL_CONFIG.domain}">Visit blog</a> • 
                 <a href="${unsubscribeUrl}">Unsubscribe</a>
             </p>
-            <p style="margin-top: 16px; font-size: 12px; color: #94a3b8;">
+            <p style="margin-top: 16px; font-size: 12px; color: #666666;">
                 You received this email because you subscribed to newsletter updates from Cody Bontecou's blog.
             </p>
         </div>
