@@ -1,6 +1,6 @@
 ---
-title: Confirm Newsletter Subscription
-description: Confirm your newsletter subscription
+created_at: 2025-10-12T21:44
+last_modified: 2025-11-23T20:08
 ---
 
 <script setup lang="ts">
