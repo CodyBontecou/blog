@@ -2,7 +2,6 @@
 title: Mobile-Friendly Code with ESLint and Prettier
 description: Configure your linter and formatter to eliminate horizontal scrolling on mobile devices.
 draft: false
-ignore: false
 topics:
   - ai
   - configuration
@@ -10,10 +9,8 @@ topics:
   - eslint
   - mobile
 created_at: 2025-11-23T18:59
-last_modified: 2025-11-23T19:00
+last_modified: 2025-11-23T20:07
 ---
-
-# Mobile-Friendly Code with ESLint and Prettier
 
 Configure your linter and formatter to eliminate horizontal scrolling on mobile devices.
 
