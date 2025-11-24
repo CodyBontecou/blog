@@ -47,16 +47,23 @@ export const capitalizeFirstLetter = (string: string) => {
 
 export const getArticlesByTopic = (posts: any[], topic: string) => {
     if (!posts || !topic) return []
-    
+
     const normalizedTopic = topic.toLowerCase()
-    
-    return posts.filter(post => {
+
+    const filtered = posts.filter(post => {
         const topics = post.frontmatter?.topics || []
-        return topics.some((t: string) => 
+        return topics.some((t: string) =>
             t.toLowerCase() === normalizedTopic ||
             t === capitalizeFirstLetter(topic) ||
             t === topic
         )
+    })
+
+    // Ensure articles are sorted by date (newest first)
+    return filtered.sort((a, b) => {
+        const dateA = new Date(a.frontmatter?.created_at || a.frontmatter?.date || '')
+        const dateB = new Date(b.frontmatter?.created_at || b.frontmatter?.date || '')
+        return dateB.getTime() - dateA.getTime()
     })
 }
 
