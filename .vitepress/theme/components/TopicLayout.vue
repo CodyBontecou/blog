@@ -68,6 +68,9 @@ import ArticleList from './ArticleList.vue'
 const { page, site } = useData()
 const route = useRoute()
 
+// Site URL for structured data
+const siteUrl = 'https://codybontecou.com'
+
 // Extract topic from the URL path
 const topic = computed(() => {
   const path = page.value.relativePath || route.path
@@ -94,7 +97,7 @@ const seoTitle = computed(() => `${capitalizedTopic.value} Articles | Cody Bonte
 const seoDescription = computed(() => 
   `Explore ${articleCount.value} articles about ${capitalizedTopic.value}. Learn from tutorials, guides, and insights on ${capitalizedTopic.value} development.`
 )
-const canonicalUrl = computed(() => `${site.value.base}topics/${topic.value}/`)
+const canonicalUrl = computed(() => `${siteUrl}/topics/${topic.value}/`)
 
 // Structured data for the topic page
 const structuredData = computed(() => ({
@@ -112,7 +115,7 @@ const structuredData = computed(() => ({
       item: {
         '@type': 'BlogPosting',
         name: article.frontmatter?.title,
-        url: `${site.value.base}${article.url}`,
+        url: `${siteUrl}${article.url}`,
         datePublished: article.frontmatter?.created_at || article.frontmatter?.date,
         author: {
           '@type': 'Person',
@@ -127,7 +130,7 @@ const structuredData = computed(() => ({
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      ...(item.path && { item: `${site.value.base}${item.path.slice(1)}` })
+      ...(item.path && { item: `${siteUrl}${item.path}` })
     }))
   }
 }))
