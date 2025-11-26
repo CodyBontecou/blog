@@ -88,13 +88,20 @@ export class NewsletterService {
    */
   async unsubscribe(token: string): Promise<{ success: boolean; message: string }> {
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('subscribers')
         .delete()
         .eq('unsubscribe_token', token)
+        .select()
 
       if (error) {
+        console.error('Unsubscribe database error:', error)
         return { success: false, message: 'Invalid unsubscribe link.' }
+      }
+
+      // Check if any rows were actually deleted
+      if (!data || data.length === 0) {
+        return { success: false, message: 'Invalid unsubscribe link or already unsubscribed.' }
       }
 
       return { success: true, message: 'Successfully unsubscribed from the newsletter.' }

@@ -1,43 +1,42 @@
+import { VercelRequest, VercelResponse } from '@vercel/node'
 import { newsletterService } from '../../lib/newsletter.js'
 
-export async function GET(request: Request): Promise<Response> {
-  try {
-    const url = new URL(request.url)
-    const token = url.searchParams.get('token')
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
-    if (!token) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: 'Invalid unsubscribe link. Please check your email and try again.'
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' }
-        }
-      )
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end()
+  }
+
+  if (req.method !== 'GET') {
+    return res.status(405).json({
+      success: false,
+      message: 'Method not allowed'
+    })
+  }
+
+  try {
+    const { token } = req.query
+
+    if (!token || typeof token !== 'string') {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid unsubscribe link. Please check your email and try again.'
+      })
     }
 
+    // Unsubscribe using the newsletter service
     const result = await newsletterService.unsubscribe(token)
 
-    return new Response(
-      JSON.stringify(result),
-      {
-        status: result.success ? 200 : 400,
-        headers: { 'Content-Type': 'application/json' }
-      }
-    )
+    return res.status(result.success ? 200 : 400).json(result)
   } catch (error) {
-    console.error('Unsubscribe API error:', error)
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: 'An error occurred while processing your request.'
-      }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      }
-    )
+    console.error('Newsletter unsubscribe API error:', error)
+    return res.status(500).json({
+      success: false,
+      message: 'An error occurred while processing your request.'
+    })
   }
 }
