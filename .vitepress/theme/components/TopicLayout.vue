@@ -24,7 +24,7 @@
               <a
                 v-for="relatedTopic in relatedTopics"
                 :key="relatedTopic"
-                :href="`/topics/${relatedTopic}/`"
+                :href="`/topics/${relatedTopic}`"
                 class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 text-sm text-gray-700 transition-colors"
               >
                 {{ capitalizeFirstLetter(relatedTopic) }}
@@ -45,9 +45,9 @@
         <!-- Internal linking suggestions -->
         <div v-if="filteredArticles.length > 0" class="mt-16 pt-8 border-t border-gray-200">
           <p class="text-gray-600 text-center">
-            Explore more topics: 
-            <a href="/topics/" class="underline hover:opacity-75">View all topics</a>
-            or 
+            Explore more topics:
+            <a href="/topics" class="underline hover:opacity-75">View all topics</a>
+            or
             <a href="/" class="underline hover:opacity-75">browse all articles</a>
           </p>
         </div>
