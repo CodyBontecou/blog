@@ -1,27 +1,57 @@
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import matter from 'gray-matter'
+import glob from 'fast-glob'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
 export default {
-  paths() {
-    // All actual topics extracted from your blog posts
-    const topics = [
-      "a11y", "agentql", "agents", "ai", "anki", "art", "atlas", "authentication", 
-      "automation", "aws", "blogging", "caffeine", "california", "carbon", "cars", 
-      "cli", "coding", "communication", "components", "composition", "configuration", 
-      "consistency", "construction", "css", "cypress", "data", "diy", "driving", 
-      "drugs", "electron", "elixir", "events", "frontmatter", "gaming", "google", 
-      "huggingface", "i18n", "imdb", "interview", "ios", "javascript", "job", 
-      "keybinds", "learning", "life", "llm", "localization", "macos", "mailchimp", 
-      "marketing", "mcp", "minimalism", "mobile", "mocking", "mongodb", "mswjs", 
-      "nextjs", "nitro", "nodejs", "nuxt", "nuxt content", "obsidian", "onboarding", 
-      "open-source", "organization", "pinia", "plugins", "putter", "putterville", 
-      "python", "ramble", "rant", "react", "recipe", "reddit", "reflection", 
-      "repair", "rv", "sagemaker", "scraping", "script", "selenium", "seo", 
-      "shortcut", "startup", "state", "stripe", "stylus", "tailwind", "talks", 
-      "tdd", "terminal", "testing", "transformers", "transformers.js", "travel", 
-      "tweepy", "twitter", "typescript", "ui", "vanlife", "vercel", "video", 
-      "vite", "vitepress", "vue", "vue-router", "vuepress", "vuetify", "warcraft", 
-      "web-scraping", "work", "writing", "yaml", "youtube", "zapier", "zsh"
-    ]
-    
-    return topics.map(topic => ({
+  async paths() {
+    // Find all markdown files in the content directory
+    const contentDir = path.resolve(__dirname, '..')
+    const files = await glob('*.md', {
+      cwd: contentDir,
+      ignore: ['topics/**', 'node_modules/**']
+    })
+
+    // Extract all unique topics from blog posts
+    const topicsSet = new Set<string>()
+
+    for (const file of files) {
+      const filePath = path.join(contentDir, file)
+      const content = fs.readFileSync(filePath, 'utf-8')
+      const { data: frontmatter } = matter(content)
+
+      // Skip non-blog posts
+      if (frontmatter.draft ||
+          frontmatter.ignore ||
+          file.includes('README') ||
+          file.includes('SEO_FIXES') ||
+          file === 'index.md' ||
+          file === 'about.md') {
+        continue
+      }
+
+      // Extract topics from frontmatter
+      const topics = frontmatter.topics
+      if (Array.isArray(topics)) {
+        topics.forEach(topic => {
+          if (typeof topic === 'string') {
+            // Normalize to lowercase to avoid duplicates
+            topicsSet.add(topic.toLowerCase())
+          }
+        })
+      }
+    }
+
+    // Convert to array and sort alphabetically
+    const topics = Array.from(topicsSet).sort()
+
+    // Filter out any invalid topics (empty strings, etc.)
+    const validTopics = topics.filter(topic => topic && topic.trim().length > 0)
+
+    return validTopics.map(topic => ({
       params: { topic }
     }))
   }

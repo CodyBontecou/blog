@@ -5,7 +5,7 @@
       
       <div class="mb-12">
         <h1 class="text-4xl font-normal mb-8">Topics</h1>
-        <p class="text-gray-600 text-lg">
+        <p class="text-gray-600 dark:text-gray-300 text-lg">
           Browse {{ totalTopics }} topics covering {{ totalArticles }} articles
         </p>
       </div>
@@ -15,13 +15,13 @@
           v-for="{ topic, count } in topicsWithCounts"
           :key="topic"
           :href="`/topics/${topic}`"
-          class="block p-4 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors group"
+          class="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group"
         >
           <div class="flex items-center justify-between">
-            <span class="text-gray-900 group-hover:text-gray-700 font-medium">
+            <span class="text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-200 font-medium">
               {{ capitalizeFirstLetter(topic) }}
             </span>
-            <span class="text-gray-500 text-sm">
+            <span class="text-gray-500 dark:text-gray-400 text-sm">
               {{ count }} {{ count === 1 ? 'post' : 'posts' }}
             </span>
           </div>
@@ -29,17 +29,17 @@
       </div>
 
       <!-- Alternative compact view -->
-      <div class="mt-16 pt-16 border-t border-gray-200">
-        <h2 class="text-xl font-medium mb-6 text-gray-900">All Topics (Compact)</h2>
+      <div class="mt-16 pt-16 border-t border-gray-200 dark:border-gray-700">
+        <h2 class="text-xl font-medium mb-6 text-gray-900 dark:text-gray-100">All Topics (Compact)</h2>
         <div class="flex flex-wrap gap-2">
           <a
             v-for="{ topic, count } in topicsWithCounts"
             :key="`compact-${topic}`"
             :href="`/topics/${topic}`"
-            class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 text-sm transition-colors"
+            class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm transition-colors text-gray-900 dark:text-gray-100"
           >
             <span>{{ topic }}</span>
-            <span class="text-gray-500">({{ count }})</span>
+            <span class="text-gray-500 dark:text-gray-400">({{ count }})</span>
           </a>
         </div>
       </div>
