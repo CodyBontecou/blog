@@ -1,14 +1,12 @@
 ---
-title: Unsubscribe from Newsletter
-description: Unsubscribe from newsletter updates
+created_at: 2025-10-12T21:44
+last_modified: 2025-11-26T13:19
 ---
 
-<script setup>
-import { newsletterService } from '@/lib/newsletter'
-import { useToast } from '@/components/ui/toast/use-toast'
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vitepress'
 
-const { toast } = useToast()
-const route = useRoute()
 const router = useRouter()
 
 const isLoading = ref(true)
@@ -16,8 +14,10 @@ const message = ref('')
 const isSuccess = ref(false)
 
 onMounted(async () => {
-  const token = route.query.token as string
-  
+  // Get the token from the URL query parameters
+  const urlParams = new URLSearchParams(window.location.search)
+  const token = urlParams.get('token')
+
   if (!token) {
     message.value = 'Invalid unsubscribe link. Please check your email and try again.'
     isSuccess.value = false
@@ -26,19 +26,17 @@ onMounted(async () => {
   }
 
   try {
-    const result = await newsletterService.unsubscribe(token)
+    // Call the API endpoint to unsubscribe
+    const response = await fetch(`/api/newsletter/unsubscribe?token=${encodeURIComponent(token)}`)
+    const result = await response.json()
+
     message.value = result.message
     isSuccess.value = result.success
-    
+
     if (result.success) {
-      toast({
-        title: 'Unsubscribed',
-        description: result.message,
-      })
-      
       // Redirect to home page after 5 seconds
       setTimeout(() => {
-        router.push('/')
+        router.go('/')
       }, 5000)
     }
   } catch (error) {
@@ -59,8 +57,8 @@ onMounted(async () => {
 </div>
 
 <div v-else class="max-w-2xl mx-auto text-center py-8">
-  <div v-if="isSuccess" class="text-blue-600">
-    <div class="text-6xl mb-4">📧</div>
+  <div v-if="isSuccess" class="text-green-600">
+    <div class="text-6xl mb-4">✅</div>
     <h2 class="text-2xl font-bold mb-4">Successfully Unsubscribed</h2>
     <p class="text-lg mb-6">{{ message }}</p>
     <p class="text-sm text-gray-600 mb-4">
@@ -68,7 +66,7 @@ onMounted(async () => {
     </p>
     <p class="text-sm text-gray-600">You'll be redirected to the home page in a few seconds...</p>
   </div>
-  
+
   <div v-else class="text-red-600">
     <div class="text-6xl mb-4">❌</div>
     <h2 class="text-2xl font-bold mb-4">Unsubscribe Failed</h2>

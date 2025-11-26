@@ -21,3 +21,4 @@ dist
 mcp*
 .vercel
 .newsletter-last-build
+.env*.local

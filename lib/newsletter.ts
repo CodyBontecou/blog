@@ -144,7 +144,7 @@ export class NewsletterService {
       // Generate email content
       const htmlContent = generateArticleEmailHTML(article)
       const textContent = generateArticleEmailText(article)
-      const subject = `📚 New Article: ${article.title}`
+      const subject = article.title
 
       // Send emails in batches to avoid rate limits
       const batchSize = 50
@@ -252,7 +252,7 @@ export class NewsletterService {
 </head>
 <body>
     <div class="container">
-        <h1>📧 Confirm Your Subscription</h1>
+        <h1>Confirm Your Subscription</h1>
         <p>Thanks for subscribing to Cody Bontecou's newsletter!</p>
         <p>Click the button below to confirm your email address and start receiving updates when new articles are published.</p>
         <a href="${confirmUrl}" class="button">Confirm Subscription</a>

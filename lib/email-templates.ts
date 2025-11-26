@@ -172,6 +172,30 @@ export function generateArticleEmailHTML(article: ArticleData): string {
             font-style: italic;
         }
 
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .article-content table th,
+        .article-content table td {
+            border: 1px solid #cccccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .article-content table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .article-content table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
         .cta-section {
             background-color: #f5f5f5;
             padding: 24px;
@@ -245,11 +269,6 @@ export function generateArticleEmailHTML(article: ArticleData): string {
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>📧 New Article Published</h1>
-            <p>Fresh content from Cody Bontecou's blog</p>
-        </div>
-        
         <div class="content">
             <div class="article-header">
                 <h2 class="article-title">${title}</h2>
@@ -270,7 +289,6 @@ export function generateArticleEmailHTML(article: ArticleData): string {
             </div>
             
             <div class="article-content">
-                ${excerpt ? `<p><strong>Summary:</strong> ${excerpt}</p>` : ''}
                 ${formatContentForEmail(content)}
             </div>
             
@@ -281,10 +299,10 @@ export function generateArticleEmailHTML(article: ArticleData): string {
         </div>
         
         <div class="footer">
-            <p>Thanks for being part of my newsletter community! 🚀</p>
+            <p>Thanks for being part of my newsletter community!</p>
             <p>
-                <a href="${articleUrl}">View on web</a> • 
-                <a href="${EMAIL_CONFIG.domain}">Visit blog</a> • 
+                <a href="${articleUrl}">View on web</a> •
+                <a href="${EMAIL_CONFIG.domain}">Visit blog</a> •
                 <a href="${unsubscribeUrl}">Unsubscribe</a>
             </p>
             <p style="margin-top: 16px; font-size: 12px; color: #666666;">
@@ -299,37 +317,112 @@ export function generateArticleEmailHTML(article: ArticleData): string {
 
 function formatContentForEmail(content: string): string {
   // Basic markdown to HTML conversion for email
-  // This is a simplified version - you might want to use a proper markdown parser
-  return content
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/\n/g, '<br>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-    .replace(/^\* (.*$)/gm, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-    .replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>')
-    .replace(/^(<p>|<br>)/, '<p>')
-    .replace(/(<\/p>|<br>)$/, '</p>')
+  let formatted = content
+
+  // Handle code blocks first (before other replacements)
+  formatted = formatted.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+    return `<pre><code>${escapeHtml(code.trim())}</code></pre>`
+  })
+
+  // Handle markdown tables - find complete table blocks
+  // A table is: header row, separator row, then data rows
+  formatted = formatted.replace(/^\|.+\|[ \t]*\n\|[-:\s|]+\|[ \t]*\n(?:\|.+\|[ \t]*\n?)*/gm, (tableMatch) => {
+    const lines = tableMatch.trim().split('\n')
+    if (lines.length < 3) return tableMatch // Need header, separator, and at least one data row
+
+    const headerRow = lines[0]
+    const dataRows = lines.slice(2) // Skip header and separator
+
+    // Parse header
+    const headers = headerRow.split('|').filter(cell => cell.trim()).map(cell => cell.trim())
+
+    // Build table HTML
+    let html = '<table><thead><tr>'
+    headers.forEach(header => {
+      html += `<th>${header}</th>`
+    })
+    html += '</tr></thead><tbody>'
+
+    // Parse data rows
+    dataRows.forEach(row => {
+      if (!row.trim()) return
+      const cells = row.split('|').filter(cell => cell.trim()).map(cell => cell.trim())
+      html += '<tr>'
+      cells.forEach(cell => {
+        html += `<td>${cell}</td>`
+      })
+      html += '</tr>'
+    })
+
+    html += '</tbody></table>'
+    return html
+  })
+
+  // Handle headings (must be done before paragraph conversion)
+  formatted = formatted.replace(/^### (.+)$/gm, '<h3>$1</h3>')
+  formatted = formatted.replace(/^## (.+)$/gm, '<h2>$1</h2>')
+  formatted = formatted.replace(/^# (.+)$/gm, '<h1>$1</h1>')
+
+  // Handle inline code (after code blocks)
+  formatted = formatted.replace(/`([^`\n]+)`/g, '<code>$1</code>')
+
+  // Handle bold and italic
+  formatted = formatted.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+  formatted = formatted.replace(/\*(.+?)\*/g, '<em>$1</em>')
+
+  // Handle blockquotes
+  formatted = formatted.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+
+  // Handle lists
+  formatted = formatted.replace(/^\* (.+)$/gm, '<li>$1</li>')
+  formatted = formatted.replace(/^- (.+)$/gm, '<li>$1</li>')
+  formatted = formatted.replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>')
+
+  // Wrap consecutive list items
+  formatted = formatted.replace(/(<li>.*<\/li>\n?)+/g, (match) => {
+    return `<ul>${match}</ul>`
+  })
+
+  // Handle paragraphs (double newline = new paragraph)
+  formatted = formatted.replace(/\n\n+/g, '</p><p>')
+  formatted = formatted.replace(/\n/g, '<br>')
+
+  // Wrap in paragraph tags if not already wrapped
+  if (!formatted.startsWith('<')) {
+    formatted = '<p>' + formatted
+  }
+  if (!formatted.endsWith('>')) {
+    formatted = formatted + '</p>'
+  }
+
+  return formatted
+}
+
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  }
+  return text.replace(/[&<>"']/g, (m) => map[m])
 }
 
 export function generateArticleEmailText(article: ArticleData): string {
   const { title, slug, content, topics, created_at, author = 'Cody Bontecou' } = article
   const articleUrl = `${EMAIL_CONFIG.domain}/${slug}`
   const unsubscribeUrl = `${EMAIL_CONFIG.domain}/unsubscribe?token={{unsubscribe_token}}`
-  
+
   return `
-🚀 NEW ARTICLE PUBLISHED
+NEW ARTICLE PUBLISHED
 
 ${title}
 
-By ${author} • ${new Date(created_at).toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
+By ${author} • ${new Date(created_at).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
 })}
 
 ${topics.length > 0 ? `Topics: ${topics.join(', ')}` : ''}
@@ -344,7 +437,7 @@ Read the full article: ${articleUrl}
 
 ---
 
-Thanks for being part of my newsletter community! 🚀
+Thanks for being part of my newsletter community!
 
 Visit blog: ${EMAIL_CONFIG.domain}
 Unsubscribe: ${unsubscribeUrl}
