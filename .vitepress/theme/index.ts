@@ -23,7 +23,7 @@ export default {
     // Register Newsletter and Comments
     app.component('Newsletter', Newsletter)
     app.component('Comments', Comments)
-    
+
     // Register UI components needed by Newsletter
     app.component('Card', Card)
     app.component('CardHeader', CardHeader)
@@ -32,9 +32,28 @@ export default {
     app.component('CardContent', CardContent)
     app.component('Input', Input)
     app.component('Button', Button)
-    
+
     // Register toast components
     app.component('ToastProvider', ToastProvider)
     app.component('Toaster', Toaster)
+
+    // Handle trailing slashes to prevent content loading issues
+    // Use onBeforePageLoad which runs earlier in the navigation lifecycle
+    router.onBeforePageLoad = (to) => {
+      // Parse the URL to separate path, query, and hash
+      const [pathPart, ...rest] = to.split(/([?#].*)/)
+      const suffix = rest.join('')
+
+      // If the path has a trailing slash (but isn't just '/'), remove it
+      if (pathPart !== '/' && pathPart.endsWith('/')) {
+        const cleanPath = pathPart.slice(0, -1) + suffix
+        console.log('[VitePress] Redirecting from', to, 'to', cleanPath)
+        // Use window.location for initial page loads to ensure proper redirect
+        if (typeof window !== 'undefined') {
+          window.location.href = cleanPath
+          return false
+        }
+      }
+    }
   }
 } satisfies Theme

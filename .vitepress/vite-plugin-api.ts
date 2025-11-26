@@ -11,6 +11,17 @@ export function apiPlugin(): Plugin {
     name: 'vite-plugin-api',
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
+        // Handle trailing slashes - redirect to clean URLs
+        if (req.url && req.url !== '/' && req.url.match(/\/(\?|#|$)/)) {
+          const url = new URL(req.url, `http://${req.headers.host}`)
+          // Remove trailing slash from pathname
+          const cleanPath = url.pathname.slice(0, -1) + url.search + url.hash
+          res.statusCode = 301
+          res.setHeader('Location', cleanPath)
+          res.end()
+          return
+        }
+
         // Handle API routes
         if (req.url === '/api/newsletter/subscribe' && req.method === 'POST') {
           try {
