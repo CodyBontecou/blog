@@ -28,29 +28,26 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-    <Card>
-        <CardHeader>
-            <CardTitle>{{ t('newsletter.cardTitle') }}</CardTitle>
-            <CardDescription>
-                {{ t('newsletter.cardDescription') }}
-            </CardDescription>
-        </CardHeader>
-        <CardContent>
-            <form @submit.prevent="handleSubmit">
-                <div class="flex flex-col gap-2">
-                    <div class="flex space-x-1.5">
-                        <Input
-                            name="emailInput"
-                            v-model="emailInput"
-                            type="email"
-                            placeholder="Enter your email"
-                        />
-                        <Button class="self-end" type="submit">
-                            {{ t('newsletter.submit') }}
-                        </Button>
-                    </div>
-                </div>
-            </form>
-        </CardContent>
-    </Card>
+    <div class="border border-gray-200 dark:border-gray-800 rounded-lg p-6 bg-gray-50/50 dark:bg-gray-900/30">
+        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
+            {{ t('newsletter.cardTitle') }}
+        </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            {{ t('newsletter.cardDescription') }}
+        </p>
+        <form @submit.prevent="handleSubmit">
+            <div class="flex gap-2">
+                <Input
+                    name="emailInput"
+                    v-model="emailInput"
+                    type="email"
+                    placeholder="Enter your email"
+                    class="flex-1"
+                />
+                <Button type="submit">
+                    {{ t('newsletter.submit') }}
+                </Button>
+            </div>
+        </form>
+    </div>
 </template>

@@ -28,7 +28,7 @@
                         <!-- Writing View Content -->
                         <div v-if="!isAboutView">
                             <!-- Latest -->
-                            <section v-if="latestArticle" class="mb-16 w-full">
+                            <section v-if="latestArticle" class="mb-8 w-full">
                                 <h2 class="text-gray-600 dark:text-gray-400 mb-6">Latest</h2>
                                 <article>
                                     <h3 class="text-xl font-medium mb-2">
@@ -57,6 +57,11 @@
                                         </a>
                                     </p>
                                 </article>
+                            </section>
+
+                            <!-- Newsletter -->
+                            <section class="mb-8 w-full">
+                                <NewsletterWrapper />
                             </section>
 
                             <!-- Topics -->
@@ -226,6 +231,7 @@ import {
 } from '../utils'
 import ArticleList from './ArticleList.vue'
 import ToggleSwitch from './ToggleSwitch.vue'
+import NewsletterWrapper from './NewsletterWrapper.vue'
 
 // View state
 const isAboutView = ref(false)
