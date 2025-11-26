@@ -37,7 +37,12 @@ export class NewsletterService {
         .single()
 
       if (error) {
-        console.error('Database error:', error)
+        console.error('Database error details:', {
+          code: error.code,
+          message: error.message,
+          details: error.details,
+          hint: error.hint
+        })
         return { success: false, message: 'Failed to subscribe. Please try again.' }
       }
 
