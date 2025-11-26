@@ -25,7 +25,7 @@ export const generateSitemap = async (siteConfig: any) => {
   })
 
   // Add static pages
-  const staticPages = ['/about', '/talks']
+  const staticPages = ['/about', '/talks', '/topics']
   staticPages.forEach(page => {
     sitemap.write({
       url: page,
@@ -34,8 +34,42 @@ export const generateSitemap = async (siteConfig: any) => {
     })
   })
 
-  // Add blog posts
+  // Get content directory for dynamic pages
   const contentDir = resolve(siteConfig.srcDir || './content')
+
+  // Extract all unique topics from blog posts (same logic as frontend)
+  const topicsSet = new Set<string>()
+  const blogFiles = globSync('*.md', {
+    cwd: contentDir,
+    ignore: ['index.md', 'about.md', 'talks.md']
+  })
+
+  for (const file of blogFiles) {
+    const filePath = resolve(contentDir, file)
+    const content = readFileSync(filePath, 'utf-8')
+    const { data } = matter(content)
+
+    // Skip drafts and files without topics
+    if (data.draft || !data.topics) continue
+
+    // Normalize topics to lowercase and add to set
+    if (Array.isArray(data.topics)) {
+      data.topics.forEach((topic: string) => {
+        topicsSet.add(topic.toLowerCase())
+      })
+    }
+  }
+
+  // Add all topic pages to sitemap
+  Array.from(topicsSet).sort().forEach(topic => {
+    sitemap.write({
+      url: `/topics/${topic}`,
+      changefreq: 'weekly',
+      priority: 0.7
+    })
+  })
+
+  // Add blog posts
   const markdownFiles = globSync('**/*.md', { 
     cwd: contentDir,
     ignore: ['**/templates/**', '**/node_modules/**', 'index.md', 'about.md', 'talks.md']
@@ -45,17 +79,18 @@ export const generateSitemap = async (siteConfig: any) => {
     const filePath = resolve(contentDir, file)
     const content = readFileSync(filePath, 'utf-8')
     const { data } = matter(content)
-    
-    // Skip files without dates or marked as drafts
-    if (!data.date || data.draft) continue
-    
+
+    // Skip files without dates or marked as drafts (check both date and created_at, matching frontend logic)
+    const postDate = data.created_at || data.date
+    if (!postDate || data.draft) continue
+
     const url = `/${file.replace(/\.md$/, '')}`
-    
+
     sitemap.write({
       url,
       changefreq: 'weekly',
       priority: 0.6,
-      lastmod: data.date
+      lastmod: postDate
     })
   }
 

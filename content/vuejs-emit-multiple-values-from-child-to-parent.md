@@ -2,39 +2,39 @@
 type: post
 title: VueJS Custom Event - Emit Multiple Values
 author:
-  name: Cody Bontecou
-  image: https://codybontecou.com/images/cody-abstract.jpeg
+    name: Cody Bontecou
+    image: https://codybontecou.com/images/cody-abstract.jpeg
 date: 2020-09-07
 description: Use a VueJS's custom event to emit multiple parameters between components.
 category: tutorials
 dropdown: VueJS
 tags:
-  - vue
-  - nuxt
-  - Nuxt
-  - Code
+    - vue
+    - nuxt
+    - Nuxt
+    - Code
 meta:
-  - name: og:title
-    content: VueJS Custom Event - Emit Multiple Values
-  - name: og:description
-    content: Use a VueJS's custom event to emit multiple parameters between components.
-  - name: og:image
-    content: https://codybontecou.com/images/vuejs-emit-multiple-params-meta.png
-  - name: og:image:alt
-    content: Emit Multiple Values from Child to Parent in a VueJS Custom Event with code snippet showcasing example provided in blog post.
-  - name: og:title
-    content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
-  - name: twitter:title
-    content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
-  - name: twitter:text:title
-    content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
+    - name: og:title
+      content: VueJS Custom Event - Emit Multiple Values
+    - name: og:description
+      content: Use a VueJS's custom event to emit multiple parameters between components.
+    - name: og:image
+      content: https://codybontecou.com/images/vuejs-emit-multiple-params-meta.png
+    - name: og:image:alt
+      content: Emit Multiple Values from Child to Parent in a VueJS Custom Event with code snippet showcasing example provided in blog post.
+    - name: og:title
+      content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
+    - name: twitter:title
+      content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
+    - name: twitter:text:title
+      content: Emit Multiple Values from Child to Parent in a VueJS Custom Event
 canonicalUrl: https://codybontecou.com/vuejs-emit-multiple-values-from-child-to-parent
 newsletter: false
 topics:
-  - vue
-  - events
-  - components
-  - composition
+    - vue
+    - events
+    - components
+    - composition
 created_at: 2024-10-31T14:26
 last_modified: 2025-06-26T07:59
 ---
@@ -49,8 +49,8 @@ Here is what I found.
 
 ```js
 this.$emit('success', {
-  username: 'CodyBontecou',
-  error: false,
+    username: 'CodyBontecou',
+    error: false,
 })
 ```
 
