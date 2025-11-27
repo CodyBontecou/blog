@@ -1,3 +1,5 @@
 ---
-layout: topic
+title: typescript
+layout: home
+topic: typescript
 ---
