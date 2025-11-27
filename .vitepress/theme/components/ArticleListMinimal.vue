@@ -109,7 +109,7 @@ const getArticleClasses = (articleUrl: string) => {
 }
 
 .article-item {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     opacity: 0;
     animation: fadeInArticle 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

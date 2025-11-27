@@ -4,34 +4,35 @@
             <div class="two-column-grid">
                 <!-- Left Column -->
                 <div class="left-column">
-                    <!-- Hero -->
+                    <!-- Hero with inline navigation -->
                     <div class="hero-section fade-in">
-                        <h1 class="hero-name">Cody Bontecou</h1>
+                        <div class="hero-header">
+                            <h1 class="hero-name">Cody Bontecou</h1>
+                            <!-- View Toggle - Now inline -->
+                            <div class="toggle-section-inline">
+                                <button
+                                    @click="router.go('/')"
+                                    :class="['toggle-btn', { active: currentView === 'writing' }]"
+                                >
+                                    Writing
+                                </button>
+                                <span class="toggle-divider">/</span>
+                                <button
+                                    @click="router.go('/about')"
+                                    :class="['toggle-btn', { active: currentView === 'about' }]"
+                                >
+                                    About
+                                </button>
+                                <span class="toggle-divider">/</span>
+                                <button
+                                    @click="router.go('/topics')"
+                                    :class="['toggle-btn', { active: currentView === 'topics' }]"
+                                >
+                                    Topics
+                                </button>
+                            </div>
+                        </div>
                         <p class="hero-tagline">is enjoying life</p>
-                    </div>
-
-                    <!-- View Toggle -->
-                    <div class="toggle-section fade-in" style="animation-delay: 0.1s">
-                        <button
-                            @click="router.go('/')"
-                            :class="['toggle-btn', { active: currentView === 'writing' }]"
-                        >
-                            Writing
-                        </button>
-                        <span class="toggle-divider">/</span>
-                        <button
-                            @click="router.go('/about')"
-                            :class="['toggle-btn', { active: currentView === 'about' }]"
-                        >
-                            About
-                        </button>
-                        <span class="toggle-divider">/</span>
-                        <button
-                            @click="router.go('/topics')"
-                            :class="['toggle-btn', { active: currentView === 'topics' }]"
-                        >
-                            Topics
-                        </button>
                     </div>
 
                     <!-- Latest Article -->
@@ -140,19 +141,17 @@
                         </div>
 
                         <!-- Topics List (when no topic is selected) -->
-                        <div v-else>
+                        <div v-else class="topics-simple-view">
                             <div class="section-label">Topics</div>
-
-                            <!-- Topic pills -->
-                            <div class="topics-grid">
+                            <div class="topics-simple-list">
                                 <button
-                                    v-for="{ topic, count } in topicsWithCounts"
+                                    v-for="({ topic, count }) in topicsWithCounts"
                                     :key="topic"
                                     @click="viewTopicArticles(topic)"
-                                    class="topic-pill"
+                                    class="topic-simple-item"
                                 >
-                                    {{ topic }}
-                                    <span class="topic-count">({{ count }})</span>
+                                    <span class="topic-simple-count">{{ count }}</span>
+                                    <h3 class="topic-simple-title">{{ capitalizeFirstLetter(topic) }}</h3>
                                 </button>
                             </div>
                         </div>
@@ -257,6 +256,11 @@ const topicFilteredArticles = computed(() => {
 const latestArticle = computed(() => getLatestPost(allArticles.value))
 const topicsWithCounts = computed(() => getTopicsWithCounts(allArticles.value))
 
+// Helper function to capitalize first letter
+const capitalizeFirstLetter = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 const formattedDate = computed(() => {
     if (!latestArticle.value?.frontmatter?.created_at && !latestArticle.value?.frontmatter?.date)
         return ''
@@ -289,7 +293,7 @@ const excerpt = computed(() => {
         .replace(/#{1,6}\s+/g, '')
         .trim()
 
-    return text.length > 120 ? text.substring(0, 120) + '...' : text
+    return text.length > 400 ? text.substring(0, 400) + '...' : text
 })
 </script>
 
@@ -350,6 +354,8 @@ const excerpt = computed(() => {
     border-right: 1px solid #e0e0e0;
     padding: 48px 60px 48px 32px;
     background: #fafafa;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Custom scrollbar for left column */
@@ -387,6 +393,15 @@ const excerpt = computed(() => {
     margin-bottom: 32px;
     padding-bottom: 32px;
     border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+.hero-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 12px;
 }
 
 .hero-name {
@@ -395,7 +410,7 @@ const excerpt = computed(() => {
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    margin: 0 0 12px 0;
+    margin: 0;
     color: #1a1a1a;
 }
 
@@ -407,14 +422,12 @@ const excerpt = computed(() => {
     margin: 0;
 }
 
-/* Toggle */
-.toggle-section {
+/* Toggle - Inline version */
+.toggle-section-inline {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
 }
 
 .toggle-btn {
@@ -458,10 +471,17 @@ const excerpt = computed(() => {
     margin-bottom: 32px;
     padding-bottom: 32px;
     border-bottom: 1px solid #e0e0e0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 .latest-article {
-    /* No additional styling needed */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 .latest-title {
@@ -471,6 +491,7 @@ const excerpt = computed(() => {
     line-height: 1.3;
     letter-spacing: -0.01em;
     margin: 0 0 8px 0;
+    flex-shrink: 0;
 }
 
 .latest-title a {
@@ -487,6 +508,7 @@ const excerpt = computed(() => {
     font-size: 13px;
     color: #999;
     margin-bottom: 12px;
+    flex-shrink: 0;
 }
 
 .latest-excerpt {
@@ -494,6 +516,8 @@ const excerpt = computed(() => {
     line-height: 1.6;
     color: #666;
     margin: 0 0 12px 0;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .read-more {
@@ -502,6 +526,7 @@ const excerpt = computed(() => {
     color: #1a1a1a;
     text-decoration: none;
     transition: opacity 0.3s ease;
+    flex-shrink: 0;
 }
 
 .read-more:hover {
@@ -510,9 +535,10 @@ const excerpt = computed(() => {
 
 /* Newsletter Section */
 .newsletter-section {
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #e0e0e0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 /* Topics View (in right column) */
@@ -956,6 +982,77 @@ const excerpt = computed(() => {
 
     .article-body :deep(.text-gray-600) {
         color: #666;
+    }
+}
+
+/* Topics Simple View */
+.topics-simple-view {
+    max-width: 100%;
+}
+
+.topics-simple-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.topic-simple-item {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.topic-simple-item:hover {
+    opacity: 0.6;
+}
+
+.topic-simple-count {
+    font-size: 13px;
+    color: #999;
+    font-weight: 400;
+    min-width: 16px;
+    flex-shrink: 0;
+}
+
+.topic-simple-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+@media (prefers-color-scheme: dark) {
+    .topic-simple-title {
+        color: #fafafa;
+    }
+}
+
+@media (max-width: 640px) {
+    .topics-simple-list {
+        gap: 14px;
+    }
+
+    .hero-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .hero-name {
+        font-size: 32px;
+    }
+
+    .toggle-section-inline {
+        width: 100%;
     }
 }
 </style>
