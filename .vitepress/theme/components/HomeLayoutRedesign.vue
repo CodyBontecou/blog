@@ -12,23 +12,52 @@
                             :class="{ active: isHomePage }"
                             title="Home"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                                />
+                                <polyline points="9 22 9 12 15 12 15 22" />
                             </svg>
                         </button>
 
                         <div class="sidebar-divider"></div>
 
                         <button
-                            @click="navigateWithScroll('/', '.articles-container')"
+                            @click="
+                                navigateWithScroll('/', '.articles-container')
+                            "
                             class="sidebar-icon-btn"
-                            :class="{ active: currentView === 'writing' && !isHomePage }"
+                            :class="{
+                                active:
+                                    currentView === 'writing' && !isHomePage,
+                            }"
                             title="Writing"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 20h9"/>
-                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M12 20h9" />
+                                <path
+                                    d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                                />
                             </svg>
                         </button>
                         <button
@@ -37,21 +66,20 @@
                             :class="{ active: currentView === 'about' }"
                             title="About"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 16v-4"/>
-                                <path d="M12 8h.01"/>
-                            </svg>
-                        </button>
-                        <button
-                            @click="navigateWithScroll('/topics', '.topics-view')"
-                            class="sidebar-icon-btn"
-                            :class="{ active: currentView === 'topics' }"
-                            title="Topics"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
-                                <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 16v-4" />
+                                <path d="M12 8h.01" />
                             </svg>
                         </button>
                     </div>
@@ -63,31 +91,42 @@
                             <!-- View Toggle - Now inline -->
                             <div class="toggle-section-inline">
                                 <button
-                                    @click="navigateWithScroll('/', '.articles-container')"
-                                    :class="['toggle-btn', { active: currentView === 'writing' }]"
+                                    @click="
+                                        navigateWithScroll(
+                                            '/',
+                                            '.articles-container'
+                                        )
+                                    "
+                                    :class="[
+                                        'toggle-btn',
+                                        { active: currentView === 'writing' },
+                                    ]"
                                 >
-                                    Writing
+                                    Home
                                 </button>
                                 <span class="toggle-divider">/</span>
                                 <button
-                                    @click="navigateWithScroll('/about', '.about-view')"
-                                    :class="['toggle-btn', { active: currentView === 'about' }]"
+                                    @click="
+                                        navigateWithScroll(
+                                            '/about',
+                                            '.about-view'
+                                        )
+                                    "
+                                    :class="[
+                                        'toggle-btn',
+                                        { active: currentView === 'about' },
+                                    ]"
                                 >
                                     About
-                                </button>
-                                <span class="toggle-divider">/</span>
-                                <button
-                                    @click="navigateWithScroll('/topics', '.topics-view')"
-                                    :class="['toggle-btn', { active: currentView === 'topics' }]"
-                                >
-                                    Topics
                                 </button>
                             </div>
                         </div>
 
                         <!-- Tagline and Social Icons on same line -->
                         <div class="tagline-social-row">
-                            <p class="hero-tagline">exploring TypeScript, Vue, and AI</p>
+                            <p class="hero-tagline">
+                                exploring TypeScript and AI
+                            </p>
                             <div class="social-icons">
                                 <a
                                     href="https://github.com/codybontecou"
@@ -96,8 +135,20 @@
                                     rel="noopener"
                                     aria-label="GitHub"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                        />
                                     </svg>
                                 </a>
                                 <a
@@ -107,9 +158,23 @@
                                     rel="noopener"
                                     aria-label="YouTube"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
-                                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path
+                                            d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                                        />
+                                        <polygon
+                                            points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                                        />
                                     </svg>
                                 </a>
                                 <a
@@ -119,10 +184,27 @@
                                     rel="noopener"
                                     aria-label="LinkedIn"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                        <rect x="2" y="9" width="4" height="12"/>
-                                        <circle cx="4" cy="4" r="2"/>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                                        />
+                                        <rect
+                                            x="2"
+                                            y="9"
+                                            width="4"
+                                            height="12"
+                                        />
+                                        <circle cx="4" cy="4" r="2" />
                                     </svg>
                                 </a>
                                 <a
@@ -132,9 +214,23 @@
                                     rel="noopener"
                                     aria-label="X (Twitter)"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 4l11.733 16h4.267l-11.733 -16z"/>
-                                        <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path
+                                            d="M4 4l11.733 16h4.267l-11.733 -16z"
+                                        />
+                                        <path
+                                            d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"
+                                        />
                                     </svg>
                                 </a>
                             </div>
@@ -165,7 +261,10 @@
                     </section>
 
                     <!-- Newsletter -->
-                    <section class="newsletter-section fade-in" style="animation-delay: 0.3s">
+                    <section
+                        class="newsletter-section fade-in"
+                        style="animation-delay: 0.3s"
+                    >
                         <NewsletterWrapper />
                     </section>
                 </div>
@@ -191,7 +290,9 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                         >
-                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                            <path
+                                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                            />
                         </svg>
                         <svg
                             v-else
@@ -205,19 +306,27 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                         >
-                            <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+                            <path
+                                d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
+                            />
                         </svg>
                     </button>
 
                     <!-- Article Detail View (when on an article page) -->
-                    <div v-if="isArticlePage" class="article-detail-view fade-in" style="animation-delay: 0.5s">
+                    <div
+                        v-if="isArticlePage"
+                        class="article-detail-view fade-in"
+                        style="animation-delay: 0.5s"
+                    >
                         <!-- Breadcrumb -->
                         <div class="topic-breadcrumb">
                             <button @click="goHome" class="breadcrumb-link">
                                 Writing
                             </button>
                             <span class="breadcrumb-separator">→</span>
-                            <span class="breadcrumb-current">{{ frontmatter.title }}</span>
+                            <span class="breadcrumb-current">{{
+                                frontmatter.title
+                            }}</span>
                         </div>
 
                         <!-- Article Content -->
@@ -227,28 +336,67 @@
                     </div>
 
                     <!-- Writing View - Show Archive (when on home page) -->
-                    <div v-else-if="currentView === 'writing'" class="articles-container fade-in" style="animation-delay: 0.5s">
-                        <div class="section-label">Writing</div>
-                        <ArticleList v-if="articles" :articles="articles" @article-click="handleArticleClick" />
+                    <div
+                        v-else-if="currentView === 'writing'"
+                        class="articles-container fade-in"
+                        style="animation-delay: 0.5s"
+                    >
+                        <div class="section-header-stacked">
+                            <div class="section-label">Writing</div>
+                            <div class="view-toggle">
+                                <button
+                                    @click="router.go('/')"
+                                    :class="[
+                                        'view-toggle-btn',
+                                        { active: currentView === 'writing' },
+                                    ]"
+                                >
+                                    List
+                                </button>
+                                <span class="view-toggle-divider">/</span>
+                                <button
+                                    @click="router.go('/topics')"
+                                    :class="[
+                                        'view-toggle-btn',
+                                        { active: currentView === 'topics' },
+                                    ]"
+                                >
+                                    Topics
+                                </button>
+                            </div>
+                        </div>
+                        <ArticleList
+                            v-if="articles"
+                            :articles="articles"
+                            @article-click="handleArticleClick"
+                        />
                     </div>
 
                     <!-- About View - Show About Content -->
-                    <div v-else-if="currentView === 'about'" class="about-view fade-in" style="animation-delay: 0.5s">
+                    <div
+                        v-else-if="currentView === 'about'"
+                        class="about-view fade-in"
+                        style="animation-delay: 0.5s"
+                    >
                         <div class="section-label">About</div>
                         <div class="about-content">
                             <p>
-                                I'm a software engineer with a passion for building meaningful
-                                products and sharing knowledge through writing.
+                                I'm a software engineer with a passion for
+                                building meaningful products and sharing
+                                knowledge through writing.
                             </p>
                             <p>
-                                My interests span across TypeScript, Vue.js, accessibility, AI,
-                                and the evolving landscape of web development. I enjoy exploring
-                                new technologies and documenting my learnings along the way.
+                                My interests span across TypeScript, Vue.js,
+                                accessibility, AI, and the evolving landscape of
+                                web development. I enjoy exploring new
+                                technologies and documenting my learnings along
+                                the way.
                             </p>
                             <p>
-                                When I'm not coding, you'll find me experimenting with new tools,
-                                contributing to open source, or writing about the intersection of
-                                technology and human experience.
+                                When I'm not coding, you'll find me
+                                experimenting with new tools, contributing to
+                                open source, or writing about the intersection
+                                of technology and human experience.
                             </p>
                             <div class="connect-section">
                                 <div class="connect-label">Connect</div>
@@ -291,38 +439,68 @@
                     </div>
 
                     <!-- Topics View - Show Topics -->
-                    <div v-else-if="currentView === 'topics'" class="topics-view fade-in" style="animation-delay: 0.5s">
+                    <div
+                        v-else-if="currentView === 'topics'"
+                        class="topics-view fade-in"
+                        style="animation-delay: 0.5s"
+                    >
                         <!-- Topic Detail View (when on a topic page) -->
                         <div v-if="isTopicPage">
                             <!-- Breadcrumb -->
                             <div class="topic-breadcrumb">
-                                <button @click="router.go('/topics')" class="breadcrumb-link">
+                                <button
+                                    @click="router.go('/topics')"
+                                    class="breadcrumb-link"
+                                >
                                     Topics
                                 </button>
                                 <span class="breadcrumb-separator">→</span>
-                                <span class="breadcrumb-current">{{ currentTopic }}</span>
+                                <span class="breadcrumb-current">{{
+                                    currentTopic
+                                }}</span>
                             </div>
 
                             <!-- Filtered Articles -->
                             <div class="topic-articles">
-                                <ArticleList v-if="topicFilteredArticles" :articles="topicFilteredArticles" @article-click="handleArticleClick" />
+                                <ArticleList
+                                    v-if="topicFilteredArticles"
+                                    :articles="topicFilteredArticles"
+                                    @article-click="handleArticleClick"
+                                />
                             </div>
                         </div>
 
                         <!-- Topics List (when no topic is selected) -->
-                        <div v-else class="topics-simple-view">
-                            <div class="section-label">Topics</div>
-                            <div class="topics-simple-list">
-                                <button
-                                    v-for="({ topic, count }) in topicsWithCounts"
-                                    :key="topic"
-                                    @click="viewTopicArticles(topic)"
-                                    class="topic-simple-item"
-                                >
-                                    <span class="topic-simple-count">{{ count }}</span>
-                                    <h3 class="topic-simple-title">{{ capitalizeFirstLetter(topic) }}</h3>
-                                </button>
+                        <div v-else class="topics-sorted-view">
+                            <div class="section-header-stacked">
+                                <div class="section-label">Topics</div>
+                                <div class="view-toggle">
+                                    <button
+                                        @click="router.go('/')"
+                                        :class="[
+                                            'view-toggle-btn',
+                                            { active: currentView === 'writing' },
+                                        ]"
+                                    >
+                                        List
+                                    </button>
+                                    <span class="view-toggle-divider">/</span>
+                                    <button
+                                        @click="router.go('/topics')"
+                                        :class="[
+                                            'view-toggle-btn',
+                                            { active: currentView === 'topics' },
+                                        ]"
+                                    >
+                                        Topics
+                                    </button>
+                                </div>
                             </div>
+                            <TopicSortedList
+                                v-if="articles"
+                                :articles="articles"
+                                @article-click="handleArticleClick"
+                            />
                         </div>
                     </div>
                 </div>
@@ -343,6 +521,7 @@ import {
     calculateReadingTime,
 } from '../utils'
 import ArticleList from './ArticleListMinimal.vue'
+import TopicSortedList from './TopicSortedList.vue'
 import NewsletterWrapper from './NewsletterMinimal.vue'
 import Toaster from '../../../components/ui/toast/Toaster.vue'
 
@@ -381,9 +560,18 @@ const currentPath = computed(() => page.value.relativePath)
 const isHomePage = computed(() => currentPath.value === 'index.md')
 const isAboutPage = computed(() => currentPath.value === 'about.md')
 const isTopicsIndexPage = computed(() => currentPath.value === 'topics.md')
-const isTopicPage = computed(() => currentPath.value.startsWith('topics/') && currentPath.value.endsWith('.md'))
+const isTopicPage = computed(
+    () =>
+        currentPath.value.startsWith('topics/') &&
+        currentPath.value.endsWith('.md')
+)
 const isArticlePage = computed(() => {
-    return !isHomePage.value && !isAboutPage.value && !isTopicsIndexPage.value && !isTopicPage.value
+    return (
+        !isHomePage.value &&
+        !isAboutPage.value &&
+        !isTopicsIndexPage.value &&
+        !isTopicPage.value
+    )
 })
 
 // Get the current topic from the route
@@ -407,14 +595,17 @@ const selectedTopicForView = computed(() => {
     return null
 })
 
-
 // Filter posts
 const allArticles = computed(() => {
     return posts
         .filter(post => !post.frontmatter?.draft)
         .sort((a, b) => {
-            const dateA = new Date(a.frontmatter?.date || a.frontmatter?.created_at || '')
-            const dateB = new Date(b.frontmatter?.date || b.frontmatter?.created_at || '')
+            const dateA = new Date(
+                a.frontmatter?.date || a.frontmatter?.created_at || ''
+            )
+            const dateB = new Date(
+                b.frontmatter?.date || b.frontmatter?.created_at || ''
+            )
             return dateB.getTime() - dateA.getTime()
         })
 })
@@ -428,7 +619,10 @@ const viewTopicArticles = (topic: string) => {
 }
 
 // Handle article click - navigate to article page
-const handleArticleClick = (article: any, source: 'archive' | 'topic' = 'archive') => {
+const handleArticleClick = (
+    article: any,
+    source: 'archive' | 'topic' = 'archive'
+) => {
     router.go(article.url)
 }
 
@@ -467,11 +661,12 @@ const scrollToSection = (sectionClass: string) => {
         if (section) {
             const headerOffset = 48 // Adjust based on your header height
             const elementPosition = section.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+            const offsetPosition =
+                elementPosition + window.pageYOffset - headerOffset
 
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth'
+                behavior: 'smooth',
             })
         }
     }, 100) // Small delay to ensure content is rendered
@@ -489,8 +684,9 @@ const topicFilteredArticles = computed(() => {
 
     return allArticles.value.filter(article => {
         const articleTopics = article.frontmatter?.topics || []
-        return articleTopics.some((topic: string) =>
-            topic.toLowerCase() === currentTopic.value?.toLowerCase()
+        return articleTopics.some(
+            (topic: string) =>
+                topic.toLowerCase() === currentTopic.value?.toLowerCase()
         )
     })
 })
@@ -505,27 +701,36 @@ const capitalizeFirstLetter = (str: string) => {
 }
 
 const formattedDate = computed(() => {
-    if (!latestArticle.value?.frontmatter?.date && !latestArticle.value?.frontmatter?.created_at)
+    if (
+        !latestArticle.value?.frontmatter?.date &&
+        !latestArticle.value?.frontmatter?.created_at
+    )
         return ''
     return formatDateWithMonth(
-        latestArticle.value.frontmatter.date || latestArticle.value.frontmatter.created_at
+        latestArticle.value.frontmatter.date ||
+            latestArticle.value.frontmatter.created_at
     )
 })
 
 const readingTime = computed(() => {
     if (!latestArticle.value) return 3
-    const content = latestArticle.value.content || latestArticle.value.excerpt || ''
+    const content =
+        latestArticle.value.content || latestArticle.value.excerpt || ''
     if (!content) return 3
 
     const wordsPerMinute = 200
-    const words = content.trim().split(/\s+/).filter(word => word.length > 0).length
+    const words = content
+        .trim()
+        .split(/\s+/)
+        .filter(word => word.length > 0).length
     const minutes = Math.ceil(words / wordsPerMinute)
     return minutes || 1
 })
 
 const excerpt = computed(() => {
     if (!latestArticle.value) return ''
-    let content = latestArticle.value.excerpt || latestArticle.value.content || ''
+    let content =
+        latestArticle.value.excerpt || latestArticle.value.content || ''
     if (!content) {
         return 'Open-source AI is an exciting space. There is a lot of research and innovation is taking place here.'
     }
@@ -547,7 +752,10 @@ const excerpt = computed(() => {
     min-height: 100vh;
     background: #fafafa;
     color: #1a1a1a;
-    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-family:
+        'DM Sans',
+        -apple-system,
+        sans-serif;
 }
 
 .container {
@@ -802,6 +1010,49 @@ const excerpt = computed(() => {
     letter-spacing: 0.1em;
     color: #999;
     margin-bottom: 16px;
+}
+
+/* Section Header Stacked - gives toggle its own line to avoid overlap with fullscreen button */
+.section-header-stacked {
+    margin-bottom: 16px;
+}
+
+.section-header-stacked .section-label {
+    margin-bottom: 8px;
+}
+
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.view-toggle-btn {
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ccc;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.view-toggle-btn:hover {
+    color: #666;
+}
+
+.view-toggle-btn.active {
+    color: #999;
+}
+
+.view-toggle-divider {
+    color: #e0e0e0;
+    font-size: 11px;
 }
 
 /* Latest Section */
@@ -1347,6 +1598,22 @@ const excerpt = computed(() => {
         color: #666;
     }
 
+    .view-toggle-btn {
+        color: #555;
+    }
+
+    .view-toggle-btn:hover {
+        color: #999;
+    }
+
+    .view-toggle-btn.active {
+        color: #666;
+    }
+
+    .view-toggle-divider {
+        color: #333;
+    }
+
     .hero-section,
     .toggle-section,
     .latest-section,
@@ -1449,6 +1716,11 @@ const excerpt = computed(() => {
 
 /* Topics Simple View */
 .topics-simple-view {
+    max-width: 100%;
+}
+
+/* Topics Sorted View */
+.topics-sorted-view {
     max-width: 100%;
 }
 
