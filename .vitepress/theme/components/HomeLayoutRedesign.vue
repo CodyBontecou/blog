@@ -3,9 +3,61 @@
         <div class="container">
             <div class="two-column-grid">
                 <!-- Left Column -->
-                <div class="left-column">
+                <div class="left-column" :class="{ collapsed: isCollapsed }">
+                    <!-- Collapsed Sidebar Icons -->
+                    <div v-if="isCollapsed" class="collapsed-sidebar-content">
+                        <button
+                            @click="goHomeAndExpand"
+                            class="sidebar-icon-btn home-btn"
+                            :class="{ active: isHomePage }"
+                            title="Home"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </button>
+
+                        <div class="sidebar-divider"></div>
+
+                        <button
+                            @click="router.go('/')"
+                            class="sidebar-icon-btn"
+                            :class="{ active: currentView === 'writing' && !isHomePage }"
+                            title="Writing"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20h9"/>
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                            </svg>
+                        </button>
+                        <button
+                            @click="router.go('/about')"
+                            class="sidebar-icon-btn"
+                            :class="{ active: currentView === 'about' }"
+                            title="About"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-4"/>
+                                <path d="M12 8h.01"/>
+                            </svg>
+                        </button>
+                        <button
+                            @click="router.go('/topics')"
+                            class="sidebar-icon-btn"
+                            :class="{ active: currentView === 'topics' }"
+                            title="Topics"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                                <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                            </svg>
+                        </button>
+                    </div>
+
                     <!-- Hero with inline navigation -->
-                    <div class="hero-section fade-in">
+                    <div v-else class="hero-section fade-in">
                         <div class="hero-header">
                             <h1 class="hero-name">Cody Bontecou</h1>
                             <!-- View Toggle - Now inline -->
@@ -66,6 +118,43 @@
 
                 <!-- Right Column -->
                 <div class="right-column">
+                    <!-- Collapse Toggle Button -->
+                    <button
+                        @click="toggleSidebar"
+                        class="sidebar-toggle"
+                        :class="{ collapsed: isCollapsed }"
+                        aria-label="Toggle sidebar"
+                    >
+                        <svg
+                            v-if="!isCollapsed"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                        </svg>
+                        <svg
+                            v-else
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+                        </svg>
+                    </button>
+
                     <!-- Article Detail View (when on an article page) -->
                     <div v-if="isArticlePage" class="article-detail-view fade-in" style="animation-delay: 0.5s">
                         <!-- Breadcrumb -->
@@ -178,6 +267,32 @@ import NewsletterWrapper from './NewsletterMinimal.vue'
 const { page, frontmatter } = useData()
 const router = useRouter()
 
+// Sidebar collapse state - initialize from URL param
+const isCollapsed = ref(false)
+
+// Initialize collapsed state from URL on mount
+onMounted(() => {
+    if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search)
+        isCollapsed.value = urlParams.get('sidebar') === 'collapsed'
+    }
+})
+
+const toggleSidebar = () => {
+    isCollapsed.value = !isCollapsed.value
+
+    // Update URL parameter
+    if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href)
+        if (isCollapsed.value) {
+            url.searchParams.set('sidebar', 'collapsed')
+        } else {
+            url.searchParams.delete('sidebar')
+        }
+        window.history.replaceState({}, '', url.toString())
+    }
+}
+
 // Determine current view based on route
 const currentPath = computed(() => page.value.relativePath)
 
@@ -237,6 +352,20 @@ const handleArticleClick = (article: any, source: 'archive' | 'topic' = 'archive
 
 // Go back to home
 const goHome = () => {
+    router.go('/')
+}
+
+// Go home and expand sidebar
+const goHomeAndExpand = () => {
+    isCollapsed.value = false
+
+    // Update URL parameter
+    if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href)
+        url.searchParams.delete('sidebar')
+        window.history.replaceState({}, '', url.toString())
+    }
+
     router.go('/')
 }
 
@@ -343,6 +472,30 @@ const excerpt = computed(() => {
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: absolute;
+    top: 48px;
+    right: 32px;
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar-toggle:hover {
+    color: #1a1a1a;
+}
+
+@media (max-width: 1024px) {
+    .sidebar-toggle {
+        display: none;
+    }
+}
+
 /* Left Column */
 .left-column {
     position: fixed;
@@ -356,6 +509,22 @@ const excerpt = computed(() => {
     background: #fafafa;
     display: flex;
     flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Collapsed Left Column */
+.left-column.collapsed {
+    width: 80px;
+    padding: 24px 16px;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Hide all non-collapsed content when collapsed */
+.left-column.collapsed .hero-section,
+.left-column.collapsed .latest-section,
+.left-column.collapsed .newsletter-section {
+    display: none;
 }
 
 /* Custom scrollbar for left column */
@@ -713,12 +882,83 @@ const excerpt = computed(() => {
     opacity: 0.6;
 }
 
+/* Collapsed Sidebar Content */
+.collapsed-sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 60px;
+    width: 100%;
+    align-items: center;
+}
+
+.sidebar-divider {
+    width: 32px;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 8px 0;
+}
+
+.sidebar-icon-btn {
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #999;
+    position: relative;
+}
+
+.sidebar-icon-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: transparent;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-icon-btn:hover {
+    color: #1a1a1a;
+    transform: scale(1.05);
+}
+
+.sidebar-icon-btn:hover::before {
+    background: rgba(26, 26, 26, 0.06);
+}
+
+.sidebar-icon-btn.active {
+    color: #1a1a1a;
+}
+
+.sidebar-icon-btn.active::before {
+    background: rgba(26, 26, 26, 0.08);
+    box-shadow: 0 0 0 1px rgba(26, 26, 26, 0.1) inset;
+}
+
+.sidebar-icon-btn:active {
+    transform: scale(0.95);
+}
+
 /* Right Column */
 .right-column {
+    position: relative;
     margin-left: 50%;
     width: 50%;
     min-height: 100vh;
     padding: 48px 32px 48px 60px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Adjust right column when sidebar is collapsed */
+.left-column.collapsed ~ .right-column {
+    margin-left: 80px;
+    width: calc(100% - 80px);
 }
 
 @media (max-width: 1024px) {
@@ -860,8 +1100,41 @@ const excerpt = computed(() => {
         color: #fafafa;
     }
 
+    .sidebar-toggle {
+        color: #666;
+    }
+
+    .sidebar-toggle:hover {
+        color: #fafafa;
+    }
+
     .left-column {
         background: #1a1a1a;
+    }
+
+    .sidebar-divider {
+        background: #333;
+    }
+
+    .sidebar-icon-btn {
+        color: #666;
+    }
+
+    .sidebar-icon-btn:hover {
+        color: #fafafa;
+    }
+
+    .sidebar-icon-btn:hover::before {
+        background: rgba(250, 250, 250, 0.08);
+    }
+
+    .sidebar-icon-btn.active {
+        color: #fafafa;
+    }
+
+    .sidebar-icon-btn.active::before {
+        background: rgba(250, 250, 250, 0.1);
+        box-shadow: 0 0 0 1px rgba(250, 250, 250, 0.15) inset;
     }
 
     .left-column::-webkit-scrollbar-thumb {
