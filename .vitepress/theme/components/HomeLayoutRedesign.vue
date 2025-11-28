@@ -756,12 +756,16 @@ const excerpt = computed(() => {
         'DM Sans',
         -apple-system,
         sans-serif;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
     max-width: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .two-column-grid {
@@ -769,12 +773,15 @@ const excerpt = computed(() => {
     gap: 0;
     align-items: stretch;
     min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
 }
 
 @media (max-width: 1024px) {
     .two-column-grid {
         flex-direction: column;
         gap: 60px;
+        overflow-x: hidden;
     }
 }
 
@@ -872,11 +879,13 @@ const excerpt = computed(() => {
     .left-column {
         position: relative;
         width: 100%;
+        max-width: 100%;
         height: auto;
         border-right: none;
-        padding-right: 32px;
+        padding: 40px 32px 60px 32px;
         border-bottom: 1px solid #e0e0e0;
-        padding-bottom: 60px;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
 }
 
@@ -1393,7 +1402,10 @@ const excerpt = computed(() => {
     .right-column {
         margin-left: 0;
         width: 100%;
-        padding-left: 32px;
+        max-width: 100%;
+        padding: 48px 32px;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
 }
 
