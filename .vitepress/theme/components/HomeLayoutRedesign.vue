@@ -84,7 +84,61 @@
                                 </button>
                             </div>
                         </div>
-                        <p class="hero-tagline">is enjoying life</p>
+
+                        <!-- Tagline and Social Icons on same line -->
+                        <div class="tagline-social-row">
+                            <p class="hero-tagline">is enjoying life</p>
+                            <div class="social-icons">
+                                <a
+                                    href="https://github.com/codybontecou"
+                                    class="social-icon"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="GitHub"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://www.youtube.com/@codybontecou"
+                                    class="social-icon"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="YouTube"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/cody-bontecou/"
+                                    class="social-icon"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="LinkedIn"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                        <rect x="2" y="9" width="4" height="12"/>
+                                        <circle cx="4" cy="4" r="2"/>
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://x.com/isolatedtech"
+                                    class="social-icon"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="X (Twitter)"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4l11.733 16h4.267l-11.733 -16z"/>
+                                        <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Latest Article -->
@@ -644,12 +698,66 @@ const excerpt = computed(() => {
     color: #1a1a1a;
 }
 
+/* Tagline and Social Icons Row */
+.tagline-social-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
 .hero-tagline {
     font-size: 18px;
     font-weight: 400;
     font-style: italic;
     color: #666;
     margin: 0;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    position: relative;
+}
+
+.social-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.5;
+}
+
+.social-icon:hover {
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.social-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 20px;
+    height: 1px;
+    background: #1a1a1a;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icon:hover::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 /* Toggle - Inline version */
@@ -1324,6 +1432,18 @@ const excerpt = computed(() => {
 
     .article-body :deep(.text-gray-600) {
         color: #666;
+    }
+
+    .social-icon {
+        color: #666;
+    }
+
+    .social-icon:hover {
+        color: #fafafa;
+    }
+
+    .social-icon::after {
+        background: #fafafa;
     }
 }
 
