@@ -360,6 +360,10 @@ a:not(.topics):not(.truncate) {
     color: #1a1a1a;
     font-family: 'DM Sans', sans-serif;
     box-shadow: 0 8px 32px rgba(26, 26, 26, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    padding-left: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .newsletter-toast-default::before {
@@ -382,6 +386,8 @@ a:not(.topics):not(.truncate) {
     bottom: 0;
     background: radial-gradient(circle at 90% 10%, rgba(26, 26, 26, 0.03) 0%, transparent 50%);
     pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 /* Error/Destructive Toast */
@@ -392,6 +398,10 @@ a:not(.topics):not(.truncate) {
     color: #7f1d1d;
     font-family: 'DM Sans', sans-serif;
     box-shadow: 0 8px 32px rgba(220, 38, 38, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+    padding-left: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .newsletter-toast-destructive::before {
@@ -414,6 +424,8 @@ a:not(.topics):not(.truncate) {
     bottom: 0;
     background: radial-gradient(circle at 90% 10%, rgba(220, 38, 38, 0.04) 0%, transparent 50%);
     pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 /* Toast Title Styling */
@@ -494,6 +506,15 @@ a:not(.topics):not(.truncate) {
     to {
         opacity: 0.5;
         transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 

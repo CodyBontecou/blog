@@ -248,6 +248,7 @@
                 </div>
             </div>
         </div>
+        <Toaster />
     </div>
 </template>
 
@@ -263,6 +264,7 @@ import {
 } from '../utils'
 import ArticleList from './ArticleListMinimal.vue'
 import NewsletterWrapper from './NewsletterMinimal.vue'
+import Toaster from '../../../components/ui/toast/Toaster.vue'
 
 const { page, frontmatter } = useData()
 const router = useRouter()
