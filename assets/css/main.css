@@ -38,6 +38,13 @@
 @media screen and (max-width: 768px) {
     .prose img {
         max-height: 400px;
+        max-width: 100%;
+    }
+
+    /* Prevent horizontal scroll on mobile */
+    .prose pre,
+    .prose [class*="language-"] {
+        max-width: 100%;
     }
 }
 

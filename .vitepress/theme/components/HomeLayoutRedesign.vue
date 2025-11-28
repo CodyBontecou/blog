@@ -756,6 +756,7 @@ const excerpt = computed(() => {
         'DM Sans',
         -apple-system,
         sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
@@ -1787,6 +1788,35 @@ const excerpt = computed(() => {
 
     .toggle-section-inline {
         width: 100%;
+    }
+
+    .right-column {
+        padding: 32px 16px;
+    }
+
+    .article-detail-view,
+    .article-content {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .article-body :deep(pre),
+    .article-body :deep(div[class*="language-"]) {
+        max-width: calc(100vw - 32px);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .article-body :deep(table) {
+        display: block;
+        max-width: calc(100vw - 32px);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .article-body :deep(img) {
+        max-width: 100%;
+        height: auto;
     }
 }
 </style>
