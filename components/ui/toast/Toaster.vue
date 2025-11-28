@@ -22,7 +22,6 @@ const handleOpenEvent = async () => {
 <template>
     <ToastProvider>
         <Toast
-            class="bg-white"
             v-for="toast in toasts"
             :key="toast.id"
             v-bind="toast"
