@@ -198,14 +198,40 @@
                             </p>
                             <div class="connect-section">
                                 <div class="connect-label">Connect</div>
-                                <a
-                                    href="https://github.com/codybontecou"
-                                    class="connect-link"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    GitHub →
-                                </a>
+                                <div class="connect-links">
+                                    <a
+                                        href="https://github.com/codybontecou"
+                                        class="connect-link"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        GitHub →
+                                    </a>
+                                    <a
+                                        href="https://www.youtube.com/@codybontecou"
+                                        class="connect-link"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        YouTube →
+                                    </a>
+                                    <a
+                                        href="https://www.linkedin.com/in/cody-bontecou/"
+                                        class="connect-link"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        LinkedIn →
+                                    </a>
+                                    <a
+                                        href="https://x.com/isolatedtech"
+                                        class="connect-link"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        X →
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -905,6 +931,12 @@ const excerpt = computed(() => {
     margin-bottom: 16px;
 }
 
+.connect-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .connect-link {
     display: inline-block;
     font-size: 14px;
@@ -912,6 +944,7 @@ const excerpt = computed(() => {
     color: #1a1a1a;
     text-decoration: none;
     transition: opacity 0.3s ease;
+    width: fit-content;
 }
 
 .connect-link:hover {
