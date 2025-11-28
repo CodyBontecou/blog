@@ -61,8 +61,8 @@ export const getArticlesByTopic = (posts: any[], topic: string) => {
 
     // Ensure articles are sorted by date (newest first)
     return filtered.sort((a, b) => {
-        const dateA = new Date(a.frontmatter?.created_at || a.frontmatter?.date || '')
-        const dateB = new Date(b.frontmatter?.created_at || b.frontmatter?.date || '')
+        const dateA = new Date(a.frontmatter?.date || a.frontmatter?.created_at || '')
+        const dateB = new Date(b.frontmatter?.date || b.frontmatter?.created_at || '')
         return dateB.getTime() - dateA.getTime()
     })
 }

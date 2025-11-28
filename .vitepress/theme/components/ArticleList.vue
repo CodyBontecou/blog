@@ -11,7 +11,7 @@
       <div
         class="flex-shrink-0 text-gray-600 dark:text-gray-400 text-md pr-3 sm:pr-6 font-mono whitespace-nowrap"
       >
-        {{ formatPostDate(article.frontmatter?.created_at || article.frontmatter?.date) }}
+        {{ formatPostDate(article.frontmatter?.date || article.frontmatter?.created_at) }}
       </div>
       <a
         :href="article.url"

@@ -6,12 +6,12 @@ export default createContentLoader('*.md', {
     return rawData
       .filter(({ frontmatter, url }) => {
         // Exclude files that are not blog posts
-        if (frontmatter.draft || 
-            frontmatter.ignore || 
-            url.includes('/topics/') || 
-            url === '/' || 
-            url === '/about' || 
-            url === '/README' || 
+        if (frontmatter.draft ||
+            frontmatter.ignore ||
+            url.includes('/topics') ||
+            url === '/' ||
+            url === '/about' ||
+            url === '/README' ||
             url === '/SEO_FIXES') {
           return false
         }
@@ -19,8 +19,8 @@ export default createContentLoader('*.md', {
         return frontmatter.title || frontmatter.date || frontmatter.created_at
       })
       .sort((a, b) => {
-        const dateA = new Date(a.frontmatter.created_at || a.frontmatter.date || '')
-        const dateB = new Date(b.frontmatter.created_at || b.frontmatter.date || '')
+        const dateA = new Date(a.frontmatter.date || a.frontmatter.created_at || '')
+        const dateB = new Date(b.frontmatter.date || b.frontmatter.created_at || '')
         return dateB.getTime() - dateA.getTime()
       })
   }

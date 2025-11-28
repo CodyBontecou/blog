@@ -8,7 +8,7 @@
         >
             <a :href="article.url" @click="handleClick($event, article)" class="article-link">
                 <div class="article-date">
-                    {{ formatPostDate(article.frontmatter?.created_at || article.frontmatter?.date) }}
+                    {{ formatPostDate(article.frontmatter?.date || article.frontmatter?.created_at) }}
                 </div>
                 <div class="article-title">
                     {{ article.frontmatter?.title }}
