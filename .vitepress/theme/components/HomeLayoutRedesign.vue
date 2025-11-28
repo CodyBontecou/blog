@@ -504,8 +504,9 @@ const excerpt = computed(() => {
     width: 50%;
     height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
     border-right: 1px solid #e0e0e0;
-    padding: 48px 60px 48px 32px;
+    padding: 40px 60px 40px 32px;
     background: #fafafa;
     display: flex;
     flex-direction: column;
@@ -559,8 +560,8 @@ const excerpt = computed(() => {
 
 /* Hero */
 .hero-section {
-    margin-bottom: 32px;
-    padding-bottom: 32px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
     border-bottom: 1px solid #e0e0e0;
     flex-shrink: 0;
 }
@@ -637,13 +638,14 @@ const excerpt = computed(() => {
 
 /* Latest Section */
 .latest-section {
-    margin-bottom: 32px;
-    padding-bottom: 32px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
     border-bottom: 1px solid #e0e0e0;
     flex: 1;
     display: flex;
     flex-direction: column;
     min-height: 0;
+    overflow: hidden;
 }
 
 .latest-article {
@@ -704,7 +706,7 @@ const excerpt = computed(() => {
 
 /* Newsletter Section */
 .newsletter-section {
-    flex: 1;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     min-height: 0;
