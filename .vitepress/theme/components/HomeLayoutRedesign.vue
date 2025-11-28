@@ -21,7 +21,7 @@
                         <div class="sidebar-divider"></div>
 
                         <button
-                            @click="router.go('/')"
+                            @click="navigateWithScroll('/', '.articles-container')"
                             class="sidebar-icon-btn"
                             :class="{ active: currentView === 'writing' && !isHomePage }"
                             title="Writing"
@@ -32,7 +32,7 @@
                             </svg>
                         </button>
                         <button
-                            @click="router.go('/about')"
+                            @click="navigateWithScroll('/about', '.about-view')"
                             class="sidebar-icon-btn"
                             :class="{ active: currentView === 'about' }"
                             title="About"
@@ -44,7 +44,7 @@
                             </svg>
                         </button>
                         <button
-                            @click="router.go('/topics')"
+                            @click="navigateWithScroll('/topics', '.topics-view')"
                             class="sidebar-icon-btn"
                             :class="{ active: currentView === 'topics' }"
                             title="Topics"
@@ -63,21 +63,21 @@
                             <!-- View Toggle - Now inline -->
                             <div class="toggle-section-inline">
                                 <button
-                                    @click="router.go('/')"
+                                    @click="navigateWithScroll('/', '.articles-container')"
                                     :class="['toggle-btn', { active: currentView === 'writing' }]"
                                 >
                                     Writing
                                 </button>
                                 <span class="toggle-divider">/</span>
                                 <button
-                                    @click="router.go('/about')"
+                                    @click="navigateWithScroll('/about', '.about-view')"
                                     :class="['toggle-btn', { active: currentView === 'about' }]"
                                 >
                                     About
                                 </button>
                                 <span class="toggle-divider">/</span>
                                 <button
-                                    @click="router.go('/topics')"
+                                    @click="navigateWithScroll('/topics', '.topics-view')"
                                     :class="['toggle-btn', { active: currentView === 'topics' }]"
                                 >
                                     Topics
@@ -333,8 +333,8 @@ const allArticles = computed(() => {
     return posts
         .filter(post => !post.frontmatter?.draft)
         .sort((a, b) => {
-            const dateA = new Date(a.frontmatter?.created_at || a.frontmatter?.date || '')
-            const dateB = new Date(b.frontmatter?.created_at || b.frontmatter?.date || '')
+            const dateA = new Date(a.frontmatter?.date || a.frontmatter?.created_at || '')
+            const dateB = new Date(b.frontmatter?.date || b.frontmatter?.created_at || '')
             return dateB.getTime() - dateA.getTime()
         })
 })
@@ -371,6 +371,38 @@ const goHomeAndExpand = () => {
     router.go('/')
 }
 
+// Helper to check if we're on mobile
+const isMobile = () => {
+    if (typeof window === 'undefined') return false
+    return window.innerWidth <= 1024
+}
+
+// Scroll to section smoothly on mobile
+const scrollToSection = (sectionClass: string) => {
+    if (!isMobile()) return
+
+    // Use nextTick to ensure DOM is updated after navigation
+    setTimeout(() => {
+        const section = document.querySelector(sectionClass)
+        if (section) {
+            const headerOffset = 48 // Adjust based on your header height
+            const elementPosition = section.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        }
+    }, 100) // Small delay to ensure content is rendered
+}
+
+// Navigate and scroll on mobile
+const navigateWithScroll = (path: string, sectionClass: string) => {
+    router.go(path)
+    scrollToSection(sectionClass)
+}
+
 // Filtered articles for the selected topic in detail view
 const topicFilteredArticles = computed(() => {
     if (!currentTopic.value) return []
@@ -393,10 +425,10 @@ const capitalizeFirstLetter = (str: string) => {
 }
 
 const formattedDate = computed(() => {
-    if (!latestArticle.value?.frontmatter?.created_at && !latestArticle.value?.frontmatter?.date)
+    if (!latestArticle.value?.frontmatter?.date && !latestArticle.value?.frontmatter?.created_at)
         return ''
     return formatDateWithMonth(
-        latestArticle.value.frontmatter.created_at || latestArticle.value.frontmatter.date
+        latestArticle.value.frontmatter.date || latestArticle.value.frontmatter.created_at
     )
 })
 
