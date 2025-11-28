@@ -1,4 +1,4 @@
-Fil// .vitepress/config.ts
+// .vitepress/config.ts
 import { defineConfig } from "file:///Users/codybontecou/dev/blog/node_modules/vitepress/dist/node/index.js";
 import path from "path";
 var __vite_injected_original_dirname = "/Users/codybontecou/dev/blog/.vitepress";
