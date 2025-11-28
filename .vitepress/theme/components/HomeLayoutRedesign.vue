@@ -87,7 +87,7 @@
 
                         <!-- Tagline and Social Icons on same line -->
                         <div class="tagline-social-row">
-                            <p class="hero-tagline">is enjoying life</p>
+                            <p class="hero-tagline">exploring TypeScript, Vue, and AI</p>
                             <div class="social-icons">
                                 <a
                                     href="https://github.com/codybontecou"
