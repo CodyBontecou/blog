@@ -1,25 +1,28 @@
 <template>
   <div class="admin-app">
-    <AuthGate v-if="!isAuthenticated" @authenticated="handleAuthenticated" />
+    <AuthGate v-if="!user" @authenticated="handleAuthenticated" />
     <AdminDashboard v-else />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useAuth } from '~/composables/useAuth'
 import AuthGate from '~/components/AuthGate.vue'
 import AdminDashboard from '~/components/AdminDashboard.vue'
 
-const { isAuthenticated, initialize } = useAuth()
+// Use Nuxt Supabase's built-in user composable which handles OAuth callbacks automatically
+const user = useSupabaseUser()
+const supabase = useSupabaseClient()
 
 const handleAuthenticated = () => {
-  // Refresh to show dashboard
-  window.location.reload()
+  // The user will be automatically updated via useSupabaseUser
 }
 
 onMounted(async () => {
-  await initialize()
+  // Listen for auth changes
+  supabase.auth.onAuthStateChange((event, session) => {
+    console.log('🔔 Auth state changed:', event, 'User:', session?.user)
+  })
 })
 </script>
 
