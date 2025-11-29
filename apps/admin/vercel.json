@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd ../.. && pnpm install && cd apps/admin && pnpm build",
+  "buildCommand": "cd ../.. && pnpm install --frozen-lockfile && pnpm --filter @blog/admin build",
   "outputDirectory": ".output/public",
-  "installCommand": "cd ../.. && pnpm install",
+  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
   "framework": "nuxtjs"
 }
