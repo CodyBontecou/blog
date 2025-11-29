@@ -10,10 +10,12 @@ export default defineNuxtConfig({
 
   supabase: {
     redirect: false,
+    cookieName: 'sb-admin-auth',
     cookieOptions: {
       maxAge: 60 * 60 * 8, // 8 hours
       sameSite: 'lax',
-      secure: true
+      secure: process.env.NODE_ENV === 'production',
+      path: '/'
     },
     clientOptions: {
       auth: {
