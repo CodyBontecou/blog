@@ -50,9 +50,12 @@ const { signInWithGitHub } = useAuth()
 const loading = ref(false)
 
 const handleSignIn = async () => {
+  console.log('handleSignIn called')
   loading.value = true
   try {
-    await signInWithGitHub()
+    console.log('Calling signInWithGitHub...')
+    const result = await signInWithGitHub()
+    console.log('signInWithGitHub result:', result)
     emit('authenticated')
   } catch (error) {
     console.error('Authentication error:', error)

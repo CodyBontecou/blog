@@ -9,12 +9,15 @@ export function useAuth() {
   const isAuthenticated = computed(() => !!user.value)
 
   const signInWithGitHub = async () => {
+    console.log('signInWithGitHub function called')
+    console.log('supabase client:', supabase)
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
         redirectTo: `${window.location.origin}`,
       },
     })
+    console.log('OAuth response - data:', data, 'error:', error)
     if (error) throw error
     return data
   }
