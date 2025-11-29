@@ -61,7 +61,10 @@ onMounted(async () => {
       <!-- Left Column - Course Info -->
       <div class="left-column">
         <div class="column-content fade-in">
-          <NuxtLink to="/" class="back-link">← All Courses</NuxtLink>
+          <div class="course-header-row">
+            <NuxtLink to="/" class="back-link">← All Courses</NuxtLink>
+            <UserAvatar />
+          </div>
 
           <div class="course-hero">
             <h1 class="course-title">{{ course.title }}</h1>
@@ -233,13 +236,19 @@ onMounted(async () => {
   background: #ccc;
 }
 
+.course-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 16px;
+}
+
 .back-link {
-  display: inline-block;
   font-size: 14px;
   font-weight: 400;
   color: #999;
   text-decoration: none;
-  margin-bottom: 32px;
   transition: color 0.3s ease;
 }
 
@@ -498,6 +507,14 @@ onMounted(async () => {
     padding: 32px 24px;
     max-width: 100%;
     margin: 0;
+  }
+
+  .course-header-row {
+    margin-bottom: 24px;
+  }
+
+  .back-link {
+    font-size: 13px;
   }
 
   .right-column {

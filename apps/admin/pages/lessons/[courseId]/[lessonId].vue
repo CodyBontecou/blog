@@ -17,6 +17,12 @@ const lesson = ref<Lesson | null>(null)
 const loading = ref(true)
 const saving = ref(false)
 
+// Video player refs
+const videoPlayer = ref<HTMLVideoElement | null>(null)
+const isPlaying = ref(false)
+const currentTime = ref('0:00')
+const duration = ref('0:00')
+
 const form = ref({
   id: '',
   course_id: '',
@@ -146,6 +152,43 @@ function goBack() {
 function goToCourse() {
   navigateTo(`/courses/${courseId}`)
 }
+
+// Video player functions
+function formatTime(seconds: number): string {
+  const mins = Math.floor(seconds / 60)
+  const secs = Math.floor(seconds % 60)
+  return `${mins}:${secs.toString().padStart(2, '0')}`
+}
+
+function onVideoLoaded() {
+  if (videoPlayer.value) {
+    duration.value = formatTime(videoPlayer.value.duration)
+
+    videoPlayer.value.addEventListener('timeupdate', () => {
+      if (videoPlayer.value) {
+        currentTime.value = formatTime(videoPlayer.value.currentTime)
+      }
+    })
+
+    videoPlayer.value.addEventListener('play', () => {
+      isPlaying.value = true
+    })
+
+    videoPlayer.value.addEventListener('pause', () => {
+      isPlaying.value = false
+    })
+  }
+}
+
+function togglePlay() {
+  if (videoPlayer.value) {
+    if (isPlaying.value) {
+      videoPlayer.value.pause()
+    } else {
+      videoPlayer.value.play()
+    }
+  }
+}
 </script>
 
 <template>
@@ -262,7 +305,20 @@ function goToCourse() {
             </div>
 
             <div v-if="form.video_url" class="video-preview">
-              <video :src="form.video_url" controls style="width: 100%; max-width: 600px;"></video>
+              <video
+                ref="videoPlayer"
+                :key="form.video_url"
+                :src="form.video_url"
+                preload="metadata"
+                class="video-player"
+                @loadedmetadata="onVideoLoaded"
+              ></video>
+              <div class="custom-controls">
+                <button @click="togglePlay" class="play-button" type="button">
+                  {{ isPlaying ? '⏸' : '▶' }}
+                </button>
+                <span class="time-display">{{ currentTime }} / {{ duration }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -563,6 +619,59 @@ function goToCourse() {
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid #e0e0e0;
+  max-width: 600px;
+  background: #000;
+}
+
+.video-player {
+  width: 100%;
+  display: block;
+  background: #000;
+}
+
+/* Completely hide all native controls */
+.video-player::-webkit-media-controls {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+/* Custom controls */
+.custom-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid #333;
+}
+
+.play-button {
+  background: none;
+  border: none;
+  color: #fafafa;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+}
+
+.play-button:hover {
+  opacity: 0.7;
+}
+
+.time-display {
+  font-family: 'DM Sans', monospace;
+  font-size: 13px;
+  color: #fafafa;
+  letter-spacing: 0.5px;
 }
 
 /* Sidebar */
@@ -749,6 +858,16 @@ function goToCourse() {
 
   .video-preview {
     border-color: #333;
+  }
+
+  .custom-controls {
+    background: rgba(0, 0, 0, 0.95);
+    border-top-color: #444;
+  }
+
+  .play-button,
+  .time-display {
+    color: #fafafa;
   }
 
   .spinner {
