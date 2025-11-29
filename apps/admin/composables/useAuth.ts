@@ -1,18 +1,18 @@
 import { ref, computed } from 'vue'
-import { supabase } from '../lib/supabase-client'
 import type { User } from '@supabase/supabase-js'
 
 const user = ref<User | null>(null)
 const loading = ref(true)
 
 export function useAuth() {
+  const supabase = useSupabaseClient()
   const isAuthenticated = computed(() => !!user.value)
 
   const signInWithGitHub = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: `${window.location.origin}/admin`,
+        redirectTo: `${window.location.origin}`,
       },
     })
     if (error) throw error
