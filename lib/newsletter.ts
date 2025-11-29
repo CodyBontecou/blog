@@ -16,11 +16,12 @@ export class NewsletterService {
         .single()
 
       if (existing) {
-        if (existing.confirmed) {
+        const subscriber = existing as Subscriber
+        if (subscriber.confirmed) {
           return { success: false, message: 'Already subscribed!' }
         } else {
           // Resend confirmation email
-          await this.sendConfirmationEmail(email, existing.unsubscribe_token)
+          await this.sendConfirmationEmail(email, subscriber.unsubscribe_token)
           return { 
             success: true, 
             message: 'Confirmation email sent! Please check your inbox.',
@@ -30,21 +31,23 @@ export class NewsletterService {
       }
 
       // Insert new subscriber
-      const { data: subscriber, error } = await supabase
+      const { data, error } = await supabase
         .from('subscribers')
         .insert([{ email }])
         .select()
         .single()
 
-      if (error) {
+      if (error || !data) {
         console.error('Database error details:', {
-          code: error.code,
-          message: error.message,
-          details: error.details,
-          hint: error.hint
+          code: error?.code,
+          message: error?.message,
+          details: error?.details,
+          hint: error?.hint
         })
         return { success: false, message: 'Failed to subscribe. Please try again.' }
       }
+
+      const subscriber = data as Subscriber
 
       // Send confirmation email
       await this.sendConfirmationEmail(email, subscriber.unsubscribe_token)
@@ -125,7 +128,7 @@ export class NewsletterService {
       return []
     }
 
-    return data || []
+    return (data as Subscriber[]) || []
   }
 
   /**
@@ -315,7 +318,7 @@ If you didn't request this, you can safely ignore this email.
       totalSubscribers: subscribersResult.count || 0,
       confirmedSubscribers: confirmedResult.count || 0,
       totalCampaigns: campaignsResult.count || 0,
-      lastCampaign: lastCampaignResult.data?.[0]
+      lastCampaign: lastCampaignResult.data?.[0] as NewsletterCampaign | undefined
     }
   }
 }

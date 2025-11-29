@@ -1,7 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
-import { writeFileSync } from 'fs'
-import { join } from 'path'
 
 const supabaseUrl = process.env.SUPABASE_URL!
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -44,8 +42,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         '---',
         '',
       ].filter(Boolean).join('\n')
-
-      const content = `${frontmatter}${article.content}`
 
       // In a real implementation, you would write to the file system
       // For Vercel serverless, we can't write to the file system directly

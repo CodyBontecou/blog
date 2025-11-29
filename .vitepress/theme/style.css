@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -399,7 +401,6 @@ a:not(.topics):not(.truncate) {
 }
 
 /* Newsletter Toast Styles - Editorial Minimalism */
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap');
 
 /* Success Toast */
 .newsletter-toast-default {

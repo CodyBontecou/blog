@@ -24,7 +24,7 @@ function getResendClient() {
 }
 
 export const resend = new Proxy({} as Resend, {
-  get(target, prop) {
+  get(_target, prop) {
     const client = getResendClient()
     return client[prop as keyof typeof client]
   }

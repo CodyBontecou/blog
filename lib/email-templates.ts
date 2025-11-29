@@ -11,7 +11,7 @@ export interface ArticleData {
 }
 
 export function generateArticleEmailHTML(article: ArticleData): string {
-  const { title, slug, content, excerpt, topics, created_at, author = 'Cody Bontecou' } = article
+  const { title, slug, content, topics, created_at, author = 'Cody Bontecou' } = article
   const articleUrl = `${EMAIL_CONFIG.domain}/${slug}`
   const unsubscribeUrl = `${EMAIL_CONFIG.domain}/unsubscribe?token={{unsubscribe_token}}`
   
@@ -320,7 +320,7 @@ function formatContentForEmail(content: string): string {
   let formatted = content
 
   // Handle code blocks first (before other replacements)
-  formatted = formatted.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+  formatted = formatted.replace(/```(\w+)?\n([\s\S]*?)```/g, (_match, _lang, code) => {
     return `<pre><code>${escapeHtml(code.trim())}</code></pre>`
   })
 
