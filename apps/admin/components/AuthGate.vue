@@ -46,20 +46,36 @@ const emit = defineEmits<{
   authenticated: []
 }>()
 
-const supabase = useSupabaseClient()
 const loading = ref(false)
 
+// Use browser client with localStorage for PKCE
+let browserClient: any = null
+if (process.client) {
+  const { createBrowserClient } = await import('~/lib/supabase-browser')
+  browserClient = createBrowserClient()
+}
+
 const handleSignIn = async () => {
-  console.log('handleSignIn called')
+  console.log('=== SIGN IN INITIATED ===')
+  console.log('Current URL:', window.location.href)
+  console.log('Redirect to:', window.location.origin)
+
   loading.value = true
   try {
-    const { data, error } = await supabase.auth.signInWithOAuth({
+    if (!browserClient) {
+      throw new Error('Browser client not initialized')
+    }
+
+    const { data, error } = await browserClient.auth.signInWithOAuth({
       provider: 'github',
       options: {
         redirectTo: window.location.origin,
       },
     })
-    console.log('OAuth response - data:', data, 'error:', error)
+
+    console.log('OAuth initiated - URL:', data?.url)
+    console.log('OAuth error:', error)
+
     if (error) throw error
   } catch (error) {
     console.error('Authentication error:', error)
