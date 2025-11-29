@@ -42,11 +42,14 @@ export function useAuth() {
   }
 
   const initialize = async () => {
+    console.log('🔧 Initializing auth...')
     // Get initial session
     await getCurrentUser()
+    console.log('👤 Current user after init:', user.value)
 
     // Listen for auth changes
-    supabase.auth.onAuthStateChange((_event, session) => {
+    supabase.auth.onAuthStateChange((event, session) => {
+      console.log('🔔 Auth state changed:', event, 'User:', session?.user)
       user.value = session?.user ?? null
     })
   }

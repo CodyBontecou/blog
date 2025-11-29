@@ -54,13 +54,11 @@ const handleSignIn = async () => {
   loading.value = true
   try {
     console.log('Calling signInWithGitHub...')
-    const result = await signInWithGitHub()
-    console.log('signInWithGitHub result:', result)
-    emit('authenticated')
+    await signInWithGitHub()
+    // Don't emit authenticated here - the OAuth redirect will handle it
   } catch (error) {
     console.error('Authentication error:', error)
     alert('Failed to authenticate. Please try again.')
-  } finally {
     loading.value = false
   }
 }

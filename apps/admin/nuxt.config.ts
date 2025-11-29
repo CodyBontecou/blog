@@ -9,13 +9,7 @@ export default defineNuxtConfig({
   ],
 
   supabase: {
-    redirect: false,
-    redirectOptions: {
-      login: '/',
-      callback: '/',
-      include: [],
-      exclude: ['/*']
-    }
+    redirect: false
   },
 
   app: {
