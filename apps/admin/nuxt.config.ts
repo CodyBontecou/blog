@@ -11,8 +11,17 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
     cookieOptions: {
-      secure: true,
-      sameSite: 'lax'
+      maxAge: 60 * 60 * 8, // 8 hours
+      sameSite: 'lax',
+      secure: true
+    },
+    clientOptions: {
+      auth: {
+        flowType: 'pkce',
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+        persistSession: true
+      }
     }
   },
 
