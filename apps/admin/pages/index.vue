@@ -7,9 +7,9 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useAuth } from '../composables/useAuth'
-import AuthGate from './admin/AuthGate.vue'
-import AdminDashboard from './admin/AdminDashboard.vue'
+import { useAuth } from '~/composables/useAuth'
+import AuthGate from '~/components/AuthGate.vue'
+import AdminDashboard from '~/components/AdminDashboard.vue'
 
 const { isAuthenticated, initialize } = useAuth()
 

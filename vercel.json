@@ -1,6 +1,7 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".vitepress/dist",
+  "buildCommand": "cd apps/blog && npm run build",
+  "outputDirectory": "apps/blog/.vitepress/dist",
+  "installCommand": "pnpm install",
   "redirects": [
     {
       "source": "/(.+)/",

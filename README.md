@@ -1,52 +1,136 @@
----
-date: 2024-11-01
-topics:
-  - Content documentation
-  - Setup
-  - Development server
-  - Production
-  - Deployment documentation
-created_at: 2024-10-19T11:23
-last_modified: 2024-11-09T21:19
----
+# Blog Monorepo
 
-Look at the [Content documentation](https://content.nuxt.com/) to learn more.
+This is a monorepo containing a VitePress blog and a Nuxt admin dashboard.
 
-## Setup
+## Structure
 
-Make sure to install the dependencies:
+```
+.
+├── apps/
+│   ├── blog/          # VitePress blog (main website)
+│   └── admin/         # Nuxt admin dashboard (content management)
+├── packages/
+│   └── shared/        # Shared utilities and types
+└── pnpm-workspace.yaml
+```
 
-```shell
-# yarn
-yarn install
+## Getting Started
 
-# npm
-npm install
+### Prerequisites
 
-# pnpm
+- Node.js 18+
+- pnpm (for workspace management)
+
+### Installation
+
+```bash
 pnpm install
 ```
 
-## Development Server
+### Development
 
-Start the development server on http://localhost:3000
-
-```shell
-npm run dev
+Run both apps in parallel:
+```bash
+pnpm dev
 ```
 
-## Production
+Run individual apps:
+```bash
+# Blog only (http://localhost:5173)
+pnpm dev:blog
 
-Build the application for production:
-
-```shell
-npm run build
+# Admin only (http://localhost:3001)
+pnpm dev:admin
 ```
 
-Locally preview production build:
+### Building
 
-```shell
-npm run preview
+Build blog for production:
+```bash
+pnpm build
 ```
 
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Build admin for production:
+```bash
+pnpm build:admin
+```
+
+Build all apps:
+```bash
+pnpm build:all
+```
+
+### Preview
+
+Preview blog:
+```bash
+pnpm preview
+```
+
+Preview admin:
+```bash
+pnpm preview:admin
+```
+
+## Apps
+
+### Blog (`apps/blog`)
+
+VitePress-based blog with:
+- Newsletter integration
+- Comments system
+- Text-to-speech for articles
+- RSS feed
+- Sitemap generation
+
+### Admin (`apps/admin`)
+
+Nuxt-based admin dashboard for:
+- Content management
+- Newsletter management
+- Authentication with Supabase
+- Article editing and publishing
+
+## Deployment
+
+### Blog (Vercel)
+
+The blog is deployed to Vercel using the root `vercel.json` configuration.
+
+```bash
+vercel --prod
+```
+
+### Admin (Vercel)
+
+The admin dashboard should be deployed as a separate Vercel project:
+
+1. Create a new Vercel project
+2. Set the root directory to `apps/admin`
+3. Framework preset: Nuxt.js
+4. Build command: `cd ../.. && pnpm install && cd apps/admin && pnpm build`
+5. Output directory: `.output/public`
+
+Or use the `apps/admin/vercel.json` configuration.
+
+## Environment Variables
+
+Both apps require:
+- `SUPABASE_URL`
+- `SUPABASE_KEY`
+- `RESEND_API_KEY` (blog only)
+
+Copy `.env.example` to `.env` in each app directory and fill in your values.
+
+## Scripts
+
+Available in `apps/blog`:
+- `newsletter` - Send newsletter
+- `sync:articles` - Sync articles from Supabase
+- `import:articles` - Import articles to Supabase
+- `tts:generate` - Generate text-to-speech audio
+
+Run with:
+```bash
+pnpm --filter @blog/vitepress <script-name>
+```
