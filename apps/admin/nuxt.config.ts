@@ -9,7 +9,11 @@ export default defineNuxtConfig({
   ],
 
   supabase: {
-    redirect: false
+    redirect: false,
+    cookieOptions: {
+      secure: true,
+      sameSite: 'lax'
+    }
   },
 
   app: {

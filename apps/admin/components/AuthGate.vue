@@ -46,16 +46,21 @@ const emit = defineEmits<{
   authenticated: []
 }>()
 
-const { signInWithGitHub } = useAuth()
+const supabase = useSupabaseClient()
 const loading = ref(false)
 
 const handleSignIn = async () => {
   console.log('handleSignIn called')
   loading.value = true
   try {
-    console.log('Calling signInWithGitHub...')
-    await signInWithGitHub()
-    // Don't emit authenticated here - the OAuth redirect will handle it
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+      options: {
+        redirectTo: window.location.origin,
+      },
+    })
+    console.log('OAuth response - data:', data, 'error:', error)
+    if (error) throw error
   } catch (error) {
     console.error('Authentication error:', error)
     alert('Failed to authenticate. Please try again.')
