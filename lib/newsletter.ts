@@ -16,7 +16,7 @@ export class NewsletterService {
         .single()
 
       if (existing) {
-        const subscriber = existing as Subscriber
+        const subscriber = existing as unknown as Subscriber
         if (subscriber.confirmed) {
           return { success: false, message: 'Already subscribed!' }
         } else {
@@ -47,7 +47,7 @@ export class NewsletterService {
         return { success: false, message: 'Failed to subscribe. Please try again.' }
       }
 
-      const subscriber = data as Subscriber
+      const subscriber = data as unknown as Subscriber
 
       // Send confirmation email
       await this.sendConfirmationEmail(email, subscriber.unsubscribe_token)
@@ -128,7 +128,7 @@ export class NewsletterService {
       return []
     }
 
-    return (data as Subscriber[]) || []
+    return (data as unknown as Subscriber[]) || []
   }
 
   /**
@@ -318,7 +318,7 @@ If you didn't request this, you can safely ignore this email.
       totalSubscribers: subscribersResult.count || 0,
       confirmedSubscribers: confirmedResult.count || 0,
       totalCampaigns: campaignsResult.count || 0,
-      lastCampaign: lastCampaignResult.data?.[0] as NewsletterCampaign | undefined
+      lastCampaign: lastCampaignResult.data?.[0] as unknown as NewsletterCampaign | undefined
     }
   }
 }

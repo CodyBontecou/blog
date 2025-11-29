@@ -30,18 +30,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Convert each article to markdown file
     let syncedCount = 0
     for (const article of articles) {
-      const frontmatter = [
-        '---',
-        `title: ${article.title}`,
-        `draft: ${article.draft}`,
-        `ignore: ${article.ignore}`,
-        article.topics.length > 0 ? `topics:\n${article.topics.map((t: string) => `  - ${t}`).join('\n')}` : '',
-        `date: ${new Date(article.date).toISOString()}`,
-        `created_at: ${new Date(article.created_at).toISOString()}`,
-        `last_modified: ${new Date(article.last_modified).toISOString()}`,
-        '---',
-        '',
-      ].filter(Boolean).join('\n')
+      // Note: frontmatter generation commented out as it's not currently used
+      // const frontmatter = [
+      //   '---',
+      //   `title: ${article.title}`,
+      //   `draft: ${article.draft}`,
+      //   `ignore: ${article.ignore}`,
+      //   article.topics.length > 0 ? `topics:\n${article.topics.map((t: string) => `  - ${t}`).join('\n')}` : '',
+      //   `date: ${new Date(article.date).toISOString()}`,
+      //   `created_at: ${new Date(article.created_at).toISOString()}`,
+      //   `last_modified: ${new Date(article.last_modified).toISOString()}`,
+      //   '---',
+      //   '',
+      // ].filter(Boolean).join('\n')
 
       // In a real implementation, you would write to the file system
       // For Vercel serverless, we can't write to the file system directly
