@@ -1,17 +1,11 @@
-import { createClient } from '@supabase/supabase-js'
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables')
-}
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    persistSession: true,
-    autoRefreshToken: true,
-  },
+// Export a getter function that uses the Nuxt Supabase client
+// This works around the limitation of not being able to use composables at module level
+export const supabase = new Proxy({} as any, {
+  get(_target, prop) {
+    // Access the Nuxt Supabase client - this will be available via the @nuxtjs/supabase module
+    const client = useSupabaseClient()
+    return client[prop as keyof typeof client]
+  }
 })
 
 export type Article = {
