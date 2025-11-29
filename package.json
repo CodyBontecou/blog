@@ -11,7 +11,9 @@
     "test:resend": "tsx scripts/test-resend.ts",
     "check:subscribers": "tsx scripts/check-subscribers.ts",
     "tts:generate": "tsx scripts/tts-generator.ts",
-    "tts:test": "tsx scripts/test-tts.ts"
+    "tts:test": "tsx scripts/test-tts.ts",
+    "sync:articles": "tsx scripts/sync-articles-from-supabase.ts",
+    "import:articles": "tsx scripts/import-articles-to-supabase.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.50.3",
