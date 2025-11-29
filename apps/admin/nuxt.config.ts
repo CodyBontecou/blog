@@ -8,7 +8,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   app: {
-    baseURL: '/admin/',
+    // Use subdomain routing in dev (USE_SUBDOMAIN_ROUTING=true), path-based in production
+    baseURL: process.env.USE_SUBDOMAIN_ROUTING === 'true' ? '/' : '/admin/',
     head: {
       title: 'Admin - Course Management',
       meta: [

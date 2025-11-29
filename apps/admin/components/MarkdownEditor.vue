@@ -12,11 +12,11 @@ const emit = defineEmits<{
   'update:modelValue': [value: string]
 }>()
 
-const content = ref(props.modelValue)
+const content = ref(props.modelValue || '')
 const showPreview = ref(false)
 
 watch(() => props.modelValue, (newValue) => {
-  content.value = newValue
+  content.value = newValue || ''
 })
 
 watch(content, (newValue) => {
@@ -179,7 +179,7 @@ function insertCodeBlock() { insertMarkdown('\n```\n', '\n```\n') }
 
     <div class="editor-footer">
       <span class="hint">Markdown supported</span>
-      <span class="word-count">{{ content.split(/\s+/).filter(w => w).length }} words</span>
+      <span class="word-count">{{ (content || '').split(/\s+/).filter(w => w).length }} words</span>
     </div>
   </div>
 </template>

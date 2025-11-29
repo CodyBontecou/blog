@@ -7,6 +7,7 @@ definePageMeta({
 
 const route = useRoute()
 const { supabase } = useSupabase()
+const toast = useToast()
 
 const courseId = route.params.courseId as string
 const lessonId = route.params.lessonId as string
@@ -69,7 +70,13 @@ async function loadLesson(id: string) {
 
   if (data) {
     lesson.value = data as Lesson
-    form.value = { ...data }
+    // Convert null values to empty strings for form fields
+    form.value = {
+      ...data,
+      description: data.description || '',
+      content: data.content || '',
+      video_url: data.video_url || ''
+    }
   }
   loading.value = false
 }
@@ -87,6 +94,7 @@ async function saveLesson() {
         .eq('id', id)
 
       if (error) throw error
+      toast.success('Lesson saved successfully')
     } else {
       // Insert new lesson
       const { data, error } = await supabase
@@ -99,13 +107,14 @@ async function saveLesson() {
       if (data) {
         form.value.id = data.id
         lesson.value = data
+        toast.success('Lesson created successfully')
         // Navigate to the edit page with the new ID
         await navigateTo(`/lessons/${courseId}/${data.id}`)
       }
     }
   } catch (error) {
     console.error('Error saving lesson:', error)
-    alert('Failed to save lesson')
+    toast.error('Failed to save lesson')
   } finally {
     saving.value = false
   }
@@ -122,10 +131,11 @@ async function deleteLesson() {
       .eq('id', lesson.value.id)
 
     if (error) throw error
+    toast.success('Lesson deleted successfully')
     await navigateTo(`/lessons/${courseId}`)
   } catch (error) {
     console.error('Error deleting lesson:', error)
-    alert('Failed to delete lesson')
+    toast.error('Failed to delete lesson')
   }
 }
 
@@ -196,7 +206,7 @@ function goToCourse() {
                 type="text"
                 class="input input-mono"
                 placeholder="getting-started"
-                pattern="[a-z0-9-]+"
+                pattern="[a-z0-9\-]+"
                 required
               />
               <p class="hint">URL-friendly identifier (lowercase, hyphens only)</p>
