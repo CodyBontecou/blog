@@ -82,6 +82,27 @@
                                 <path d="M12 8h.01" />
                             </svg>
                         </button>
+                        <button
+                            @click="router.go('/courses')"
+                            class="sidebar-icon-btn"
+                            :class="{ active: currentView === 'courses' }"
+                            title="Courses"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg>
+                        </button>
                     </div>
 
                     <!-- Hero with inline navigation -->
@@ -118,6 +139,16 @@
                                     ]"
                                 >
                                     About
+                                </button>
+                                <span class="toggle-divider">/</span>
+                                <button
+                                    @click="router.go('/courses')"
+                                    :class="[
+                                        'toggle-btn',
+                                        { active: currentView === 'courses' },
+                                    ]"
+                                >
+                                    Courses
                                 </button>
                             </div>
                         </div>
@@ -597,9 +628,10 @@ const selectedTopicForView = computed(() => {
 
 // Filter posts
 const allArticles = computed(() => {
-    return posts
-        .filter(post => !post.frontmatter?.draft)
-        .sort((a, b) => {
+    console.log('Posts data in component:', posts?.length)
+    const filtered = posts
+        .filter((post: any) => !post.frontmatter?.draft)
+        .sort((a: any, b: any) => {
             const dateA = new Date(
                 a.frontmatter?.date || a.frontmatter?.created_at || ''
             )
@@ -608,21 +640,15 @@ const allArticles = computed(() => {
             )
             return dateB.getTime() - dateA.getTime()
         })
+    console.log('Filtered articles in component:', filtered.length)
+    return filtered
 })
 
 // All articles for the writing view
 const articles = computed(() => allArticles.value)
 
-// View articles for a specific topic
-const viewTopicArticles = (topic: string) => {
-    router.go(`/topics/${topic}`)
-}
-
 // Handle article click - navigate to article page
-const handleArticleClick = (
-    article: any,
-    source: 'archive' | 'topic' = 'archive'
-) => {
+const handleArticleClick = (article: any) => {
     router.go(article.url)
 }
 
@@ -682,7 +708,7 @@ const navigateWithScroll = (path: string, sectionClass: string) => {
 const topicFilteredArticles = computed(() => {
     if (!currentTopic.value) return []
 
-    return allArticles.value.filter(article => {
+    return allArticles.value.filter((article: any) => {
         const articleTopics = article.frontmatter?.topics || []
         return articleTopics.some(
             (topic: string) =>
@@ -693,12 +719,6 @@ const topicFilteredArticles = computed(() => {
 
 // Computed properties
 const latestArticle = computed(() => getLatestPost(allArticles.value))
-const topicsWithCounts = computed(() => getTopicsWithCounts(allArticles.value))
-
-// Helper function to capitalize first letter
-const capitalizeFirstLetter = (str: string) => {
-    return str.charAt(0).toUpperCase() + str.slice(1)
-}
 
 const formattedDate = computed(() => {
     if (
@@ -722,7 +742,7 @@ const readingTime = computed(() => {
     const words = content
         .trim()
         .split(/\s+/)
-        .filter(word => word.length > 0).length
+        .filter((word: string) => word.length > 0).length
     const minutes = Math.ceil(words / wordsPerMinute)
     return minutes || 1
 })

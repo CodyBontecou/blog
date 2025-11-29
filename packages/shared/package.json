@@ -1,0 +1,13 @@
+{
+  "name": "@blog/shared",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./supabase": "./lib/supabase/storage.ts",
+    "./types": "./lib/types/index.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.3"
+  }
+}

@@ -1,9 +1,16 @@
 {
+  "name": "@blog/monorepo",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
+    "dev": "pnpm --parallel --filter \"@blog/*\" dev",
+    "dev:blog": "vitepress dev",
+    "dev:admin": "pnpm --filter @blog/admin dev",
+    "dev:courses": "pnpm --filter @blog/courses dev",
+    "build": "pnpm --filter \"@blog/*\" build",
+    "build:blog": "vitepress build",
+    "build:admin": "pnpm --filter @blog/admin build",
+    "build:courses": "pnpm --filter @blog/courses build",
     "build:tts": "tsx scripts/build-with-tts.ts",
     "preview": "vitepress preview",
     "newsletter": "tsx scripts/newsletter.ts",
@@ -14,6 +21,7 @@
     "tts:test": "tsx scripts/test-tts.ts"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^8.5.3",
     "@supabase/supabase-js": "^2.50.3",
     "@types/fluent-ffmpeg": "^2.1.27",
     "@vueuse/core": "^11.3.0",
@@ -21,11 +29,13 @@
     "fluent-ffmpeg": "^2.1.3",
     "gray-matter": "^4.0.3",
     "lucide-vue-next": "^0.453.0",
+    "marked": "^17.0.1",
     "prettier": "^3.4.2",
     "replicate": "^1.0.1",
     "resend": "^4.6.0",
     "rss": "^1.2.2",
     "sitemap": "^8.0.0",
+    "stripe": "^20.0.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
