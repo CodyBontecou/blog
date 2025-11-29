@@ -73,7 +73,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { supabase } from '../../lib/supabase-client'
+import { supabase } from '../lib/supabase-client'
 
 const stats = ref({
   totalSubscribers: 0,

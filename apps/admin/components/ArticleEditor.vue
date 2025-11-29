@@ -163,7 +163,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import type { Article } from '../../lib/supabase-client'
+import type { Article } from '../lib/supabase-client'
 
 const props = defineProps<{
   article: Article | null

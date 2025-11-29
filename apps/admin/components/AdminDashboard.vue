@@ -65,8 +65,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { useAuth } from '../../composables/useAuth'
-import { supabase, type Article } from '../../lib/supabase-client'
+import { supabase, type Article } from '../lib/supabase-client'
 import ArticlesList from './ArticlesList.vue'
 import ArticleEditor from './ArticleEditor.vue'
 import NewsletterManager from './NewsletterManager.vue'
