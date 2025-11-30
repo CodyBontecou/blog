@@ -45,14 +45,6 @@
         @create="createNewArticle"
         @delete="deleteArticle"
       />
-      <ArticleEditor
-        v-else-if="currentView === 'editor'"
-        :article="selectedArticle"
-        @save="saveArticle"
-        @back="currentView = 'articles'"
-        @publish="publishArticle"
-        @send-newsletter="sendNewsletter"
-      />
       <NewsletterManager
         v-else-if="currentView === 'newsletter'"
       />
@@ -65,16 +57,18 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { supabase, type Article } from '../lib/supabase-client'
 import ArticlesList from './ArticlesList.vue'
-import ArticleEditor from './ArticleEditor.vue'
 import NewsletterManager from './NewsletterManager.vue'
 import SettingsPanel from './SettingsPanel.vue'
+import { toast } from '~/components/ui/toast/use-toast'
 
+const router = useRouter()
+const route = useRoute()
 const { user, signOut } = useAuth()
-const currentView = ref<'articles' | 'editor' | 'newsletter' | 'settings'>('articles')
+const currentView = ref<'articles' | 'newsletter' | 'settings'>('articles')
 const articles = ref<Article[]>([])
-const selectedArticle = ref<Article | null>(null)
 
 const userInitial = computed(() => {
   const name = user.value?.user_metadata?.full_name || user.value?.email || 'A'
@@ -124,28 +118,11 @@ const loadArticles = async () => {
 }
 
 const createNewArticle = () => {
-  selectedArticle.value = {
-    id: '',
-    slug: '',
-    title: '',
-    content: '',
-    excerpt: '',
-    topics: [],
-    draft: true,
-    ignore: false,
-    published: false,
-    date: new Date().toISOString(),
-    created_at: new Date().toISOString(),
-    last_modified: new Date().toISOString(),
-    author_id: user.value?.id,
-    metadata: {},
-  }
-  currentView.value = 'editor'
+  router.push('/articles/new')
 }
 
 const editArticle = (article: Article) => {
-  selectedArticle.value = article
-  currentView.value = 'editor'
+  router.push(`/articles/${article.id}`)
 }
 
 const deleteArticle = async (article: Article) => {
@@ -165,89 +142,6 @@ const deleteArticle = async (article: Article) => {
   }
 
   await loadArticles()
-}
-
-const saveArticle = async (article: Article) => {
-  try {
-    if (article.id) {
-      // Update existing
-      const { error } = await supabase
-        .from('articles')
-        .update({
-          slug: article.slug,
-          title: article.title,
-          content: article.content,
-          excerpt: article.excerpt,
-          topics: article.topics,
-          draft: article.draft,
-          ignore: article.ignore,
-          published: article.published,
-          date: article.date,
-          metadata: article.metadata,
-        })
-        .eq('id', article.id)
-
-      if (error) throw error
-    } else {
-      // Create new
-      const { data, error } = await supabase
-        .from('articles')
-        .insert({
-          slug: article.slug,
-          title: article.title,
-          content: article.content,
-          excerpt: article.excerpt,
-          topics: article.topics,
-          draft: article.draft,
-          ignore: article.ignore,
-          published: article.published,
-          date: article.date,
-          author_id: user.value?.id,
-          metadata: article.metadata,
-        })
-        .select()
-        .single()
-
-      if (error) throw error
-      selectedArticle.value = data
-    }
-
-    await loadArticles()
-    alert('Article saved successfully!')
-  } catch (error) {
-    console.error('Error saving article:', error)
-    alert('Failed to save article')
-  }
-}
-
-const publishArticle = async (article: Article) => {
-  article.published = !article.published
-  article.draft = article.published ? false : article.draft
-  await saveArticle(article)
-}
-
-const sendNewsletter = async (article: Article) => {
-  if (!confirm(`Send newsletter for "${article.title}"?`)) {
-    return
-  }
-
-  try {
-    const response = await fetch('/api/newsletter/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        articleSlug: article.slug,
-        articleTitle: article.title,
-      }),
-    })
-
-    if (!response.ok) throw new Error('Failed to send newsletter')
-
-    alert('Newsletter sent successfully!')
-  } catch (error) {
-    console.error('Error sending newsletter:', error)
-    alert('Failed to send newsletter')
-  }
 }
 
 onMounted(() => {
