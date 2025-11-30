@@ -35,6 +35,9 @@ importers:
       radix-vue:
         specifier: ^1.9.8
         version: 1.9.17(vue@3.5.25(typescript@5.9.3))
+      resend:
+        specifier: ^4.8.0
+        version: 4.8.0(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)
       vue:
         specifier: ^3.5.25
         version: 3.5.25(typescript@5.9.3)
