@@ -5,7 +5,7 @@
             <div v-if="!isHomePage" class="mobile-header-only">
                 <div class="hero-section fade-in">
                     <div class="hero-header">
-                        <h1 class="hero-name">Cody Bontecou</h1>
+                        <h1 class="hero-name" @click="router.go('/')">Cody Bontecou</h1>
                         <!-- View Toggle - Now inline -->
                         <div class="toggle-section-inline">
                             <button
@@ -230,7 +230,7 @@
                     <!-- Hero with inline navigation -->
                     <div v-else class="hero-section fade-in">
                         <div class="hero-header">
-                            <h1 class="hero-name">Cody Bontecou</h1>
+                            <h1 class="hero-name" @click="router.go('/')">Cody Bontecou</h1>
                             <!-- View Toggle - Now inline -->
                             <div class="toggle-section-inline">
                                 <button
@@ -1095,6 +1095,12 @@ const excerpt = computed(() => {
     letter-spacing: -0.02em;
     margin: 0;
     color: #1a1a1a;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.hero-name:hover {
+    opacity: 0.6;
 }
 
 /* Tagline and Social Icons Row */
