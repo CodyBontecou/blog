@@ -48,11 +48,11 @@ const emit = defineEmits<{
 
 const loading = ref(false)
 
-// Use browser client with localStorage for PKCE
+// Use singleton browser client with localStorage for PKCE
 let browserClient: any = null
 if (process.client) {
-  const { createBrowserClient } = await import('~/lib/supabase-browser')
-  browserClient = createBrowserClient()
+  const { getBrowserClient } = await import('~/lib/supabase-browser')
+  browserClient = getBrowserClient()
 }
 
 const handleSignIn = async () => {

@@ -10,13 +10,13 @@ import { onMounted } from 'vue'
 import AuthGate from '~/components/AuthGate.vue'
 import AdminDashboard from '~/components/AdminDashboard.vue'
 
-// Use browser client with localStorage for proper PKCE flow
+// Use singleton browser client with localStorage for proper PKCE flow
 const user = ref(null)
 let browserClient: any = null
 
 if (process.client) {
-  const { createBrowserClient } = await import('~/lib/supabase-browser')
-  browserClient = createBrowserClient()
+  const { getBrowserClient } = await import('~/lib/supabase-browser')
+  browserClient = getBrowserClient()
 }
 
 const handleAuthenticated = () => {
