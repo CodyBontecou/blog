@@ -1,6 +1,161 @@
 <template>
     <div class="minimal-home">
         <div class="container">
+            <!-- Mobile Header (only shown on mobile article pages) -->
+            <div v-if="isArticlePage" class="mobile-header-only">
+                <div class="hero-section fade-in">
+                    <div class="hero-header">
+                        <h1 class="hero-name">Cody Bontecou</h1>
+                        <!-- View Toggle - Now inline -->
+                        <div class="toggle-section-inline">
+                            <button
+                                @click="
+                                    navigateWithScroll(
+                                        '/',
+                                        '.articles-container'
+                                    )
+                                "
+                                :class="[
+                                    'toggle-btn',
+                                    { active: currentView === 'writing' },
+                                ]"
+                            >
+                                Home
+                            </button>
+                            <span class="toggle-divider">/</span>
+                            <button
+                                @click="
+                                    navigateWithScroll(
+                                        '/about',
+                                        '.about-view'
+                                    )
+                                "
+                                :class="[
+                                    'toggle-btn',
+                                    { active: currentView === 'about' },
+                                ]"
+                            >
+                                About
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tagline and Social Icons on same line -->
+                    <div class="tagline-social-row">
+                        <p class="hero-tagline">
+                            exploring TypeScript and AI
+                        </p>
+                        <div class="social-icons">
+                            <a
+                                href="https://github.com/codybontecou"
+                                class="social-icon"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="GitHub"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                    />
+                                </svg>
+                            </a>
+                            <a
+                                href="https://www.youtube.com/@codybontecou"
+                                class="social-icon"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="YouTube"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path
+                                        d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                                    />
+                                    <polygon
+                                        points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                                    />
+                                </svg>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/cody-bontecou/"
+                                class="social-icon"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="LinkedIn"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                                    />
+                                    <rect
+                                        x="2"
+                                        y="9"
+                                        width="4"
+                                        height="12"
+                                    />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </a>
+                            <a
+                                href="https://x.com/isolatedtech"
+                                class="social-icon"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="X (Twitter)"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path
+                                        d="M4 4l11.733 16h4.267l-11.733 -16z"
+                                    />
+                                    <path
+                                        d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="two-column-grid" :class="{ 'article-page': isArticlePage }">
                 <!-- Left Column -->
                 <div class="left-column" :class="{ collapsed: isCollapsed }">
@@ -333,6 +488,13 @@
                         <article class="article-content">
                             <Content class="article-body" />
                         </article>
+
+                        <!-- Mobile CTA after article -->
+                        <div class="mobile-cta-only">
+                            <section class="newsletter-section fade-in">
+                                <NewsletterWrapper />
+                            </section>
+                        </div>
                     </div>
 
                     <!-- Writing View - Show Archive (when on home page) -->
@@ -760,6 +922,41 @@ const excerpt = computed(() => {
     width: 100%;
 }
 
+/* Mobile header - hidden on desktop, shown on mobile article pages */
+.mobile-header-only {
+    display: none;
+}
+
+/* Mobile CTA - hidden on desktop, shown on mobile article pages */
+.mobile-cta-only {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .mobile-header-only {
+        display: block;
+        padding: 24px 32px;
+        border-bottom: none;
+    }
+
+    .mobile-cta-only {
+        display: block;
+        padding: 40px 0 60px 0;
+    }
+
+    /* Hide the left column on mobile article pages since we show it separately */
+    .two-column-grid.article-page .left-column {
+        display: none;
+    }
+
+    /* Remove borders on mobile */
+    .topic-breadcrumb {
+        border-bottom: none;
+        padding-bottom: 16px;
+        margin-bottom: 24px;
+    }
+}
+
 .container {
     max-width: 100%;
     width: 100%;
@@ -784,13 +981,13 @@ const excerpt = computed(() => {
         overflow-x: hidden;
     }
 
-    /* On mobile article pages, show article content first, then sidebar content */
-    .two-column-grid.article-page .left-column {
-        order: 2;
+    /* On mobile, always show header first */
+    .two-column-grid .left-column {
+        order: 1;
     }
 
-    .two-column-grid.article-page .right-column {
-        order: 1;
+    .two-column-grid .right-column {
+        order: 2;
     }
 }
 
@@ -895,6 +1092,16 @@ const excerpt = computed(() => {
         border-bottom: 1px solid #e0e0e0;
         overflow-x: hidden;
         box-sizing: border-box;
+    }
+}
+
+@media (max-width: 640px) {
+    .left-column {
+        padding-top: 0;
+    }
+
+    .hero-section {
+        padding-top: 24px;
     }
 }
 
@@ -1412,7 +1619,7 @@ const excerpt = computed(() => {
         margin-left: 0;
         width: 100%;
         max-width: 100%;
-        padding: 48px 32px;
+        padding: 24px 32px 48px 32px;
         overflow-x: hidden;
         box-sizing: border-box;
     }
@@ -1796,35 +2003,57 @@ const excerpt = computed(() => {
         gap: 14px;
     }
 
+    /* Mobile header in mobile-header-only section */
+    .mobile-header-only {
+        padding: 0 !important;
+    }
+
+    .mobile-header-only .hero-section {
+        padding: 24px 32px 16px 32px;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+
+    /* Remove tagline-social-row bottom border on mobile */
+    .mobile-header-only .tagline-social-row {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
     /* Mobile Header Redesign */
-    .hero-header {
+    .mobile-header-only .hero-header,
+    .left-column .hero-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
         margin-bottom: 20px;
         position: relative;
+        padding-top: 0;
     }
 
     /* Navigation moves to top right */
-    .toggle-section-inline {
+    .mobile-header-only .toggle-section-inline,
+    .left-column .toggle-section-inline {
         position: absolute;
         top: 0;
         right: 0;
-        opacity: 0;
+        opacity: 1;
         animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
     }
 
     /* Name takes full width, appears second */
-    .hero-name {
+    .mobile-header-only .hero-name,
+    .left-column .hero-name {
         font-size: 38px;
         width: 100%;
         margin-top: 36px;
-        opacity: 0;
+        opacity: 1;
         animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
     }
 
     /* Tagline and social stack vertically on mobile */
-    .tagline-social-row {
+    .mobile-header-only .tagline-social-row,
+    .left-column .tagline-social-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 24px;
@@ -1834,17 +2063,19 @@ const excerpt = computed(() => {
     }
 
     /* Tagline styling for mobile */
-    .hero-tagline {
+    .mobile-header-only .hero-tagline,
+    .left-column .hero-tagline {
         font-size: 17px;
         line-height: 1.4;
-        opacity: 0;
+        opacity: 1;
         animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
     }
 
     /* Social icons for mobile */
-    .social-icons {
+    .mobile-header-only .social-icons,
+    .left-column .social-icons {
         gap: 20px;
-        opacity: 0;
+        opacity: 1;
         animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
     }
 
