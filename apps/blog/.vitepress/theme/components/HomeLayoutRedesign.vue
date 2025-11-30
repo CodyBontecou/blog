@@ -1,7 +1,7 @@
 <template>
     <div class="minimal-home">
         <div class="container">
-            <div class="two-column-grid">
+            <div class="two-column-grid" :class="{ 'article-page': isArticlePage }">
                 <!-- Left Column -->
                 <div class="left-column" :class="{ collapsed: isCollapsed }">
                     <!-- Collapsed Sidebar Icons -->
@@ -782,6 +782,15 @@ const excerpt = computed(() => {
         flex-direction: column;
         gap: 60px;
         overflow-x: hidden;
+    }
+
+    /* On mobile article pages, show article content first, then sidebar content */
+    .two-column-grid.article-page .left-column {
+        order: 2;
+    }
+
+    .two-column-grid.article-page .right-column {
+        order: 1;
     }
 }
 
@@ -1787,18 +1796,71 @@ const excerpt = computed(() => {
         gap: 14px;
     }
 
+    /* Mobile Header Redesign */
     .hero-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
+        gap: 20px;
+        margin-bottom: 20px;
+        position: relative;
     }
 
-    .hero-name {
-        font-size: 32px;
-    }
-
+    /* Navigation moves to top right */
     .toggle-section-inline {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+
+    /* Name takes full width, appears second */
+    .hero-name {
+        font-size: 38px;
         width: 100%;
+        margin-top: 36px;
+        opacity: 0;
+        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    /* Tagline and social stack vertically on mobile */
+    .tagline-social-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        margin-top: 20px;
+        width: 100%;
+        animation-delay: 0.4s;
+    }
+
+    /* Tagline styling for mobile */
+    .hero-tagline {
+        font-size: 17px;
+        line-height: 1.4;
+        opacity: 0;
+        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    /* Social icons for mobile */
+    .social-icons {
+        gap: 20px;
+        opacity: 0;
+        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+
+    .social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Subtle entrance for toggle buttons */
+    .toggle-btn {
+        font-size: 14px;
+        letter-spacing: 0.02em;
+    }
+
+    .toggle-divider {
+        font-size: 14px;
     }
 }
 </style>
