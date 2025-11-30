@@ -1,0 +1,76 @@
+{
+  "hash": "8207861e",
+  "configHash": "e38465a7",
+  "lockfileHash": "bc03a636",
+  "browserHash": "1b88ec8e",
+  "optimized": {
+    "vue": {
+      "src": "../../../../../node_modules/.pnpm/vue@3.5.25_typescript@5.9.3/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "0a1bad3c",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../../../node_modules/.pnpm/@vue+devtools-api@7.7.9/node_modules/@vue/devtools-api/dist/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "9d52dd58",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/core": {
+      "src": "../../../../../node_modules/.pnpm/@vueuse+core@12.8.2_typescript@5.9.3/node_modules/@vueuse/core/index.mjs",
+      "file": "vitepress___@vueuse_core.js",
+      "fileHash": "fa068861",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "src": "../../../../../node_modules/.pnpm/@vueuse+core@11.3.0_vue@3.5.25_typescript@5.9.3_/node_modules/@vueuse/core/index.mjs",
+      "file": "@vueuse_core.js",
+      "fileHash": "4a761dc6",
+      "needsInterop": false
+    },
+    "radix-vue": {
+      "src": "../../../../../node_modules/.pnpm/radix-vue@1.9.17_vue@3.5.25_typescript@5.9.3_/node_modules/radix-vue/dist/index.js",
+      "file": "radix-vue.js",
+      "fileHash": "62b29eb4",
+      "needsInterop": false
+    },
+    "class-variance-authority": {
+      "src": "../../../../../node_modules/.pnpm/class-variance-authority@0.7.1/node_modules/class-variance-authority/dist/index.mjs",
+      "file": "class-variance-authority.js",
+      "fileHash": "253c1d30",
+      "needsInterop": false
+    },
+    "clsx": {
+      "src": "../../../../../node_modules/.pnpm/clsx@2.1.1/node_modules/clsx/dist/clsx.mjs",
+      "file": "clsx.js",
+      "fileHash": "e27ab84f",
+      "needsInterop": false
+    },
+    "tailwind-merge": {
+      "src": "../../../../../node_modules/.pnpm/tailwind-merge@2.6.0/node_modules/tailwind-merge/dist/bundle-mjs.mjs",
+      "file": "tailwind-merge.js",
+      "fileHash": "80707b01",
+      "needsInterop": false
+    },
+    "lucide-vue-next": {
+      "src": "../../../../../node_modules/.pnpm/lucide-vue-next@0.453.0_vue@3.5.25_typescript@5.9.3_/node_modules/lucide-vue-next/dist/esm/lucide-vue-next.js",
+      "file": "lucide-vue-next.js",
+      "fileHash": "48ce0ace",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-JOFE6WRN": {
+      "file": "chunk-JOFE6WRN.js"
+    },
+    "chunk-XWHBCBF2": {
+      "file": "chunk-XWHBCBF2.js"
+    },
+    "chunk-SIU35MPB": {
+      "file": "chunk-SIU35MPB.js"
+    },
+    "chunk-PZ5AY32C": {
+      "file": "chunk-PZ5AY32C.js"
+    }
+  }
+}

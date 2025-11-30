@@ -9,22 +9,7 @@ export default defineNuxtConfig({
   ],
 
   supabase: {
-    redirect: false,
-    cookieName: 'sb-admin-auth',
-    cookieOptions: {
-      maxAge: 60 * 60 * 8, // 8 hours
-      sameSite: 'lax',
-      secure: process.env.NODE_ENV === 'production',
-      path: '/'
-    },
-    clientOptions: {
-      auth: {
-        flowType: 'pkce',
-        autoRefreshToken: true,
-        detectSessionInUrl: true,
-        persistSession: true
-      }
-    }
+    redirect: false
   },
 
   app: {
