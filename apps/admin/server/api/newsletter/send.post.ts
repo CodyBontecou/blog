@@ -1,5 +1,5 @@
+import { createClient } from '@supabase/supabase-js'
 import { Resend } from 'resend'
-import { serverSupabaseServiceRole } from '#supabase/server'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -16,9 +16,18 @@ export default defineEventHandler(async (event) => {
     }
 
     // Get environment variables
+    const supabaseUrl = config.public.supabaseUrl
+    const supabaseServiceKey = config.supabaseServiceRoleKey
     const resendApiKey = config.resendApiKey
     const fromEmail = config.fromEmail || config.public.fromEmail
     const siteUrl = config.public.siteUrl
+
+    if (!supabaseUrl || !supabaseServiceKey) {
+      throw createError({
+        statusCode: 500,
+        message: 'Supabase configuration missing',
+      })
+    }
 
     if (!resendApiKey) {
       throw createError({
@@ -27,8 +36,13 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    // Use serverSupabaseServiceRole for service role access
-    const supabase = await serverSupabaseServiceRole(event)
+    // Create Supabase client with service role key for admin operations
+    const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false
+      }
+    })
     const resend = new Resend(resendApiKey)
 
     // Get all confirmed subscribers
