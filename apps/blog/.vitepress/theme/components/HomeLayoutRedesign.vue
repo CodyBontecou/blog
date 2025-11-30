@@ -9,12 +9,7 @@
                         <!-- View Toggle - Now inline -->
                         <div class="toggle-section-inline">
                             <button
-                                @click="
-                                    navigateWithScroll(
-                                        '/',
-                                        '.articles-container'
-                                    )
-                                "
+                                @click="router.go('/')"
                                 :class="[
                                     'toggle-btn',
                                     { active: currentView === 'writing' },
@@ -24,12 +19,7 @@
                             </button>
                             <span class="toggle-divider">/</span>
                             <button
-                                @click="
-                                    navigateWithScroll(
-                                        '/about',
-                                        '.about-view'
-                                    )
-                                "
+                                @click="router.go('/about')"
                                 :class="[
                                     'toggle-btn',
                                     { active: currentView === 'about' },
@@ -188,9 +178,7 @@
                         <div class="sidebar-divider"></div>
 
                         <button
-                            @click="
-                                navigateWithScroll('/', '.articles-container')
-                            "
+                            @click="router.go('/')"
                             class="sidebar-icon-btn"
                             :class="{
                                 active:
@@ -216,7 +204,7 @@
                             </svg>
                         </button>
                         <button
-                            @click="navigateWithScroll('/about', '.about-view')"
+                            @click="router.go('/about')"
                             class="sidebar-icon-btn"
                             :class="{ active: currentView === 'about' }"
                             title="About"
@@ -246,12 +234,7 @@
                             <!-- View Toggle - Now inline -->
                             <div class="toggle-section-inline">
                                 <button
-                                    @click="
-                                        navigateWithScroll(
-                                            '/',
-                                            '.articles-container'
-                                        )
-                                    "
+                                    @click="router.go('/')"
                                     :class="[
                                         'toggle-btn',
                                         { active: currentView === 'writing' },
@@ -261,12 +244,7 @@
                                 </button>
                                 <span class="toggle-divider">/</span>
                                 <button
-                                    @click="
-                                        navigateWithScroll(
-                                            '/about',
-                                            '.about-view'
-                                        )
-                                    "
+                                    @click="router.go('/about')"
                                     :class="[
                                         'toggle-btn',
                                         { active: currentView === 'about' },
@@ -826,39 +804,6 @@ const goHomeAndExpand = () => {
     }
 
     router.go('/')
-}
-
-// Helper to check if we're on mobile
-const isMobile = () => {
-    if (typeof window === 'undefined') return false
-    return window.innerWidth <= 1024
-}
-
-// Scroll to section smoothly on mobile
-const scrollToSection = (sectionClass: string) => {
-    if (!isMobile()) return
-
-    // Use nextTick to ensure DOM is updated after navigation
-    setTimeout(() => {
-        const section = document.querySelector(sectionClass)
-        if (section) {
-            const headerOffset = 48 // Adjust based on your header height
-            const elementPosition = section.getBoundingClientRect().top
-            const offsetPosition =
-                elementPosition + window.pageYOffset - headerOffset
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth',
-            })
-        }
-    }, 100) // Small delay to ensure content is rendered
-}
-
-// Navigate and scroll on mobile
-const navigateWithScroll = (path: string, sectionClass: string) => {
-    router.go(path)
-    scrollToSection(sectionClass)
 }
 
 // Filtered articles for the selected topic in detail view
