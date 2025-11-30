@@ -1,4 +1,5 @@
 import { Resend } from 'resend'
+import { serverSupabaseServiceRole } from '#supabase/server'
 
 export default defineEventHandler(async (event) => {
   try {
