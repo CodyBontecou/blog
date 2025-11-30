@@ -1,8 +1,8 @@
 <template>
     <div class="minimal-home">
         <div class="container">
-            <!-- Mobile Header (only shown on mobile article pages) -->
-            <div v-if="isArticlePage" class="mobile-header-only">
+            <!-- Mobile Header (only shown on mobile for non-home pages) -->
+            <div v-if="!isHomePage" class="mobile-header-only">
                 <div class="hero-section fade-in">
                     <div class="hero-header">
                         <h1 class="hero-name">Cody Bontecou</h1>
@@ -598,6 +598,13 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Mobile CTA after about content -->
+                        <div class="mobile-cta-only">
+                            <section class="newsletter-section fade-in">
+                                <NewsletterWrapper />
+                            </section>
+                        </div>
                     </div>
 
                     <!-- Topics View - Show Topics -->
@@ -629,6 +636,13 @@
                                     :articles="topicFilteredArticles"
                                     @article-click="handleArticleClick"
                                 />
+                            </div>
+
+                            <!-- Mobile CTA after topic articles -->
+                            <div class="mobile-cta-only">
+                                <section class="newsletter-section fade-in">
+                                    <NewsletterWrapper />
+                                </section>
                             </div>
                         </div>
 
@@ -663,6 +677,13 @@
                                 :articles="articles"
                                 @article-click="handleArticleClick"
                             />
+
+                            <!-- Mobile CTA after topics list -->
+                            <div class="mobile-cta-only">
+                                <section class="newsletter-section fade-in">
+                                    <NewsletterWrapper />
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -944,8 +965,8 @@ const excerpt = computed(() => {
         padding: 40px 0 60px 0;
     }
 
-    /* Hide the left column on mobile article pages since we show it separately */
-    .two-column-grid.article-page .left-column {
+    /* Hide the left column on mobile for non-home pages since we show header separately */
+    .mobile-header-only ~ .two-column-grid .left-column {
         display: none;
     }
 
