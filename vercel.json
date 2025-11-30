@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd ../.. && pnpm install --frozen-lockfile && pnpm --filter @blog/vitepress build",
-  "outputDirectory": ".vitepress/dist",
-  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm install --frozen-lockfile && pnpm --filter @blog/vitepress build",
+  "outputDirectory": "apps/blog/.vitepress/dist",
+  "installCommand": "pnpm install --frozen-lockfile",
   "redirects": [
     {
       "source": "/(.+)/",
