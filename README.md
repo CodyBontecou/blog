@@ -2,7 +2,7 @@
 
 This is a monorepo containing a VitePress blog and a Nuxt admin dashboard.
 
-Test 
+Test via plugin
 
 ## Structure
 
