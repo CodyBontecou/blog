@@ -1,4 +1,4 @@
-# Newsletter System Setup Guide
+# Newsletter System Setup Guide!
 
 This guide will help you set up the automated newsletter system that sends beautiful emails to subscribers whenever you publish new articles.
 

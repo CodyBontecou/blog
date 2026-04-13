@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "NEWSLETTER_SETUP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "NEWSLETTER_SETUP"
             }
           }
         ]
@@ -159,16 +159,22 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian42-brat:BRAT": false,
+      "syncmd-git-sync:Sync with GitHub (Sync.md)": false
     }
   },
   "active": "5f2c8e5851173d3e",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "DEPLOYMENT.md",
+    "NEWSLETTER_SETUP.md",
+    "README.md"
+  ]
 }
