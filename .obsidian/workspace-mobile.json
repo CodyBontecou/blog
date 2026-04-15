@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "NEWSLETTER_SETUP.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -173,8 +173,11 @@
   },
   "active": "5f2c8e5851173d3e",
   "lastOpenFiles": [
-    "DEPLOYMENT.md",
+    "Clippings/llm-wiki.md",
+    "Clippings/Introducing routines in Claude Code.md",
     "NEWSLETTER_SETUP.md",
+    "Clippings",
+    "DEPLOYMENT.md",
     "README.md"
   ]
 }
