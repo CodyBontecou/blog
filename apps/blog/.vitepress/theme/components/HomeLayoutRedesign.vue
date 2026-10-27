@@ -27,6 +27,8 @@
                             >
                                 About
                             </button>
+                            <span class="toggle-divider">/</span>
+                            <a href="/stats" class="toggle-btn" :class="{ active: isStatsPage }" :aria-current="isStatsPage ? 'page' : undefined">Stats</a>
                         </div>
                     </div>
 
@@ -225,6 +227,7 @@
                                 <path d="M12 8h.01" />
                             </svg>
                         </button>
+                        <a href="/stats" class="sidebar-icon-btn" :class="{ active: isStatsPage }" title="Stats" aria-label="Stats" :aria-current="isStatsPage ? 'page' : undefined">↗</a>
                     </div>
 
                     <!-- Hero with inline navigation -->
@@ -252,6 +255,8 @@
                                 >
                                     About
                                 </button>
+                                <span class="toggle-divider">/</span>
+                                <a href="/stats" class="toggle-btn" :class="{ active: isStatsPage }" :aria-current="isStatsPage ? 'page' : undefined">Stats</a>
                             </div>
                         </div>
 
@@ -445,9 +450,11 @@
                         </svg>
                     </button>
 
+                    <WritingStats v-if="isStatsPage" />
+
                     <!-- Article Detail View (when on an article page) -->
                     <div
-                        v-if="isArticlePage"
+                        v-else-if="isArticlePage"
                         class="article-detail-view fade-in"
                         style="animation-delay: 0.5s"
                     >
@@ -682,6 +689,7 @@ import {
     calculateReadingTime,
 } from '../utils'
 import ArticleList from './ArticleListMinimal.vue'
+import WritingStats from './WritingStats.vue'
 import TopicSortedList from './TopicSortedList.vue'
 import NewsletterWrapper from './NewsletterMinimal.vue'
 import Toaster from '../../../components/ui/toast/Toaster.vue'
@@ -719,6 +727,7 @@ const toggleSidebar = () => {
 const currentPath = computed(() => page.value.relativePath)
 
 const isHomePage = computed(() => currentPath.value === 'index.md')
+const isStatsPage = computed(() => currentPath.value === 'stats.md')
 const isAboutPage = computed(() => currentPath.value === 'about.md')
 const isTopicsIndexPage = computed(() => currentPath.value === 'topics.md')
 const isTopicPage = computed(
@@ -729,6 +738,7 @@ const isTopicPage = computed(
 const isArticlePage = computed(() => {
     return (
         !isHomePage.value &&
+        !isStatsPage.value &&
         !isAboutPage.value &&
         !isTopicsIndexPage.value &&
         !isTopicPage.value
@@ -745,6 +755,7 @@ const currentTopic = computed(() => {
 
 // View state based on current route
 const currentView = computed(() => {
+    if (isStatsPage.value) return 'stats'
     if (isAboutPage.value) return 'about'
     if (isTopicsIndexPage.value || isTopicPage.value) return 'topics'
     return 'writing'

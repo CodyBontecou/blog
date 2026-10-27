@@ -25,7 +25,7 @@ export const generateSitemap = async (siteConfig: any) => {
   })
 
   // Add static pages
-  const staticPages = ['/about', '/talks', '/topics']
+  const staticPages = ['/about', '/talks', '/topics', '/stats']
   staticPages.forEach(page => {
     sitemap.write({
       url: page,
